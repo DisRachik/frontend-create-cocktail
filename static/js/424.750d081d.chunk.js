@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[424],{424:function(e,n,c){c.r(n);var t=c(184);n.default=function(){return(0,t.jsx)("div",{children:"Drinks"})}}}]);
+//# sourceMappingURL=424.750d081d.chunk.js.map
