@@ -5,3 +5,6 @@ export * from 'components/shared/Container/Container';
 export * from 'components/AddRecipeForm/AddRecipeForm';
 export * from 'components/FollowUs/FollowUs';
 export * from 'components/PopularRecipe/PopularRecipe';
+export * from 'components/Favorite/FavoritePage';
+export * from 'components/RecipesList/RecipesList';
+export * from 'components/RecipesItem/RecipesItem';
