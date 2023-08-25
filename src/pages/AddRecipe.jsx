@@ -1,5 +1,13 @@
+import { Section } from 'components';
+
 const AddRecipe = () => {
-  return <div>AddRecipe</div>;
+  return (
+    <>
+      <Section title="Add recipe">
+        {/* Тут вставляємо свої компоненти */}
+      </Section>
+    </>
+  );
 };
 
 export default AddRecipe;

@@ -48,6 +48,7 @@ export const GlobalStyles = css`
     margin: 0;
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
+    font-size: ${theme.fontSizes.medium};
     font-style: normal;
     color: ${theme.colors.lightGray};
     background-color: ${theme.colors.black};

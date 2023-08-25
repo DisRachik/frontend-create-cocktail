@@ -1,5 +1,13 @@
+import { Section } from 'components';
+
 const Favorite = () => {
-  return <div>Favorite</div>;
+  return (
+    <>
+      <Section title="Favorites">
+        {/* Тут вставляємо свої компоненти */}
+      </Section>
+    </>
+  );
 };
 
 export default Favorite;
