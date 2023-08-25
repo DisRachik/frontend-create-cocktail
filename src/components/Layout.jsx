@@ -1,11 +1,9 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
     <>
-      {/* Unauthorized user routes */}
-      <NavLink to="/welcome">Welcome</NavLink>
-
       {/* Authorized user routes */}
       <nav>
         <ul>
@@ -27,7 +25,9 @@ export const Layout = () => {
         </ul>
       </nav>
       <main>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );

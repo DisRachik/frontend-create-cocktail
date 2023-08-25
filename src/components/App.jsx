@@ -2,6 +2,9 @@ import { lazy } from 'react';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from 'components';
+import Welcome from 'pages/Welcome';
+import Signup from 'pages/Signup';
+import Signin from 'pages/Signin';
 
 const AddRecipe = lazy(() => import('pages/AddRecipe'));
 const Drinks = lazy(() => import('pages/Drinks'));
@@ -9,13 +12,13 @@ const Favorite = lazy(() => import('pages/Favorite'));
 const Main = lazy(() => import('pages/Main'));
 const MyRecipes = lazy(() => import('pages/MyRecipes'));
 const Recipe = lazy(() => import('pages/Recipe'));
-const Signin = lazy(() => import('pages/Signin'));
-const Signup = lazy(() => import('pages/Signup'));
-const Welcome = lazy(() => import('pages/Welcome'));
 
 export const App = () => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/main" />} />
+      {/* <Route path="/" element={<Navigate to="/welcome" />} /> */}
+
       {/* Unauthorized user routes */}
       <Route path="/welcome" element={<Welcome />} />
       <Route path="/signup" element={<Signup />} />
