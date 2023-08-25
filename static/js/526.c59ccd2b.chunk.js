@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[526],{526:function(e,n,c){c.r(n);var t=c(184);n.default=function(){return(0,t.jsx)("div",{children:"Signin"})}}}]);
-//# sourceMappingURL=526.c59ccd2b.chunk.js.map

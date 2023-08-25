@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[267],{365:function(n,e,c){c.r(e);var i=c(87),t=c(184);e.default=function(){return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)("div",{children:"Welcome"}),(0,t.jsx)(i.OL,{to:"/signup",children:"Signup"}),(0,t.jsx)(i.OL,{to:"/signin",children:"Signin"})]})}}}]);
-//# sourceMappingURL=267.53784dc7.chunk.js.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/593.d95c9344.chunk.js","mappings":"4JAIA,UAJe,WACb,OAAO,mCACR,C","sources":["pages/Signup.jsx"],"sourcesContent":["const Signup = () => {\n  return <div>Signup</div>;\n};\n\nexport default Signup;\n"],"names":[],"sourceRoot":""}
