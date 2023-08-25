@@ -44,7 +44,7 @@ export const GlobalStyles = css`
   }
 
   body {
-    min-height: 100vh;
+    ${'' /* min-height: 100vh; */}
     margin: 0;
     font-family: 'Manrope', sans-serif;
     font-weight: 400;

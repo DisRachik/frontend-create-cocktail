@@ -5,6 +5,7 @@ export const SectionWrap = styled.section`
   outline: 1px solid tomato;
 
   max-width: 1440px;
+  min-height: 100%;
   margin: 0 auto;
   padding: 160px 100px 140px 100px;
 `;
