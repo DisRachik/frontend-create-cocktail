@@ -5,14 +5,18 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { App } from 'components';
 import { GlobalStyles, theme } from 'styles';
+import { Provider } from 'react-redux';
+import { store } from 'redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/frontend-create-cocktail">
+    <Provider store={store}>
       <ThemeProvider theme={theme}>
         <Global styles={GlobalStyles} />
-        <App />
+        <BrowserRouter basename="/frontend-create-cocktail">
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
-    </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

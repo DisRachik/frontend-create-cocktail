@@ -25,7 +25,9 @@ export const Layout = () => {
         </ul>
       </nav>
       <main>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={<div style={{ textAlign: 'center' }}>Loading...</div>}
+        >
           <Outlet />
         </Suspense>
       </main>
