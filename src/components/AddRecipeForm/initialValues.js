@@ -8,5 +8,5 @@ export const initialValues = {
     { ingredient: '', amount: '' },
     { ingredient: '', amount: '' },
   ],
-  instructions: '',
+  instructions: [],
 };

@@ -4,8 +4,9 @@ export const RecipePreparationFields = ({ register, errors }) => {
       <h2>Recipe Preparation</h2>
 
       <label>
-        <input
-          type="textarea"
+        <textarea
+          rows="5"
+          cols="20"
           name="instructions"
           {...register('instructions')}
         />

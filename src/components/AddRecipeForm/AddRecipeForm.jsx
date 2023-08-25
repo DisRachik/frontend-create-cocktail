@@ -36,6 +36,8 @@ export const AddRecipeForm = () => {
   const [formState, setFormState] = useState({ ...initialValues });
 
   const handleFormSubmit = data => {
+    data.instructions = data.instructions.split(/\r\n|\r|\n/g);
+
     console.log(data);
 
     setFormState(data);
