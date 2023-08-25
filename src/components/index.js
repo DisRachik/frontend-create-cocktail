@@ -2,3 +2,8 @@ export * from 'components/App';
 export * from 'components/Layout';
 export * from 'components/shared/Section/Section';
 export * from 'components/shared/Container/Container';
+export * from 'components/Logo/Logo';
+export * from 'components/FollowUs/FollowUs';
+export * from 'components/Footer/Footer';
+export * from 'components/Nav/Nav';
+export * from 'components/SubscribeForm/SubscribeForm';
