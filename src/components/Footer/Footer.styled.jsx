@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { theme } from 'styles';
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   padding: 40px 20px 18px;
-  border-top: 1px solid ${({ theme }) => theme.colors.gray};
+  border-top: 1px solid ${theme.colors.gray};
 
   @media (min-width: 768px) {
     padding: 80px 32px 24px;
@@ -54,11 +55,10 @@ export const Thumb = styled.div`
 
 export const Text = styled.p`
   margin-right: 14px;
-  font-size: ${({ theme }) => theme.fontSizes.ultraSmall};
+  font-size: ${theme.fontSizes.ultraSmall};
   font-weight: 400;
   line-height: calc(16 / 12);
-  color: ${({ theme }) => theme.colors.lightGray};
-  opacity: 0.5;
+  color: ${theme.colors.grayOpacity};
 `;
 
 export const PolicyText = Text.withComponent(Link);

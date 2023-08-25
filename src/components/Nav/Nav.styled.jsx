@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { theme } from 'styles';
 
 export const NavContainer = styled.nav`
   display: flex;
@@ -13,7 +14,7 @@ export const NavContainer = styled.nav`
 
 export const Link = styled(NavLink)`
   font-weight: 500;
-  font-size: ${({ theme }) => theme.fontSizes.small};
+  font-size: ${theme.fontSizes.small};
   line-height: calc(22.4 / 14);
-  color: ${({ theme }) => theme.colors.lightGray};
+  color: ${theme.colors.lightGray};
 `;
