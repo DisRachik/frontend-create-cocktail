@@ -8,6 +8,6 @@ export const formSettings = {
   defaultValues: {
     ...initialValues,
   },
-  mode: 'onTouched',
+  mode: 'onChange ',
   resolver: yupResolver(validationSchema),
 };

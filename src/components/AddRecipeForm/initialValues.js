@@ -5,8 +5,14 @@ export const initialValues = {
   category: null,
   glass: null,
   ingredients: [
-    { title: '', measure: '' },
-    { title: '', measure: '' },
+    {
+      title: null,
+      measure: null,
+    },
+    {
+      title: null,
+      measure: null,
+    },
   ],
   instructions: [],
 };

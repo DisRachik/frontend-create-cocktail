@@ -12,7 +12,7 @@ export const RecipeDescriptionFields = ({
   categoriesList,
   state,
   handleInputChange,
-  handleSelectChange,
+  handleSingleSelectChange,
 }) => {
   return (
     <div>
@@ -35,7 +35,9 @@ export const RecipeDescriptionFields = ({
           name="drink"
           {...register('drink')}
           value={state.drink}
-          onChange={handleInputChange}
+          onChange={({ target: { name, value } }) =>
+            handleInputChange(name, value)
+          }
         />
       </Label>
       {errors.drink && (
@@ -49,7 +51,9 @@ export const RecipeDescriptionFields = ({
           name="about"
           {...register('about')}
           value={state.about}
-          onChange={handleInputChange}
+          onChange={({ target: { name, value } }) =>
+            handleInputChange(name, value)
+          }
         />
       </Label>
       {errors.about && (
@@ -65,11 +69,12 @@ export const RecipeDescriptionFields = ({
         render={({ field }) => (
           <Select
             {...field}
+            placeholder="Select from options..."
             options={categoriesList}
             defaultValue={state.category}
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              handleSelectChange(field.name, selectedOption);
+              handleSingleSelectChange(field.name, selectedOption);
             }}
           />
         )}
@@ -85,11 +90,12 @@ export const RecipeDescriptionFields = ({
         render={({ field }) => (
           <Select
             {...field}
+            placeholder="Select from options..."
             options={glassesList}
             defaultValue={state.glass}
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              handleSelectChange(field.name, selectedOption);
+              handleSingleSelectChange(field.name, selectedOption);
             }}
           />
         )}

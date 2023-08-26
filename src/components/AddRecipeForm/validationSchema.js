@@ -21,8 +21,14 @@ export const validationSchema = yup
         yup
           .object()
           .shape({
-            title: yup.object().required(),
-            measure: yup.object().required(),
+            title: yup
+              .object()
+              .shape({ label: yup.string().required(), value: yup.string() })
+              .required(),
+            measure: yup
+              .object()
+              .shape({ label: yup.string().required(), value: yup.string() })
+              .required(),
           })
           .required()
       )

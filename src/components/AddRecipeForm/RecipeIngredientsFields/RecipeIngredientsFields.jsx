@@ -14,18 +14,26 @@ export const RecipeIngredientsFields = ({
   errors,
   ingredientList,
   measureList,
+  state,
+  handleMultipleSelectChange,
 }) => {
   const { fields, append, remove } = useFieldArray({
     name: 'ingredients',
     control,
   });
 
-  const handleAddField = () => append({ title: '', measure: '' });
+  const handleAddField = () => {
+    append({ title: '', measure: '' });
+
+    handleMultipleSelectChange('ingredients');
+  };
 
   const handleRemoveField = index => {
     if (fields.length === MIN_FIELDS_COUNT) return;
 
     remove(index);
+
+    handleMultipleSelectChange('ingredients');
   };
 
   return (
@@ -46,7 +54,16 @@ export const RecipeIngredientsFields = ({
                 name={`ingredients.${index}.title`}
                 control={control}
                 render={({ field }) => (
-                  <Select {...field} options={ingredientList} />
+                  <Select
+                    {...field}
+                    placeholder="Select from options..."
+                    options={ingredientList}
+                    defaultValue={state.ingredients[index]}
+                    onChange={selectedOption => {
+                      field.onChange(selectedOption);
+                      handleMultipleSelectChange('ingredients');
+                    }}
+                  />
                 )}
               />
 
@@ -54,7 +71,16 @@ export const RecipeIngredientsFields = ({
                 name={`ingredients.${index}.measure`}
                 control={control}
                 render={({ field }) => (
-                  <Select {...field} options={measureList} />
+                  <Select
+                    {...field}
+                    placeholder="Select from options..."
+                    options={measureList}
+                    defaultValue={state.ingredients[index]}
+                    onChange={selectedOption => {
+                      field.onChange(selectedOption);
+                      handleMultipleSelectChange('ingredients');
+                    }}
+                  />
                 )}
               />
 

@@ -15,7 +15,9 @@ export const RecipePreparationFields = ({
           name="instructions"
           {...register('instructions')}
           value={state.instructions.join('\n')}
-          onChange={handleInputChange}
+          onChange={({ target: { name, value } }) =>
+            handleInputChange(name, value)
+          }
         />
       </label>
 

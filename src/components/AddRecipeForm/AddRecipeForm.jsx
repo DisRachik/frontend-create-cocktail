@@ -30,6 +30,10 @@ export const AddRecipeForm = () => {
     register,
     handleSubmit,
     control,
+    clearErrors,
+    setError,
+    getValues,
+    reset,
     formState: { errors },
   } = useForm(formSettings);
 
@@ -40,20 +44,34 @@ export const AddRecipeForm = () => {
 
     console.log(data);
 
-    setFormState(data);
+    setFormState({ ...initialValues });
+
+    reset({ ...initialValues });
   };
 
-  const handleInputChange = ({ target: { name, value } }) => {
+  const handleInputChange = (fieldName, value) => {
+    value ? clearErrors(fieldName) : setError(fieldName);
+
     setFormState(prevState => ({
       ...prevState,
-      [name]: name === 'instructions' ? value.split(/\r\n|\r|\n/g) : value,
+      [fieldName]:
+        fieldName === 'instructions' ? value.split(/\r\n|\r|\n/g) : value,
     }));
   };
 
-  const handleSelectChange = (name, value) => {
+  const handleSingleSelectChange = (fieldName, value) => {
     setFormState(prevState => ({
       ...prevState,
-      [name]: value,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleMultipleSelectChange = fieldName => {
+    const ingredients = getValues(fieldName);
+
+    setFormState(prevState => ({
+      ...prevState,
+      ingredients: [...ingredients],
     }));
   };
 
@@ -67,7 +85,7 @@ export const AddRecipeForm = () => {
         glassesList={glassesList}
         state={formState}
         handleInputChange={handleInputChange}
-        handleSelectChange={handleSelectChange}
+        handleSingleSelectChange={handleSingleSelectChange}
       />
 
       <RecipeIngredientsFields
@@ -75,6 +93,8 @@ export const AddRecipeForm = () => {
         errors={errors}
         ingredientList={ingredientList}
         measureList={measureList}
+        state={formState}
+        handleMultipleSelectChange={handleMultipleSelectChange}
       />
 
       <RecipePreparationFields
