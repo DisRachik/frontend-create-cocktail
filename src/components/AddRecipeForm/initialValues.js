@@ -2,8 +2,8 @@ export const initialValues = {
   drinkThumb: null,
   drink: '',
   about: '',
-  category: '',
-  glass: '',
+  category: null,
+  glass: null,
   ingredients: [
     { title: '', measure: '' },
     { title: '', measure: '' },

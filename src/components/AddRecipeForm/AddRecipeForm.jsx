@@ -50,6 +50,13 @@ export const AddRecipeForm = () => {
     }));
   };
 
+  const handleSelectChange = (name, value) => {
+    setFormState(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   return (
     <Form onSubmit={handleSubmit(handleFormSubmit)}>
       <RecipeDescriptionFields
@@ -60,6 +67,7 @@ export const AddRecipeForm = () => {
         glassesList={glassesList}
         state={formState}
         handleInputChange={handleInputChange}
+        handleSelectChange={handleSelectChange}
       />
 
       <RecipeIngredientsFields

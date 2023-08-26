@@ -12,6 +12,7 @@ export const RecipeDescriptionFields = ({
   categoriesList,
   state,
   handleInputChange,
+  handleSelectChange,
 }) => {
   return (
     <div>
@@ -61,7 +62,17 @@ export const RecipeDescriptionFields = ({
       <Controller
         name="category"
         control={control}
-        render={({ field }) => <Select {...field} options={categoriesList} />}
+        render={({ field }) => (
+          <Select
+            {...field}
+            options={categoriesList}
+            defaultValue={state.category}
+            onChange={selectedOption => {
+              field.onChange(selectedOption);
+              handleSelectChange(field.name, selectedOption);
+            }}
+          />
+        )}
       />
       {errors.category && (
         <p style={{ color: 'deeppink' }}>{'Chose the category of drink'}</p>
@@ -71,7 +82,17 @@ export const RecipeDescriptionFields = ({
       <Controller
         name="glass"
         control={control}
-        render={({ field }) => <Select {...field} options={glassesList} />}
+        render={({ field }) => (
+          <Select
+            {...field}
+            options={glassesList}
+            defaultValue={state.glass}
+            onChange={selectedOption => {
+              field.onChange(selectedOption);
+              handleSelectChange(field.name, selectedOption);
+            }}
+          />
+        )}
       />
       {errors.glass && (
         <p style={{ color: 'deeppink' }}>
