@@ -1,14 +1,24 @@
-import { NavContainer, Link } from './Nav.styled';
+import { List, Link } from './Nav.styled';
 
 export const Nav = () => {
   return (
     <>
-      <NavContainer>
-        <Link to="/drinks">Drinks</Link>
-        <Link to="/add">Add recipes</Link>
-        <Link to="/my">My recipes</Link>
-        <Link to="/favorite">Favorites</Link>
-      </NavContainer>
+      <nav>
+        <List>
+          <li>
+            <Link to="/drinks">Drinks</Link>
+          </li>
+          <li>
+            <Link to="/add">Add recipes</Link>
+          </li>
+          <li>
+            <Link to="/my">My recipes</Link>
+          </li>
+          <li>
+            <Link to="/favorite">Favorites</Link>
+          </li>
+        </List>
+      </nav>
     </>
   );
 };

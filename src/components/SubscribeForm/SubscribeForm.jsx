@@ -15,6 +15,7 @@ import {
 export const SubscribeForm = () => {
   const {
     register,
+
     handleSubmit,
     reset,
     formState: { errors, isValid, isDirty },
@@ -41,14 +42,13 @@ export const SubscribeForm = () => {
             name="email"
             placeholder="Enter the email"
             {...register('email')}
-            style={{
-              outlineColor: isDirty && isValid ? '#3cbc817f' : '#da14147f',
-            }}
+            valid={isValid}
+            invalid={isDirty && !isValid}
           />
 
-          {isValid && isDirty && <CheckIcon size={24} color="#3cbc81" />}
+          {isValid && <CheckIcon />}
 
-          {!isValid && isDirty && <ErrorIcon size={24} color="#da1414" />}
+          {!isValid && isDirty && <ErrorIcon />}
         </InputBox>
         {errors.email && isDirty && (
           <ErrorMessage style={{ color: '#da14147f' }}>

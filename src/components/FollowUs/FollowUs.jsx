@@ -1,7 +1,8 @@
 import { socialLinksUrl } from 'constans';
 import {
-  Container,
-  SocialLink,
+  List,
+  Item,
+  Link,
   FacebookIcon,
   InstagramIcon,
   YoutubeIcon,
@@ -9,28 +10,38 @@ import {
 
 export const FollowUs = () => {
   return (
-    <Container>
-      <SocialLink
-        href={socialLinksUrl.facebook}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FacebookIcon />
-      </SocialLink>
-      <SocialLink
-        href={socialLinksUrl.instagram}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <InstagramIcon />
-      </SocialLink>
-      <SocialLink
-        href={socialLinksUrl.youtube}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <YoutubeIcon />
-      </SocialLink>
-    </Container>
+    <div>
+      <List>
+        <Item>
+          <Link
+            href={socialLinksUrl.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FacebookIcon />
+          </Link>
+        </Item>
+
+        <Item>
+          <Link
+            href={socialLinksUrl.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramIcon />
+          </Link>
+        </Item>
+
+        <Item>
+          <Link
+            href={socialLinksUrl.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <YoutubeIcon />
+          </Link>
+        </Item>
+      </List>
+    </div>
   );
 };

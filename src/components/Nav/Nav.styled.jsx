@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { theme } from 'styles';
 
-export const NavContainer = styled.nav`
+export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 14px;

@@ -27,6 +27,15 @@ export const InputBox = styled.div`
   width: 100%;
 `;
 
+const changeOutlineColor = ({ valid, invalid }) => {
+  if (valid) {
+    return theme.colors.transparentGreen;
+  } else if (invalid) {
+    return theme.colors.transparentRed;
+  }
+  return theme.colors.gray;
+};
+
 export const Input = styled.input`
   padding: 18px 24px;
   border-radius: 200px;
@@ -37,6 +46,8 @@ export const Input = styled.input`
   line-height: calc(18 / 14);
   color: ${theme.colors.lightGray};
   background-color: inherit;
+  outline: 1px solid ${changeOutlineColor};
+  outline-offset: -1px;
 
   @media (min-width: 768px) {
     font-size: ${theme.fontSizes.inputText};
@@ -44,8 +55,7 @@ export const Input = styled.input`
   }
 
   &:focus {
-    outline: 1px solid ${theme.colors.grayOpacity};
-    outline-offset: -1px;
+    outline: 1px solid ${changeOutlineColor};
   }
 `;
 
@@ -54,9 +64,20 @@ export const ErrorIcon = styled(BiErrorCircle)`
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: ${theme.colors.errorRed};
 `;
 
-export const CheckIcon = ErrorIcon.withComponent(IoIosCheckmarkCircleOutline);
+export const CheckIcon = styled(IoIosCheckmarkCircleOutline)`
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: ${theme.colors.successGreen};
+`;
 
 export const ErrorMessage = styled.p`
   margin-top: 8px;
@@ -64,6 +85,7 @@ export const ErrorMessage = styled.p`
   font-size: ${theme.fontSizes.ultraSmall};
   font-weight: 400;
   line-height: calc(14 / 12);
+  color: ${props => console.log(props)};
 `;
 
 export const Button = styled.button`
