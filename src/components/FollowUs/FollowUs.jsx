@@ -1,3 +1,36 @@
+import { socialLinksUrl } from 'constans';
+import {
+  Container,
+  SocialLink,
+  FacebookIcon,
+  InstagramIcon,
+  YoutubeIcon,
+} from './FollowUs.styled';
+
 export const FollowUs = () => {
-  return <div style={{ color: 'red' }}>FollowUs:</div>;
+  return (
+    <Container>
+      <SocialLink
+        href={socialLinksUrl.facebook}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FacebookIcon />
+      </SocialLink>
+      <SocialLink
+        href={socialLinksUrl.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <InstagramIcon />
+      </SocialLink>
+      <SocialLink
+        href={socialLinksUrl.youtube}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <YoutubeIcon />
+      </SocialLink>
+    </Container>
+  );
 };
