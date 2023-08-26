@@ -1,21 +1,18 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { emailSchema } from 'schema';
+import { Button, FormIcons, FormMessages } from 'components';
 import {
   Container,
   Description,
   Input,
-  Button,
   InputBox,
-  CheckIcon,
-  ErrorIcon,
-  ErrorMessage,
+  // ErrorMessage,
 } from './SubscribeForm.styled';
 
 export const SubscribeForm = () => {
   const {
     register,
-
     handleSubmit,
     reset,
     formState: { errors, isValid, isDirty },
@@ -45,23 +42,21 @@ export const SubscribeForm = () => {
             valid={isValid}
             invalid={isDirty && !isValid}
           />
-
-          {isValid && <CheckIcon />}
-
-          {!isValid && isDirty && <ErrorIcon />}
+          <FormIcons valid={isValid} invalid={!isValid && isDirty} />
         </InputBox>
-        {errors.email && isDirty && (
-          <ErrorMessage style={{ color: '#da14147f' }}>
-            {errors.email?.message}
-          </ErrorMessage>
-        )}
-        {isValid && isDirty && (
-          <ErrorMessage style={{ color: '#3cbc81' }}>
-            This is valid email
-          </ErrorMessage>
-        )}
+        <FormMessages
+          invalidValue={errors.email}
+          validValue={isValid && isDirty}
+          errorMessage={errors.email?.message}
+          checkMessage="This is valid email"
+        />
 
-        <Button type="submit" disabled={!isValid}>
+        <Button
+          transparent={true}
+          minWidth={'100%'}
+          onClick={() => {}}
+          style={{ marginTop: '18px' }}
+        >
           Subscribe
         </Button>
       </form>
