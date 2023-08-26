@@ -8,7 +8,7 @@ export const DropDawnContainer = styled.div`
   flex-shrink: 0;
 
   border-radius: 8px;
-  background: #161f37;
+  background: ${theme.colors.midnightBlue};
 
   display: flex;
   flex-direction: column;
@@ -43,12 +43,15 @@ export const LogOutBtn = styled.button`
   border-radius: 42px;
   background: ${theme.colors.lightGray};
   color: ${theme.colors.midnightBlue};
+  border: 1px solid ${theme.colors.lightGray};
 
   font-size: ${theme.fontSizes.small};
   font-style: normal;
   font-weight: 600;
   line-height: calc(18 / 14);
   white-space: nowrap;
+
+  transition: ${theme.animation('background-color')};
 
   &:hover,
   &:focus {
@@ -68,5 +71,4 @@ export const LogOutBtn = styled.button`
 export const EditIcon = styled(FiEdit2)`
   width: 14px;
   height: 14px;
-  color: ${theme.colors.lightGray};
 `;
