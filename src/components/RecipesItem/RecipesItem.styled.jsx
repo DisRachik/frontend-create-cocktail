@@ -88,7 +88,7 @@ export const DescriptionDrinks = styled.p`
   }
 `;
 
-export const SeeResipe = styled(Link)`
+export const SeeRecipe = styled(Link)`
   padding: 14px 40px;
   margin-right: 8px;
 

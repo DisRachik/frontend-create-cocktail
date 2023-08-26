@@ -4,5 +4,5 @@ import axios from 'axios';
 // const { API_URL } = process.env;
 
 export const instance = axios.create({
-  baseURL: 'http://lockalhost:3030/api',
+  baseURL: 'http://localhost:3030/api',
 });
