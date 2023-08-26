@@ -10,6 +10,8 @@ export const RecipeDescriptionFields = ({
   errors,
   glassesList,
   categoriesList,
+  state,
+  handleInputChange,
 }) => {
   return (
     <div>
@@ -27,7 +29,13 @@ export const RecipeDescriptionFields = ({
 
       <Label>
         <InputHeading>Enter item title</InputHeading>
-        <input type="text" name="drink" {...register('drink')} />
+        <input
+          type="text"
+          name="drink"
+          {...register('drink')}
+          value={state.drink}
+          onChange={handleInputChange}
+        />
       </Label>
       {errors.drink && (
         <p style={{ color: 'deeppink' }}>{'Enter the title of your drink'}</p>
@@ -35,7 +43,13 @@ export const RecipeDescriptionFields = ({
 
       <Label>
         <InputHeading>Enter about recipe</InputHeading>
-        <input type="text" name="about" {...register('about')} />
+        <input
+          type="text"
+          name="about"
+          {...register('about')}
+          value={state.about}
+          onChange={handleInputChange}
+        />
       </Label>
       {errors.about && (
         <p style={{ color: 'deeppink' }}>

@@ -1,4 +1,9 @@
-export const RecipePreparationFields = ({ register, errors }) => {
+export const RecipePreparationFields = ({
+  register,
+  errors,
+  state,
+  handleInputChange,
+}) => {
   return (
     <div>
       <h2>Recipe Preparation</h2>
@@ -9,6 +14,8 @@ export const RecipePreparationFields = ({ register, errors }) => {
           cols="20"
           name="instructions"
           {...register('instructions')}
+          value={state.instructions.join('\n')}
+          onChange={handleInputChange}
         />
       </label>
 

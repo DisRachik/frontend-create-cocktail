@@ -20,7 +20,7 @@ import ingredientData from 'db/ingredients.json';
 const categoriesList = transformSelectData(categoriesData);
 const glassesList = transformSelectData(glassesData);
 const ingredientList = transformSelectData(ingredientData);
-const amountList = Array.from({ length: 30 }, (_, index) => {
+const measureList = Array.from({ length: 30 }, (_, index) => {
   const value = index + 1;
   return { value: `${value}cl`, label: `${value}cl` };
 });
@@ -43,6 +43,13 @@ export const AddRecipeForm = () => {
     setFormState(data);
   };
 
+  const handleInputChange = ({ target: { name, value } }) => {
+    setFormState(prevState => ({
+      ...prevState,
+      [name]: name === 'instructions' ? value.split(/\r\n|\r|\n/g) : value,
+    }));
+  };
+
   return (
     <Form onSubmit={handleSubmit(handleFormSubmit)}>
       <RecipeDescriptionFields
@@ -51,16 +58,23 @@ export const AddRecipeForm = () => {
         errors={errors}
         categoriesList={categoriesList}
         glassesList={glassesList}
+        state={formState}
+        handleInputChange={handleInputChange}
       />
 
       <RecipeIngredientsFields
         control={control}
         errors={errors}
         ingredientList={ingredientList}
-        amountList={amountList}
+        measureList={measureList}
       />
 
-      <RecipePreparationFields register={register} errors={errors} />
+      <RecipePreparationFields
+        register={register}
+        errors={errors}
+        state={formState}
+        handleInputChange={handleInputChange}
+      />
 
       <button type="submit">Add</button>
     </Form>

@@ -21,8 +21,8 @@ export const validationSchema = yup
         yup
           .object()
           .shape({
-            ingredient: yup.object().required(),
-            amount: yup.object().required(),
+            title: yup.object().required(),
+            measure: yup.object().required(),
           })
           .required()
       )

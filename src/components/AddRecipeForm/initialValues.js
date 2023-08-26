@@ -5,8 +5,8 @@ export const initialValues = {
   category: '',
   glass: '',
   ingredients: [
-    { ingredient: '', amount: '' },
-    { ingredient: '', amount: '' },
+    { title: '', measure: '' },
+    { title: '', measure: '' },
   ],
   instructions: [],
 };

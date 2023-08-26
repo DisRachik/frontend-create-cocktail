@@ -13,14 +13,14 @@ export const RecipeIngredientsFields = ({
   control,
   errors,
   ingredientList,
-  amountList,
+  measureList,
 }) => {
   const { fields, append, remove } = useFieldArray({
     name: 'ingredients',
     control,
   });
 
-  const handleAddField = () => append({ ingredient: '', amount: '' });
+  const handleAddField = () => append({ title: '', measure: '' });
 
   const handleRemoveField = index => {
     if (fields.length === MIN_FIELDS_COUNT) return;
@@ -43,7 +43,7 @@ export const RecipeIngredientsFields = ({
           return (
             <li key={field.id} style={{ display: 'flex' }}>
               <Controller
-                name={`ingredients.${index}.ingredient`}
+                name={`ingredients.${index}.title`}
                 control={control}
                 render={({ field }) => (
                   <Select {...field} options={ingredientList} />
@@ -51,10 +51,10 @@ export const RecipeIngredientsFields = ({
               />
 
               <Controller
-                name={`ingredients.${index}.amount`}
+                name={`ingredients.${index}.measure`}
                 control={control}
                 render={({ field }) => (
-                  <Select {...field} options={amountList} />
+                  <Select {...field} options={measureList} />
                 )}
               />
 
