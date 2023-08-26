@@ -25,7 +25,7 @@ export const Layout = () => {
           </li>
         </ul>
       </nav>
-      <main>
+      <main style={{ minHeight: '100%' }}>
         <Suspense
           fallback={<div style={{ textAlign: 'center' }}>Loading...</div>}
         >
