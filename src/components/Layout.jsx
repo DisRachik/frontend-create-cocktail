@@ -23,6 +23,9 @@ export const Layout = () => {
           <li>
             <NavLink to="/favorite">Favorite</NavLink>
           </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
         </ul>
       </nav>
       <main style={{ minHeight: '100%' }}>
