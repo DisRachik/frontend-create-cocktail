@@ -7,7 +7,6 @@ import {
   Description,
   Input,
   InputBox,
-  // ErrorMessage,
 } from './SubscribeForm.styled';
 
 export const SubscribeForm = () => {
@@ -51,12 +50,7 @@ export const SubscribeForm = () => {
           checkMessage="This is valid email"
         />
 
-        <Button
-          transparent={true}
-          minWidth={'100%'}
-          onClick={() => {}}
-          style={{ marginTop: '18px' }}
-        >
+        <Button transparent={true} minWidth={'100%'} minHeight="56px">
           Subscribe
         </Button>
       </form>

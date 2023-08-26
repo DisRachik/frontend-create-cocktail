@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { CheckIcon, ErrorIcon } from './FormIcons.styled';
 
 export const FormIcons = ({ valid, invalid }) => {
@@ -6,4 +7,9 @@ export const FormIcons = ({ valid, invalid }) => {
   } else if (invalid) {
     return <ErrorIcon />;
   }
+};
+
+FormIcons.propTypes = {
+  invalid: PropTypes.bool,
+  valid: PropTypes.bool,
 };

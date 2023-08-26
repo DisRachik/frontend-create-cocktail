@@ -8,5 +8,4 @@ export const Message = styled.p`
   font-weight: 400;
   line-height: calc(14 / 12);
   margin-bottom: 18px;
-  color: ${props => console.log(props)};
 `;

@@ -32,11 +32,8 @@ export const Box = styled.div`
   }
 
   @media (min-width: 1200px) {
-    gap: 250px;
-  }
-
-  @media (min-width: 1350px) {
-    gap: 360px;
+    width: 50%;
+    justify-content: space-between;
   }
 `;
 
