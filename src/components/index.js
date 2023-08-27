@@ -15,3 +15,4 @@ export * from 'components/SubscribeForm/SubscribeForm';
 export * from 'components/Favorite/FavoritePage';
 export * from 'components/RecipesList/RecipesList';
 export * from 'components/RecipesItem/RecipesItem';
+export * from 'components/Favorite/EmptyFavoritePage';

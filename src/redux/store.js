@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { drinksReducer } from './favorite/favoriteSlice';
 
 // import {
 //   persistStore,
@@ -19,5 +20,7 @@ import { configureStore } from '@reduxjs/toolkit';
 // };
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    drinks: drinksReducer,
+  },
 });
