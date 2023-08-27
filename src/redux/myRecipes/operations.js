@@ -5,20 +5,23 @@ axios.defaults.baseURL = 'https://drink-master-db.onrender.com';
 
 export const fetchMyRecipes = createAsyncThunk(
   'myRecipes/fetchMyRecipes',
-  async (_, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/recipes`);
+      const { data } = await axios.get(`/users/${id}`);
       console.log(data);
 
-      // При успешном запросе возвращаем промис с данными
       return data;
     } catch (e) {
-      // При ошибке запроса возвращаем промис
-      // который будет отклонен с текстом ошибки
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
+// export const getMyRecipes = async id => {
+//   const res = await axios.get(`/users/${id}`);
+//   console.log(res);
+//   return res.data;
+// };
 
 export const deleteMyRecipes = createAsyncThunk(
   'myRecipes/deleteMyRecipes',
