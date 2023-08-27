@@ -56,6 +56,7 @@ export const StyledButton = styled.button`
   &:disabled {
     color: ${theme.colors.transparentLight};
     background-color: ${theme.colors.steelBlue};
+    box-shadow: none;
     cursor: not-allowed;
   }
 `;
