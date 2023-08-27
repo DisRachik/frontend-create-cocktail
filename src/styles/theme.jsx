@@ -10,9 +10,9 @@ export const theme = Object.freeze({
     grayOpacity: '#f3f3f37e',
     gray: '#F3F3F333',
     errorRed: '#DA1414',
-    transparentRed: 'rgba(218, 20, 20, 0.5)',
+    transparentRed: '#da14147f',
     successGreen: '#3CBC81',
-    transparentGreen: 'rgba(60, 188, 129, 0.5)',
+    transparentGreen: '#3cbc817f',
   },
 
   fontSizes: {

@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import { BiErrorCircle } from 'react-icons/bi';
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import { theme } from 'styles';
 
 export const Container = styled.div`
@@ -25,7 +23,26 @@ export const Description = styled.p`
 export const InputBox = styled.div`
   position: relative;
   width: 100%;
+  margin-bottom: 18px;
 `;
+
+const changeOutlineColor = ({ valid, invalid }) => {
+  if (valid) {
+    return theme.colors.transparentGreen;
+  } else if (invalid) {
+    return theme.colors.transparentRed;
+  }
+  return theme.colors.gray;
+};
+
+const changeFocusOutlineColor = ({ valid, invalid }) => {
+  if (valid) {
+    return theme.colors.transparentGreen;
+  } else if (invalid) {
+    return theme.colors.transparentRed;
+  }
+  return theme.colors.grayOpacity;
+};
 
 export const Input = styled.input`
   padding: 18px 24px;
@@ -37,6 +54,8 @@ export const Input = styled.input`
   line-height: calc(18 / 14);
   color: ${theme.colors.lightGray};
   background-color: inherit;
+  outline: 1px solid ${changeOutlineColor};
+  outline-offset: -1px;
 
   @media (min-width: 768px) {
     font-size: ${theme.fontSizes.inputText};
@@ -44,56 +63,38 @@ export const Input = styled.input`
   }
 
   &:focus {
-    outline: 1px solid ${theme.colors.grayOpacity};
-    outline-offset: -1px;
+    outline: 1px solid ${changeFocusOutlineColor};
   }
 `;
 
-export const ErrorIcon = styled(BiErrorCircle)`
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-`;
+// export const Button = styled.button`
+//   padding: 18px 0;
+//   margin-top: 18px;
+//   width: 100%;
+//   font-size: ${theme.fontSizes.small};
+//   font-weight: 600;
+//   line-height: calc(18 / 14);
+//   color: ${theme.colors.lightGray};
+//   background-color: inherit;
+//   border: 1px solid ${theme.colors.gray};
+//   border-radius: 200px;
+//   cursor: pointer;
+//   transition: ${theme.animation('background-color')};
 
-export const CheckIcon = ErrorIcon.withComponent(IoIosCheckmarkCircleOutline);
+//   @media (min-width: 768px) {
+//     font-size: 17px;
+//     line-height: calc(27 / 17);
+//   }
 
-export const ErrorMessage = styled.p`
-  margin-top: 8px;
-  padding-left: 20px;
-  font-size: ${theme.fontSizes.ultraSmall};
-  font-weight: 400;
-  line-height: calc(14 / 12);
-`;
+//   &:hover,
+//   &:focus {
+//     color: ${theme.colors.midnightBlue};
+//     background-color: ${theme.colors.lightGray};
+//   }
 
-export const Button = styled.button`
-  padding: 18px 0;
-  margin-top: 18px;
-  width: 100%;
-  font-size: ${theme.fontSizes.small};
-  font-weight: 600;
-  line-height: calc(18 / 14);
-  color: ${theme.colors.lightGray};
-  background-color: inherit;
-  border: 1px solid ${theme.colors.gray};
-  border-radius: 200px;
-  cursor: pointer;
-  transition: ${theme.animation('background-color')};
-
-  @media (min-width: 768px) {
-    font-size: 17px;
-    line-height: calc(27 / 17);
-  }
-
-  &:hover,
-  &:focus {
-    color: ${theme.colors.midnightBlue};
-    background-color: ${theme.colors.lightGray};
-  }
-
-  &:disabled {
-    cursor: initial;
-    background-color: inherit;
-    color: ${theme.colors.gray};
-  }
-`;
+//   &:disabled {
+//     cursor: initial;
+//     background-color: inherit;
+//     color: ${theme.colors.gray};
+//   }
+// `;
