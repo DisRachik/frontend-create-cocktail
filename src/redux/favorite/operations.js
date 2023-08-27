@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getFavorites } from 'api';
 
-export const fatchUserFavoritsDrinks = createAsyncThunk(
+export const fetchUserFavoriteDrinks = createAsyncThunk(
   'drinks/fetchFavorite',
   async (id, thunkAPI) => {
     try {

@@ -1,19 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fatchUserFavoritsDrinks } from './operations';
+import { fetchUserFavoriteDrinks } from './operations';
 
 const drinksSlice = createSlice({
-  name: 'drinks',
+  name: 'favorits',
   initialState: { favoriteDrinks: [], error: null },
   extraReducers: {
-    [fatchUserFavoritsDrinks.pending](state) {
+    [fetchUserFavoriteDrinks.pending](state) {
       state.favoriteDrinks = [];
       state.error = null;
     },
-    [fatchUserFavoritsDrinks.fulfilled](state, { payload }) {
+    [fetchUserFavoriteDrinks.fulfilled](state, { payload }) {
       state.favoriteDrinks = payload.favorites;
       // state.favoriteDrinks = [];
     },
-    [fatchUserFavoritsDrinks.rejected](state, action) {
+    [fetchUserFavoriteDrinks.rejected](state, action) {
       state.favoriteDrinks = [];
       state.error = action.payload;
     },
