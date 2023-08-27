@@ -14,10 +14,10 @@ export const Button = ({ minWidth, transparent, children, onClick }) => {
 };
 
 Button.propTypes = {
-  pretitle: PropTypes.string,
+  minWidth: PropTypes.string,
   transparent: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 // Правила використання:

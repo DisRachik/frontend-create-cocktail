@@ -1,25 +1,28 @@
 // Libs
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 // Components
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredientsFields } from './RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparationFields } from './RecipePreparationFields/RecipePreparationFields';
+import { Button } from 'components';
 // Styled components
 import { Form } from './AddRecipeForm.styled';
 // Helpers
 import { transformSelectData } from 'helpers';
+// Api
+import { getCategories, getGlasses, getIngredients } from 'api';
 // Other
 import { formSettings } from './formSettings';
 import { initialValues } from './initialValues';
 // Data
 import categoriesData from 'db/categories.json';
 import glassesData from 'db/glasses.json';
-import ingredientData from 'db/ingredients.json';
+import ingredientsData from 'db/ingredients.json';
 // Data transformations
 const categoriesList = transformSelectData(categoriesData);
 const glassesList = transformSelectData(glassesData);
-const ingredientList = transformSelectData(ingredientData);
+const ingredientsList = transformSelectData(ingredientsData);
 const measureList = Array.from({ length: 30 }, (_, index) => {
   const value = index + 1;
   return { value: `${value}cl`, label: `${value}cl` };
@@ -38,6 +41,14 @@ export const AddRecipeForm = () => {
   } = useForm(formSettings);
 
   const [formState, setFormState] = useState({ ...initialValues });
+
+  useEffect(() => {
+    return async () => {
+      const categories = await getCategories();
+      const glasses = await getGlasses();
+      const ingredients = await getIngredients();
+    };
+  }, []);
 
   const handleFormSubmit = data => {
     data.instructions = data.instructions.split(/\r\n|\r|\n/g);
@@ -91,7 +102,7 @@ export const AddRecipeForm = () => {
       <RecipeIngredientsFields
         control={control}
         errors={errors}
-        ingredientList={ingredientList}
+        ingredientsList={ingredientsList}
         measureList={measureList}
         state={formState}
         handleMultipleSelectChange={handleMultipleSelectChange}
@@ -104,7 +115,9 @@ export const AddRecipeForm = () => {
         handleInputChange={handleInputChange}
       />
 
-      <button type="submit">Add</button>
+      <Button minWidth="107px" type="submit">
+        Add
+      </Button>
     </Form>
   );
 };

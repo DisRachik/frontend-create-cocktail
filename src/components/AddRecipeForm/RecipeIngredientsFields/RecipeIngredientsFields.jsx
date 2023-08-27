@@ -12,7 +12,7 @@ const MIN_FIELDS_COUNT = 2;
 export const RecipeIngredientsFields = ({
   control,
   errors,
-  ingredientList,
+  ingredientsList,
   measureList,
   state,
   handleMultipleSelectChange,
@@ -57,7 +57,7 @@ export const RecipeIngredientsFields = ({
                   <Select
                     {...field}
                     placeholder="Select from options..."
-                    options={ingredientList}
+                    options={ingredientsList}
                     defaultValue={state.ingredients[index]}
                     onChange={selectedOption => {
                       field.onChange(selectedOption);
