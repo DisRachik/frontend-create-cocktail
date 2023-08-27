@@ -4,6 +4,8 @@ import { theme } from 'styles';
 const getColorStyle = props => {
   if (props.transparent) {
     return {
+      paddingTop: '14px',
+      paddingBottom: '14px',
       backgroundColor: 'transparent',
       color: theme.colors.lightGray,
       border: '1px',
@@ -21,7 +23,7 @@ const getColorStyle = props => {
 const getMinWidthStyle = props => {
   return {
     display: props.minWidth ? 'flex' : 'inline-flex',
-    minWidth: props.minWidth ? props.minWidth : 'auto',
+    width: props.minWidth ? props.minWidth : 'auto',
   };
 };
 const getMinHeightStyle = props => {
@@ -33,7 +35,7 @@ const getMinHeightStyle = props => {
 export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
+  padding: 18px 44px;
   flex-grow: 1;
   border-radius: 42px;
   cursor: pointer;
@@ -54,6 +56,7 @@ export const StyledButton = styled.button`
   &:disabled {
     color: ${theme.colors.transparentLight};
     background-color: ${theme.colors.steelBlue};
+    box-shadow: none;
     cursor: not-allowed;
   }
 `;

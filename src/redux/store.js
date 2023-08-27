@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { drinksReducer } from './favorite/favoriteSlice';
+
+import { favoriteReducer } from './favorite/favoriteSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
 import { glassesReducer } from './glasses/glassesSlice';
 import { ingredientsReducer } from './ingredients/ingredientsSlice';
@@ -24,7 +25,8 @@ import { ingredientsReducer } from './ingredients/ingredientsSlice';
 
 export const store = configureStore({
   reducer: {
-    drinks: drinksReducer,
+
+    favorites: favoriteReducer,
     categories: categoriesReducer,
     glasses: glassesReducer,
     ingredients: ingredientsReducer,
