@@ -33,7 +33,7 @@ export const IngredientsList = styled.ul`
     gap: 22px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     gap: 35px;
   }
 `;

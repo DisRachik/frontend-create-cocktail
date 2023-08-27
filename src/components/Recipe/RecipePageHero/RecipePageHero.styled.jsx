@@ -11,20 +11,17 @@ export const HeroWrap = styled.div`
   }
 
   @media (min-width: 1200px) {
-    margin-bottom: 100px;
-  }
-
-  @media (min-width: 1440px) {
     display: grid;
     grid-template-columns: 1fr 400px;
     grid-template-rows: 400px;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    margin-bottom: 100px;
   }
 `;
 
 export const LeftSideWrap = styled.div`
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     grid-area: 1 / 1 / 3 / 2;
   }
 `;
@@ -55,7 +52,7 @@ export const CocktailTitle = styled.h2`
     line-height: 60px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     font-size: ${theme.fontSizes.sectionTitle};
     line-height: 68px;
   }
@@ -90,7 +87,7 @@ export const FavoriteButton = styled.button`
     line-height: 18px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     margin: 0px;
   }
 `;
@@ -108,7 +105,7 @@ export const CocktailImage = styled.img`
     object-position: top;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     grid-area: 1/2/2/2;
     width: 400px;
     height: 400px;

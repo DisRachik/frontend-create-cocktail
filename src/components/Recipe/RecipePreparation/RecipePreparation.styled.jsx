@@ -5,7 +5,7 @@ import { theme } from 'styles';
 export const PreparationWrap = styled.div`
   border: 1px solid red;
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     display: grid;
     grid-template-columns: 1fr 549px;
     grid-template-rows: auto auto repeat(1, 1fr);
@@ -25,7 +25,7 @@ export const PreparationTitle = styled.h3`
     line-height: 44px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     grid-area: 1 / 1 / 2 / 2;
   }
 `;
@@ -42,7 +42,7 @@ export const PreparationForeword = styled.p`
     line-height: 22px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     grid-area: 2 / 2 / 3 / 3;
   }
 `;
@@ -57,7 +57,7 @@ export const PreparationList = styled.ul`
     margin-inline-start: 24px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     grid-area: 3 / 2 / 4 / 3;
     margin-bottom: 0px;
   }
@@ -97,7 +97,7 @@ export const PreparationImg = styled.img`
     margin: 0px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     grid-area: 2 / 1 / 4 / 2;
     width: 631px;
     height: 430px;
