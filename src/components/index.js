@@ -15,3 +15,4 @@ export * from 'components/RecipesItem/RecipesItem';
 // Recipe
 export * from 'components/Recipe/RecipePageHero/RecipePageHero';
 export * from 'components/Recipe/RecipeIngredientsList/RecipeIngredientsList';
+export * from 'components/Recipe/RecipePreparation/RecipePreparation';

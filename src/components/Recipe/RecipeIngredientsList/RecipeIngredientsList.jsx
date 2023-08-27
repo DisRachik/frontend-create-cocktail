@@ -13,7 +13,6 @@ import {
 const defaultImageUrl = require('../../../img/thumb220x220.png');
 
 export const RecipeIngredientsList = ({ ingredients }) => {
-  console.log(ingredients);
   return (
     <IngredientsSection>
       <SectionTitle>{'Ingredients'}</SectionTitle>
