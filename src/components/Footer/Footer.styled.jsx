@@ -3,15 +3,11 @@ import { Link } from 'react-router-dom';
 import { theme } from 'styles';
 
 export const FooterContainer = styled.footer`
-  padding: 40px 20px 18px;
+  padding: 40px 0 18px;
   border-top: 1px solid ${theme.colors.gray};
 
   @media (min-width: 768px) {
-    padding: 80px 32px 24px;
-  }
-
-  @media (min-width: 1200px) {
-    padding: 80px 100px 24px;
+    padding: 80px 0 24px;
   }
 `;
 
@@ -36,11 +32,8 @@ export const Box = styled.div`
   }
 
   @media (min-width: 1200px) {
-    gap: 250px;
-  }
-
-  @media (min-width: 1350px) {
-    gap: 360px;
+    width: 50%;
+    justify-content: space-between;
   }
 `;
 
