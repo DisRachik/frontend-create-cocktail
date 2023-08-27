@@ -21,6 +21,6 @@ import { drinksReducer } from './favorite/favoriteSlice';
 
 export const store = configureStore({
   reducer: {
-    drinks: drinksReducer,
+    favorites: drinksReducer,
   },
 });
