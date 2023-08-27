@@ -1,6 +1,7 @@
 // Libs
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 // Components
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredientsFields } from './RecipeIngredientsFields/RecipeIngredientsFields';
@@ -10,19 +11,19 @@ import { Button } from 'components';
 import { Form } from './AddRecipeForm.styled';
 // Helpers
 import { transformSelectData } from 'helpers';
-// Api
-import { getCategories, getGlasses, getIngredients } from 'api';
+// Redux selectors
+import {
+  selectCategories,
+  selectGlasses,
+  selectIngredients,
+  fetchCategories,
+  fetchGlasses,
+  fetchIngredients,
+} from '../../redux';
 // Other
 import { formSettings } from './formSettings';
 import { initialValues } from './initialValues';
 // Data
-import categoriesData from 'db/categories.json';
-import glassesData from 'db/glasses.json';
-import ingredientsData from 'db/ingredients.json';
-// Data transformations
-const categoriesList = transformSelectData(categoriesData);
-const glassesList = transformSelectData(glassesData);
-const ingredientsList = transformSelectData(ingredientsData);
 const measureList = Array.from({ length: 30 }, (_, index) => {
   const value = index + 1;
   return { value: `${value}cl`, label: `${value}cl` };
@@ -40,15 +41,32 @@ export const AddRecipeForm = () => {
     formState: { errors },
   } = useForm(formSettings);
 
+  console.log('render');
+
   const [formState, setFormState] = useState({ ...initialValues });
 
+  const categories = useSelector(selectCategories.data);
+  const glasses = useSelector(selectGlasses.data);
+  const ingredients = useSelector(selectIngredients.data);
+
+  const data = {
+    categories: transformSelectData(categories),
+    glasses: transformSelectData(glasses),
+    ingredients: transformSelectData(ingredients),
+    measure: measureList,
+  };
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    return async () => {
-      const categories = await getCategories();
-      const glasses = await getGlasses();
-      const ingredients = await getIngredients();
-    };
-  }, []);
+    Promise.all([
+      dispatch(fetchCategories()),
+      dispatch(fetchGlasses()),
+      dispatch(fetchIngredients()),
+    ]).catch(() =>
+      console.error('Oops... Something went wrong :( Please try again later.')
+    );
+  }, [dispatch]);
 
   const handleFormSubmit = data => {
     data.instructions = data.instructions.split(/\r\n|\r|\n/g);
@@ -92,8 +110,8 @@ export const AddRecipeForm = () => {
         control={control}
         register={register}
         errors={errors}
-        categoriesList={categoriesList}
-        glassesList={glassesList}
+        categoriesList={data.categories}
+        glassesList={data.glasses}
         state={formState}
         handleInputChange={handleInputChange}
         handleSingleSelectChange={handleSingleSelectChange}
@@ -102,8 +120,8 @@ export const AddRecipeForm = () => {
       <RecipeIngredientsFields
         control={control}
         errors={errors}
-        ingredientsList={ingredientsList}
-        measureList={measureList}
+        ingredientsList={data.ingredients}
+        measureList={data.measure}
         state={formState}
         handleMultipleSelectChange={handleMultipleSelectChange}
       />
