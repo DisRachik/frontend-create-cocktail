@@ -1,6 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { drinksReducer } from './favorite/favoriteSlice';
+
 import { authReducer } from './auth/authSlice';
+
+import { favoriteReducer } from './favorite/favoriteSlice';
+import { categoriesReducer } from './categories/categoriesSlice';
+import { glassesReducer } from './glasses/glassesSlice';
+import { ingredientsReducer } from './ingredients/ingredientsSlice';
 
 import {
   persistStore,
@@ -23,7 +28,11 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    drinks: drinksReducer,
+
+    favorites: favoriteReducer,
+    categories: categoriesReducer,
+    glasses: glassesReducer,
+    ingredients: ingredientsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
