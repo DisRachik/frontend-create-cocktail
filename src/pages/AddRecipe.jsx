@@ -1,10 +1,12 @@
-import { Section } from 'components';
+import { Section, AddRecipeForm, FollowUs, PopularRecipe } from 'components';
 
 const AddRecipe = () => {
   return (
     <>
       <Section title="Add recipe">
-        {/* Тут вставляємо свої компоненти */}
+        <AddRecipeForm />
+        <FollowUs />
+        <PopularRecipe />
       </Section>
     </>
   );
