@@ -31,7 +31,18 @@ export const SectionSubtitle = styled.p`
 
 export const SectionTitle = styled.h2`
   max-width: 715px;
-  font-size: ${theme.fontSizes.sectionTitle};
+  font-size: ${theme.fontSizes.sectionTitlePhone};
   font-weight: 600;
-  line-height: 1.0625;
+  line-height: 1.18;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${theme.fontSizes.sectionTitleTablet};
+
+    line-height: 1.07;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: ${theme.fontSizes.sectionTitle};
+
+    line-height: 1.06;
+  }
 `;

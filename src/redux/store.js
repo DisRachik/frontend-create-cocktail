@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { drinksReducer } from './favorite/drinksSlice';
+import { drinksReducer } from './favorite/favoriteSlice';
 
 // import {
 //   persistStore,

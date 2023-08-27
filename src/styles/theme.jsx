@@ -26,7 +26,7 @@ export const theme = Object.freeze({
     titlePhone: '28px',
     title: '40px',
 
-    sectionTitlePhone: '36px',
+    sectionTitlePhone: '32px',
     sectionTitleTablet: '56px',
     sectionTitle: '64px',
 

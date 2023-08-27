@@ -11,6 +11,7 @@ const drinksSlice = createSlice({
     },
     [fatchUserFavoritsDrinks.fulfilled](state, { payload }) {
       state.favoriteDrinks = payload.favorites;
+      // state.favoriteDrinks = [];
     },
     [fatchUserFavoritsDrinks.rejected](state, action) {
       state.favoriteDrinks = [];
