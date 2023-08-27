@@ -16,3 +16,8 @@ export * from 'components/Favorite/FavoritePage';
 export * from 'components/RecipesList/RecipesList';
 export * from 'components/RecipesItem/RecipesItem';
 export * from 'components/Favorite/EmptyFavoritePage';
+
+// Welcome
+export * from 'components/Welcome/WelcomePage';
+export * from 'components/Signup/SignupPage';
+export * from 'components/Signin/SigninPage';
