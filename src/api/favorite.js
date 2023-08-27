@@ -5,7 +5,7 @@ export const fatchUserFavoritsDrinks = createAsyncThunk(
   'drinks/fetchFavorite',
   async (id, thunkAPI) => {
     try {
-      const res = await axios.get(`http://localhost:3030/api/users/${id}`);
+      const res = await axios.get(`/users/${id}`);
 
       return res.data;
     } catch (error) {

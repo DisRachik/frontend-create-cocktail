@@ -6,8 +6,8 @@ export const EmptyFavoritePage = () => {
   return (
     <ContainerImgAndText>
       <picture>
-        <source srcset={drink} media="(max-width: 767px)" />
-        <source srcset={drinkMedium} media="(min-width: 768px)" />
+        <source srcSet={drink} media="(max-width: 767px)" />
+        <source srcSet={drinkMedium} media="(min-width: 768px)" />
         <img src={drink} alt="cocktail" />
       </picture>
       <Text>You haven't added any favorite cocktails yet</Text>
