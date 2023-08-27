@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[607],{5607:function(t,e,n){n.r(e);var r=n(4321),a=n(184);e.default=function(){return(0,a.jsx)(r.$0,{pretitle:"Highball glass",title:"Pornstar Martini"})}}}]);
+//# sourceMappingURL=607.20511e87.chunk.js.map

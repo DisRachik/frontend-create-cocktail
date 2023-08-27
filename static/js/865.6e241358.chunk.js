@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[865],{6865:function(e,n,t){t.r(n);var c=t(4321),r=t(184);n.default=function(){return(0,r.jsx)(r.Fragment,{children:(0,r.jsx)(c.$0,{title:"Craft Your Perfect Drink with Drink Master",children:(0,r.jsx)(c.zx,{minWidth:"178px",minHeight:"90px",onClick:function(){console.log("Button clicked!")},children:"Change color"})})})}}}]);
+//# sourceMappingURL=865.6e241358.chunk.js.map

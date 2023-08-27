@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[865],{6865:function(e,t,r){r.r(t);var n=r(3098),c=r(184);t.default=function(){return(0,c.jsx)(c.Fragment,{children:(0,c.jsx)(n.$0,{title:"Craft Your Perfect Drink with Drink Master"})})}}}]);
-//# sourceMappingURL=865.56d52d27.chunk.js.map
