@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchUserFavoriteDrinks } from './operations';
 
-const drinksSlice = createSlice({
+const favoriteSlice = createSlice({
   name: 'favorites',
   initialState: { favoriteDrinks: [], error: null },
   extraReducers: {
@@ -20,4 +20,4 @@ const drinksSlice = createSlice({
   },
 });
 
-export const drinksReducer = drinksSlice.reducer;
+export const favoriteReducer = favoriteSlice.reducer;

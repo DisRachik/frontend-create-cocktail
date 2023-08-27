@@ -2,7 +2,7 @@
 import { EmptyFavoritePage, RecipesList } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavoriteDrinks } from 'redux/favorite/selectors';
-import { fetchUserFavoriteDrinks } from '../../redux/favorite/operations';
+import { fetchUserFavoriteDrinks } from 'redux/favorite/operations';
 import { useEffect } from 'react';
 
 export const FavoritePage = () => {
