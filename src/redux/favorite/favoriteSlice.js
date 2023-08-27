@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fatchUserFavoritsDrinks } from 'api';
+import { fatchUserFavoritsDrinks } from './operations';
 
 const drinksSlice = createSlice({
   name: 'drinks',
