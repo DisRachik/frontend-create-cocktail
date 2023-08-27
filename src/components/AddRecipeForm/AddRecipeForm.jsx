@@ -41,8 +41,6 @@ export const AddRecipeForm = () => {
     formState: { errors },
   } = useForm(formSettings);
 
-  console.log('render');
-
   const [formState, setFormState] = useState({ ...initialValues });
 
   const categories = useSelector(selectCategories.data);
