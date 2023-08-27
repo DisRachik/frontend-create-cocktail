@@ -1,4 +1,4 @@
-import { FollowUs, Logo, Nav, SubscribeForm } from 'components';
+import { Container, FollowUs, Logo, Nav, SubscribeForm } from 'components';
 import {
   FooterContainer,
   FlexContainer,
@@ -11,26 +11,28 @@ import {
 export const Footer = () => {
   return (
     <FooterContainer>
-      <FlexContainer>
-        <Box>
+      <Container>
+        <FlexContainer>
+          <Box>
+            <div>
+              <Logo />
+              <FollowUs />
+            </div>
+
+            <Nav />
+          </Box>
+
+          <SubscribeForm />
+        </FlexContainer>
+
+        <Thumb>
+          <Text>©2023 Drink Master. All rights reserved.</Text>
           <div>
-            <Logo />
-            <FollowUs />
+            <PolicyText to="/">Privacy Policy</PolicyText>
+            <PolicyText to="/">Terms of Service</PolicyText>
           </div>
-
-          <Nav />
-        </Box>
-
-        <SubscribeForm />
-      </FlexContainer>
-
-      <Thumb>
-        <Text>©2023 Drink Master. All rights reserved.</Text>
-        <div>
-          <PolicyText to="/">Privacy Policy</PolicyText>
-          <PolicyText to="/">Terms of Service</PolicyText>
-        </div>
-      </Thumb>
+        </Thumb>
+      </Container>
     </FooterContainer>
   );
 };
