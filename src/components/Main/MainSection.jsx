@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import { MainSectionWrap, MainSectionTitle, MainSectionSubtitle,BackgroundImageWrap } from './MainSection.styled';
 import { Button } from 'components';
-import {  Link } from '../Nav/Nav.styled';
+import {
+   
+  useNavigate,
+   
+} from 'react-router-dom';
 export const MainSection = ({ title, posttitle, children }) =>
 
 {
+   const navigate = useNavigate();
     const handleButtonClick = () => {
-      console.log('Button clicked!');
-      // return(
-      //   <Link to="/my">My recipes</Link>
-      //   );
+      navigate("/my");
   };
   return (
      <BackgroundImageWrap  >
