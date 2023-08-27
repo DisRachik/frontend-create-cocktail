@@ -1,4 +1,5 @@
 import {
+  Section,
   RecipePageHeader,
   RecipeIngredientsList,
   RecipePreparation,
@@ -13,7 +14,7 @@ const Recipe = () => {
   const isFavorite = Math.random() < 0.5;
 
   return (
-    <>
+    <Section>
       <RecipePageHeader
         glass={glass}
         drink={drink}
@@ -25,7 +26,7 @@ const Recipe = () => {
       <RecipePreparation
         instructions={instructions.split('.')}
       ></RecipePreparation>
-    </>
+    </Section>
   );
 };
 

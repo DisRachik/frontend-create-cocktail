@@ -2,32 +2,24 @@ import styled from '@emotion/styled';
 
 import { theme } from 'styles';
 
-export const HeroSection = styled.section`
-  max-width: 1440px;
-  margin: 0px auto 40px;
+export const HeroWrap = styled.div`
+  margin-bottom: 40px;
   border: 1px solid red;
-  padding: 58px 20px 0px 20px;
-  font-family: Manrope;
 
   @media (min-width: 768px) {
     margin-bottom: 80px;
-    padding: 112px 32px 0px 32px;
   }
 
   @media (min-width: 1200px) {
     margin-bottom: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
   }
 
   @media (min-width: 1440px) {
     display: grid;
     grid-template-columns: 1fr 400px;
-    grid-template-rows: 24px minmax(400px, max-content);
+    grid-template-rows: 400px;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    padding-top: 132px;
-    padding-bottom: 0px;
   }
 `;
 
@@ -38,12 +30,14 @@ export const LeftSideWrap = styled.div`
 `;
 
 export const CocktailGlass = styled.p`
+  margin-top: -22px;
   margin-bottom: 8px;
   font-size: ${theme.fontSizes.ultraSmall};
   line-height: 14px;
   color: ${theme.colors.grayOpacity};
 
   @media (min-width: 768px) {
+    margin-top: -28px;
     font-size: ${theme.fontSizes.medium};
     line-height: 20px;
   }
@@ -104,6 +98,7 @@ export const FavoriteButton = styled.button`
 export const CocktailImage = styled.img`
   width: 335px;
   height: 400px;
+  margin-top: 80px;
   object-fit: cover;
   object-position: center;
 
@@ -114,8 +109,9 @@ export const CocktailImage = styled.img`
   }
 
   @media (min-width: 1440px) {
-    grid-area: 2 / 2 / 3 / 3;
+    grid-area: 1/2/2/2;
     width: 400px;
     height: 400px;
+    margin: 0px;
   }
 `;

@@ -1,5 +1,5 @@
 import {
-  IngredientsSection,
+  IngredientsWrap,
   SectionTitle,
   IngredientsList,
   IngredientsListItem,
@@ -14,7 +14,7 @@ const defaultImageUrl = require('../../../img/thumb220x220.png');
 
 export const RecipeIngredientsList = ({ ingredients }) => {
   return (
-    <IngredientsSection>
+    <IngredientsWrap>
       <SectionTitle>{'Ingredients'}</SectionTitle>
       <IngredientsList>
         {ingredients.map((element, index) => (
@@ -42,6 +42,6 @@ export const RecipeIngredientsList = ({ ingredients }) => {
           </IngredientsListItem>
         ))}
       </IngredientsList>
-    </IngredientsSection>
+    </IngredientsWrap>
   );
 };

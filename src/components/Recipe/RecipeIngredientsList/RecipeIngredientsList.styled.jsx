@@ -2,21 +2,12 @@ import styled from '@emotion/styled';
 
 import { theme } from 'styles';
 
-export const IngredientsSection = styled.section`
-  max-width: 1440px;
-  margin: 0px auto 80px;
+export const IngredientsWrap = styled.div`
+  margin-bottom: 80px;
   border: 1px solid red;
-  padding: 0px 20px;
-  font-family: Manrope;
-
-  @media (min-width: 768px) {
-    padding: 0px 32px;
-  }
 
   @media (min-width: 1200px) {
     margin-bottom: 100px;
-    padding-left: 100px;
-    padding-right: 100px;
   }
 `;
 

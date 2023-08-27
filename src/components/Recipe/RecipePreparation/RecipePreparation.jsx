@@ -1,5 +1,5 @@
 import {
-  PreparationSection,
+  PreparationWrap,
   PreparationTitle,
   PreparationForeword,
   PreparationList,
@@ -10,7 +10,7 @@ import {
 export const RecipePreparation = ({ instructions }) => {
   console.log(instructions);
   return (
-    <PreparationSection>
+    <PreparationWrap>
       <PreparationTitle>{'Recipe Preparation'}</PreparationTitle>
       <PreparationForeword>
         {
@@ -28,6 +28,6 @@ export const RecipePreparation = ({ instructions }) => {
         )}
       </PreparationList>
       <PreparationImg />
-    </PreparationSection>
+    </PreparationWrap>
   );
 };

@@ -2,26 +2,12 @@ import styled from '@emotion/styled';
 
 import { theme } from 'styles';
 
-export const PreparationSection = styled.section`
-  max-width: 1440px;
-  margin: 0px auto 80px;
+export const PreparationWrap = styled.div`
   border: 1px solid red;
-  padding: 0px 20px;
-  font-family: Manrope;
-
-  @media (min-width: 768px) {
-    margin-bottom: 140px;
-    padding: 0px 32px;
-  }
-
-  @media (min-width: 1200px) {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
 
   @media (min-width: 1440px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 549px;
     grid-template-rows: auto auto repeat(1, 1fr);
     grid-column-gap: 60px;
   }
@@ -63,10 +49,12 @@ export const PreparationForeword = styled.p`
 
 export const PreparationList = styled.ul`
   margin-bottom: 46px;
+  margin-inline-start: 21px;
   list-style: unset;
 
   @media (min-width: 768px) {
     max-width: 549px;
+    margin-inline-start: 24px;
   }
 
   @media (min-width: 1440px) {
@@ -87,6 +75,7 @@ export const PreparationListItem = styled.li`
   }
 
   @media (min-width: 768px) {
+    max-width: 549px;
     font-size: ${theme.fontSizes.medium};
     line-height: 22px;
   }
@@ -95,6 +84,7 @@ export const PreparationListItem = styled.li`
 export const PreparationImg = styled.img`
   width: 335px;
   height: 430px;
+  margin: 0px auto;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
@@ -104,9 +94,12 @@ export const PreparationImg = styled.img`
   @media (min-width: 768px) {
     width: 704px;
     height: 340px;
+    margin: 0px;
   }
 
   @media (min-width: 1440px) {
     grid-area: 2 / 1 / 4 / 2;
+    width: 631px;
+    height: 430px;
   }
 `;
