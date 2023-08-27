@@ -4,7 +4,6 @@ const Favorite = () => {
   return (
     <>
       <Section title="Favorites">
-        {/* Тут вставляємо свої компоненти */}
         <FavoritePage />
       </Section>
     </>

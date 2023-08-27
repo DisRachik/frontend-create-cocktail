@@ -3,7 +3,7 @@ import { BiLogoFacebook } from 'react-icons/bi';
 import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
 import { theme } from 'styles';
 
-export const Container = styled.div`
+export const List = styled.ul`
   margin-top: 20px;
   display: flex;
   gap: 14px;
@@ -19,14 +19,24 @@ export const Container = styled.div`
   }
 `;
 
-export const SocialLink = styled.a`
+export const Item = styled.li`
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 8px;
   border: 1px solid ${theme.colors.gray};
   border-radius: 10px;
 `;
 
+export const Link = styled.a`
+  width: 22px;
+  height: 22px;
+
+  @media (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
+`;
 export const FacebookIcon = styled(BiLogoFacebook)`
   width: 22px;
   height: 22px;
