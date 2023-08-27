@@ -1,11 +1,19 @@
-import { Section } from 'components';
+import { MainSection, CategoryRecipesPage, Section } from 'components';
 
 const Main = () => {
+  
   return (
     <>
-      <Section title="Craft Your Perfect Drink with Drink Master">
+    
+      <MainSection title="Craft Your Perfect Drink with Drink Master"
+      posttitle="Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the world's finest beverages.">
         {/* Тут вставляємо свої компоненти */}
-      </Section>
+        
+      </MainSection>
+      <Section title=" Categories" >
+       <CategoryRecipesPage />
+      </Section> 
+      
     </>
   );
 };
