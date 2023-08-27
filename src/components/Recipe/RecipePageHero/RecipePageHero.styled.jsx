@@ -23,7 +23,7 @@ export const HeroSection = styled.section`
   @media (min-width: 1440px) {
     display: grid;
     grid-template-columns: 1fr 400px;
-    grid-template-rows: 24px 400px;
+    grid-template-rows: 24px minmax(400px, max-content);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     padding-top: 132px;
@@ -41,8 +41,7 @@ export const CocktailGlass = styled.p`
   margin-bottom: 8px;
   font-size: ${theme.fontSizes.ultraSmall};
   line-height: 14px;
-  color: ${theme.colors.gray};
-  opacity: 0.5;
+  color: ${theme.colors.grayOpacity};
 
   @media (min-width: 768px) {
     font-size: ${theme.fontSizes.medium};
