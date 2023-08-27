@@ -1,5 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import { favoriteReducer } from './favorite/favoriteSlice';
+import { categoriesReducer } from './categories/categoriesSlice';
+import { glassesReducer } from './glasses/glassesSlice';
+import { ingredientsReducer } from './ingredients/ingredientsSlice';
 
 // import {
 //   persistStore,
@@ -21,6 +25,10 @@ import { favoriteReducer } from './favorite/favoriteSlice';
 
 export const store = configureStore({
   reducer: {
+
     favorites: favoriteReducer,
+    categories: categoriesReducer,
+    glasses: glassesReducer,
+    ingredients: ingredientsReducer,
   },
 });
