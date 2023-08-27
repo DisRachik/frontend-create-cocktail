@@ -1,5 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { subscripe } from 'api';
+import { selectSubsription } from 'redux/auth/selectors';
 import { emailSchema } from 'schema';
 import { Button, FormIcons, FormMessages } from 'components';
 import {
@@ -10,6 +13,8 @@ import {
 } from './SubscribeForm.styled';
 
 export const SubscribeForm = () => {
+  const dispatch = useDispatch();
+  const subscription = useSelector(selectSubsription);
   const {
     register,
     handleSubmit,
@@ -20,8 +25,14 @@ export const SubscribeForm = () => {
     resolver: yupResolver(emailSchema),
   });
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = ({ email }) => {
+    console.log({ email });
+
+    dispatch(subscripe({ email }));
+    // Ви успішно підписались на розсилку!
+    // Очійкуте повідомлення для підтвердження
+    // підписки на ваш e-mail
+
     reset();
   };
 
