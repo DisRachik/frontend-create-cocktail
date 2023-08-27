@@ -26,8 +26,8 @@ export const FieldsCounter = ({
 FieldsCounter.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.object,
-      measure: PropTypes.object,
+      title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+      measure: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
       id: PropTypes.string.isRequired,
     })
   ).isRequired,
