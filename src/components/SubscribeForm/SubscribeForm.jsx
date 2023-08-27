@@ -50,7 +50,12 @@ export const SubscribeForm = () => {
           checkMessage="This is valid email"
         />
 
-        <Button disabled transparent={true} minWidth={'100%'} minHeight="56px">
+        <Button
+          disabled={!isValid || !isDirty}
+          transparent={true}
+          minWidth={'100%'}
+          minHeight="56px"
+        >
           Subscribe
         </Button>
       </form>
