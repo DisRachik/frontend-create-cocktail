@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const RecipePreparationFields = ({
   register,
   errors,
@@ -26,4 +28,19 @@ export const RecipePreparationFields = ({
       )}
     </div>
   );
+};
+
+RecipePreparationFields.propTypes = {
+  register: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  state: PropTypes.shape({
+    about: PropTypes.string.isRequired,
+    category: PropTypes.object,
+    drink: PropTypes.string.isRequired,
+    drinkThumb: PropTypes.object,
+    glass: PropTypes.object,
+    ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
+    instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
+  handleInputChange: PropTypes.func.isRequired,
 };

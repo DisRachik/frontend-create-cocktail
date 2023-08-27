@@ -1,7 +1,7 @@
 // Libs
-// import { nanoid } from 'nanoid';
-import Select from 'react-select';
 import { Controller, useFieldArray } from 'react-hook-form';
+import Select from 'react-select';
+import PropTypes from 'prop-types';
 // Components
 import { FieldsCounter } from './FieldsCounter/FieldsCounter';
 // Styled components
@@ -99,4 +99,21 @@ export const RecipeIngredientsFields = ({
       </SelectList>
     </>
   );
+};
+
+RecipeIngredientsFields.propTypes = {
+  control: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+  ingredientsList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  measureList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  state: PropTypes.shape({
+    about: PropTypes.string.isRequired,
+    category: PropTypes.object,
+    drink: PropTypes.string.isRequired,
+    drinkThumb: PropTypes.object,
+    glass: PropTypes.object,
+    ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
+    instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
+  handleMultipleSelectChange: PropTypes.func.isRequired,
 };

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const FieldsCounter = ({
   fields,
   handleAddField,
@@ -19,4 +21,16 @@ export const FieldsCounter = ({
       </button>
     </div>
   );
+};
+
+FieldsCounter.propTypes = {
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.object,
+      measure: PropTypes.object,
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleAddField: PropTypes.func.isRequired,
+  handleRemoveField: PropTypes.func.isRequired,
 };

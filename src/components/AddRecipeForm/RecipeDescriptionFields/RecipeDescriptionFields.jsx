@@ -1,6 +1,7 @@
 // Libs
 import Select from 'react-select';
 import { Controller } from 'react-hook-form';
+import PropTypes from 'prop-types';
 // Styled components
 import { Label, InputHeading } from './RecipeDescriptionFields.styled';
 
@@ -107,4 +108,23 @@ export const RecipeDescriptionFields = ({
       )}
     </div>
   );
+};
+
+RecipeDescriptionFields.propTypes = {
+  register: PropTypes.func.isRequired,
+  control: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+  glassesList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  categoriesList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  state: PropTypes.shape({
+    about: PropTypes.string.isRequired,
+    category: PropTypes.object,
+    drink: PropTypes.string.isRequired,
+    drinkThumb: PropTypes.object,
+    glass: PropTypes.object,
+    ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
+    instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  }).isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleSingleSelectChange: PropTypes.func.isRequired,
 };
