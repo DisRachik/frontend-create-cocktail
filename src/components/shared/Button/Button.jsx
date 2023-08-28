@@ -23,6 +23,7 @@ export const Button = ({
 };
 
 Button.propTypes = {
+  disabled: PropTypes.bool,
   minWidth: PropTypes.string,
   minHeight: PropTypes.string,
   transparent: PropTypes.bool,
