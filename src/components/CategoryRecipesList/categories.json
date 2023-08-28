@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6c4"
+  },
+  "title": "Ordinary Drink"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6c5"
+  },
+  "title": "Cocktail"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6c6"
+  },
+  "title": "Shake"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6c7"
+  },
+  "title": "Other/Unknown"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6c8"
+  },
+  "title": "Cocoa"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6c9"
+  },
+  "title": "Shot"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6ca"
+  },
+  "title": "Coffee/Tea"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6cb"
+  },
+  "title": "Homemade"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6cc"
+  },
+  "title": "Liqueur"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6cd"
+  },
+  "title": "Punch/Party Drink"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6ce"
+  },
+  "title": "Beer"
+},
+{
+  "_id": {
+    "$oid": "64eb213a1b3627a63620e6cf"
+  },
+  "title": "Soft Drink"
+}]

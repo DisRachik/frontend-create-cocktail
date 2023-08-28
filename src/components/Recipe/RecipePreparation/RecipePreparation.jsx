@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
+
 import {
   PreparationWrap,
   PreparationTitle,
@@ -7,27 +10,48 @@ import {
   PreparationImg,
 } from './RecipePreparation.styled';
 
+import { preparationForeward } from 'constans';
+
 export const RecipePreparation = ({ instructions }) => {
-  console.log(instructions);
+  let instructionIsArray;
+  let arrayOfInstructions;
+  if (instructions) {
+    instructionIsArray = Array.isArray(instructions);
+    arrayOfInstructions = instructions;
+    if (!instructionIsArray) {
+      arrayOfInstructions = instructions.split('.');
+    }
+  }
+
   return (
-    <PreparationWrap>
-      <PreparationTitle>{'Recipe Preparation'}</PreparationTitle>
-      <PreparationForeword>
-        {
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores laboriosam voluptas fugit soluta consequatur provident molestiae officiis. Eius at nihil modi expedita quaerat, repellendus ad consequuntur exercitationem eum, consectetur blanditiis.'
-        }
-      </PreparationForeword>
-      <PreparationList>
-        {instructions.map(
-          (instruction, index) =>
-            instruction.trim().length !== 0 && (
-              <PreparationListItem key={instruction.length + index}>
-                {instruction + '.'}
-              </PreparationListItem>
-            )
-        )}
-      </PreparationList>
-      <PreparationImg />
-    </PreparationWrap>
+    <>
+      {instructions && (
+        <PreparationWrap>
+          <PreparationTitle>{'Recipe Preparation'}</PreparationTitle>
+          <PreparationForeword>{preparationForeward}</PreparationForeword>
+          <PreparationList>
+            {arrayOfInstructions &&
+              arrayOfInstructions.map(
+                instruction =>
+                  instruction.trim().length !== 0 && (
+                    <PreparationListItem key={nanoid()}>
+                      {instruction.indexOf('.') === -1
+                        ? instruction + '.'
+                        : instruction}
+                    </PreparationListItem>
+                  )
+              )}
+          </PreparationList>
+          <PreparationImg />
+        </PreparationWrap>
+      )}
+    </>
   );
+};
+
+RecipePreparation.propTypes = {
+  instructions: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
 };
