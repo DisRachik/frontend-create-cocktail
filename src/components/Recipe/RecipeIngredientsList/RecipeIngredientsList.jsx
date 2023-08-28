@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+
 import {
   IngredientsWrap,
   SectionTitle,
@@ -46,4 +48,15 @@ export const RecipeIngredientsList = ({ ingredients }) => {
       </IngredientsList>
     </IngredientsWrap>
   );
+};
+
+RecipeIngredientsList.propTypes = {
+  ingredients: PropTypes.arrayOf(
+    PropTypes.shape({
+      'thumb-small': PropTypes.string,
+      'thumb-medium': PropTypes.string,
+      title: PropTypes.string.isRequired,
+      measure: PropTypes.string,
+    })
+  ),
 };

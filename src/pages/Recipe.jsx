@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 
 import { fetchRecipeById, selectRecipe } from 'redux/recipe/index';
 
@@ -14,9 +14,12 @@ const Recipe = () => {
   const dispatch = useDispatch();
   const recipe = useSelector(selectRecipe.recipe);
 
+  const location = window.location.pathname.split('recipe/');
+  const recipeId = location[1];
+
   useEffect(() => {
-    dispatch(fetchRecipeById('639b6de9ff77d221f190c508'));
-  }, [dispatch]);
+    dispatch(fetchRecipeById(recipeId));
+  }, [dispatch, recipeId]);
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Button } from '../../shared/Button/Button';
 import {
   HeroWrap,
@@ -7,6 +9,10 @@ import {
   CocktailDescription,
   CocktailImage,
 } from './RecipePageHero.styled';
+
+import { lostRecipeDesc } from 'constans';
+
+const defaultImageUrl = require('../../../img/thumb400x400.png');
 
 export const RecipePageHeader = ({
   glass,
@@ -18,16 +24,27 @@ export const RecipePageHeader = ({
   return (
     <HeroWrap>
       <LeftSideWrap>
-        <CocktailGlass>{glass}</CocktailGlass>
-        <CocktailTitle>{drink}</CocktailTitle>
+        <CocktailGlass>{glass ? glass : 'N/A'}</CocktailGlass>
+        <CocktailTitle>{drink ? drink : 'N/A'}</CocktailTitle>
         <CocktailDescription>
-          {desc ? { desc } : 'This cocktail has no description yet'}
+          {desc ? { desc } : lostRecipeDesc}
         </CocktailDescription>
-        <Button minHeight={"46px"}>
+        <Button minHeight={'46px'}>
           {favorite ? 'Remove from favorite' : 'Add to favorite recipe'}
         </Button>
       </LeftSideWrap>
-      <CocktailImage src={drinkImage} alt={drink}></CocktailImage>
+      <CocktailImage
+        src={drinkImage || defaultImageUrl}
+        alt={drink}
+      ></CocktailImage>
     </HeroWrap>
   );
+};
+
+RecipePageHeader.propTypes = {
+  glass: PropTypes.string,
+  drink: PropTypes.string,
+  desc: PropTypes.string,
+  favorite: PropTypes.bool,
+  drinkImage: PropTypes.string,
 };
