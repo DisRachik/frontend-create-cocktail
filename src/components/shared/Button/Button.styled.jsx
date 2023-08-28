@@ -35,7 +35,7 @@ const getMinHeightStyle = props => {
 export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
-  padding: 18px 44px;
+  padding: 14px 40px;
   flex-grow: 1;
   border-radius: 42px;
   cursor: pointer;
@@ -46,6 +46,9 @@ export const StyledButton = styled.button`
   ${getMinWidthStyle}
   ${getMinHeightStyle}
 
+  @media (min-width: 768px) {
+    padding: 18px 44px;
+  }
 
   &:hover {
     color: ${theme.colors.lightGray};
