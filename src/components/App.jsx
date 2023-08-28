@@ -28,19 +28,18 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      ``
-      {/* <Route path="/" element={<Navigate to="/main" />} /> */}
-      <Route
+      <Route path="/" element={<Navigate to="/main" />} />
+      {/* <Route
         path="/"
-        element={
-          <PrivateRoute redirectTo="/main" component={<Main />}></PrivateRoute>
-        }
-      />
+        element={<PrivateRoute redirectTo="/main" component={<Main />} />}
+      /> */}
+
       {/* <Route path="/" element={<Navigate to="/welcome" />} /> */}
-      <Route
+      {/* <Route
         path="/"
         element={<PublicRoute redirectTo="/welcome" component={<Welcome />} />}
-      />
+      /> */}
+
       {/* Unauthorized user routes */}
       <Route
         path="/welcome"
