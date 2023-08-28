@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 
-import { fetchRecipeById, selectRecipes } from 'redux/recipes/index';
+import { fetchRecipeById, selectRecipe } from 'redux/recipe/index';
 
 import {
   Section,
@@ -12,18 +12,10 @@ import {
 
 const Recipe = () => {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
-  const recipe = useSelector(selectRecipes.recipe);
+  const recipe = useSelector(selectRecipe.recipe);
 
   useEffect(() => {
-    dispatch(fetchRecipeById('639b6de9ff77d221f190c508'))
-      .then(() => {
-        setIsLoading(false);
-      })
-      .catch(error => {
-        setIsLoading(false);
-        console.error('Error fetching recipe:', error);
-      });
+    dispatch(fetchRecipeById('639b6de9ff77d221f190c508'));
   }, [dispatch]);
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -33,25 +25,17 @@ const Recipe = () => {
   const isFavorite = Math.random() < 0.5;
 
   return (
-    <>
-      {!isLoading && (
-        <Section>
-          <RecipePageHeader
-            glass={glass}
-            drink={drink}
-            desc={null}
-            favorite={isFavorite}
-            drinkImage={drinkThumb}
-          ></RecipePageHeader>
-          <>
-            <RecipeIngredientsList
-              ingredients={ingredients}
-            ></RecipeIngredientsList>
-            <RecipePreparation instructions={instructions}></RecipePreparation>
-          </>
-        </Section>
-      )}
-    </>
+    <Section>
+      <RecipePageHeader
+        glass={glass}
+        drink={drink}
+        desc={null}
+        favorite={isFavorite}
+        drinkImage={drinkThumb}
+      />
+      <RecipeIngredientsList ingredients={ingredients} />
+      <RecipePreparation instructions={instructions} />
+    </Section>
   );
 };
 

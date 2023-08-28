@@ -18,30 +18,31 @@ export const RecipeIngredientsList = ({ ingredients }) => {
     <IngredientsWrap>
       <SectionTitle>{'Ingredients'}</SectionTitle>
       <IngredientsList>
-        {ingredients.map(element => (
-          <IngredientsListItem key={nanoid()}>
-            <IngredientPicture>
-              <source
-                media="(max-width: 768px)"
-                srcSet={element['thumb-small'] || defaultImageUrl}
-              />
-              <source
-                media="(min-width: 769px)"
-                srcSet={element['thumb-medium'] || defaultImageUrl}
-              />
-              <IngredientImage
-                src={element['thumb-medium'] || defaultImageUrl}
-                alt={element.title}
-              />
-            </IngredientPicture>
-            <IngredientDescWrap>
-              <IngredientTitle>{element.title}</IngredientTitle>
-              {element.measure && (
-                <IngredientMeasure>{element.measure}</IngredientMeasure>
-              )}
-            </IngredientDescWrap>
-          </IngredientsListItem>
-        ))}
+        {ingredients &&
+          ingredients.map(element => (
+            <IngredientsListItem key={nanoid()}>
+              <IngredientPicture>
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={element['thumb-small'] || defaultImageUrl}
+                />
+                <source
+                  media="(min-width: 769px)"
+                  srcSet={element['thumb-medium'] || defaultImageUrl}
+                />
+                <IngredientImage
+                  src={element['thumb-medium'] || defaultImageUrl}
+                  alt={element.title}
+                />
+              </IngredientPicture>
+              <IngredientDescWrap>
+                <IngredientTitle>{element.title}</IngredientTitle>
+                {element.measure && (
+                  <IngredientMeasure>{element.measure}</IngredientMeasure>
+                )}
+              </IngredientDescWrap>
+            </IngredientsListItem>
+          ))}
       </IngredientsList>
     </IngredientsWrap>
   );

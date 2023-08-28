@@ -18,16 +18,17 @@ export const RecipePreparation = ({ instructions }) => {
         }
       </PreparationForeword>
       <PreparationList>
-        {instructions
-          .split('.')
-          .map(
-            instruction =>
-              instruction.trim().length !== 0 && (
-                <PreparationListItem key={nanoid()}>
-                  {instruction + '.'}
-                </PreparationListItem>
-              )
-          )}
+        {instructions &&
+          instructions
+            .split('.')
+            .map(
+              instruction =>
+                instruction.trim().length !== 0 && (
+                  <PreparationListItem key={nanoid()}>
+                    {instruction + '.'}
+                  </PreparationListItem>
+                )
+            )}
       </PreparationList>
       <PreparationImg />
     </PreparationWrap>
