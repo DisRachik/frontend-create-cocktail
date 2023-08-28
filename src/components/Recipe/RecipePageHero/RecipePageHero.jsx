@@ -23,7 +23,7 @@ export const RecipePageHeader = ({
         <CocktailDescription>
           {desc ? { desc } : 'This cocktail has no description yet'}
         </CocktailDescription>
-        <Button minWidth={"223px"} minHeight={"46px"}>
+        <Button minHeight={"46px"}>
           {favorite ? 'Remove from favorite' : 'Add to favorite recipe'}
         </Button>
       </LeftSideWrap>

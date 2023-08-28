@@ -4,6 +4,7 @@ import { favoriteReducer } from './favorite/favoriteSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
 import { glassesReducer } from './glasses/glassesSlice';
 import { ingredientsReducer } from './ingredients/ingredientsSlice';
+import { recipesReducer } from './recipes/recipesSlice';
 
 // import {
 //   persistStore,
@@ -25,10 +26,10 @@ import { ingredientsReducer } from './ingredients/ingredientsSlice';
 
 export const store = configureStore({
   reducer: {
-
     favorites: favoriteReducer,
     categories: categoriesReducer,
     glasses: glassesReducer,
     ingredients: ingredientsReducer,
+    recipes: recipesReducer,
   },
 });
