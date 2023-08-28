@@ -12,6 +12,7 @@ import { fetchMyRecipes } from 'redux/myRecipes/operations';
 export const MyRecipesPage = () => {
   const dispatch = useDispatch();
   const myRecipes = useSelector(selectMyRecipes);
+  console.log(myRecipes);
   // const isLoading = useSelector(selectLoading);
   // const error = useSelector(selectError);
 
