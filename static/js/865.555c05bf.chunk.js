@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[865],{6865:function(e,t,r){r.r(t);var n=r(140),i=r(184);t.default=function(){return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n.SB,{title:"Craft Your Perfect Drink with Drink Master",posttitle:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the world's finest beverages."}),(0,i.jsx)(n.$0,{title:" Categories",children:(0,i.jsx)(n.A_,{})})]})}}}]);
+//# sourceMappingURL=865.555c05bf.chunk.js.map
