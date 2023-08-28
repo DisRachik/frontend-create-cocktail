@@ -1,5 +1,7 @@
 export * from 'components/App';
 export * from 'components/Layout';
+export * from 'components/PrivateRoute';
+export * from 'components/PublicRoute';
 export * from 'components/shared/Section/Section';
 export * from 'components/shared/Container/Container';
 export * from 'components/shared/Button/Button';

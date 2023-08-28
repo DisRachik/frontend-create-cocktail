@@ -1,13 +1,15 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Footer, Header } from 'components';
-// import { Header } from './Header/Header';
+import { useAuth } from 'redux/auth/useAuth';
 
 export const Layout = () => {
+  const { isAuth } = useAuth();
   return (
     <>
       {/* Authorized user routes */}
-      <Header />
+
+      {isAuth && <Header />}
       <main style={{ minHeight: '100%' }}>
         <Suspense
           fallback={<div style={{ textAlign: 'center' }}>Loading...</div>}
@@ -15,7 +17,7 @@ export const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Footer />
+      {isAuth && <Footer />}
     </>
   );
 };

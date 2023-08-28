@@ -1,14 +1,20 @@
 import logo from 'img/logo.png';
-import { UserLink, UserImg, UserText } from './ModalBtnUser.styled';
+import { UserImg, UserText, UserBtn } from './ModalBtnUser.styled';
+
+import { useAuth } from 'redux/auth/useAuth';
 
 export const ModalBtnUser = () => {
-  // const{user}=isAuth()
+  const { user, handleSignOut } = useAuth();
   return (
     <>
-      <UserLink to="/modal">
+      <UserBtn
+        onClick={() => {
+          handleSignOut();
+        }}
+      >
         <UserImg src={logo} alt="logo" />
-        <UserText>User name</UserText> {/* {user.name} */}
-      </UserLink>
+        <UserText> {user.name} </UserText>
+      </UserBtn>
     </>
   );
 };

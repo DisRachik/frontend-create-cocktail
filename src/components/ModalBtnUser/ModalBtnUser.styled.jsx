@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
-export const UserLink = styled(Link)`
+export const UserBtn = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
