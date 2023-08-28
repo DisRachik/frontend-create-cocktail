@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { StyledButton } from './Button.styled';
 
 export const Button = ({
+  disabled,
   minWidth,
   minHeight,
   transparent,
@@ -10,6 +11,7 @@ export const Button = ({
 }) => {
   return (
     <StyledButton
+      disabled={disabled}
       minWidth={minWidth}
       minHeight={minHeight}
       transparent={transparent}

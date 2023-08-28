@@ -6,17 +6,20 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components';
 import { GlobalStyles, theme } from 'styles';
 import { Provider } from 'react-redux';
-import { store } from 'redux/store';
+import { persistor, store } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Global styles={GlobalStyles} />
-        <BrowserRouter basename="/frontend-create-cocktail">
-          <App />
-        </BrowserRouter>
-      </ThemeProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <Global styles={GlobalStyles} />
+          <BrowserRouter basename="/frontend-create-cocktail">
+            <App />
+          </BrowserRouter>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
