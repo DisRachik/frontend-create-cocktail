@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import {
   IngredientsWrap,
   SectionTitle,
@@ -17,8 +18,8 @@ export const RecipeIngredientsList = ({ ingredients }) => {
     <IngredientsWrap>
       <SectionTitle>{'Ingredients'}</SectionTitle>
       <IngredientsList>
-        {ingredients.map((element, index) => (
-          <IngredientsListItem key={element.title + index}>
+        {ingredients.map(element => (
+          <IngredientsListItem key={nanoid()}>
             <IngredientPicture>
               <source
                 media="(max-width: 768px)"

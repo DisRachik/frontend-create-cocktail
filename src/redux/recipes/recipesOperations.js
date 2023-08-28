@@ -7,7 +7,7 @@ export const fetchRecipeById = createAsyncThunk(
     try {
       return await getRecipeById(id);
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.massage);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

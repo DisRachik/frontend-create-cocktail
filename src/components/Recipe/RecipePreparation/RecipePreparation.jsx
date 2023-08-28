@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import {
   PreparationWrap,
   PreparationTitle,
@@ -8,7 +9,6 @@ import {
 } from './RecipePreparation.styled';
 
 export const RecipePreparation = ({ instructions }) => {
-  console.log(instructions);
   return (
     <PreparationWrap>
       <PreparationTitle>{'Recipe Preparation'}</PreparationTitle>
@@ -18,14 +18,16 @@ export const RecipePreparation = ({ instructions }) => {
         }
       </PreparationForeword>
       <PreparationList>
-        {instructions.map(
-          (instruction, index) =>
-            instruction.trim().length !== 0 && (
-              <PreparationListItem key={instruction.length + index}>
-                {instruction + '.'}
-              </PreparationListItem>
-            )
-        )}
+        {instructions
+          .split('.')
+          .map(
+            instruction =>
+              instruction.trim().length !== 0 && (
+                <PreparationListItem key={nanoid()}>
+                  {instruction + '.'}
+                </PreparationListItem>
+              )
+          )}
       </PreparationList>
       <PreparationImg />
     </PreparationWrap>
