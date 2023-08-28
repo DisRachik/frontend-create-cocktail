@@ -40,3 +40,31 @@ export const App = () => {
     </Routes>
   );
 };
+
+// export const App = () => {
+//   return (
+//     <Routes>
+//       <Route path="/" element={<Navigate to="/main" />} />
+//       {/* <Route path="/" element={<Navigate to="/welcome" />} /> */}
+
+//       {/* Unauthorized user routes */}
+//       <Route path="/welcome" element={<Welcome />} />
+//       <Route path="/signup" element={<Signup />} />
+//       <Route path="/signin" element={<Signin />} />
+
+//       {/* Authorized user routes */}
+//       <Route path="/" element={<Layout />}>
+//         <Route path="main" element={<Main />} />
+//         <Route path="drinks" element={<Drinks />} />
+//         <Route path="drinks/:categoryName" element={<Drinks />} />
+//         <Route path="add" element={<AddRecipe />} />
+//         <Route path="my" element={<MyRecipes />} />
+//         <Route path="favorite" element={<Favorite />} />
+//         <Route path="recipe/:recipeId" element={<Recipe />} />
+//       </Route>
+
+//       {/* Unknown route redirection */}
+//       <Route path="*" element={<Navigate to="/" />} />
+//     </Routes>
+//   );
+// };

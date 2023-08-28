@@ -21,3 +21,8 @@ export * from 'components/Favorite/EmptyFavoritePage';
 export * from 'components/Welcome/WelcomePage';
 export * from 'components/Signup/SignupPage';
 export * from 'components/Signin/SigninPage';
+
+//Header
+export * from 'components/Header/Header';
+export * from 'components/ModalBtnUser/ModalBtnUser';
+export * from 'components/Navigation/Navigation';
