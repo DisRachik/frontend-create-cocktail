@@ -1,19 +1,17 @@
-import { CategoryRecipesList, Button } from 'components';
-import { ButtonContainer } from './CategoryRecipesPage.styled';
-
+import { CategoryRecipesList,   } from 'components';
+// import { ButtonContainer } from './CategoryRecipesPage.styled';
+// import { useNavigate} from 'react-router-dom';
 export const CategoryRecipesPage = () => {
-  const handleButtonClick = () => {
-    console.log('Button clicked!');
-    // return(
-    //   <Link to="/my">My recipes</Link>
-    //   );
-  };
+//     const navigate = useNavigate();
+//     const handleButtonClick = () => {
+//       navigate("/drinks");
+//   };
   return (
     <>
       <CategoryRecipesList />
-      <ButtonContainer>
+      {/* <ButtonContainer>
         <Button onClick={handleButtonClick}>Other drinks</Button>
-      </ButtonContainer>
+      </ButtonContainer> */}
     </>
   );
 };
