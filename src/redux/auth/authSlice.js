@@ -6,7 +6,7 @@ const initialState = {
   token: null,
   isAuth: false,
   isRegistrate: false,
-  isRefreshing: false,
+  isRefreshing: true,
 };
 
 const authSlice = createSlice({
