@@ -27,14 +27,31 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const categoriesPersistConfig = {
+  key: 'categories',
+  storage,
+  whitelist: ['items'],
+};
+
+const glassesPersistConfig = {
+  key: 'glasses',
+  storage,
+  whitelist: ['items'],
+};
+
+const ingredientsPersistConfig = {
+  key: 'ingredients',
+  storage,
+  whitelist: ['items'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     favorites: favoriteReducer,
-    categories: categoriesReducer,
-    glasses: glassesReducer,
-    ingredients: ingredientsReducer,
-    // recipes: recipesReducer,
+    categories: persistReducer(categoriesPersistConfig, categoriesReducer),
+    glasses: persistReducer(glassesPersistConfig, glassesReducer),
+    ingredients: persistReducer(ingredientsPersistConfig, ingredientsReducer),
     recipe: recipeReducer,
     myRecipes: myRecipesReduser,
   },
