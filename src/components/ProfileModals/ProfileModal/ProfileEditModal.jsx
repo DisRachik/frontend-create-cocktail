@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ProfileEditContainer,
   UserAvatar,
@@ -68,6 +69,10 @@ const ProfileModal = ({ toggleProfileEditModal }) => {
       </ProfileEditContainer>
     </Backdrop>
   );
+};
+
+ProfileModal.propTypes = {
+  toggleProfileEditModal: PropTypes.func.isRequired,
 };
 
 export default ProfileModal;

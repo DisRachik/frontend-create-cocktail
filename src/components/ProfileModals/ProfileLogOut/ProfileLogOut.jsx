@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import PropTypes from 'prop-types';
 import {
   ProfileLogOutContainer,
   ProfileLogOutButtonsWrapper,
@@ -57,6 +57,10 @@ const ProfileLogOut = ({ toggleLogOutModal }) => {
       </ProfileLogOutContainer>
     </Backdrop>
   );
+};
+
+ProfileLogOut.propTypes = {
+  toggleLogOutModal: PropTypes.func.isRequired,
 };
 
 export default ProfileLogOut;

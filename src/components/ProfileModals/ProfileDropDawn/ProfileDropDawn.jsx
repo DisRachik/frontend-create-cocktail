@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import {
   DropDawnContainer,
@@ -11,7 +12,7 @@ import ProfileLogOut from '../ProfileLogOut/ProfileLogOut';
 import ProfileModal from '../ProfileModal/ProfileEditModal';
 
 const ProfileDropDawn = ({ closeModal }) => {
-  const ROOT = document.querySelector('#root');
+  const ROOT = document.querySelector('#modal-root');
 
   useEffect(() => {
     const handleKeyDown = event => {
@@ -59,6 +60,10 @@ const ProfileDropDawn = ({ closeModal }) => {
     </DropDawnContainer>,
     document.body
   );
+};
+
+ProfileDropDawn.propTypes = {
+  closeModal: PropTypes.func.isRequired,
 };
 
 export default ProfileDropDawn;
