@@ -1,5 +1,7 @@
-import { RiDeleteBinLine } from 'react-icons/ri';
+// Libs
 import PropTypes from 'prop-types';
+// Styled components
+
 import {
   BatonsContainer,
   DeleteFavoriteDrinksBtn,
@@ -10,7 +12,10 @@ import {
   Text,
   TitleDrinks,
 } from './RecipesItem.styled';
+
 import { useDispatch } from 'react-redux';
+// Icons
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 export const RecipesItem = ({
   data: { drink, instructions, drinkThumb, _id },

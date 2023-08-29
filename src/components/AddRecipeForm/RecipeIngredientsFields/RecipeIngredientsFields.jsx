@@ -5,7 +5,18 @@ import PropTypes from 'prop-types';
 // Components
 import { FieldsCounter } from './FieldsCounter/FieldsCounter';
 // Styled components
-import { SelectList } from './RecipeIngredientsFields.styled';
+import {
+  IngredientsBox,
+  TitleWrapper,
+  IngredientsTitle,
+  SelectList,
+  SelectListItem,
+  RemoveDtn,
+  selectStyles,
+  measureSelectStyles,
+} from './RecipeIngredientsFields.styled';
+// Icons
+import { IoMdClose } from 'react-icons/io';
 // Constants
 const MIN_FIELDS_COUNT = 2;
 
@@ -37,19 +48,20 @@ export const RecipeIngredientsFields = ({
   };
 
   return (
-    <>
-      <h2>Ingredients</h2>
-
-      <FieldsCounter
-        fields={fields}
-        handleAddField={handleAddField}
-        handleRemoveField={handleRemoveField}
-      />
+    <IngredientsBox>
+      <TitleWrapper>
+        <IngredientsTitle>Ingredients</IngredientsTitle>
+        <FieldsCounter
+          fields={fields}
+          handleAddField={handleAddField}
+          handleRemoveField={handleRemoveField}
+        />
+      </TitleWrapper>
 
       <SelectList>
         {fields.map((field, index) => {
           return (
-            <li key={field.id} style={{ display: 'flex' }}>
+            <SelectListItem key={field.id}>
               <Controller
                 name={`ingredients.${index}.title`}
                 control={control}
@@ -57,6 +69,8 @@ export const RecipeIngredientsFields = ({
                   <Select
                     {...field}
                     placeholder="Select from options..."
+                    unstyled
+                    styles={selectStyles}
                     options={ingredientsList}
                     defaultValue={state.ingredients[index]}
                     onChange={selectedOption => {
@@ -73,7 +87,9 @@ export const RecipeIngredientsFields = ({
                 render={({ field }) => (
                   <Select
                     {...field}
-                    placeholder="Select from options..."
+                    placeholder="Select..."
+                    unstyled
+                    styles={measureSelectStyles}
                     options={measureList}
                     defaultValue={state.ingredients[index]}
                     onChange={selectedOption => {
@@ -84,20 +100,18 @@ export const RecipeIngredientsFields = ({
                 )}
               />
 
-              <button type="button" onClick={() => handleRemoveField(index)}>
-                X
-              </button>
-            </li>
+              <RemoveDtn type="button" onClick={() => handleRemoveField(index)}>
+                <IoMdClose size={18} />
+              </RemoveDtn>
+            </SelectListItem>
           );
         })}
-
-        {errors.ingredients?.length > 0 && (
-          <p style={{ color: 'deeppink' }}>
-            {'Provide at least 2 ingredients'}
-          </p>
-        )}
       </SelectList>
-    </>
+
+      {errors.ingredients?.length > 0 && (
+        <p style={{ color: 'deeppink' }}>{'Provide at least 2 ingredients'}</p>
+      )}
+    </IngredientsBox>
   );
 };
 
