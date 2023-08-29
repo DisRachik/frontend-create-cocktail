@@ -5,3 +5,9 @@ export const getFavorites = async id => {
 
   return res.data;
 };
+
+export const updateFavoriteStatus = async id => {
+  const res = await axios.patch(`/favorite/${id}`);
+
+  return res.data;
+};

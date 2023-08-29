@@ -12,6 +12,9 @@ import {
 
 import { preparationForeward } from 'constans';
 
+const defaultImageUrl = require('../../../img/recipe-preparation.jpg');
+const retinaImageImageUrl = require('../../../img/recipe-preparation-2x.jpg');
+
 export const RecipePreparation = ({ instructions }) => {
   let instructionIsArray;
   let arrayOfInstructions;
@@ -42,7 +45,11 @@ export const RecipePreparation = ({ instructions }) => {
                   )
               )}
           </PreparationList>
-          <PreparationImg />
+          <PreparationImg
+            src={retinaImageImageUrl}
+            srcSet={`${defaultImageUrl} 1x, ${retinaImageImageUrl} 2x`}
+            alt="Recipe Preparation"
+          />
         </PreparationWrap>
       )}
     </>
