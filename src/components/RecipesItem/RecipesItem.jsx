@@ -1,6 +1,7 @@
+// Libs
 import PropTypes from 'prop-types';
-import { RiDeleteBinLine } from 'react-icons/ri';
-// import defaultImage from 'img/default-img.png';
+// Styled components
+
 import {
   BatonsContainer,
   DeleteFavoriteDrinksBtn,
@@ -11,6 +12,8 @@ import {
   Text,
   TitleDrinks,
 } from './RecipesItem.styled';
+// Icons
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 export const RecipesItem = ({
   data: { drink, instructions, drinkThumb, _id },

@@ -7,7 +7,8 @@ import { useAuth } from 'redux/auth/useAuth';
 // };
 
 export const PublicRoute = ({ component: Component, redirectTo = '/' }) => {
-  const { isAuth } = useAuth();
+  const { isAuth, isRefreshing } = useAuth();
+  const shouldRedirect = isAuth && !isRefreshing;
 
-  return isAuth ? <Navigate to={redirectTo} /> : Component;
+  return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 };

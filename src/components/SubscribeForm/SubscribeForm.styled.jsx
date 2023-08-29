@@ -66,35 +66,3 @@ export const Input = styled.input`
     outline: 1px solid ${changeFocusOutlineColor};
   }
 `;
-
-// export const Button = styled.button`
-//   padding: 18px 0;
-//   margin-top: 18px;
-//   width: 100%;
-//   font-size: ${theme.fontSizes.small};
-//   font-weight: 600;
-//   line-height: calc(18 / 14);
-//   color: ${theme.colors.lightGray};
-//   background-color: inherit;
-//   border: 1px solid ${theme.colors.gray};
-//   border-radius: 200px;
-//   cursor: pointer;
-//   transition: ${theme.animation('background-color')};
-
-//   @media (min-width: 768px) {
-//     font-size: 17px;
-//     line-height: calc(27 / 17);
-//   }
-
-//   &:hover,
-//   &:focus {
-//     color: ${theme.colors.midnightBlue};
-//     background-color: ${theme.colors.lightGray};
-//   }
-
-//   &:disabled {
-//     cursor: initial;
-//     background-color: inherit;
-//     color: ${theme.colors.gray};
-//   }
-// `;
