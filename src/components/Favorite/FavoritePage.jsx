@@ -8,14 +8,15 @@ import { useEffect } from 'react';
 export const FavoritePage = () => {
   const dispatch = useDispatch();
   const { favoriteDrinks } = useSelector(getFavoriteDrinks);
+  console.log(favoriteDrinks);
 
   useEffect(() => {
-    dispatch(fetchUserFavoriteDrinks('64e9e5b0560e3b35a2a95c89'));
+    dispatch(fetchUserFavoriteDrinks('64eceb2d1aae0da56707911c'));
   }, [dispatch]);
 
   return (
     <>
-      {Array.from(favoriteDrinks).length !== 0 ? (
+      {favoriteDrinks.length !== 0 ? (
         <RecipesList array={favoriteDrinks} />
       ) : (
         <EmptyFavoritePage />
