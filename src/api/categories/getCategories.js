@@ -7,7 +7,7 @@ const setAuthHeader = token => {
 };
 
 setAuthHeader(
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWIzYWMyYmJlMTNmNjZjY2MxNGQyZCIsImlhdCI6MTY5MzEzNzg5MSwiZXhwIjoxNjkzMjIwNjkxfQ.c87yedKVnB4QFRk4eCWZSZt5rI2zxwwT9BQr3F0R-uI'
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZWIzYWMyYmJlMTNmNjZjY2MxNGQyZCIsImlhdCI6MTY5MzI0NDYxMCwiZXhwIjoxNjkzMzI3NDEwfQ.tH7wlHv-BLJojdrGmbss12N9GfTE7pz0EK8KccO9Ha0'
 );
 // !=============================================End of the temp code============================================
 

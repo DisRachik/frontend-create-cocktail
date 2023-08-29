@@ -5,6 +5,7 @@ const AddRecipe = () => {
     <>
       <Section title="Add recipe">
         <AddRecipeForm />
+        <h2>Follow Us</h2>
         <FollowUs />
         <PopularRecipe />
       </Section>
