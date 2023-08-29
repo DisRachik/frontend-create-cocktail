@@ -29,3 +29,9 @@ export * from 'components/Favorite/EmptyFavoritePage';
 export * from 'components/Welcome/WelcomePage';
 export * from 'components/Signup/SignupPage';
 export * from 'components/Signin/SigninPage';
+
+// Drinks
+
+export * from 'components/DrinksPage/DrinkListItem/DrinkListItem';
+export * from 'components/DrinksPage/DrinksList/DrinksList';
+export * from 'components/DrinksPage/DrinksSearchBar/DrinksSearchBar';
