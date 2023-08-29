@@ -7,7 +7,7 @@ export const Navigation = ({ nav }) => {
     <NavList nav={nav}>
       <Li>
         <MenuLink
-          to="/"
+          to="/main"
           //   onClick={() => {
           //     setClose(!close);
           //   }}
