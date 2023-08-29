@@ -1,6 +1,7 @@
 // Libs
 import PropTypes from 'prop-types';
 // Styled components
+
 import {
   BatonsContainer,
   DeleteFavoriteDrinksBtn,
