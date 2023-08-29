@@ -2,9 +2,7 @@ import { lazy, useEffect } from 'react';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout, PrivateRoute, PublicRoute } from 'components';
-import Welcome from 'pages/Welcome';
-import Signup from 'pages/Signup';
-import Signin from 'pages/Signin';
+
 import { useAuth } from 'redux/auth/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
@@ -15,9 +13,12 @@ const Favorite = lazy(() => import('pages/Favorite'));
 const Main = lazy(() => import('pages/Main'));
 const MyRecipes = lazy(() => import('pages/MyRecipes'));
 const Recipe = lazy(() => import('pages/Recipe'));
+const Welcome = lazy(() => import('pages/Welcome'));
+const Signup = lazy(() => import('pages/Signup'));
+const Signin = lazy(() => import('pages/Signin'));
 
 export const App = () => {
-  const { isRefreshing } = useAuth();
+  const { isAuth, isRefreshing } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,72 +29,55 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/" element={<Navigate to="/main" />} />
-      {/* <Route
-        path="/"
-        element={<PrivateRoute redirectTo="/main" component={<Main />} />}
-      /> */}
-
-      {/* <Route path="/" element={<Navigate to="/welcome" />} /> */}
-      {/* <Route
-        path="/"
-        element={<PublicRoute redirectTo="/welcome" component={<Welcome />} />}
-      /> */}
-
-      {/* Unauthorized user routes */}
-      <Route
-        path="/welcome"
-        element={<PublicRoute redirectTo="/" component={<Welcome />} />}
-      />
-      <Route
-        path="/signup"
-        element={<PublicRoute redirectTo="/" component={<Signup />} />}
-      />
-      <Route
-        path="/signin"
-        element={<PublicRoute redirectTo="/" component={<Signin />} />}
-      />
       {/* Authorized user routes */}
       <Route path="/" element={<Layout />}>
         <Route
+          index
+          element={
+            isAuth ? <Navigate to="/main" /> : <Navigate to="/welcome" />
+          }
+        />
+        <Route
           path="/main"
-          element={<PrivateRoute redirectTo="/welcome" component={<Main />} />}
+          element={<PrivateRoute redirectTo="/" component={<Main />} />}
         />
         <Route
           path="/drinks"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<Drinks />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<Drinks />} />}
         />
         <Route
           path="/drinks/:categoryName"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<Drinks />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<Drinks />} />}
         />
         <Route
           path="/add"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<AddRecipe />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<AddRecipe />} />}
         />
         <Route
           path="/my"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<MyRecipes />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<MyRecipes />} />}
         />
         <Route
           path="/favorite"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<Favorite />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<Favorite />} />}
         />
         <Route
           path="/recipe/:recipeId"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<Recipe />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<Recipe />} />}
+        />
+
+        {/* Unauthorized user routes */}
+        <Route
+          path="/welcome"
+          element={<PublicRoute redirectTo="/" component={<Welcome />} />}
+        />
+        <Route
+          path="/signup"
+          element={<PublicRoute redirectTo="/" component={<Signup />} />}
+        />
+        <Route
+          path="/signin"
+          element={<PublicRoute redirectTo="/" component={<Signin />} />}
         />
       </Route>
       {/* Unknown route redirection */}

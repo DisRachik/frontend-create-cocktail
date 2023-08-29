@@ -10,10 +10,7 @@ import { Navigate } from 'react-router-dom';
 //   const location = useLocation();
 //   return isAuth ? children : <Navigate to={redirectTo} state={location} />;
 // };
-export const PrivateRoute = ({
-  component: Component,
-  redirectTo = '/welcome',
-}) => {
+export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
   //   const { isLoggedIn, isRefreshing } = useAuth();
   //   const shouldRedirect = !isLoggedIn && !isRefreshing;
   const { isAuth, isRefreshing } = useAuth();

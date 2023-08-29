@@ -10,8 +10,7 @@ const favoriteSlice = createSlice({
       state.error = null;
     },
     [fetchUserFavoriteDrinks.fulfilled](state, { payload }) {
-      state.favoriteDrinks = payload.favorites;
-      // state.favoriteDrinks = [];
+      state.favoriteDrinks = payload;
     },
     [fetchUserFavoriteDrinks.rejected](state, action) {
       state.favoriteDrinks = [];

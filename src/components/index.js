@@ -32,13 +32,18 @@ export * from 'components/Recipe/RecipePageHero/RecipePageHero';
 export * from 'components/Recipe/RecipeIngredientsList/RecipeIngredientsList';
 export * from 'components/Recipe/RecipePreparation/RecipePreparation';
 export * from 'components/Favorite/EmptyFavoritePage';
-
 // Welcome
 export * from 'components/Welcome/WelcomePage';
 export * from 'components/Signup/SignupPage';
 export * from 'components/Signin/SigninPage';
-
 //Header
 export * from 'components/Header/Header';
 export * from 'components/ModalBtnUser/ModalBtnUser';
 export * from 'components/Navigation/Navigation';
+// Drinks
+export * from 'components/DrinksPage/DrinkListItem/DrinkListItem';
+export * from 'components/DrinksPage/DrinksList/DrinksList';
+export * from 'components/DrinksPage/DrinksSearchBar/DrinksSearchBar';
+// My recipes
+export * from 'components/MyRecipes/MyRecipesPage';
+export * from 'components/MyRecipes/EmptyMyRecipesPage';
