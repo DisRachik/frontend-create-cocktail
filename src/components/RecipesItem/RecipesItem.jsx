@@ -1,5 +1,6 @@
-import { RiDeleteBinLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
+import { RiDeleteBinLine } from 'react-icons/ri';
+// import defaultImage from 'img/default-img.png';
 import {
   BatonsContainer,
   DeleteFavoriteDrinksBtn,
