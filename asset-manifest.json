@@ -1,13 +1,16 @@
 {
   "files": {
     "main.css": "/frontend-create-cocktail/static/css/main.cd2e038f.css",
-    "main.js": "/frontend-create-cocktail/static/js/main.c2dd4cb2.js",
-    "static/js/271.156a9603.chunk.js": "/frontend-create-cocktail/static/js/271.156a9603.chunk.js",
-    "static/js/424.4d4be621.chunk.js": "/frontend-create-cocktail/static/js/424.4d4be621.chunk.js",
-    "static/js/643.b5de7883.chunk.js": "/frontend-create-cocktail/static/js/643.b5de7883.chunk.js",
-    "static/js/874.0b09ae72.chunk.js": "/frontend-create-cocktail/static/js/874.0b09ae72.chunk.js",
-    "static/js/192.338e2293.chunk.js": "/frontend-create-cocktail/static/js/192.338e2293.chunk.js",
-    "static/js/607.951a6d15.chunk.js": "/frontend-create-cocktail/static/js/607.951a6d15.chunk.js",
+    "main.js": "/frontend-create-cocktail/static/js/main.8f14f6c6.js",
+    "static/js/271.8e406ed8.chunk.js": "/frontend-create-cocktail/static/js/271.8e406ed8.chunk.js",
+    "static/js/424.35ba2100.chunk.js": "/frontend-create-cocktail/static/js/424.35ba2100.chunk.js",
+    "static/js/643.e8a93996.chunk.js": "/frontend-create-cocktail/static/js/643.e8a93996.chunk.js",
+    "static/js/874.2a039885.chunk.js": "/frontend-create-cocktail/static/js/874.2a039885.chunk.js",
+    "static/js/192.c17092ec.chunk.js": "/frontend-create-cocktail/static/js/192.c17092ec.chunk.js",
+    "static/js/607.4606956e.chunk.js": "/frontend-create-cocktail/static/js/607.4606956e.chunk.js",
+    "static/js/267.b4ecb396.chunk.js": "/frontend-create-cocktail/static/js/267.b4ecb396.chunk.js",
+    "static/js/593.70c45beb.chunk.js": "/frontend-create-cocktail/static/js/593.70c45beb.chunk.js",
+    "static/js/526.bb0a84f2.chunk.js": "/frontend-create-cocktail/static/js/526.bb0a84f2.chunk.js",
     "static/media/mae-mu-T7heq8rawkc-unsplash 1.png": "/frontend-create-cocktail/static/media/mae-mu-T7heq8rawkc-unsplash 1.8f480c571fce36a67c5e.png",
     "static/media/mae-mu-T7heq8rawkc-unsplash 2.png": "/frontend-create-cocktail/static/media/mae-mu-T7heq8rawkc-unsplash 2.c79ac952332e34e6952a.png",
     "static/media/tablet-yellow-drink.png": "/frontend-create-cocktail/static/media/tablet-yellow-drink.62440d8ed664e7baa8e3.png",
@@ -15,16 +18,19 @@
     "static/media/mobile-yellow-drink.png": "/frontend-create-cocktail/static/media/mobile-yellow-drink.f354a64a1b1657add36f.png",
     "index.html": "/frontend-create-cocktail/index.html",
     "main.cd2e038f.css.map": "/frontend-create-cocktail/static/css/main.cd2e038f.css.map",
-    "main.c2dd4cb2.js.map": "/frontend-create-cocktail/static/js/main.c2dd4cb2.js.map",
-    "271.156a9603.chunk.js.map": "/frontend-create-cocktail/static/js/271.156a9603.chunk.js.map",
-    "424.4d4be621.chunk.js.map": "/frontend-create-cocktail/static/js/424.4d4be621.chunk.js.map",
-    "643.b5de7883.chunk.js.map": "/frontend-create-cocktail/static/js/643.b5de7883.chunk.js.map",
-    "874.0b09ae72.chunk.js.map": "/frontend-create-cocktail/static/js/874.0b09ae72.chunk.js.map",
-    "192.338e2293.chunk.js.map": "/frontend-create-cocktail/static/js/192.338e2293.chunk.js.map",
-    "607.951a6d15.chunk.js.map": "/frontend-create-cocktail/static/js/607.951a6d15.chunk.js.map"
+    "main.8f14f6c6.js.map": "/frontend-create-cocktail/static/js/main.8f14f6c6.js.map",
+    "271.8e406ed8.chunk.js.map": "/frontend-create-cocktail/static/js/271.8e406ed8.chunk.js.map",
+    "424.35ba2100.chunk.js.map": "/frontend-create-cocktail/static/js/424.35ba2100.chunk.js.map",
+    "643.e8a93996.chunk.js.map": "/frontend-create-cocktail/static/js/643.e8a93996.chunk.js.map",
+    "874.2a039885.chunk.js.map": "/frontend-create-cocktail/static/js/874.2a039885.chunk.js.map",
+    "192.c17092ec.chunk.js.map": "/frontend-create-cocktail/static/js/192.c17092ec.chunk.js.map",
+    "607.4606956e.chunk.js.map": "/frontend-create-cocktail/static/js/607.4606956e.chunk.js.map",
+    "267.b4ecb396.chunk.js.map": "/frontend-create-cocktail/static/js/267.b4ecb396.chunk.js.map",
+    "593.70c45beb.chunk.js.map": "/frontend-create-cocktail/static/js/593.70c45beb.chunk.js.map",
+    "526.bb0a84f2.chunk.js.map": "/frontend-create-cocktail/static/js/526.bb0a84f2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.c2dd4cb2.js"
+    "static/js/main.8f14f6c6.js"
   ]
 }
