@@ -14,7 +14,7 @@ export const HeroWrap = styled.div`
     display: grid;
     grid-template-columns: 1fr 400px;
     grid-template-rows: 400px;
-    grid-column-gap: 0px;
+    grid-column-gap: 247px;
     grid-row-gap: 0px;
     margin-bottom: 100px;
   }
@@ -65,6 +65,7 @@ export const CocktailDescription = styled.p`
   line-height: 18px;
 
   @media (min-width: 768px) {
+    max-width: 593px;
     margin-bottom: 40px;
     font-size: ${theme.fontSizes.medium};
     line-height: 22px;

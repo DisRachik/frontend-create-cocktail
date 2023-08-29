@@ -6,6 +6,8 @@ import { favoriteReducer } from './favorite/favoriteSlice';
 import { categoriesReducer } from './categories/categoriesSlice';
 import { glassesReducer } from './glasses/glassesSlice';
 import { ingredientsReducer } from './ingredients/ingredientsSlice';
+// import { recipesReducer } from './recipes/recipesSlice';
+import { recipeReducer } from './recipe/recipeSlice';
 import { myRecipesReduser } from './myRecipes/myRecipesSlice';
 
 import {
@@ -34,6 +36,8 @@ export const store = configureStore({
     categories: categoriesReducer,
     glasses: glassesReducer,
     ingredients: ingredientsReducer,
+    // recipes: recipesReducer,
+    recipe: recipeReducer,
     myRecipes: myRecipesReduser,
   },
   middleware: getDefaultMiddleware =>

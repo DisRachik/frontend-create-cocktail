@@ -55,3 +55,4 @@ export const Text = styled.p`
 `;
 
 export const PolicyText = Text.withComponent(Link);
+

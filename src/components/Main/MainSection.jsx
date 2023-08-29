@@ -1,17 +1,13 @@
 import PropTypes from 'prop-types';
 import { MainSectionWrap, MainSectionTitle, MainSectionSubtitle,BackgroundImageWrap } from './MainSection.styled';
 import { Button } from 'components';
-import {
-   
-  useNavigate,
-   
-} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 export const MainSection = ({ title, posttitle, children }) =>
 
 {
    const navigate = useNavigate();
     const handleButtonClick = () => {
-      navigate("/my");
+      navigate("/add");
   };
   return (
      <BackgroundImageWrap  >

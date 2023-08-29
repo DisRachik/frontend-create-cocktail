@@ -1,6 +1,11 @@
-import { MainSection, CategoryRecipesPage, Section } from 'components';
-
+import { MainSection, CategoryRecipesPage, CategorySection,Button } from 'components';
+import { ButtonContainer } from '../components/CategoryRecipesPage/CategoryRecipesPage.styled';
+import { useNavigate} from 'react-router-dom';
 const Main = () => {
+   const navigate = useNavigate();
+    const handleButtonClick = () => {
+      navigate("/drinks");
+  };
   return (
     <>
       <MainSection
@@ -9,9 +14,21 @@ const Main = () => {
       >
         {/* Тут вставляємо свої компоненти */}
       </MainSection>
-      <Section title=" Categories">
+      <CategorySection title="Ordinary Drink">
         <CategoryRecipesPage />
-      </Section>
+      </CategorySection>
+       <CategorySection title="Cocktail">
+        <CategoryRecipesPage />
+      </CategorySection>
+       <CategorySection title="Shake">
+        <CategoryRecipesPage />
+      </CategorySection>
+       <CategorySection title="Other/Unknow">
+        <CategoryRecipesPage />
+      </CategorySection>
+      <ButtonContainer>
+        <Button onClick={handleButtonClick}>Other drinks</Button>
+      </ButtonContainer>
     </>
   );
 };
