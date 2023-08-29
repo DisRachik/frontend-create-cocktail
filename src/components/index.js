@@ -42,3 +42,7 @@ export * from 'components/Signin/SigninPage';
 export * from 'components/Header/Header';
 export * from 'components/ModalBtnUser/ModalBtnUser';
 export * from 'components/Navigation/Navigation';
+
+// My recipes
+export * from 'components/MyRecipes/MyRecipesPage';
+export * from 'components/MyRecipes/EmptyMyRecipesPage';

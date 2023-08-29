@@ -8,6 +8,7 @@ import { glassesReducer } from './glasses/glassesSlice';
 import { ingredientsReducer } from './ingredients/ingredientsSlice';
 // import { recipesReducer } from './recipes/recipesSlice';
 import { recipeReducer } from './recipe/recipeSlice';
+import { myRecipesReduser } from './myRecipes/myRecipesSlice';
 
 import {
   persistStore,
@@ -37,6 +38,7 @@ export const store = configureStore({
     ingredients: ingredientsReducer,
     // recipes: recipesReducer,
     recipe: recipeReducer,
+    myRecipes: myRecipesReduser,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
