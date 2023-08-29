@@ -34,3 +34,7 @@ export * from 'components/Favorite/EmptyFavoritePage';
 export * from 'components/Welcome/WelcomePage';
 export * from 'components/Signup/SignupPage';
 export * from 'components/Signin/SigninPage';
+
+// My recipes
+export * from 'components/MyRecipes/MyRecipesPage';
+export * from 'components/MyRecipes/EmptyMyRecipesPage';

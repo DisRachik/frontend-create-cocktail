@@ -1,5 +1,5 @@
 import { Section } from 'components';
-import { MyRecipesPage } from '../components/MyRecipes/MyRecipesPage';
+import { MyRecipesPage } from '../components';
 
 const MyRecipes = () => {
   return (
