@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsAuth, selectUser } from './selectors';
+import { selectIsAuth, selectIsRefreshing, selectUser } from './selectors';
 
 import { signIn, signOut, signUp } from './operations';
 
@@ -7,6 +7,7 @@ export const useAuth = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   const user = useSelector(selectUser);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   const handleSignIn = user => {
     dispatch(signIn({ ...user }));
@@ -26,5 +27,6 @@ export const useAuth = () => {
     handleSignIn,
     handleSignUp,
     handleSignOut,
+    isRefreshing,
   };
 };

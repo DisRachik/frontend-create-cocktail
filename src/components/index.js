@@ -1,5 +1,7 @@
 export * from 'components/App';
 export * from 'components/Layout';
+export * from 'components/PrivateRoute';
+export * from 'components/PublicRoute';
 export * from 'components/shared/Section/Section';
 export * from 'components/shared/Container/Container';
 export * from 'components/shared/Button/Button';
@@ -34,3 +36,8 @@ export * from 'components/Favorite/EmptyFavoritePage';
 export * from 'components/Welcome/WelcomePage';
 export * from 'components/Signup/SignupPage';
 export * from 'components/Signin/SigninPage';
+
+//Header
+export * from 'components/Header/Header';
+export * from 'components/ModalBtnUser/ModalBtnUser';
+export * from 'components/Navigation/Navigation';
