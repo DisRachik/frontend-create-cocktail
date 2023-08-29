@@ -1,5 +1,4 @@
 // Libs
-import { useState } from 'react';
 import Select from 'react-select';
 import { Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
