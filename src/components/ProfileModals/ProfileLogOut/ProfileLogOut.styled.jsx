@@ -1,22 +1,6 @@
 import styled from '@emotion/styled';
+import { IoMdClose } from 'react-icons/io';
 import { theme } from 'styles';
-
-export const ProfileLpgOutBackdrop = styled.div`
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
-
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-
-  transition: ${theme.animation('visibility')};
-  transition: ${theme.animation('opacity')};
-`;
 
 export const ProfileLogOutContainer = styled.div`
   display: flex;
@@ -116,4 +100,33 @@ export const ProfileLogOutCancelBtn = styled.button`
     background: ${theme.colors.midnightBlue};
     border: 1px solid rgba(243, 243, 243, 0.2);
   }
+`;
+
+export const ProfileCancelBtn = styled.button`
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  padding: 2px;
+
+  width: 32px;
+  height: 32px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  transition: ${theme.animation('border')};
+
+  &:hover,
+  &:focus {
+    border: 1px solid ${theme.colors.lightGray};
+  }
+`;
+
+export const CloseIcon = styled(IoMdClose)`
+  width: 32px;
+  height: 32px;
+  color: ${theme.colors.lightGray};
 `;

@@ -1,10 +1,8 @@
 import React from 'react';
 import {
-  ProfileEditBackdrop,
   ProfileEditContainer,
   UserAvatar,
   ProfileEditInput,
-  ProfileEditSubmitBtn,
   ProfileEditCancelBtn,
   ProfileEditForm,
   CloseIcon,
@@ -15,8 +13,9 @@ import {
   AvatarWrapper,
 } from './ProfileEditModal.styled';
 import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
+import { Backdrop, Button } from 'components';
 
-const ProfileModal = ({ closeModal }) => {
+const ProfileModal = ({ toggleProfileEditModal }) => {
   const IsWork = () => {
     console.log('CHANGES SAVED');
   };
@@ -30,9 +29,9 @@ const ProfileModal = ({ closeModal }) => {
   };
 
   return (
-    <ProfileEditBackdrop>
+    <Backdrop>
       <ProfileEditContainer>
-        <ProfileEditCancelBtn onClick={closeModal}>
+        <ProfileEditCancelBtn onClick={toggleProfileEditModal}>
           <CloseIcon />
         </ProfileEditCancelBtn>
         <label htmlFor="avatarInput">
@@ -53,15 +52,20 @@ const ProfileModal = ({ closeModal }) => {
           <ProfileEditInput placeholder="Victoria"></ProfileEditInput>
           <EditIcon></EditIcon>
 
-          <ProfileEditSubmitBtn onClick={IsWork} type="submit">
+          <Button
+            minWidth="400px"
+            minHeight="54px"
+            onClick={IsWork}
+            type="submit"
+          >
             Save changes
-          </ProfileEditSubmitBtn>
+          </Button>
         </ProfileEditForm>
 
         <TopDecorCircle></TopDecorCircle>
         <BottomDecorCircle></BottomDecorCircle>
       </ProfileEditContainer>
-    </ProfileEditBackdrop>
+    </Backdrop>
   );
 };
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import {
   DropDawnContainer,
   DropDawnText,
@@ -9,7 +10,27 @@ import {
 import ProfileLogOut from '../ProfileLogOut/ProfileLogOut';
 import ProfileModal from '../ProfileModal/ProfileEditModal';
 
-const ProfileDropDawn = () => {
+const ProfileDropDawn = ({ closeModal }) => {
+  const ROOT = document.querySelector('#root');
+
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') closeModal();
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    ROOT.addEventListener('click', handleCloseModal);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      ROOT.removeEventListener('click', handleCloseModal);
+    };
+  }, [closeModal]);
+
+  const handleCloseModal = event => {
+    if (event.target !== event.currentTarget) closeModal();
+  };
+
   const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
   const [isModalProfileEditOpen, setIsModalProfileEditOpen] = useState(false);
 
@@ -21,7 +42,7 @@ const ProfileDropDawn = () => {
     setIsModalProfileEditOpen(prevState => !prevState);
   };
 
-  return (
+  return ReactDOM.createPortal(
     <DropDawnContainer>
       <DropDawnTextWrapper onClick={toggleProfileEditModal}>
         <DropDawnText>Edit profile</DropDawnText>
@@ -29,11 +50,14 @@ const ProfileDropDawn = () => {
       </DropDawnTextWrapper>
       <LogOutBtn onClick={toggleLogOutModal}>Log out</LogOutBtn>
 
-      {isModalLogOutOpen && <ProfileLogOut closeModal={toggleLogOutModal} />}
-      {isModalProfileEditOpen && (
-        <ProfileModal closeModal={toggleProfileEditModal} />
+      {isModalLogOutOpen && (
+        <ProfileLogOut toggleLogOutModal={toggleLogOutModal} />
       )}
-    </DropDawnContainer>
+      {isModalProfileEditOpen && (
+        <ProfileModal toggleProfileEditModal={toggleProfileEditModal} />
+      )}
+    </DropDawnContainer>,
+    document.body
   );
 };
 

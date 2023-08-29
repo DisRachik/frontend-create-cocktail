@@ -15,9 +15,13 @@ export const DropDawnContainer = styled.div`
   justify-content: space-between;
 
   padding: 18px;
+
+  position: fixed;
+  top: 0px;
+  left: 100px;
 `;
 
-export const DropDawnTextWrapper = styled.div`
+export const DropDawnTextWrapper = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;

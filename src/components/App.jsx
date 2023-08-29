@@ -12,9 +12,6 @@ const Favorite = lazy(() => import('pages/Favorite'));
 const Main = lazy(() => import('pages/Main'));
 const MyRecipes = lazy(() => import('pages/MyRecipes'));
 const Recipe = lazy(() => import('pages/Recipe'));
-const ProfileDropDawn = lazy(() =>
-  import('../components/ProfileModals/ProfileDropDawn/ProfileDropDawn')
-);
 
 export const App = () => {
   return (
@@ -36,7 +33,6 @@ export const App = () => {
         <Route path="my" element={<MyRecipes />} />
         <Route path="favorite" element={<Favorite />} />
         <Route path="recipe/:recipeId" element={<Recipe />} />
-        <Route path="/profile" element={<ProfileDropDawn />} />
       </Route>
 
       {/* Unknown route redirection */}
