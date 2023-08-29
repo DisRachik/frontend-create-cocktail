@@ -4,7 +4,7 @@ import { CatigoryList } from './CategoryRecipesList.styled';
 import drinks from './cocktails.json';
 // import categories from './categories.json';
 
-const drinksSlise = [...drinks].slice(0, 6);
+const drinksSlise = [...drinks].slice(0, 3);
 // const categoriesSlise = [...categories].slice(0, 4);
 export const CategoryRecipesList = () => {
   return (

@@ -98,3 +98,10 @@ background-image: linear-gradient(0.95deg, #0A0A11 -0.56%, rgba(10, 10, 17, 0) 2
 
 
 `;
+export const ButtonContainer = styled.div`
+margin: 0 auto;
+display: flex-inline;
+justify-content: center;
+align-items: center;
+margin-left: 550px;
+`;
