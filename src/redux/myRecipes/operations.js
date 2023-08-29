@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { getMyRecipes, deleteMyRecip } from 'api';
 
 export const fetchMyRecipes = createAsyncThunk(
   'myRecipes/fetchMyRecipes',
-  async (id, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await axios.getMyRecipes(id);
+      const { data } = await getMyRecipes();
       console.log(data);
 
       return data;
@@ -19,7 +19,7 @@ export const deleteMyRecipes = createAsyncThunk(
   'myRecipes/deleteMyRecipes',
   async (_id, thunkAPI) => {
     try {
-      const { data } = await axios.deleteMyRecipes(_id);
+      const { data } = await deleteMyRecip(_id);
       return data.id;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

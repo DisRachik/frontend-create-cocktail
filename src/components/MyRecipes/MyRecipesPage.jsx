@@ -2,26 +2,35 @@
 import { RecipesList } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectError,
+  selectLoading,
   // selectError,
   // selectLoading,
   selectMyRecipes,
 } from 'redux/myRecipes/selectors';
 import { useEffect } from 'react';
-import { fetchMyRecipes } from 'redux/myRecipes/operations';
+import { deleteMyRecipes, fetchMyRecipes } from 'redux/myRecipes/operations';
+import { EmptyMyRecipesPage } from './EmptyMyRecipesPage';
 
 export const MyRecipesPage = () => {
   const dispatch = useDispatch();
   const myRecipes = useSelector(selectMyRecipes);
-  console.log(myRecipes);
-  // const isLoading = useSelector(selectLoading);
-  // const error = useSelector(selectError);
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchMyRecipes());
   }, [dispatch]);
 
   const isMyRecipes = myRecipes.length > 0;
-  console.log(isMyRecipes);
-
-  return <RecipesList />;
+  return (
+    <>
+      {isMyRecipes ? (
+        <RecipesList array={myRecipes} action={deleteMyRecipes} />
+      ) : (
+        <EmptyMyRecipesPage />
+      )}
+      {isLoading && !error && <b>Request in progress...</b>}
+    </>
+  );
 };

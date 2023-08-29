@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const getMyRecipes = async id => {
-  const res = await axios.get(`/users/${id}`);
+export const getMyRecipes = async () => {
+  const res = await axios.get(`/own`);
 
   return res.data;
 };

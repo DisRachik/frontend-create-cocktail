@@ -1,2 +1,2 @@
 export * from 'api/myRecipes/getMyRecipes';
-export * from 'api/myRecipes/deleteMyRecipes';
+export * from 'api/myRecipes/deleteMyRecip';
