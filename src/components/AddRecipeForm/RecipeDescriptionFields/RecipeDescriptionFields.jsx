@@ -29,15 +29,11 @@ export const RecipeDescriptionFields = ({
   glassesList,
   categoriesList,
   state,
+  imageURL,
+  handleImagePick,
   handleInputChange,
   handleSingleSelectChange,
 }) => {
-  const [imageURL, setImageURL] = useState(null);
-
-  const handleImagePick = e => {
-    setImageURL(URL.createObjectURL(e.target.files[0]));
-  };
-
   return (
     <DescriptionBox>
       <FileInputBox>
