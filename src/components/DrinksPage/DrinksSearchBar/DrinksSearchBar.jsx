@@ -3,7 +3,6 @@ import { Form, Input, Selector, selectStyles } from './DrinksSearchBar.styled';
 import { useSelector } from 'react-redux';
 import { selectCategories } from '../../../redux';
 import { selectIngredients } from '../../../redux';
-import { getDrinksByQuery } from 'api';
 
 export const DrinkSearchBar = () => {
   const { control, handleSubmit, getValues } = useForm({
@@ -19,10 +18,10 @@ export const DrinkSearchBar = () => {
 
   const onSubmit = async () => {
     const formData = getValues();
-    const { search, categories, ingridients } = formData;
-    const searchValue = search || '';
-    const categoryValue = categories ? categories.value : '';
-    const ingridientValue = ingridients ? ingridients.value : '';
+    // const { search, categories, ingridients } = formData;
+    // const searchValue = search || '';
+    // const categoryValue = categories ? categories.value : '';
+    // const ingridientValue = ingridients ? ingridients.value : '';
     console.log(formData);
 
     // if (searchValue && categoryValue && ingridientValue) {
