@@ -1,4 +1,5 @@
 // Libs
+import { useState } from 'react';
 import Select from 'react-select';
 import { Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
@@ -7,6 +8,7 @@ import {
   DescriptionBox,
   FileInputBox,
   CustomFileInputWrapper,
+  ImagePreview,
   CustomFileInput,
   CustomFileInputIcon,
   CustomFileInputText,
@@ -30,21 +32,38 @@ export const RecipeDescriptionFields = ({
   handleInputChange,
   handleSingleSelectChange,
 }) => {
+  const [imageURL, setImageURL] = useState(null);
+
+  const handleImagePick = e => {
+    setImageURL(URL.createObjectURL(e.target.files[0]));
+  };
+
   return (
     <DescriptionBox>
       <FileInputBox>
         <CustomFileInputWrapper>
-          <CustomFileInput>
-            <CustomFileInputIcon>
-              <AiOutlinePlus size={28} />
-            </CustomFileInputIcon>
-            <CustomFileInputText>Add image</CustomFileInputText>
-          </CustomFileInput>
+          {imageURL && (
+            <ImagePreview
+              src={imageURL}
+              alt="Preview loaded image"
+            ></ImagePreview>
+          )}
+
+          {!imageURL && (
+            <CustomFileInput>
+              <CustomFileInputIcon>
+                <AiOutlinePlus size={28} />
+              </CustomFileInputIcon>
+              <CustomFileInputText>Add image</CustomFileInputText>
+            </CustomFileInput>
+          )}
+
           <DefaultFileInput
             type="file"
             name="drinkThumb"
             accept="image/*, .png, .jpg, .gif, .web"
             {...register('drinkThumb')}
+            onChange={handleImagePick}
           />
         </CustomFileInputWrapper>
         {errors.drinkThumb?.message && (
@@ -138,7 +157,7 @@ export const RecipeDescriptionFields = ({
                     field.onChange(selectedOption);
                     handleSingleSelectChange(field.name, selectedOption);
                   }}
-                />{' '}
+                />
               </Label>
             )}
           />
