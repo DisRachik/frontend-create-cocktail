@@ -1,6 +1,9 @@
+// Libs
 import styled from '@emotion/styled';
+// Icons
 import { BiErrorCircle } from 'react-icons/bi';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
+// Theme
 import { theme } from 'styles';
 
 export const ErrorIcon = styled(BiErrorCircle)`

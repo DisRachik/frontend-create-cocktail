@@ -1,4 +1,11 @@
+// Libs
 import PropTypes from 'prop-types';
+// Styled components
+import {
+  RecipeTitle,
+  TextareaBox,
+  Textarea,
+} from './RecipePreparationFields.styled';
 
 export const RecipePreparationFields = ({
   register,
@@ -8,12 +15,11 @@ export const RecipePreparationFields = ({
 }) => {
   return (
     <div>
-      <h2>Recipe Preparation</h2>
+      <RecipeTitle>Recipe Preparation</RecipeTitle>
 
-      <label>
-        <textarea
-          rows="5"
-          cols="20"
+      <TextareaBox>
+        <Textarea
+          placeholder="Enter the recipe"
           name="instructions"
           {...register('instructions')}
           value={state.instructions.join('\n')}
@@ -21,11 +27,12 @@ export const RecipePreparationFields = ({
             handleInputChange(name, value)
           }
         />
-      </label>
-
-      {errors.instructions && (
-        <p style={{ color: 'deeppink' }}>{'Tell us how to make your drink'}</p>
-      )}
+        {errors.instructions && (
+          <p style={{ color: 'deeppink' }}>
+            {'Tell us how to make your drink'}
+          </p>
+        )}
+      </TextareaBox>
     </div>
   );
 };
