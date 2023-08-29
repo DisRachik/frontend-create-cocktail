@@ -10,8 +10,8 @@ export const ProfileEditContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 500px;
-  height: 426px;
+  width: 335px;
+  height: 345px;
 
   background-color: ${theme.colors.midnightBlue};
 
@@ -19,12 +19,19 @@ export const ProfileEditContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 50px;
+  padding: 50px 25px;
 
   border-radius: 16px;
   box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
 
   overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    height: 426px;
+
+    padding: 50px;
+  }
 `;
 
 export const AvatarWrapper = styled.div`
@@ -33,8 +40,13 @@ export const AvatarWrapper = styled.div`
 
 export const UserAvatar = styled.img`
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const ProfileEditForm = styled.form`
@@ -45,7 +57,11 @@ export const ProfileEditForm = styled.form`
   justify-content: center;
   align-items: center;
 
-  gap: 25px;
+  gap: 18px;
+
+  @media screen and (min-width: 768px) {
+    gap: 25px;
+  }
 `;
 
 export const ProfileEditInput = styled.input`
@@ -101,6 +117,10 @@ export const ProfileEditSubmitBtn = styled.button`
     background: ${theme.colors.midnightBlue};
     border: 1px solid rgba(243, 243, 243, 0.2);
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: ${theme.fontSizes.medium};
+  }
 `;
 
 export const ProfileEditCancelBtn = styled.button`
@@ -127,29 +147,47 @@ export const ProfileEditCancelBtn = styled.button`
 `;
 
 export const CloseIcon = styled(IoMdClose)`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   color: ${theme.colors.lightGray};
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 export const AddPhotoIcon = styled(AiFillPlusCircle)`
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   position: absolute;
 
   z-index: 99;
-  top: 134px;
+  top: 116px;
   left: 50%;
   transform: translate(-50%, 0%);
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+
+    top: 134px;
+  }
 `;
 
 export const EditIcon = styled(FiEdit2)`
-  width: 20px;
-  height: 20px;
+  display: none;
 
-  position: absolute;
-  bottom: 150px;
-  right: 74px;
+  @media screen and (min-width: 768px) {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    bottom: 150px;
+    right: 74px;
+  }
 `;
 
 export const TopDecorCircle = styled.div`

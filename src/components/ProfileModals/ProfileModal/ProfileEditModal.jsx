@@ -11,9 +11,10 @@ import {
   TopDecorCircle,
   BottomDecorCircle,
   AvatarWrapper,
+  ProfileEditSubmitBtn,
 } from './ProfileEditModal.styled';
 import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
-import { Backdrop, Button } from 'components';
+import { Backdrop } from 'components';
 
 const ProfileModal = ({ toggleProfileEditModal }) => {
   const IsWork = () => {
@@ -52,14 +53,14 @@ const ProfileModal = ({ toggleProfileEditModal }) => {
           <ProfileEditInput placeholder="Victoria"></ProfileEditInput>
           <EditIcon></EditIcon>
 
-          <Button
+          <ProfileEditSubmitBtn
             minWidth="400px"
             minHeight="54px"
             onClick={IsWork}
             type="submit"
           >
             Save changes
-          </Button>
+          </ProfileEditSubmitBtn>
         </ProfileEditForm>
 
         <TopDecorCircle></TopDecorCircle>

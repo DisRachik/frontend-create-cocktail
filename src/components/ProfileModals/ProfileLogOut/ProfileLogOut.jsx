@@ -5,9 +5,11 @@ import {
   ProfileLogOutButtonsWrapper,
   ProfileLogOutText,
   ProfileCancelBtn,
+  ProfileLogOutCancelBtn,
+  ProfileLogOutSubmitBtn,
   CloseIcon,
 } from './ProfileLogOut.styled';
-import { Backdrop, Button } from 'components';
+import { Backdrop } from 'components';
 
 const ProfileLogOut = ({ toggleLogOutModal }) => {
   useEffect(() => {
@@ -36,17 +38,21 @@ const ProfileLogOut = ({ toggleLogOutModal }) => {
         <ProfileLogOutText>Are you sure you want to log out?</ProfileLogOutText>
 
         <ProfileLogOutButtonsWrapper>
-          <Button minHeight="54px" minWidth="196px" onClick={IsWork}>
+          <ProfileLogOutSubmitBtn
+            minHeight="54px"
+            minWidth="196px"
+            onClick={IsWork}
+          >
             Log out
-          </Button>
-          <Button
+          </ProfileLogOutSubmitBtn>
+          <ProfileLogOutCancelBtn
             minHeight="54px"
             minWidth="196px"
             transparent
             onClick={toggleLogOutModal}
           >
             Cancel
-          </Button>
+          </ProfileLogOutCancelBtn>
         </ProfileLogOutButtonsWrapper>
       </ProfileLogOutContainer>
     </Backdrop>

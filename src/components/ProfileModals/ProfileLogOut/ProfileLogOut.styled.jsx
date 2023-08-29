@@ -8,10 +8,12 @@ export const ProfileLogOutContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 500px;
-  height: 215px;
+  width: 335px;
+  height: 193px;
 
   background-color: ${theme.colors.midnightBlue};
+  border-radius: 16px;
+  box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
 
   position: absolute;
   top: 50%;
@@ -19,8 +21,10 @@ export const ProfileLogOutContainer = styled.div`
   transform: translate(-50%, -50%);
   padding: 50px;
 
-  border-radius: 16px;
-  box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.1);
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    height: 215px;
+  }
 `;
 
 export const ProfileLogOutButtonsWrapper = styled.div`
@@ -34,18 +38,27 @@ export const ProfileLogOutButtonsWrapper = styled.div`
 export const ProfileLogOutText = styled.p`
   color: ${theme.colors.lightGray};
   text-align: center;
-  font-size: ${theme.fontSizes.large};
+  font-size: ${theme.fontSizes.small};
   font-style: normal;
   font-weight: 400;
-  line-height: calc(24 / 18);
-  letter-spacing: -0.36px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.28px;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${theme.fontSizes.large};
+    letter-spacing: -0.36px;
+    line-height: calc(24 / 18);
+  }
 `;
 
 export const ProfileLogOutSubmitBtn = styled.button`
   display: inline-flex;
-  padding: 18px 69px;
+  padding: 16px 41px;
   justify-content: center;
   align-items: flex-start;
+
+  width: 140px;
+  height: 50px;
 
   border-radius: 42px;
   background: ${theme.colors.lightGray};
@@ -59,6 +72,13 @@ export const ProfileLogOutSubmitBtn = styled.button`
   white-space: nowrap;
 
   transition: ${theme.animation('background-color')};
+
+  @media screen and (min-width: 768px) {
+    width: 196px;
+    height: 54px;
+
+    padding: 18px 69px;
+  }
 
   &:hover,
   &:focus {
@@ -77,9 +97,12 @@ export const ProfileLogOutSubmitBtn = styled.button`
 
 export const ProfileLogOutCancelBtn = styled.button`
   display: inline-flex;
-  padding: 18px 69px;
+  padding: 16px 41px;
   justify-content: center;
   align-items: flex-start;
+
+  width: 140px;
+  height: 50px;
 
   border-radius: 42px;
   background: ${theme.colors.steelBlue};
@@ -94,11 +117,25 @@ export const ProfileLogOutCancelBtn = styled.button`
 
   transition: ${theme.animation('background-color')};
 
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    height: 215px;
+
+    padding: 18px 69px;
+  }
+
   &:hover,
   &:focus {
     color: ${theme.colors.lightGray};
     background: ${theme.colors.midnightBlue};
     border: 1px solid rgba(243, 243, 243, 0.2);
+  }
+
+  @media (min-width: 768px) {
+    width: 196px;
+    height: 54px;
+
+    padding: 18px 69px;
   }
 `;
 
@@ -126,7 +163,12 @@ export const ProfileCancelBtn = styled.button`
 `;
 
 export const CloseIcon = styled(IoMdClose)`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   color: ${theme.colors.lightGray};
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
