@@ -1,6 +1,9 @@
+// Libs
 import styled from '@emotion/styled';
+// Icons
 import { BiLogoFacebook } from 'react-icons/bi';
 import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
+// Theme
 import { theme } from 'styles';
 
 export const List = styled.ul`
