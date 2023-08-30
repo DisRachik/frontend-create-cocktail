@@ -28,12 +28,14 @@ export const SubscribeForm = () => {
   });
 
   const onSubmit = ({ email }) => {
+    const lowerCaseEmail = email.toLowerCase();
+
     if (user.subscription !== '') {
       toast.error('You are already subscribed');
       return;
     }
 
-    dispatch(subscripe({ email }))
+    dispatch(subscripe({ email: lowerCaseEmail }))
       .unwrap()
       .then(
         toast.success(
