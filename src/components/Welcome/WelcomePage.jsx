@@ -26,7 +26,7 @@ export const WelcomePage = () => {
             </Text>
             <List>
               <li>
-                <Button minWidth="120px" onClick={() => navigation('/signup')}>
+                <Button minWidth="183px" onClick={() => navigation('/signup')}>
                   Registration
                 </Button>
               </li>
