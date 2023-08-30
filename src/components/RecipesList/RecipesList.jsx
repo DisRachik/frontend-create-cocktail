@@ -3,7 +3,6 @@ import { RecipesItem } from 'components';
 import { FavoriteList } from './RecipesList.styled';
 
 export const RecipesList = ({ array }) => {
-  console.log(array);
   return (
     <>
       <FavoriteList>

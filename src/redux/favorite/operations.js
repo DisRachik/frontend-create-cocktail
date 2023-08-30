@@ -3,9 +3,9 @@ import { getFavorites } from 'api';
 
 export const fetchUserFavoriteDrinks = createAsyncThunk(
   'drinks/fetchFavorite',
-  async (id, thunkAPI) => {
+  async ({ page = 1, limit = 3 }, thunkAPI) => {
     try {
-      return await getFavorites(id);
+      return await getFavorites(page, limit);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.massage);
     }
