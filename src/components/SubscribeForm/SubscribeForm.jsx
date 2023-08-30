@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { subscripe } from 'api';
-import { useAuth } from 'redux/auth/useAuth';
 
 import { emailSchema } from 'schema';
 import { Button, FormIcons, FormMessages } from 'components';
@@ -15,7 +15,6 @@ import {
 
 export const SubscribeForm = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
 
   const {
     register,
@@ -28,17 +27,19 @@ export const SubscribeForm = () => {
   });
 
   const onSubmit = ({ email }) => {
-    console.log(email === user.subscription);
-
-    if (email === user.subscription) {
-      console.log('Підписка на цей email вже є'); // тут повинен бути toast
+    if (email !== '') {
+      toast.error('You are already subscribed');
       return;
     }
 
-    dispatch(subscripe({ email }));
-    // тут повинен бути toast приблизно з таким повідомленням:
-    // Ви успішно підписались на розсилку!
-    // На ваш email надіслано повідомлення про підтвердження підписки...
+    dispatch(subscripe({ email }))
+      .unwrap()
+      .then(
+        toast.success(
+          'You have successfully subscribed to the newsletter! A subscription confirmation message has been sent to your email'
+        )
+      )
+      .catch(() => toast.error('Oops..., something wrong, please try again😢'));
 
     reset();
   };
