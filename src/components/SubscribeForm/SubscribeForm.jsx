@@ -1,5 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { subscripe } from 'api';
+
 import { emailSchema } from 'schema';
 import { Button, FormIcons, FormMessages } from 'components';
 import {
@@ -10,6 +14,8 @@ import {
 } from './SubscribeForm.styled';
 
 export const SubscribeForm = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -20,8 +26,21 @@ export const SubscribeForm = () => {
     resolver: yupResolver(emailSchema),
   });
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = ({ email }) => {
+    if (email !== '') {
+      toast.error('You are already subscribed');
+      return;
+    }
+
+    dispatch(subscripe({ email }))
+      .unwrap()
+      .then(
+        toast.success(
+          'You have successfully subscribed to the newsletter! A subscription confirmation message has been sent to your email'
+        )
+      )
+      .catch(() => toast.error('Oops..., something wrong, please try again😢'));
+
     reset();
   };
 
