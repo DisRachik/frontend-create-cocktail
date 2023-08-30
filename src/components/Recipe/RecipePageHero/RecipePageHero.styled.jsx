@@ -40,7 +40,7 @@ export const CocktailGlass = styled.p`
   }
 `;
 
-export const CocktailTitle = styled.h2`
+export const CocktailTitle = styled.h1`
   margin-bottom: 20px;
   font-size: 32px;
   font-weight: 600;
