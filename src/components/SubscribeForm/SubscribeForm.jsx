@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { subscripe } from 'api';
-
+import { useAuth } from 'redux/auth/useAuth';
 import { emailSchema } from 'schema';
 import { Button, FormIcons, FormMessages } from 'components';
 import {
@@ -15,6 +15,7 @@ import {
 
 export const SubscribeForm = () => {
   const dispatch = useDispatch();
+  const { user } = useAuth();
 
   const {
     register,
@@ -27,7 +28,7 @@ export const SubscribeForm = () => {
   });
 
   const onSubmit = ({ email }) => {
-    if (email !== '') {
+    if (user.subscription !== '') {
       toast.error('You are already subscribed');
       return;
     }
