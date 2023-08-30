@@ -42,6 +42,11 @@ export const AddRecipeForm = () => {
   } = useForm(formSettings);
 
   const [formState, setFormState] = useState({ ...initialValues });
+  const [imageURL, setImageURL] = useState(null);
+
+  const handleImagePick = e => {
+    setImageURL(URL.createObjectURL(e.target.files[0]));
+  };
 
   const categories = useSelector(selectCategories.data);
   const glasses = useSelector(selectGlasses.data);
@@ -72,6 +77,7 @@ export const AddRecipeForm = () => {
     console.log(data);
 
     setFormState({ ...initialValues });
+    setImageURL(null);
 
     reset({ ...initialValues });
   };
@@ -111,6 +117,8 @@ export const AddRecipeForm = () => {
         categoriesList={data.categories}
         glassesList={data.glasses}
         state={formState}
+        imageURL={imageURL}
+        handleImagePick={handleImagePick}
         handleInputChange={handleInputChange}
         handleSingleSelectChange={handleSingleSelectChange}
       />

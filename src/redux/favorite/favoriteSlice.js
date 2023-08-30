@@ -5,7 +5,6 @@ const favoriteSlice = createSlice({
   name: 'favorites',
   initialState: {
     favoriteDrinks: [],
-    favoriteUsers: [],
     isLoading: false,
     error: null,
   },
@@ -25,8 +24,7 @@ const favoriteSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
-    [changeFavoriteStatus.fulfilled](state, action) {
-      state.favoriteUsers = [...action.payload.favorites];
+    [changeFavoriteStatus.fulfilled](state) {
       state.isLoading = false;
     },
     [changeFavoriteStatus.rejected](state, action) {

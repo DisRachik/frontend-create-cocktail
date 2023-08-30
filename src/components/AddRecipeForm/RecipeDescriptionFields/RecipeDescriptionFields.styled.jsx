@@ -12,6 +12,7 @@ export const FileInputBox = styled.div`
 `;
 
 export const CustomFileInputWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,11 +21,20 @@ export const CustomFileInputWrapper = styled.div`
   height: 320px;
   border-radius: 8px;
   background-color: ${theme.colors.midnightBlueTransparent};
+  overflow: hidden;
 
   &:hover,
   &:focus {
-    border: 1px dashed ${theme.colors.lightGrayTransparent};
+    outline: 1px dashed ${theme.colors.lightGrayTransparent};
   }
+`;
+
+export const ImagePreview = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 `;
 
 export const CustomFileInput = styled.div`
