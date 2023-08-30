@@ -1,40 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { subscripe } from 'api';
+import { signUp, signIn, signOut, refreshUser } from './operations';
 
 const initialState = {
-  subscription: '',
-  error: null,
-};
-
-const isPending = action => {
-  action.type.endsWith('/pending') && action.type.includes('auth');
-};
-
-const handlePending = state => {
-  state.error = null;
-};
-
-const isRejected = action => {
-  action.type.endsWith('/rejected') && action.type.includes('auth');
-};
-
-const handleRejected = (state, action) => {
-  state.error = action.payload;
-};
-
-const handleFulfilledSubscribe = (state, { payload }) => {
-  state.subscription = payload.subscription;
+  user: { name: null, email: null, _id: null },
+  token: null,
+  isAuth: false,
+  isRegistrate: false,
+  isRefreshing: true,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: builder => {
+  extraReducers: builder =>
     builder
-      .addCase(subscripe.fulfilled, handleFulfilledSubscribe)
-      .addMatcher(isPending, handlePending)
-      .addMatcher(isRejected, handleRejected);
-  },
+      .addCase(signUp.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.token = payload.token;
+        state.isRegistrate = true;
+      })
+      .addCase(signIn.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.token = payload.token;
+        state.isAuth = true;
+      })
+      .addCase(signOut.fulfilled, state => {
+        state.user = { name: null, email: null, _id: null };
+        state.token = null;
+        state.isAuth = false;
+      })
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.isAuth = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+        state.token = null;
+      }),
 });
 
 export const authReducer = authSlice.reducer;

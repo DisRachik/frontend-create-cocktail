@@ -1,9 +1,12 @@
 import { Section } from 'components';
+import { DrinksPage } from 'components/DrinksPage/DrinksPage';
 
 const Drinks = () => {
   return (
     <>
-      <Section title="Drinks">{/* Тут вставляємо свої компоненти */}</Section>
+      <Section title="Drinks">
+        <DrinksPage />
+      </Section>
     </>
   );
 };

@@ -1,4 +1,9 @@
+// Libs
 import PropTypes from 'prop-types';
+// Styled components
+import { Counter, CounterButton } from './FieldsCounter.styled';
+// Icons
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 export const FieldsCounter = ({
   fields,
@@ -6,28 +11,28 @@ export const FieldsCounter = ({
   handleRemoveField,
 }) => {
   return (
-    <div>
-      <button
+    <Counter>
+      <CounterButton
         type="button"
         onClick={() => handleRemoveField(fields.length - 1)}
       >
-        -
-      </button>
+        <AiOutlineMinus size={16} />
+      </CounterButton>
 
       <span>{fields.length}</span>
 
-      <button type="button" onClick={handleAddField}>
-        +
-      </button>
-    </div>
+      <CounterButton type="button" onClick={handleAddField}>
+        <AiOutlinePlus size={16} />
+      </CounterButton>
+    </Counter>
   );
 };
 
 FieldsCounter.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.object,
-      measure: PropTypes.object,
+      title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+      measure: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
       id: PropTypes.string.isRequired,
     })
   ).isRequired,

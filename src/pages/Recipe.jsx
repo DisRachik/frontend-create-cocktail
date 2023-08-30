@@ -1,3 +1,8 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { fetchRecipeById, selectRecipe } from 'redux/recipe/index';
+
 import {
   Section,
   RecipePageHeader,
@@ -5,27 +10,41 @@ import {
   RecipePreparation,
 } from 'components';
 
-import { recipeById } from 'components/Recipe/recipeById';
-
 const Recipe = () => {
+  const dispatch = useDispatch();
+  const recipe = useSelector(selectRecipe.recipe);
+
+  const {
+    glass,
+    desc,
+    drink,
+    drinkThumb,
+    favorites,
+    ingredients,
+    instructions,
+  } = recipe;
+
+  const location = window.location.pathname.split('recipe/');
+  const recipeId = location[1];
+
+  useEffect(() => {
+    dispatch(fetchRecipeById(recipeId));
+  }, [dispatch, recipeId]);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  const { glass, drink, drinkThumb, ingredients, instructions } = recipeById();
-  console.log(recipeById());
-  const isFavorite = Math.random() < 0.5;
 
   return (
     <Section>
       <RecipePageHeader
         glass={glass}
         drink={drink}
-        desc={null}
-        favorite={isFavorite}
+        desc={desc}
+        recipeId={recipeId}
+        favorites={favorites}
         drinkImage={drinkThumb}
-      ></RecipePageHeader>
-      <RecipeIngredientsList ingredients={ingredients}></RecipeIngredientsList>
-      <RecipePreparation
-        instructions={instructions.split('.')}
-      ></RecipePreparation>
+      />
+      <RecipeIngredientsList ingredients={ingredients} />
+      <RecipePreparation instructions={instructions} />
     </Section>
   );
 };
