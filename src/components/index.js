@@ -7,6 +7,7 @@ export * from 'components/shared/Container/Container';
 export * from 'components/shared/Button/Button';
 export * from 'components/shared/FormIcons/FormIcons';
 export * from 'components/shared/FormMessages/FormMessages';
+export * from 'components/shared/Backdrop/Backdrop';
 // AddRecipePage
 export * from 'components/AddRecipeForm/AddRecipeForm';
 export * from 'components/FollowUs/FollowUs';
@@ -32,13 +33,18 @@ export * from 'components/Recipe/RecipePageHero/RecipePageHero';
 export * from 'components/Recipe/RecipeIngredientsList/RecipeIngredientsList';
 export * from 'components/Recipe/RecipePreparation/RecipePreparation';
 export * from 'components/Favorite/EmptyFavoritePage';
-
 // Welcome
 export * from 'components/Welcome/WelcomePage';
 export * from 'components/Signup/SignupPage';
 export * from 'components/Signin/SigninPage';
-
 //Header
 export * from 'components/Header/Header';
 export * from 'components/ModalBtnUser/ModalBtnUser';
 export * from 'components/Navigation/Navigation';
+// Drinks
+export * from 'components/DrinksPage/DrinkListItem/DrinkListItem';
+export * from 'components/DrinksPage/DrinksList/DrinksList';
+export * from 'components/DrinksPage/DrinksSearchBar/DrinksSearchBar';
+// My recipes
+export * from 'components/MyRecipes/MyRecipesPage';
+export * from 'components/MyRecipes/EmptyMyRecipesPage';

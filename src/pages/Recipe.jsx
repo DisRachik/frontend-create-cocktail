@@ -14,6 +14,16 @@ const Recipe = () => {
   const dispatch = useDispatch();
   const recipe = useSelector(selectRecipe.recipe);
 
+  const {
+    glass,
+    desc,
+    drink,
+    drinkThumb,
+    favorites,
+    ingredients,
+    instructions,
+  } = recipe;
+
   const location = window.location.pathname.split('recipe/');
   const recipeId = location[1];
 
@@ -23,17 +33,14 @@ const Recipe = () => {
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  const { glass, drink, drinkThumb, ingredients, instructions } = recipe;
-
-  const isFavorite = Math.random() < 0.5;
-
   return (
     <Section>
       <RecipePageHeader
         glass={glass}
         drink={drink}
-        desc={null}
-        favorite={isFavorite}
+        desc={desc}
+        recipeId={recipeId}
+        favorites={favorites}
         drinkImage={drinkThumb}
       />
       <RecipeIngredientsList ingredients={ingredients} />

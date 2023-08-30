@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const NavList = styled.ul`
   position: fixed;
@@ -44,7 +44,7 @@ export const NavList = styled.ul`
 
 export const Li = styled.li``;
 
-export const MenuLink = styled(Link)`
+export const MenuLink = styled(NavLink)`
   padding: 8px 16px;
   border: ${({ theme }) => theme.colors.steelBlue} solid 1px;
   border-radius: 40px;
@@ -59,5 +59,10 @@ export const MenuLink = styled(Link)`
   :hover,
   :focus {
     background-color: ${({ theme }) => theme.colors.steelBlue};
+  }
+
+  &.active {
+    background-color: ${({ theme }) => theme.colors.midnightBlue};
+    border-color: transparent;
   }
 `;
