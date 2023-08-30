@@ -10,11 +10,11 @@ import {
 import { Button, FormIcons, FormMessages } from 'components';
 import { Input, InputBox } from 'components/SubscribeForm/SubscribeForm.styled';
 import {
+  AuthTitle,
   ButtonWrap,
   FormWrap,
   Link,
   LinkWrap,
-  SignUpTitle,
 } from './SignupPage.styled';
 import { signUpSchema } from 'schema/signUpSchema';
 
@@ -42,7 +42,7 @@ export const SignupPage = () => {
       <BackgroundImage>
         <SectionWelcome>
           <WelcomeWrap>
-            <SignUpTitle>Registration</SignUpTitle>
+            <AuthTitle>Registration</AuthTitle>
             <FormWrap onSubmit={handleSubmit(onSubmit)}>
               <InputBox>
                 <Input

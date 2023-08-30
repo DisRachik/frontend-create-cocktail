@@ -5,7 +5,7 @@ export const FormWrap = styled.form`
   max-width: 400px;
 `;
 
-export const SignUpTitle = styled.h2`
+export const AuthTitle = styled.h2`
   color: #f3f3f3;
   font-feature-settings: 'liga' off;
   font-family: Manrope;
