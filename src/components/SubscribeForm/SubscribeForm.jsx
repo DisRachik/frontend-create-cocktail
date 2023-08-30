@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { subscripe } from 'api';
-import { selectSubsription } from 'redux/auth/selectors';
+import { useAuth } from 'redux/auth/useAuth';
+
 import { emailSchema } from 'schema';
 import { Button, FormIcons, FormMessages } from 'components';
 import {
@@ -14,7 +15,8 @@ import {
 
 export const SubscribeForm = () => {
   const dispatch = useDispatch();
-  const subscription = useSelector(selectSubsription);
+  const { user } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -26,12 +28,17 @@ export const SubscribeForm = () => {
   });
 
   const onSubmit = ({ email }) => {
-    console.log({ email });
+    console.log(email === user.subscription);
+
+    if (email === user.subscription) {
+      console.log('Підписка на цей email вже є'); // тут повинен бути toast
+      return;
+    }
 
     dispatch(subscripe({ email }));
+    // тут повинен бути toast приблизно з таким повідомленням:
     // Ви успішно підписались на розсилку!
-    // Очійкуте повідомлення для підтвердження
-    // підписки на ваш e-mail
+    // На ваш email надіслано повідомлення про підтвердження підписки...
 
     reset();
   };

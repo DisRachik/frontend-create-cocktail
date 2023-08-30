@@ -5,7 +5,7 @@ export const subscripe = createAsyncThunk(
   '/subscribe',
   async (email, thunkAPI) => {
     try {
-      const { data } = await axios.post('/', { email });
+      const { data } = await axios.post('/subscribe', email);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.massage);
