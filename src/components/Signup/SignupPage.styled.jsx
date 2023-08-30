@@ -1,42 +1,23 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { theme } from 'styles';
 
 export const FormWrap = styled.form`
   max-width: 400px;
 `;
 
 export const AuthTitle = styled.h2`
-  color: #f3f3f3;
-  font-feature-settings: 'liga' off;
-  font-family: Manrope;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 32px; /* 114.286% */
+  font-size: ${theme.fontSizes.titlePhone};
+  line-height: calc(32 / 28);
   letter-spacing: -0.56px;
 
   text-align: start;
   margin-bottom: 28px;
 
   @media (min-width: 768px) {
-    color: #f3f3f3;
-    font-feature-settings: 'liga' off;
-    font-family: Manrope;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 44px; /* 110% */
-    letter-spacing: -0.8px;
-  }
+    font-size: ${theme.fontSizes.title};
 
-  @media (min-width: 1200px) {
-    color: #f3f3f3;
-    font-feature-settings: 'liga' off;
-    font-family: Manrope;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 44px; /* 110% */
+    line-height: calc(44 / 40);
     letter-spacing: -0.8px;
   }
 `;
@@ -47,9 +28,6 @@ export const ButtonWrap = styled.div`
   @media (min-width: 768px) {
     margin-top: 40px;
   }
-
-  /* @media (min-width: 1200px) {
-  } */
 `;
 
 export const LinkWrap = styled.div`
@@ -58,31 +36,12 @@ export const LinkWrap = styled.div`
 `;
 
 export const Link = styled(NavLink)`
-  color: #f3f3f3;
-  font-family: Manrope;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 16px; /* 133.333% */
+  font-size: ${theme.fontSizes.ultraSmall};
+  line-height: calc(16 / 12);
   text-decoration-line: underline;
 
   @media (min-width: 768px) {
-    color: #f3f3f3;
-    font-family: Manrope;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 18px; /* 128.571% */
-    text-decoration-line: underline;
-  }
-
-  @media (min-width: 1200px) {
-    color: #f3f3f3;
-    font-family: Manrope;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 18px; /* 128.571% */
-    text-decoration-line: underline;
+    font-size: ${theme.fontSizes.small};
+    line-height: calc(18 / 14);
   }
 `;

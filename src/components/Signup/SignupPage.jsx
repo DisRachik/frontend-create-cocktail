@@ -38,8 +38,8 @@ export const SignupPage = () => {
   };
 
   return (
-    <ContainerWelcome>
-      <BackgroundImage>
+    <BackgroundImage>
+      <ContainerWelcome>
         <SectionWelcome>
           <WelcomeWrap>
             <AuthTitle>Registration</AuthTitle>
@@ -114,7 +114,7 @@ export const SignupPage = () => {
             </FormWrap>
           </WelcomeWrap>
         </SectionWelcome>
-      </BackgroundImage>
-    </ContainerWelcome>
+      </ContainerWelcome>
+    </BackgroundImage>
   );
 };

@@ -38,8 +38,8 @@ export const SigninPage = () => {
   };
 
   return (
-    <ContainerWelcome>
-      <BackgroundImage>
+    <BackgroundImage>
+      <ContainerWelcome>
         <SectionWelcome>
           <WelcomeWrap>
             <AuthTitle>Sign In</AuthTitle>
@@ -96,7 +96,7 @@ export const SigninPage = () => {
             </FormWrap>
           </WelcomeWrap>
         </SectionWelcome>
-      </BackgroundImage>
-    </ContainerWelcome>
+      </ContainerWelcome>
+    </BackgroundImage>
   );
 };

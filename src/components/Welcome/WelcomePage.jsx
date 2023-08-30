@@ -14,8 +14,8 @@ export const WelcomePage = () => {
   const { navigation } = useAuth();
 
   return (
-    <ContainerWelcome>
-      <BackgroundImage>
+    <BackgroundImage>
+      <ContainerWelcome>
         <SectionWelcome>
           <WelcomeWrap>
             <WelcomeTitle>Welcome to the app!</WelcomeTitle>
@@ -26,14 +26,19 @@ export const WelcomePage = () => {
             </Text>
             <List>
               <li>
-                <Button minWidth="183px" onClick={() => navigation('/signup')}>
+                <Button
+                  minWidth="164px"
+                  minHeight="46px"
+                  onClick={() => navigation('/signup')}
+                >
                   Registration
                 </Button>
               </li>
               <li>
                 <Button
                   transparent
-                  minWidth="140px"
+                  minWidth="141px"
+                  minHeight="46px"
                   onClick={() => navigation('/signin')}
                 >
                   Sign In
@@ -42,7 +47,7 @@ export const WelcomePage = () => {
             </List>
           </WelcomeWrap>
         </SectionWelcome>
-      </BackgroundImage>
-    </ContainerWelcome>
+      </ContainerWelcome>
+    </BackgroundImage>
   );
 };
