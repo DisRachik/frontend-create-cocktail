@@ -42,11 +42,6 @@ export const AddRecipeForm = () => {
   } = useForm(formSettings);
 
   const [formState, setFormState] = useState({ ...initialValues });
-  const [imageURL, setImageURL] = useState(null);
-
-  const handleImagePick = e => {
-    setImageURL(URL.createObjectURL(e.target.files[0]));
-  };
 
   const categories = useSelector(selectCategories.data);
   const glasses = useSelector(selectGlasses.data);
@@ -77,12 +72,23 @@ export const AddRecipeForm = () => {
     console.log(data);
 
     setFormState({ ...initialValues });
-    setImageURL(null);
-
     reset({ ...initialValues });
   };
 
-  const handleInputChange = (fieldName, value) => {
+  const handleFileInputChange = evt => {
+    const fieldName = evt.target.name;
+    const value = evt.target.files[0];
+
+    setFormState(prevState => ({
+      ...prevState,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleInputChange = evt => {
+    const fieldName = evt.target.name;
+    const value = evt.target.value;
+
     value ? clearErrors(fieldName) : setError(fieldName);
 
     setFormState(prevState => ({
@@ -92,19 +98,13 @@ export const AddRecipeForm = () => {
     }));
   };
 
-  const handleSingleSelectChange = (fieldName, value) => {
+  const handleSelectChange = fieldName => {
+    const data = getValues(fieldName);
+    const value = Array.isArray(data) ? [...data] : data;
+
     setFormState(prevState => ({
       ...prevState,
       [fieldName]: value,
-    }));
-  };
-
-  const handleMultipleSelectChange = fieldName => {
-    const ingredients = getValues(fieldName);
-
-    setFormState(prevState => ({
-      ...prevState,
-      ingredients: [...ingredients],
     }));
   };
 
@@ -117,10 +117,9 @@ export const AddRecipeForm = () => {
         categoriesList={data.categories}
         glassesList={data.glasses}
         state={formState}
-        imageURL={imageURL}
-        handleImagePick={handleImagePick}
+        handleFileInputChange={handleFileInputChange}
         handleInputChange={handleInputChange}
-        handleSingleSelectChange={handleSingleSelectChange}
+        handleSelectChange={handleSelectChange}
       />
 
       <RecipeIngredientsFields
@@ -129,7 +128,7 @@ export const AddRecipeForm = () => {
         ingredientsList={data.ingredients}
         measureList={data.measure}
         state={formState}
-        handleMultipleSelectChange={handleMultipleSelectChange}
+        handleSelectChange={handleSelectChange}
       />
 
       <RecipePreparationFields
