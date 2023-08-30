@@ -1,6 +1,17 @@
 import styled from '@emotion/styled';
-import img from '../../img/welcome/des.jpg';
+import desktop from '../../img/welcome/des.jpg';
+import tablet from '../../img/welcome/tab.jpg';
+import mobile from '../../img/welcome/mob.jpg';
 import { theme } from 'styles';
+
+export const Wrapper = styled.div`
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 46.3%,
+    rgba(0, 0, 0, 0.35) 72.75%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+`;
 
 export const ContainerWelcome = styled.div`
   outline: 1px solid tomato;
@@ -24,11 +35,23 @@ export const ContainerWelcome = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  background-image: url('${img}');
+  background-image: url('${desktop}');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
+
+  /* background-image: url('${mobile}');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  @media (min-width: 768px) {
+    background-image: url('${tablet}');
+  }
+
+  @media (min-width: 1200px) {
+    background-image: url('${desktop}');
+    background-size: cover;
+  } */
 `;
 
 export const SectionWelcome = styled.section`
