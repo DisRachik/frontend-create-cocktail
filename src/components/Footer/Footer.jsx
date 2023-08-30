@@ -28,8 +28,8 @@ export const Footer = () => {
         <Thumb>
           <Text>©2023 Drink Master. All rights reserved.</Text>
           <div>
-            <PolicyText to="/">Privacy Policy</PolicyText>
-            <PolicyText to="/">Terms of Service</PolicyText>
+            <PolicyText to="/privacy-policy">Privacy Policy</PolicyText>
+            <PolicyText to="/terms-of-service">Terms of Service</PolicyText>
           </div>
         </Thumb>
       </Container>

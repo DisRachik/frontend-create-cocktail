@@ -16,6 +16,8 @@ const Recipe = lazy(() => import('pages/Recipe'));
 const Welcome = lazy(() => import('pages/Welcome'));
 const Signup = lazy(() => import('pages/Signup'));
 const Signin = lazy(() => import('pages/Signin'));
+const PrivacyPolicy = lazy(() => import('pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('pages/TermsOfService'));
 
 export const App = () => {
   const { isAuth, isRefreshing } = useAuth();
@@ -64,6 +66,18 @@ export const App = () => {
         <Route
           path="/recipe/:recipeId"
           element={<PrivateRoute redirectTo="/" component={<Recipe />} />}
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <PrivateRoute redirectTo="/" component={<PrivacyPolicy />} />
+          }
+        />
+        <Route
+          path="/terms-of-service"
+          element={
+            <PrivateRoute redirectTo="/" component={<TermsOfService />} />
+          }
         />
 
         {/* Unauthorized user routes */}
