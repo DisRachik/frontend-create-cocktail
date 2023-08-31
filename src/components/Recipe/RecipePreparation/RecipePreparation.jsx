@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
+import defaultImageUrl from '../../../img/recipe-preparation.jpg';
+import retinaImageImageUrl from '../../../img/recipe-preparation-2x.jpg';
+
 import {
   PreparationWrap,
   PreparationTitle,
@@ -11,9 +14,6 @@ import {
 } from './RecipePreparation.styled';
 
 import { preparationForeward } from 'constans';
-
-const defaultImageUrl = require('../../../img/recipe-preparation.jpg');
-const retinaImageImageUrl = require('../../../img/recipe-preparation-2x.jpg');
 
 export const RecipePreparation = ({ instructions }) => {
   let instructionIsArray;
