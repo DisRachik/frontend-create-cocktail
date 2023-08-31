@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuth, selectIsRefreshing, selectUser } from './selectors';
-
-import { signIn, signOut, signUp } from './operations';
+import { signIn, signOut, signUp, refreshUser } from './operations';
 import { useNavigate } from 'react-router-dom';
 
 export const useAuth = () => {
@@ -23,13 +22,18 @@ export const useAuth = () => {
     dispatch(signOut());
   };
 
+  const handleRefreshUser = () => {
+    dispatch(refreshUser());
+  };
+
   return {
     isAuth,
     user,
+    isRefreshing,
     handleSignIn,
     handleSignUp,
     handleSignOut,
-    isRefreshing,
     navigation,
+    handleRefreshUser,
   };
 };

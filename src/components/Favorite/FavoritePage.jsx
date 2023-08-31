@@ -1,22 +1,31 @@
-// import Paginator from 'shared/components/Paginator/Paginator';
 import { EmptyFavoritePage, RecipesList } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavoriteDrinks } from 'redux/favorite/selectors';
 import { fetchUserFavoriteDrinks } from 'redux/favorite/operations';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
 
 export const FavoritePage = () => {
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const { favoriteDrinks } = useSelector(getFavoriteDrinks);
 
   useEffect(() => {
-    dispatch(fetchUserFavoriteDrinks('64e9e5b0560e3b35a2a95c89'));
-  }, [dispatch]);
+    dispatch(fetchUserFavoriteDrinks({ page, limit: 2 }));
+  }, [dispatch, page]);
+
+  const seeMoreDrinks = () => {
+    setPage(prevState => prevState + 1);
+    dispatch(fetchUserFavoriteDrinks({ page, limit: 2 }));
+  };
 
   return (
     <>
-      {Array.from(favoriteDrinks).length !== 0 ? (
-        <RecipesList array={favoriteDrinks} />
+      {favoriteDrinks.length !== 0 ? (
+        <>
+          <RecipesList array={favoriteDrinks} />
+          <ButtonLoadMore onClick={seeMoreDrinks} />
+        </>
       ) : (
         <EmptyFavoritePage />
       )}

@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 import { RecipesItem } from 'components';
 import { FavoriteList } from './RecipesList.styled';
 
-export const RecipesList = ({ array }) => {
-  console.log(array);
+export const RecipesList = ({ array, action }) => {
   return (
     <>
       <FavoriteList>
         {array.map(data => (
-          <RecipesItem key={data._id} data={data} />
+          <RecipesItem key={data._id} data={data} action={action} />
         ))}
       </FavoriteList>
     </>
@@ -17,4 +16,5 @@ export const RecipesList = ({ array }) => {
 
 RecipesList.propTypes = {
   array: PropTypes.array,
+  action: PropTypes.func.isRequired,
 };

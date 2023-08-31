@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { Footer, Header } from 'components';
 import { useAuth } from 'redux/auth/useAuth';
 
@@ -18,6 +19,7 @@ export const Layout = () => {
         </Suspense>
       </main>
       {isAuth && <Footer />}
+      <ToastContainer theme="dark" />
     </>
   );
 };
