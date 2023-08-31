@@ -40,7 +40,6 @@ export const SignupPage = () => {
       };
 
       await handleSignUp(lowercasedData);
-      console.log(lowercasedData);
       reset();
       navigation('/signin');
     } catch (error) {
