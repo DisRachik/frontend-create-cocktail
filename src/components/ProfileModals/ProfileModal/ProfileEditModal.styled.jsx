@@ -102,6 +102,8 @@ export const ProfileEditSubmitBtn = styled.button`
   justify-content: center;
   align-items: center;
 
+  z-index: 999;
+
   width: 100%;
   height: 56px;
 
@@ -121,7 +123,7 @@ export const ProfileEditSubmitBtn = styled.button`
   &:hover,
   &:focus {
     color: ${theme.colors.lightGray};
-    background: ${theme.colors.midnightBlue};
+    background: transparent;
     border: 1px solid rgba(243, 243, 243, 0.2);
   }
 
