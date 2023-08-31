@@ -10,8 +10,12 @@ import { Button } from 'components';
 // Styled components
 import { Form } from './AddRecipeForm.styled';
 // Helpers
-import { transformSelectData } from 'helpers';
-// Redux selectors
+import {
+  transformSelectData,
+  // generateFormData,
+  normalizeAddRecipeRequestData,
+} from 'helpers';
+// Redux
 import {
   selectCategories,
   selectGlasses,
@@ -19,6 +23,7 @@ import {
   fetchCategories,
   fetchGlasses,
   fetchIngredients,
+  addOwnRecipe,
 } from '../../redux';
 // Other
 import { formSettings } from './formSettings';
@@ -42,11 +47,6 @@ export const AddRecipeForm = () => {
   } = useForm(formSettings);
 
   const [formState, setFormState] = useState({ ...initialValues });
-  const [imageURL, setImageURL] = useState(null);
-
-  const handleImagePick = e => {
-    setImageURL(URL.createObjectURL(e.target.files[0]));
-  };
 
   const categories = useSelector(selectCategories.data);
   const glasses = useSelector(selectGlasses.data);
@@ -71,18 +71,32 @@ export const AddRecipeForm = () => {
     );
   }, [dispatch]);
 
-  const handleFormSubmit = data => {
-    data.instructions = data.instructions.split(/\r\n|\r|\n/g);
+  const handleFormSubmit = async data => {
+    const reqBody = normalizeAddRecipeRequestData(data, ingredients);
 
-    console.log(data);
+    // !TODO: change reqBody to formData in dispatch(addOwnRecipe(reqBody)) when finish backend part of image loading
+    // const formData = generateFormData(reqBody);
+
+    dispatch(addOwnRecipe(reqBody));
 
     setFormState({ ...initialValues });
-    setImageURL(null);
-
     reset({ ...initialValues });
   };
 
-  const handleInputChange = (fieldName, value) => {
+  const handleFileInputChange = evt => {
+    const fieldName = evt.target.name;
+    const value = evt.target.files[0];
+
+    setFormState(prevState => ({
+      ...prevState,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleInputChange = evt => {
+    const fieldName = evt.target.name;
+    const value = evt.target.value;
+
     value ? clearErrors(fieldName) : setError(fieldName);
 
     setFormState(prevState => ({
@@ -92,19 +106,13 @@ export const AddRecipeForm = () => {
     }));
   };
 
-  const handleSingleSelectChange = (fieldName, value) => {
+  const handleSelectChange = fieldName => {
+    const data = getValues(fieldName);
+    const value = Array.isArray(data) ? [...data] : data;
+
     setFormState(prevState => ({
       ...prevState,
       [fieldName]: value,
-    }));
-  };
-
-  const handleMultipleSelectChange = fieldName => {
-    const ingredients = getValues(fieldName);
-
-    setFormState(prevState => ({
-      ...prevState,
-      ingredients: [...ingredients],
     }));
   };
 
@@ -117,10 +125,9 @@ export const AddRecipeForm = () => {
         categoriesList={data.categories}
         glassesList={data.glasses}
         state={formState}
-        imageURL={imageURL}
-        handleImagePick={handleImagePick}
+        handleFileInputChange={handleFileInputChange}
         handleInputChange={handleInputChange}
-        handleSingleSelectChange={handleSingleSelectChange}
+        handleSelectChange={handleSelectChange}
       />
 
       <RecipeIngredientsFields
@@ -129,7 +136,7 @@ export const AddRecipeForm = () => {
         ingredientsList={data.ingredients}
         measureList={data.measure}
         state={formState}
-        handleMultipleSelectChange={handleMultipleSelectChange}
+        handleSelectChange={handleSelectChange}
       />
 
       <RecipePreparationFields
