@@ -21,6 +21,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { drinksReducer } from './drinks';
 
 const authPersistConfig = {
   key: 'auth',
@@ -54,6 +55,7 @@ export const store = configureStore({
     glasses: persistReducer(glassesPersistConfig, glassesReducer),
     ingredients: persistReducer(ingredientsPersistConfig, ingredientsReducer),
     recipe: recipeReducer,
+    drinks: drinksReducer,
     myRecipes: myRecipesReduser,
     subscribe: subscribeReducer,
   },
