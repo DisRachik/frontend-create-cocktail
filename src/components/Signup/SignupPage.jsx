@@ -34,8 +34,13 @@ export const SignupPage = () => {
 
   const onSubmit = async data => {
     try {
-      await handleSignUp(data);
-      console.log(data);
+      const lowercasedData = {
+        ...data,
+        email: data.email.toLowerCase(),
+      };
+
+      await handleSignUp(lowercasedData);
+      console.log(lowercasedData);
       reset();
       navigation('/signin');
     } catch (error) {
@@ -109,7 +114,7 @@ export const SignupPage = () => {
                   <Button
                     disabled={!isValid || !isDirty}
                     transparent
-                    minWidth={'100%'}
+                    minWidth="100%"
                     minHeight="56px"
                   >
                     Sign Up
