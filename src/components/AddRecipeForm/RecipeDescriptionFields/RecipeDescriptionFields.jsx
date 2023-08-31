@@ -28,11 +28,14 @@ export const RecipeDescriptionFields = ({
   glassesList,
   categoriesList,
   state,
-  imageURL,
-  handleImagePick,
+  handleFileInputChange,
   handleInputChange,
-  handleSingleSelectChange,
+  handleSelectChange,
 }) => {
+  const imageURL = state.drinkThumb
+    ? URL.createObjectURL(state.drinkThumb)
+    : null;
+
   return (
     <DescriptionBox>
       <FileInputBox>
@@ -58,7 +61,7 @@ export const RecipeDescriptionFields = ({
             name="drinkThumb"
             accept="image/*, .png, .jpg, .gif, .web"
             {...register('drinkThumb')}
-            onChange={handleImagePick}
+            onChange={handleFileInputChange}
           />
         </CustomFileInputWrapper>
         {errors.drinkThumb?.message && (
@@ -75,9 +78,7 @@ export const RecipeDescriptionFields = ({
               name="drink"
               {...register('drink')}
               value={state.drink}
-              onChange={({ target: { name, value } }) =>
-                handleInputChange(name, value)
-              }
+              onChange={handleInputChange}
             />
           </Label>
           {errors.drink && (
@@ -95,9 +96,7 @@ export const RecipeDescriptionFields = ({
               name="about"
               {...register('about')}
               value={state.about}
-              onChange={({ target: { name, value } }) =>
-                handleInputChange(name, value)
-              }
+              onChange={handleInputChange}
             />
           </Label>
           {errors.about && (
@@ -123,7 +122,7 @@ export const RecipeDescriptionFields = ({
                   defaultValue={state.category}
                   onChange={selectedOption => {
                     field.onChange(selectedOption);
-                    handleSingleSelectChange(field.name, selectedOption);
+                    handleSelectChange(field.name);
                   }}
                 />
               </Label>
@@ -150,7 +149,7 @@ export const RecipeDescriptionFields = ({
                   defaultValue={state.glass}
                   onChange={selectedOption => {
                     field.onChange(selectedOption);
-                    handleSingleSelectChange(field.name, selectedOption);
+                    handleSelectChange(field.name);
                   }}
                 />
               </Label>
@@ -185,5 +184,5 @@ RecipeDescriptionFields.propTypes = {
     instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }).isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  handleSingleSelectChange: PropTypes.func.isRequired,
+  handleSelectChange: PropTypes.func.isRequired,
 };
