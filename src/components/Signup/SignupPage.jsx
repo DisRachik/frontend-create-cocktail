@@ -1,47 +1,132 @@
-import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { useAuth } from 'redux/auth/useAuth';
-
-const schema = yup.object().shape({
-  name: yup.string().required(),
-  email: yup.string().email('Invalid email').required(),
-  password: yup
-    .string()
-    .min(8, 'Password must be at least 8 characters')
-    .required(),
-});
+import {
+  BackgroundImage,
+  ContainerWelcome,
+  SectionWelcome,
+  WelcomeWrap,
+  Wrapper,
+} from 'components/Welcome/WelcomePage.styled';
+import { Button, FormIcons, FormMessages } from 'components';
+import { Input, InputBox } from 'components/SubscribeForm/SubscribeForm.styled';
+import {
+  AuthTitle,
+  ButtonWrap,
+  FormWrap,
+  Link,
+  LinkWrap,
+} from './SignupPage.styled';
+import { signUpSchema } from 'schema/signUpSchema';
 
 export const SignupPage = () => {
-  const { handleSignUp } = useAuth();
+  const { handleSignUp, navigation } = useAuth();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isValid, isDirty },
   } = useForm({
-    resolver: yupResolver(schema),
+    mode: 'onChange',
+    resolver: yupResolver(signUpSchema),
   });
-  const onSubmit = data => {
-    handleSignUp(data);
+
+  const onSubmit = async data => {
+    try {
+      const lowercasedData = {
+        ...data,
+        email: data.email.toLowerCase(),
+      };
+
+      await handleSignUp(lowercasedData);
+      reset();
+      navigation('/signin');
+    } catch (error) {
+      return console.log(error.message);
+    }
   };
 
   return (
-    <>
-      <NavLink to="/signin">Sign In</NavLink>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('name')} />
-        <p>{errors.name?.message}</p>
+    <BackgroundImage>
+      <Wrapper>
+        <ContainerWelcome>
+          <SectionWelcome>
+            <WelcomeWrap>
+              <AuthTitle>Registration</AuthTitle>
+              <FormWrap onSubmit={handleSubmit(onSubmit)}>
+                <InputBox>
+                  <Input
+                    type="name"
+                    name="name"
+                    placeholder="Name"
+                    {...register('name')}
+                    valid={isValid}
+                    invalid={isDirty && !isValid}
+                  />
+                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                </InputBox>
+                <FormMessages
+                  invalidValue={errors.name}
+                  validValue={isValid && isDirty}
+                  errorMessage={errors.name?.message}
+                  checkMessage="This is valid name"
+                />
 
-        <input {...register('email')} />
-        <p>{errors.email?.message}</p>
+                <InputBox>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    {...register('email')}
+                    valid={isValid}
+                    invalid={isDirty && !isValid}
+                  />
+                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                </InputBox>
+                <FormMessages
+                  invalidValue={errors.email}
+                  validValue={isValid && isDirty}
+                  errorMessage={errors.name?.message}
+                  checkMessage="This is valid email"
+                />
 
-        <input {...register('password')} />
-        <p>{errors.password?.message}</p>
+                <InputBox>
+                  <Input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    {...register('password')}
+                    valid={isValid}
+                    invalid={isDirty && !isValid}
+                  />
+                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                </InputBox>
+                <FormMessages
+                  invalidValue={errors.password}
+                  validValue={isValid && isDirty}
+                  errorMessage={errors.password?.message}
+                  checkMessage="This is valid password"
+                />
 
-        <input type="submit" />
-      </form>
-    </>
+                <ButtonWrap>
+                  <Button
+                    disabled={!isValid || !isDirty}
+                    transparent
+                    minWidth="100%"
+                    minHeight="56px"
+                  >
+                    Sign Up
+                  </Button>
+                </ButtonWrap>
+                <LinkWrap>
+                  <Link to="/signin">Sign In</Link>
+                </LinkWrap>
+              </FormWrap>
+            </WelcomeWrap>
+          </SectionWelcome>
+        </ContainerWelcome>
+      </Wrapper>
+    </BackgroundImage>
   );
 };
