@@ -1,5 +1,6 @@
 // Libs
 import { css } from '@emotion/react';
+import 'react-toastify/dist/ReactToastify.css';
 import 'modern-normalize';
 // Theme
 import { theme } from './theme';

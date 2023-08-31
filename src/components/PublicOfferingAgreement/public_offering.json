@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Acceptance of Terms",
+    "content": "By accessing or using the Drink Master app, you agree to comply with and be bound by the terms and conditions of this Agreement. If you do not agree with any part of this Agreement, you should immediately discontinue the use of the App."
+  },
+  {
+    "id": 2,
+    "title": "App Features and Services",
+    "content": "The Drink Master app provides users with access to a collection of cocktail recipes, both curated and user-generated. Users can explore, search, and create their own cocktail recipes using the provided tools."
+  },
+  {
+    "id": 3,
+    "title": "User Accounts and Content",
+    "content": "To fully utilize the App's features, you may be required to create a user account. You are responsible for maintaining the confidentiality of your account credentials and any content you submit, including your own cocktail recipes. You retain ownership of your content, but by submitting, you grant the App a non-exclusive, royalty-free license to use, modify, and distribute your content within the App."
+  },
+  {
+    "id": 4,
+    "title": "Intellectual Property",
+    "content": "All content provided by the Cocktail Creations app, including cocktail recipes, images, and text, are protected by copyright and other intellectual property laws. Users may not reproduce, distribute, or use these materials for commercial purposes without explicit permission from the App's operators."
+  },
+  {
+    "id": 5,
+    "title": "User-Generated Content Guidelines",
+    "content": "When creating and sharing user-generated cocktail recipes, you agree not to submit content that is offensive, unlawful, infringing, or harmful. The App reserves the right to remove or moderate user-generated content that violates these guidelines."
+  },
+  {
+    "id": 6,
+    "title": "App Updates and Changes",
+    "content": "The features and functionality of the Drink Master app may evolve over time. The App reserves the right to modify, update, or discontinue any aspect of the App without prior notice."
+  },
+  {
+    "id": 7,
+    "title": "Disclaimer of Liability",
+    "content": "While we strive to provide accurate and reliable information, the Drink Master app does not warrant the accuracy, completeness, or reliability of the content provided. Users acknowledge that cocktail recipes involve the use of alcohol and potentially hazardous ingredients and should exercise caution when using the recipes. The App's liability is limited to the extent permitted by applicable law."
+  },
+  {
+    "id": 8,
+    "title": "Governing Law and Dispute Resolution",
+    "content": "This Agreement shall be governed by the laws of [Country/State]. Any disputes arising from or related to this Agreement or the use of the App shall be subject to the exclusive jurisdiction of the courts in [City, Country/State]."
+  }
+]
