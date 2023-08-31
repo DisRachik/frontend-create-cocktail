@@ -34,14 +34,30 @@ export const ProfileEditContainer = styled.div`
   }
 `;
 
-export const AvatarWrapper = styled.div`
+export const AvatarWrapper = styled.button`
   cursor: pointer;
+
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 90px;
+  }
+
+  &:hover .avatar,
+  &:focus .avatar,
+  &:hover .avatarIcon,
+  &:focus .avatarIcon {
+    filter: drop-shadow(3px 5px 5px #000);
+    scale: 1.02;
+  }
 `;
 
 export const UserAvatar = styled.img`
   display: block;
   width: 80px;
   height: 80px;
+
+  transition: filter linear 200ms, scale linear 200ms;
 
   @media screen and (min-width: 768px) {
     width: 100px;
@@ -51,17 +67,10 @@ export const UserAvatar = styled.img`
 
 export const ProfileEditForm = styled.form`
   width: 100%;
-
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  gap: 18px;
-
-  @media screen and (min-width: 768px) {
-    gap: 25px;
-  }
 `;
 
 export const ProfileEditInput = styled.input`
@@ -69,6 +78,7 @@ export const ProfileEditInput = styled.input`
   height: 54px;
 
   padding: 14px 54px 14px 24px;
+  margin-bottom: 18px;
 
   border-radius: 200px;
   border: 1px solid rgba(243, 243, 243, 0.5);
@@ -80,6 +90,10 @@ export const ProfileEditInput = styled.input`
   ::placeholder {
     color: ${theme.colors.lightGray};
   }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 25px;
+  }
 `;
 
 export const ProfileEditSubmitBtn = styled.button`
@@ -87,6 +101,8 @@ export const ProfileEditSubmitBtn = styled.button`
   padding: 18px 147px;
   justify-content: center;
   align-items: center;
+
+  z-index: 999;
 
   width: 100%;
   height: 56px;
@@ -107,7 +123,7 @@ export const ProfileEditSubmitBtn = styled.button`
   &:hover,
   &:focus {
     color: ${theme.colors.lightGray};
-    background: ${theme.colors.midnightBlue};
+    background: transparent;
     border: 1px solid rgba(243, 243, 243, 0.2);
   }
 
@@ -166,6 +182,8 @@ export const AddPhotoIcon = styled(AiFillPlusCircle)`
   top: 116px;
   left: 50%;
   transform: translate(-50%, 0%);
+
+  transition: filter linear 200ms, scale linear 200ms;
 
   @media screen and (min-width: 768px) {
     width: 32px;
