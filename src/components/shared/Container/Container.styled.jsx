@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ContainerWrap = styled.section`
+export const ContainerWrap = styled.div`
   outline: 1px solid tomato;
 
   max-width: 1440px;
