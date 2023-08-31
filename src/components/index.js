@@ -48,3 +48,6 @@ export * from 'components/DrinksPage/DrinksSearchBar/DrinksSearchBar';
 // My recipes
 export * from 'components/MyRecipes/MyRecipesPage';
 export * from 'components/MyRecipes/EmptyMyRecipesPage';
+//PrivacyPolicy
+export * from 'components/PrivacyPolicyText/PrivacyPolicyText';
+export * from 'components/PublicOfferingAgreement/PublicOfferingAgreement';
