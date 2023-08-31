@@ -5,7 +5,7 @@ import { DrinkList, DrinkSearchBar } from 'components';
 import { Pagination } from 'components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { fetchDrinksByQuery } from 'redux/drinks';
 
 export const DrinksPage = () => {
@@ -13,7 +13,7 @@ export const DrinksPage = () => {
   const { drinks } = useSelector(getDrinksByQuery);
   const [currentPage, setCurrentPage] = useState(1);
   const [drinksPerPage, setDrinksPerPage] = useState(10);
-  const params = useParams();
+  // const params = useParams();
 
   useEffect(() => {
     function calculatePerPage(windowWidth) {
