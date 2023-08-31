@@ -1,60 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ProfileLogOutContainer,
-  ProfileLogOutButtonsWrapper,
-  ProfileLogOutText,
-  ProfileCancelBtn,
-  ProfileLogOutCancelBtn,
-  ProfileLogOutSubmitBtn,
-  CloseIcon,
-} from './ProfileLogOut.styled';
+
+import { useAuth } from 'redux/auth/useAuth';
 import { Backdrop } from 'components';
+import SubmitModal from 'components/shared/SubmitModal/SubmitModal';
 
 const ProfileLogOut = ({ toggleLogOutModal }) => {
-  useEffect(() => {
-    const handleKeyDown = event => {
-      if (event.key === 'Escape') toggleLogOutModal();
-    };
+  const { handleSignOut } = useAuth();
 
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [toggleLogOutModal]);
-
-  const IsWork = () => {
-    document.location.reload();
+  const SignOut = () => {
     console.log('LOG OUTED');
+    handleSignOut();
   };
 
   return (
-    <Backdrop onClick={ProfileLogOut}>
-      <ProfileLogOutContainer>
-        <ProfileCancelBtn onClick={toggleLogOutModal}>
-          <CloseIcon />
-        </ProfileCancelBtn>
-        <ProfileLogOutText>Are you sure you want to log out?</ProfileLogOutText>
-
-        <ProfileLogOutButtonsWrapper>
-          <ProfileLogOutSubmitBtn
-            minHeight="54px"
-            minWidth="196px"
-            onClick={IsWork}
-          >
-            Log out
-          </ProfileLogOutSubmitBtn>
-          <ProfileLogOutCancelBtn
-            minHeight="54px"
-            minWidth="196px"
-            transparent
-            onClick={toggleLogOutModal}
-          >
-            Cancel
-          </ProfileLogOutCancelBtn>
-        </ProfileLogOutButtonsWrapper>
-      </ProfileLogOutContainer>
+    <Backdrop>
+      <SubmitModal
+        toggleModalFunc={toggleLogOutModal}
+        text="Are you sure you want to log out?"
+        buttonText="Log out"
+        submitBtnFunc={SignOut}
+      ></SubmitModal>
     </Backdrop>
   );
 };

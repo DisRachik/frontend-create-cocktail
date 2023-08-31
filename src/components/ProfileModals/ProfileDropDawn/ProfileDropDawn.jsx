@@ -12,7 +12,7 @@ import ProfileLogOut from '../ProfileLogOut/ProfileLogOut';
 import ProfileModal from '../ProfileModal/ProfileEditModal';
 
 const ProfileDropDawn = ({ closeModal }) => {
-  const ROOT = document.querySelector('#modal-root');
+  const ROOT = document.querySelector('#root');
 
   useEffect(() => {
     const handleKeyDown = event => {
