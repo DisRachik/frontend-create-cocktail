@@ -10,8 +10,12 @@ import { Button } from 'components';
 // Styled components
 import { Form } from './AddRecipeForm.styled';
 // Helpers
-import { transformSelectData } from 'helpers';
-// Redux selectors
+import {
+  transformSelectData,
+  generateFormData,
+  normalizeAddRecipeRequestData,
+} from 'helpers';
+// Redux
 import {
   selectCategories,
   selectGlasses,
@@ -19,6 +23,7 @@ import {
   fetchCategories,
   fetchGlasses,
   fetchIngredients,
+  addOwnRecipe,
 } from '../../redux';
 // Other
 import { formSettings } from './formSettings';
@@ -66,10 +71,13 @@ export const AddRecipeForm = () => {
     );
   }, [dispatch]);
 
-  const handleFormSubmit = data => {
-    data.instructions = data.instructions.split(/\r\n|\r|\n/g);
+  const handleFormSubmit = async data => {
+    const reqBody = normalizeAddRecipeRequestData(data, ingredients);
 
-    console.log(data);
+    // const formData = generateFormData(reqBody);
+    // formData.forEach(console.log);
+
+    dispatch(addOwnRecipe(reqBody));
 
     setFormState({ ...initialValues });
     reset({ ...initialValues });
