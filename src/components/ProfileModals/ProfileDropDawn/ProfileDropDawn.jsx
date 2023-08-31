@@ -11,26 +11,24 @@ import {
 import ProfileLogOut from '../ProfileLogOut/ProfileLogOut';
 import ProfileModal from '../ProfileModal/ProfileEditModal';
 
-const ProfileDropDawn = ({ closeModal }) => {
-  const ROOT = document.querySelector('#modal-root');
+const ROOT = document.querySelector('#modal-root');
 
+const ProfileDropDawn = ({ closeModal }) => {
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.key === 'Escape') closeModal();
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    ROOT.addEventListener('click', handleCloseModal);
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      ROOT.removeEventListener('click', handleCloseModal);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [closeModal]);
 
-  const handleCloseModal = event => {
-    if (event.target !== event.currentTarget) closeModal();
-  };
+  // const handleCloseModal = event => {
+  //   if (event.target === event.currentTarget) closeModal();
+  // };
 
   const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
   const [isModalProfileEditOpen, setIsModalProfileEditOpen] = useState(false);
@@ -58,7 +56,7 @@ const ProfileDropDawn = ({ closeModal }) => {
         <ProfileModal toggleProfileEditModal={toggleProfileEditModal} />
       )}
     </DropDawnContainer>,
-    document.body
+    ROOT
   );
 };
 

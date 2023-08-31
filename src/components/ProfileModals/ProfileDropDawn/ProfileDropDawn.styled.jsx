@@ -17,8 +17,12 @@ export const DropDawnContainer = styled.div`
   padding: 18px;
 
   position: fixed;
-  top: 0px;
-  left: 100px;
+  top: 88px;
+  right: 10px;
+
+  @media screen and (min-width: 1460px) {
+    right: calc((100% - 1430px) / 2);
+  }
 `;
 
 export const DropDawnTextWrapper = styled.button`

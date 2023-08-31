@@ -29,7 +29,7 @@ export const SectionSubtitle = styled.p`
   }
 `;
 
-export const SectionTitle = styled.h2`
+export const SectionTitle = styled.h1`
   max-width: 715px;
   font-size: ${theme.fontSizes.sectionTitlePhone};
   font-weight: 600;

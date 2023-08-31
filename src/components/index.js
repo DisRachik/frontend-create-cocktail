@@ -42,9 +42,12 @@ export * from 'components/Header/Header';
 export * from 'components/ModalBtnUser/ModalBtnUser';
 export * from 'components/Navigation/Navigation';
 // Drinks
-export * from 'components/DrinksPage/DrinkListItem/DrinkListItem';
-export * from 'components/DrinksPage/DrinksList/DrinksList';
-export * from 'components/DrinksPage/DrinksSearchBar/DrinksSearchBar';
+export * from 'components/DrinkListItem/DrinkListItem';
+export * from 'components/DrinksList/DrinksList';
+export * from 'components/DrinksSearchBar/DrinksSearchBar';
 // My recipes
 export * from 'components/MyRecipes/MyRecipesPage';
 export * from 'components/MyRecipes/EmptyMyRecipesPage';
+//PrivacyPolicy
+export * from 'components/PrivacyPolicyText/PrivacyPolicyText';
+export * from 'components/PublicOfferingAgreement/PublicOfferingAgreement';

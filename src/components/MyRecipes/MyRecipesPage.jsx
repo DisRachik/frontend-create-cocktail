@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectError,
   selectLoading,
-  // selectError,
-  // selectLoading,
   selectMyRecipes,
 } from 'redux/myRecipes/selectors';
 import { useEffect } from 'react';
@@ -17,7 +15,7 @@ export const MyRecipesPage = () => {
   const myRecipes = useSelector(selectMyRecipes);
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
-
+  console.log(myRecipes);
   useEffect(() => {
     dispatch(fetchMyRecipes());
   }, [dispatch]);

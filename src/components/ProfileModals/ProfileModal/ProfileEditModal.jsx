@@ -13,11 +13,15 @@ import {
   BottomDecorCircle,
   AvatarWrapper,
   ProfileEditSubmitBtn,
+  // AvatarLabel
 } from './ProfileEditModal.styled';
 import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
+import { useAuth } from 'redux/auth/useAuth';
 import { Backdrop } from 'components';
 
 const ProfileModal = ({ toggleProfileEditModal }) => {
+  const { user } = useAuth();
+
   const IsWork = () => {
     console.log('CHANGES SAVED');
   };
@@ -36,22 +40,27 @@ const ProfileModal = ({ toggleProfileEditModal }) => {
         <ProfileEditCancelBtn onClick={toggleProfileEditModal}>
           <CloseIcon />
         </ProfileEditCancelBtn>
-        <label htmlFor="avatarInput">
-          <AvatarWrapper>
-            <UserAvatar src={DEFAULT_AVATAR} alt="User Avatar" />
-            <AddPhotoIcon />
-          </AvatarWrapper>
-        </label>
-        <input
-          id="avatarInput"
-          type="file"
-          accept="image/*"
-          style={{ display: 'none' }}
-          onChange={AvatarChange}
-        />
 
         <ProfileEditForm>
-          <ProfileEditInput placeholder="Victoria"></ProfileEditInput>
+          <label htmlFor="avatarInput">
+            <AvatarWrapper>
+              <UserAvatar
+                className="avatar"
+                src={DEFAULT_AVATAR}
+                alt="User Avatar"
+              />
+              <AddPhotoIcon className="avatarIcon" />
+            </AvatarWrapper>
+          </label>
+          <input
+            id="avatarInput"
+            type="file"
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={AvatarChange}
+          />
+
+          <ProfileEditInput placeholder={user.name}></ProfileEditInput>
           <EditIcon></EditIcon>
 
           <ProfileEditSubmitBtn
