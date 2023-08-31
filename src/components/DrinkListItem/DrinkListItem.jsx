@@ -1,8 +1,8 @@
-export const DrinkListItem = ({ data }) => {
+export const DrinkListItem = ({ currentDrinks }) => {
   return (
     <>
-      {data.map(({ drinkThumb, drink, _id }) => (
-        <li key={_id.$oid}>
+      {currentDrinks.map(({ drinkThumb, drink, _id }) => (
+        <li key={_id}>
           <img src={drinkThumb} alt={drink} width="335px" />
           <div>
             <p>{drink}</p>

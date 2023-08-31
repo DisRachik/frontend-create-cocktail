@@ -45,6 +45,6 @@ export * from 'components/Navigation/Navigation';
 
 // Drinks
 
-export * from 'components/DrinksPage/DrinkListItem/DrinkListItem';
-export * from 'components/DrinksPage/DrinksList/DrinksList';
-export * from 'components/DrinksPage/DrinksSearchBar/DrinksSearchBar';
+export * from 'components/DrinkListItem/DrinkListItem';
+export * from 'components/DrinksList/DrinksList';
+export * from 'components/DrinksSearchBar/DrinksSearchBar';

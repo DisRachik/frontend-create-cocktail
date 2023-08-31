@@ -19,6 +19,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { drinksReducer } from './drinks';
 
 const authPersistConfig = {
   key: 'auth',
@@ -35,6 +36,7 @@ export const store = configureStore({
     ingredients: ingredientsReducer,
     // recipes: recipesReducer,
     recipe: recipeReducer,
+    drinks: drinksReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
