@@ -1,38 +1,54 @@
-import categories from '../../data/categories.json';
-import ingridients from '../../data/ingridientsDb.json';
 import { useForm, Controller } from 'react-hook-form';
-import { Form, Input, Selector } from './DrinksSearchBar.styled';
+import { Form, Input, Selector, selectStyles } from './DrinksSearchBar.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchCategories,
+  fetchIngredients,
+  selectCategories,
+} from '../../redux';
+import { selectIngredients } from '../../redux';
+import { useEffect } from 'react';
 
-export const DrinkSearchBar = ({ name, onChange }) => {
-  const { control, handleSubmit, watch, getValues } = useForm({
+export const DrinkSearchBar = () => {
+  const dispatch = useDispatch();
+
+  const { control, handleSubmit, getValues } = useForm({
     defaultValues: {
       search: '',
       categories: null,
       ingridients: null,
     },
   });
+  useEffect(() => {
+    dispatch(fetchCategories());
+    dispatch(fetchIngredients());
+  }, [dispatch]);
+
+  const categories = useSelector(selectCategories.data);
+  const ingridients = useSelector(selectIngredients.data);
 
   const onSubmit = async () => {
     const formData = getValues();
-    const searchData = watch('search');
-    const selectedCategory = watch('category');
-    const selectedIngridient = watch('ingridient');
-    // const { searchData, selectedCategory, selectedIngridient } = formData;
-    console.log(searchData);
-    console.log(selectedCategory.value);
-    console.log(selectedIngridient.value);
+    // const { search, categories, ingridients } = formData;
+    // const searchValue = search || '';
+    // const categoryValue = categories ? categories.value : '';
+    // const ingridientValue = ingridients ? ingridients.value : '';
     console.log(formData);
-  };
 
+    // if (searchValue && categoryValue && ingridientValue) {
+    //   getDrinksByQuery(searchValue, categoryValue, ingridientValue)
+    //     .then(data => setQueryData(data.results))
+    //     .catch(() => window.alert('Network Error. Please, try again later'));
+    // }
+  };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Controller
         name="search"
         control={control}
-        render={({ field }) => (
-          <Input {...field} onChange={onChange} value={name} />
-        )}
+        render={({ field }) => <Input {...field} />}
       />
+      <button type="submit">ok</button>
       <Controller
         name="categories"
         control={control}
@@ -40,22 +56,7 @@ export const DrinkSearchBar = ({ name, onChange }) => {
           <Selector
             placeholder="All Categories"
             {...field}
-            styles={{
-              control: (baseStyles, state) => ({
-                ...baseStyles,
-                backgroundColor: '#161F37',
-                color: '#F3F3F3',
-                borderRadius: '20px',
-                width: '335px',
-              }),
-              menuList: (baseStyles, state) => ({
-                ...baseStyles,
-                backgroundColor: '#161F37',
-                color: '#F3F3F3',
-                borderRadius: '20px',
-                width: '335px',
-              }),
-            }}
+            styles={selectStyles}
             options={categories.map(option => ({
               value: option.title,
               label: option.title,
@@ -69,22 +70,7 @@ export const DrinkSearchBar = ({ name, onChange }) => {
         render={({ field }) => (
           <Selector
             placeholder="Ingridients"
-            styles={{
-              control: (baseStyles, state) => ({
-                ...baseStyles,
-                backgroundColor: '#161F37',
-                color: '#F3F3F3',
-                borderRadius: '20px',
-                width: '335px',
-              }),
-              menuList: (baseStyles, state) => ({
-                ...baseStyles,
-                backgroundColor: '#161F37',
-                color: 'rgba(243, 243, 243, 0.4)',
-                borderRadius: '20px',
-                width: '335px',
-              }),
-            }}
+            styles={selectStyles}
             {...field}
             options={ingridients.map(option => ({
               value: option.title,

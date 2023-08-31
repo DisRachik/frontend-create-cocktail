@@ -49,6 +49,6 @@ RecipesItem.propTypes = {
     instructions: PropTypes.string.isRequired,
     drinkThumb: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
-    action: PropTypes.func.isRequired,
+    action: PropTypes.func,
   }),
 };

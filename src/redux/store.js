@@ -8,6 +8,7 @@ import { ingredientsReducer } from './ingredients/ingredientsSlice';
 // import { recipesReducer } from './recipes/recipesSlice';
 import { recipeReducer } from './recipe/recipeSlice';
 import { myRecipesReduser } from './myRecipes/myRecipesSlice';
+import { subscribeReducer } from './subscribe';
 
 import {
   persistStore,
@@ -20,6 +21,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { drinksReducer } from './drinks';
 
 const authPersistConfig = {
   key: 'auth',
@@ -53,7 +55,9 @@ export const store = configureStore({
     glasses: persistReducer(glassesPersistConfig, glassesReducer),
     ingredients: persistReducer(ingredientsPersistConfig, ingredientsReducer),
     recipe: recipeReducer,
+    drinks: drinksReducer,
     myRecipes: myRecipesReduser,
+    subscribe: subscribeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
