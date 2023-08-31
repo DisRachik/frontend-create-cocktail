@@ -12,7 +12,7 @@ import { Form } from './AddRecipeForm.styled';
 // Helpers
 import {
   transformSelectData,
-  generateFormData,
+  // generateFormData,
   normalizeAddRecipeRequestData,
 } from 'helpers';
 // Redux
