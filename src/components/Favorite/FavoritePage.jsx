@@ -1,4 +1,4 @@
-import { EmptyAndError, EmptyFavoritePage, RecipesList } from 'components';
+import { EmptyFavoritePage, RecipesList } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavoriteDrinks } from 'redux/favorite/selectors';
 import { fetchUserFavoriteDrinks } from 'redux/favorite/operations';
@@ -27,7 +27,7 @@ export const FavoritePage = () => {
           <ButtonLoadMore onClick={seeMoreDrinks} />
         </>
       ) : (
-        <EmptyAndError text="You haven`t added any favorite cocktails yet" />
+        <EmptyFavoritePage />
       )}
     </>
   );

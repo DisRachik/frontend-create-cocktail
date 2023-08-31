@@ -11,8 +11,35 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Picture = styled.picture`
+export const ImgWrap = styled.div`
   margin-top: -93px;
+  position: relative;
+  z-index: -1;
+`;
+
+export const ErrorScreen = styled.p`
+  position: absolute;
+  bottom: 45%;
+  left: 50%;
+  transform: translate(-48%);
+  font-size: ${theme.fontSizes.desktop404};
+  font-weight: 600;
+  line-height: 0.82;
+  color: ${theme.colors.errorOpacity};
+  letter-spacing: 5px;
+
+  span {
+    opacity: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    line-height: 1.025;
+    font-size: ${theme.fontSizes.phone404};
+  }
+`;
+
+export const Picture = styled.picture`
+  z-index: -1;
 `;
 
 export const Text = styled.p`
