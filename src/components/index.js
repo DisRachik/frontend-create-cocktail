@@ -5,6 +5,7 @@ export * from 'components/PublicRoute';
 export * from 'components/shared/Section/Section';
 export * from 'components/shared/Container/Container';
 export * from 'components/shared/Button/Button';
+export * from 'components/shared/EmptyAndError/EmptyAndError';
 export * from 'components/shared/FormIcons/FormIcons';
 export * from 'components/shared/FormMessages/FormMessages';
 export * from 'components/shared/Backdrop/Backdrop';
