@@ -41,6 +41,8 @@ export * from 'components/Signin/SigninPage';
 export * from 'components/Header/Header';
 export * from 'components/ModalBtnUser/ModalBtnUser';
 export * from 'components/Navigation/Navigation';
+export * from 'components/UserLogo/UserLogo';
+export * from 'components/ProfileModals/ProfileDropDawn/ProfileDropDawn';
 // Drinks
 export * from 'components/DrinkListItem/DrinkListItem';
 export * from 'components/DrinksList/DrinksList';

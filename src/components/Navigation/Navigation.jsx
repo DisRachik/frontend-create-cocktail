@@ -1,4 +1,5 @@
 // import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Li, MenuLink, NavList } from './Navigation.styled';
 
 export const Navigation = ({ nav }) => {
@@ -29,4 +30,7 @@ export const Navigation = ({ nav }) => {
       </Li>
     </NavList>
   );
+};
+Navigation.propTypes = {
+  nav: PropTypes.bool.isRequired,
 };

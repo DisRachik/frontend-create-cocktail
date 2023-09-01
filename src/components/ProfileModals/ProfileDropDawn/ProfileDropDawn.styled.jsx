@@ -16,9 +16,9 @@ export const DropDawnContainer = styled.div`
 
   padding: 18px;
 
-  position: fixed;
-  top: 0px;
-  left: 100px;
+  position: absolute;
+  top: 150%;
+  left: -25%;
 `;
 
 export const DropDawnTextWrapper = styled.button`
@@ -26,12 +26,17 @@ export const DropDawnTextWrapper = styled.button`
   justify-content: space-between;
   align-items: center;
 
+  color: ${theme.colors.lightGray};
+
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: ${theme.colors.grayOpacity};
+  }
 `;
 
 export const DropDawnText = styled.p`
-  color: ${theme.colors.lightGray};
-
   font-size: ${theme.fontSizes.small};
   font-style: normal;
   font-weight: 500;
