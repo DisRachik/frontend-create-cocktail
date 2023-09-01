@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
+import { toast } from 'react-toastify';
 import { deleteFromFavorites, addToFavorites } from 'api';
 
 import defaultImageUrl from '../../../img/thumb400x400.png';
@@ -39,15 +40,20 @@ export const RecipePageHeader = ({
 
     try {
       if (drinkFavoriteUsers.includes(user._id)) {
-        await deleteFromFavorites(recipeId);
+        await deleteFromFavorites(recipeId).then(response =>
+          toast.success(response.message)
+        );
         setDrinkFavoriteUsers(newFavorites =>
           newFavorites.filter(id => id !== user._id)
         );
       } else {
-        await addToFavorites(recipeId);
+        await addToFavorites(recipeId).then(response =>
+          toast.success(response.message)
+        );
         setDrinkFavoriteUsers(newFavorites => [...newFavorites, user._id]);
       }
     } catch (error) {
+      toast.error(error.message);
       console.error('An error occurred:', error);
     } finally {
       setIsLoading(false);
