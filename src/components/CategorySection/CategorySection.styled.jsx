@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { theme } from 'styles';
 import { Link } from 'react-router-dom';
 export const CategorySectionWrap = styled.section`
-  outline: 1px solid tomato;
+ // outline: 1px solid tomato;
 //  display: flex-inline;
 //  justify-content: st;
 //  flex-direction: column;
@@ -47,15 +47,14 @@ text-align: left;
 
 export const CategorySectionTitle = styled(Link)`
   max-width: 715px;
-  // color:${theme.colors.lightGray};
   color:${theme.colors.lightGray};
   margin-left: 100px;
-//  margin-bottom: 40px;
+
 //   font-size: ${theme.fontSizes.sectionTitle};
   font-weight: 600;
   line-height: 1.0625;
   font-family: Manrope;
-     font-size: 40px;
+  font-size: 40px;
   font-weight: 600;
   line-height: 44px;
    letter-spacing: 0em;

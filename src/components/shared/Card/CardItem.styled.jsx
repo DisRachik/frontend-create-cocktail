@@ -30,12 +30,13 @@ export const ImageDrinks = styled.img`
   @media screen and (min-width: 768px) {
     width: 342px;
     margin-bottom: 24px;
+    border-radius: 8px 
   }
 
   @media screen and (min-width: 1440px) {
     width: 400px;
     height: 400px;
-    
+    border-radius: 8px 
 
   }
 `;
