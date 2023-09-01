@@ -1,4 +1,5 @@
 export const DrinkListItem = ({ currentDrinks }) => {
+  console.log('currentDrinks', currentDrinks);
   return (
     <>
       {currentDrinks.map(({ drinkThumb, drink, _id }) => (

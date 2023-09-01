@@ -1,4 +1,8 @@
 import {
+  ArrowNext,
+  ArrowPrev,
+  BtnItem,
+  PagItem,
   PaginListItem,
   PaginWrapper,
   PaginationList,
@@ -21,21 +25,21 @@ export const Pagination = ({
   return (
     <PaginWrapper>
       <button onClick={prevPage} disabled={currentPage === 1}>
-        Prev
+        <ArrowPrev />
       </button>
       <PaginationList>
         {pageNumbers.map(number => (
           <PaginListItem key={number}>
-            <button
-              onClick={() => paginate(number)}
-              disabled={currentPage === (totalDrinks / drinksPerPage).length}
-            >
-              {number}
-            </button>
+            <BtnItem onClick={() => paginate(number)}>{number}</BtnItem>
           </PaginListItem>
         ))}
       </PaginationList>
-      <button onClick={nextPage}>Next</button>
+      <button
+        onClick={prevPage}
+        disabled={currentPage === (totalDrinks / drinksPerPage).length}
+      >
+        <ArrowNext />
+      </button>
     </PaginWrapper>
   );
 };
