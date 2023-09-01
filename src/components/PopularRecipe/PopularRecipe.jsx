@@ -18,7 +18,7 @@ export const PopularRecipe = () => {
     <ul>
       {popularRecipes.map(({ _id, drinkThumb, drink, about }) => {
         return (
-          <li>
+          <li key={_id}>
             <Link to={`/recipe/${_id}`}>
               <img src={drinkThumb} alt={drink} width="90" height="90" />
               <div>
