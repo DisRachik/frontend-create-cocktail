@@ -9,8 +9,7 @@ import {
   EditIcon,
 } from './ProfileDropDawn.styled';
 
-import ProfileLogOut from '../ProfileLogOut/ProfileLogOut';
-import ProfileModal from '../ProfileModal/ProfileEditModal';
+import { ProfileEditModal, ProfileLogOut } from 'components';
 
 export const ProfileDropDawn = ({ closeModal }) => {
   const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
@@ -78,7 +77,7 @@ export const ProfileDropDawn = ({ closeModal }) => {
           />
         )}
         {isModalProfileEditOpen && (
-          <ProfileModal
+          <ProfileEditModal
             toggleProfileEditModal={toggleProfileEditModal}
             closeOverlay={closeOverlayProfile}
           />

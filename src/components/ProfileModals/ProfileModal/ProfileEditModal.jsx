@@ -16,7 +16,7 @@ import {
 import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
 import { Backdrop } from 'components';
 
-const ProfileModal = ({ toggleProfileEditModal, closeOverlay }) => {
+export const ProfileEditModal = ({ toggleProfileEditModal, closeOverlay }) => {
   const IsWork = () => {
     console.log('CHANGES SAVED');
   };
@@ -75,8 +75,8 @@ const ProfileModal = ({ toggleProfileEditModal, closeOverlay }) => {
   );
 };
 
-ProfileModal.propTypes = {
+ProfileEditModal.propTypes = {
   toggleProfileEditModal: PropTypes.func.isRequired,
 };
 
-export default ProfileModal;
+// export default ProfileModal;

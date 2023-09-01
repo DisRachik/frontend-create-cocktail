@@ -12,7 +12,7 @@ import {
 import { Backdrop } from 'components';
 import { useAuth } from 'redux/auth/useAuth';
 
-const ProfileLogOut = ({ toggleLogOutModal, closeOverlay }) => {
+export const ProfileLogOut = ({ toggleLogOutModal, closeOverlay }) => {
   const { handleSignOut } = useAuth();
 
   useEffect(() => {
@@ -66,4 +66,4 @@ ProfileLogOut.propTypes = {
   toggleLogOutModal: PropTypes.func.isRequired,
 };
 
-export default ProfileLogOut;
+// export default ProfileLogOut;
