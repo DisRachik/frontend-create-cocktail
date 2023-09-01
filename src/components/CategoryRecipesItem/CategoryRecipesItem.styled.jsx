@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { theme } from 'styles';
 
 export const CategoryItem = styled.li`
+
+  background: linear-gradient(180deg, rgba(10, 10, 17, 0.024) 51.18%, rgba(10, 10, 17, 0.768) 97.66%); 
   @media screen and (min-width: 375px) {
     width: 335px;
   }
@@ -21,6 +23,9 @@ export const ImageDrinks = styled.img`
   margin-bottom: 14px;
   width: 335px;
   height: 360px;
+  border-radius: 8px 
+  
+
 
   @media screen and (min-width: 768px) {
     width: 342px;
@@ -30,6 +35,8 @@ export const ImageDrinks = styled.img`
   @media screen and (min-width: 1440px) {
     width: 400px;
     height: 400px;
+    
+
   }
 `;
 
@@ -66,7 +73,7 @@ export const SeeIngredients = styled(Link)`
   &:hover {
     color: ${theme.colors.lightGray};
     background-color: transparent;
-    box-shadow: ${theme.shadows.regular};
+    text-shadow:: ${theme.shadows.light};
   }
 `;
 

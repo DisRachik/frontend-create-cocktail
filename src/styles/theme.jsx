@@ -42,6 +42,7 @@ export const theme = Object.freeze({
 
   shadows: {
     regular: '0px 4px 10px 4px #9e9e9e',
+    light: "2px 2px 15px rgba(255, 255, 255, 0.99)"
   },
 
   animation: value => `${value} 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)`,
