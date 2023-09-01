@@ -8,21 +8,21 @@ import { useEffect } from 'react';
 
 export const CategoryRecipesPage = ({ category }) => {
  const dispatch = useDispatch();
-    const mainRecipes = useSelector(state => state.mainRecipes.mainRecipes);
+    const mainRecipes = useSelector(selectMainRecipes);
     
   
-    function flattenArray(twoDimensionalArray) {
-    const flattenedArray = [];
-    for (let i = 0; i < twoDimensionalArray.length; i++) {
-        for (let j = 0; j < twoDimensionalArray[i].length; j++) {
-            flattenedArray.push(twoDimensionalArray[i][j]);
-        }
-    }
-        return flattenedArray;      
-}
-const flattenedArray = flattenArray(mainRecipes);
+//     function flattenArray(twoDimensionalArray) {
+//     const flattenedArray = [];
+//     for (let i = 0; i < twoDimensionalArray.length; i++) {
+//         for (let j = 0; j < twoDimensionalArray[i].length; j++) {
+//             flattenedArray.push(twoDimensionalArray[i][j]);
+//         }
+//     }
+//         return flattenedArray;      
+// }
+// const flattenedArray = flattenArray(mainRecipes);
 
-const filteredArray = flattenedArray.filter(recipe => recipe.category === category);
+const filteredArray = mainRecipes.filter(recipe => recipe.category === category);
 
 
   useEffect(() => {
