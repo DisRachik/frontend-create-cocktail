@@ -107,6 +107,12 @@ export const SeeRecipe = styled(Link)`
 
     line-height: calc(18 / 16);
   }
+
+  &:hover {
+    color: ${theme.colors.lightGray};
+    background-color: transparent;
+    box-shadow: ${theme.shadows.regular};
+  }
 `;
 
 export const DeleteFavoriteDrinksBtn = styled.button`
@@ -124,6 +130,12 @@ export const DeleteFavoriteDrinksBtn = styled.button`
 
     width: 56px;
     height: 54px;
+  }
+
+  &:hover {
+    color: ${theme.colors.lightGray};
+    background-color: transparent;
+    box-shadow: ${theme.shadows.regular};
   }
 `;
 

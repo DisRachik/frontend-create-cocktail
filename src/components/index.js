@@ -5,6 +5,7 @@ export * from 'components/PublicRoute';
 export * from 'components/shared/Section/Section';
 export * from 'components/shared/Container/Container';
 export * from 'components/shared/Button/Button';
+export * from 'components/shared/EmptyAndError/EmptyAndError';
 export * from 'components/shared/FormIcons/FormIcons';
 export * from 'components/shared/FormMessages/FormMessages';
 export * from 'components/shared/Backdrop/Backdrop';
@@ -42,9 +43,12 @@ export * from 'components/Header/Header';
 export * from 'components/ModalBtnUser/ModalBtnUser';
 export * from 'components/Navigation/Navigation';
 // Drinks
-export * from 'components/DrinksPage/DrinkListItem/DrinkListItem';
-export * from 'components/DrinksPage/DrinksList/DrinksList';
-export * from 'components/DrinksPage/DrinksSearchBar/DrinksSearchBar';
+export * from 'components/DrinkListItem/DrinkListItem';
+export * from 'components/DrinksList/DrinksList';
+export * from 'components/DrinksSearchBar/DrinksSearchBar';
 // My recipes
 export * from 'components/MyRecipes/MyRecipesPage';
 export * from 'components/MyRecipes/EmptyMyRecipesPage';
+//PrivacyPolicy
+export * from 'components/PrivacyPolicyText/PrivacyPolicyText';
+export * from 'components/PublicOfferingAgreement/PublicOfferingAgreement';

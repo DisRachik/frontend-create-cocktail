@@ -5,18 +5,22 @@ const favoriteSlice = createSlice({
   name: 'favorites',
   initialState: {
     favoriteDrinks: [],
+    totalHits: null,
     isLoading: false,
     error: null,
   },
   extraReducers: {
     [fetchUserFavoriteDrinks.pending](state) {
+      state.isLoading = true;
       state.favoriteDrinks = [];
       state.error = null;
     },
     [fetchUserFavoriteDrinks.fulfilled](state, { payload }) {
-      state.favoriteDrinks = payload;
+      state.favoriteDrinks = [...payload.favorites];
+      state.totalHits = payload.totalHits;
     },
     [fetchUserFavoriteDrinks.rejected](state, action) {
+      state.isLoading = false;
       state.favoriteDrinks = [];
       state.error = action.payload;
     },
