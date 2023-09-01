@@ -2,17 +2,14 @@ import styled from '@emotion/styled';
 import { theme } from 'styles';
 
 export const Wrapper = styled.div`
+  margin-top: ${props => (props.text ? '90px' : '-93px')};
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 28px;
-  }
 `;
 
 export const ImgWrap = styled.div`
-  margin-top: -93px;
   position: relative;
   z-index: -1;
 `;
