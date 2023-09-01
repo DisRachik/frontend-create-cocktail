@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 import { theme } from 'styles';
 
 export const PreparationWrap = styled.div`
-  border: 1px solid red;
-
   @media (min-width: 1200px) {
     display: grid;
     grid-template-columns: 1fr 549px;

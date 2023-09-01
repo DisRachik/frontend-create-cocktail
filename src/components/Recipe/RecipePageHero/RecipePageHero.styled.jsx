@@ -4,7 +4,6 @@ import { theme } from 'styles';
 
 export const HeroWrap = styled.div`
   margin-bottom: 40px;
-  border: 1px solid red;
 
   @media (min-width: 768px) {
     margin-bottom: 80px;
