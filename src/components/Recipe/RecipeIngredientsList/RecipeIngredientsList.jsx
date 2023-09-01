@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 
+import defaultImageUrl from '../../../img/thumb220x220.png';
+
 import {
   IngredientsWrap,
   SectionTitle,
@@ -12,8 +14,6 @@ import {
   IngredientTitle,
   IngredientMeasure,
 } from './RecipeIngredientsList.styled';
-
-const defaultImageUrl = require('../../../img/thumb220x220.png');
 
 export const RecipeIngredientsList = ({ ingredients }) => {
   return (

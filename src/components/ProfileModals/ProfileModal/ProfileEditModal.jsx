@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ProfileEditContainer,
@@ -13,15 +12,11 @@ import {
   BottomDecorCircle,
   AvatarWrapper,
   ProfileEditSubmitBtn,
-  // AvatarLabel
 } from './ProfileEditModal.styled';
 import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
-import { useAuth } from 'redux/auth/useAuth';
 import { Backdrop } from 'components';
 
-const ProfileModal = ({ toggleProfileEditModal }) => {
-  const { user } = useAuth();
-
+export const ProfileEditModal = ({ toggleProfileEditModal, closeOverlay }) => {
   const IsWork = () => {
     console.log('CHANGES SAVED');
   };
@@ -34,33 +29,33 @@ const ProfileModal = ({ toggleProfileEditModal }) => {
     }
   };
 
+  const handleCloseOverlay = event => {
+    if (event.target === event.currentTarget) {
+      closeOverlay();
+    }
+  };
   return (
-    <Backdrop>
+    <Backdrop onClick={handleCloseOverlay}>
       <ProfileEditContainer>
         <ProfileEditCancelBtn onClick={toggleProfileEditModal}>
           <CloseIcon />
         </ProfileEditCancelBtn>
+        <label htmlFor="avatarInput">
+          <AvatarWrapper>
+            <UserAvatar src={DEFAULT_AVATAR} alt="User Avatar" />
+            <AddPhotoIcon />
+          </AvatarWrapper>
+        </label>
+        <input
+          id="avatarInput"
+          type="file"
+          accept="image/*"
+          style={{ display: 'none' }}
+          onChange={AvatarChange}
+        />
 
         <ProfileEditForm>
-          <label htmlFor="avatarInput">
-            <AvatarWrapper>
-              <UserAvatar
-                className="avatar"
-                src={DEFAULT_AVATAR}
-                alt="User Avatar"
-              />
-              <AddPhotoIcon className="avatarIcon" />
-            </AvatarWrapper>
-          </label>
-          <input
-            id="avatarInput"
-            type="file"
-            accept="image/*"
-            style={{ display: 'none' }}
-            onChange={AvatarChange}
-          />
-
-          <ProfileEditInput placeholder={user.name}></ProfileEditInput>
+          <ProfileEditInput placeholder="Victoria"></ProfileEditInput>
           <EditIcon></EditIcon>
 
           <ProfileEditSubmitBtn
@@ -80,8 +75,6 @@ const ProfileModal = ({ toggleProfileEditModal }) => {
   );
 };
 
-ProfileModal.propTypes = {
+ProfileEditModal.propTypes = {
   toggleProfileEditModal: PropTypes.func.isRequired,
 };
-
-export default ProfileModal;
