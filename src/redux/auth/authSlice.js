@@ -5,7 +5,6 @@ const initialState = {
   user: { name: null, email: null, _id: null },
   token: null,
   isAuth: false,
-  isRegistrate: false,
   isRefreshing: true,
 };
 
@@ -16,8 +15,6 @@ const authSlice = createSlice({
     builder
       .addCase(signUp.fulfilled, (state, { payload }) => {
         state.user = payload.user;
-        state.token = payload.token;
-        state.isRegistrate = true;
       })
       .addCase(signIn.fulfilled, (state, { payload }) => {
         state.user = payload.user;

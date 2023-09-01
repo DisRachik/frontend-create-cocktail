@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useAuth } from 'redux/auth/useAuth';
+import { signUp } from 'redux/auth/operations';
+import { signUpSchema } from 'schema/signUpSchema';
 import {
   BackgroundImage,
   ContainerWelcome,
@@ -17,31 +20,33 @@ import {
   Link,
   LinkWrap,
 } from './SignupPage.styled';
-import { signUpSchema } from 'schema/signUpSchema';
 
 export const SignupPage = () => {
-  const { handleSignUp, navigation } = useAuth();
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid, isDirty, dirtyFields },
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(signUpSchema),
   });
 
   const onSubmit = async data => {
-    try {
-      const lowercasedData = {
-        ...data,
-        email: data.email.toLowerCase(),
-      };
+    const lowercasedData = {
+      ...data,
+      email: data.email.toLowerCase(),
+    };
 
-      await handleSignUp(lowercasedData);
+    try {
+      const response = await dispatch(signUp(lowercasedData));
+
+      if (response.type === 'auth/signup/fulfilled') navigation('/signin');
+
       reset();
-      navigation('/signin');
     } catch (error) {
       return console.log(error.message);
     }
@@ -61,10 +66,13 @@ export const SignupPage = () => {
                     name="name"
                     placeholder="Name"
                     {...register('name')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.name && dirtyFields.name}
+                    invalid={errors.name && dirtyFields.name}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.name && dirtyFields.name}
+                    invalid={errors.name && dirtyFields.name}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.name}
@@ -79,10 +87,13 @@ export const SignupPage = () => {
                     name="email"
                     placeholder="Email"
                     {...register('email')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.email && dirtyFields.email}
+                    invalid={errors.email && dirtyFields.email}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.email && dirtyFields.email}
+                    invalid={errors.email && dirtyFields.email}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.email}
@@ -97,10 +108,13 @@ export const SignupPage = () => {
                     name="password"
                     placeholder="Password"
                     {...register('password')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.password && dirtyFields.password}
+                    invalid={errors.password && dirtyFields.password}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.password && dirtyFields.password}
+                    invalid={errors.password && dirtyFields.password}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.password}
