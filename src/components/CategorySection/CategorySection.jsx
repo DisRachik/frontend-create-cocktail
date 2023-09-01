@@ -4,7 +4,7 @@ import { CategorySectionWrap, CategorySectionTitle  } from './CategorySection.st
 export const CategorySection = ({ title,  children }) => (
   <CategorySectionWrap>
     
-    {title && <CategorySectionTitle>{title}</CategorySectionTitle>}
+    {title && <CategorySectionTitle to={`/drinks?category=${encodeURIComponent(title)}`} >{title}</CategorySectionTitle>}
     {children}
   </CategorySectionWrap>
 );

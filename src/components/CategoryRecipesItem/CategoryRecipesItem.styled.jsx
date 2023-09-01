@@ -1,5 +1,6 @@
 // Libs
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 import { theme } from 'styles';
 
 export const CategoryItem = styled.li`
@@ -44,7 +45,7 @@ export const TitleDrinks = styled.p`
   }
 `;
 
-export const Text = styled.p`
+export const SeeIngredients = styled(Link)`
   color: rgba(243, 243, 243, 0.5);
 
   font-size: ${theme.fontSizes.small};
@@ -61,6 +62,11 @@ export const Text = styled.p`
 
   @media screen and (min-width: 1440px) {
     // margin-bottom: 24px;
+  }
+  &:hover {
+    color: ${theme.colors.lightGray};
+    background-color: transparent;
+    box-shadow: ${theme.shadows.regular};
   }
 `;
 

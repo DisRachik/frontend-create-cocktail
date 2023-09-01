@@ -2,36 +2,12 @@
 import { css } from '@emotion/react';
 import 'react-toastify/dist/ReactToastify.css';
 import 'modern-normalize';
+
 // Theme
 import { theme } from './theme';
 
 export const GlobalStyles = css`
-  @font-face {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Manrope Regular'),
-      url('./fonts/Manrope-Regular.ttf') format('ttf');
-  }
-
-  @font-face {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: local('Manrope Medium'),
-      url('./fonts/Manrope-Medium.ttf') format('ttf');
-  }
-
-  @font-face {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: local('Manrope SemiBold'),
-      url('./fonts/Manrope-SemiBold.ttf') format('ttf');
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
 
   html {
     box-sizing: border-box;
