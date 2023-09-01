@@ -8,12 +8,12 @@ import {
   Text,
   Wrapper,
 } from './EmptyAndError.styled';
+import { Spinner } from '../Spinner';
 
-export const EmptyAndError = ({ text, errorScreen }) => {
+export const EmptyAndError = ({ text, errorScreen, spinner }) => {
   return (
     <Wrapper>
       <ImgWrap>
-        {/* <ErrorScreen>4</ErrorScreen> */}
         <Picture>
           <source srcSet={drink} media="(max-width: 767px)" />
           <source srcSet={drinkMedium} media="(min-width: 768px)" />
@@ -26,6 +26,7 @@ export const EmptyAndError = ({ text, errorScreen }) => {
         )}
       </ImgWrap>
       {text && <Text>{text}</Text>}
+      {spinner && <Spinner />}
     </Wrapper>
   );
 };
@@ -33,4 +34,5 @@ export const EmptyAndError = ({ text, errorScreen }) => {
 EmptyAndError.propTypes = {
   text: PropTypes.string,
   errorScreen: PropTypes.bool,
+  spinner: PropTypes.bool,
 };
