@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/frontend-create-cocktail/static/css/main.1a24fdc4.css",
-    "main.js": "/frontend-create-cocktail/static/js/main.8e8bd46b.js",
+    "main.js": "/frontend-create-cocktail/static/js/main.e18effda.js",
     "static/js/271.8520de94.chunk.js": "/frontend-create-cocktail/static/js/271.8520de94.chunk.js",
     "static/js/255.b5f053a2.chunk.js": "/frontend-create-cocktail/static/js/255.b5f053a2.chunk.js",
-    "static/js/254.75fb80f3.chunk.js": "/frontend-create-cocktail/static/js/254.75fb80f3.chunk.js",
+    "static/js/254.3ffc57b9.chunk.js": "/frontend-create-cocktail/static/js/254.3ffc57b9.chunk.js",
     "static/js/874.788f7ed6.chunk.js": "/frontend-create-cocktail/static/js/874.788f7ed6.chunk.js",
     "static/js/192.89a7ad34.chunk.js": "/frontend-create-cocktail/static/js/192.89a7ad34.chunk.js",
     "static/js/607.460e1ae0.chunk.js": "/frontend-create-cocktail/static/js/607.460e1ae0.chunk.js",
@@ -25,10 +25,10 @@
     "static/media/mob.jpg": "/frontend-create-cocktail/static/media/mob.c62f0c7a8be73ffd3770.jpg",
     "index.html": "/frontend-create-cocktail/index.html",
     "main.1a24fdc4.css.map": "/frontend-create-cocktail/static/css/main.1a24fdc4.css.map",
-    "main.8e8bd46b.js.map": "/frontend-create-cocktail/static/js/main.8e8bd46b.js.map",
+    "main.e18effda.js.map": "/frontend-create-cocktail/static/js/main.e18effda.js.map",
     "271.8520de94.chunk.js.map": "/frontend-create-cocktail/static/js/271.8520de94.chunk.js.map",
     "255.b5f053a2.chunk.js.map": "/frontend-create-cocktail/static/js/255.b5f053a2.chunk.js.map",
-    "254.75fb80f3.chunk.js.map": "/frontend-create-cocktail/static/js/254.75fb80f3.chunk.js.map",
+    "254.3ffc57b9.chunk.js.map": "/frontend-create-cocktail/static/js/254.3ffc57b9.chunk.js.map",
     "874.788f7ed6.chunk.js.map": "/frontend-create-cocktail/static/js/874.788f7ed6.chunk.js.map",
     "192.89a7ad34.chunk.js.map": "/frontend-create-cocktail/static/js/192.89a7ad34.chunk.js.map",
     "607.460e1ae0.chunk.js.map": "/frontend-create-cocktail/static/js/607.460e1ae0.chunk.js.map",
@@ -40,6 +40,6 @@
   },
   "entrypoints": [
     "static/css/main.1a24fdc4.css",
-    "static/js/main.8e8bd46b.js"
+    "static/js/main.e18effda.js"
   ]
 }
