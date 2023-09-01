@@ -29,7 +29,7 @@ export const SignupPage = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid, isDirty, dirtyFields },
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(signUpSchema),
@@ -66,10 +66,13 @@ export const SignupPage = () => {
                     name="name"
                     placeholder="Name"
                     {...register('name')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.name && dirtyFields.name}
+                    invalid={errors.name && dirtyFields.name}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.name && dirtyFields.name}
+                    invalid={errors.name && dirtyFields.name}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.name}
@@ -84,10 +87,13 @@ export const SignupPage = () => {
                     name="email"
                     placeholder="Email"
                     {...register('email')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.email && dirtyFields.email}
+                    invalid={errors.email && dirtyFields.email}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.email && dirtyFields.email}
+                    invalid={errors.email && dirtyFields.email}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.email}
@@ -102,10 +108,13 @@ export const SignupPage = () => {
                     name="password"
                     placeholder="Password"
                     {...register('password')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.password && dirtyFields.password}
+                    invalid={errors.password && dirtyFields.password}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.password && dirtyFields.password}
+                    invalid={errors.password && dirtyFields.password}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.password}
