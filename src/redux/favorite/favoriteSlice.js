@@ -16,6 +16,7 @@ const favoriteSlice = createSlice({
       state.error = null;
     },
     [fetchUserFavoriteDrinks.fulfilled](state, { payload }) {
+      state.isLoading = false;
       state.favoriteDrinks = [...payload.favorites];
       state.totalHits = payload.totalHits;
     },
