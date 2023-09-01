@@ -20,7 +20,9 @@ export const RecipePreparation = ({ instructions }) => {
   let arrayOfInstructions;
   if (instructions) {
     instructionIsArray = Array.isArray(instructions);
-    arrayOfInstructions = instructions;
+    arrayOfInstructions = instructions.flatMap(instruction =>
+      instruction.split('.')
+    );
     if (!instructionIsArray) {
       arrayOfInstructions = instructions.split('.');
     }
@@ -34,16 +36,13 @@ export const RecipePreparation = ({ instructions }) => {
           <PreparationForeword>{preparationForeward}</PreparationForeword>
           <PreparationList>
             {arrayOfInstructions &&
-              arrayOfInstructions.map(
-                instruction =>
-                  instruction.trim().length !== 0 && (
-                    <PreparationListItem key={nanoid()}>
-                      {instruction.indexOf('.') === -1
-                        ? instruction + '.'
-                        : instruction}
-                    </PreparationListItem>
-                  )
-              )}
+              arrayOfInstructions.map(instruction => (
+                <PreparationListItem key={nanoid()}>
+                  {instruction.indexOf('.') === -1
+                    ? instruction + '.'
+                    : instruction}
+                </PreparationListItem>
+              ))}
           </PreparationList>
           <PreparationImg
             src={retinaImageImageUrl}
