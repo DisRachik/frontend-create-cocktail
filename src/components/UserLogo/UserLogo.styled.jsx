@@ -6,10 +6,6 @@ export const UserBtn = styled.button`
   gap: 8px;
 
   text-decoration: none;
-
-  /* @media screen and (min-width: 1200px) {
-    padding-right: 100px;
-  } */
 `;
 
 export const UserImg = styled.img`
