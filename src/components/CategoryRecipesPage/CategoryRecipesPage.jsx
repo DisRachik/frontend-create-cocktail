@@ -1,17 +1,37 @@
-import { CategoryRecipesList,   } from 'components';
-// import { ButtonContainer } from './CategoryRecipesPage.styled';
-// import { useNavigate} from 'react-router-dom';
-export const CategoryRecipesPage = () => {
-//     const navigate = useNavigate();
-//     const handleButtonClick = () => {
-//       navigate("/drinks");
-//   };
+import { CategoryRecipesList, } from 'components';
+
+import {   fetchMainRecipes } from 'redux/mainRecipes/mainRecipesOperations';
+import { selectMainRecipes,} from 'redux/mainRecipes/mainRecipesSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+
+export const CategoryRecipesPage = ({ category }) => {
+ const dispatch = useDispatch();
+    const mainRecipes = useSelector(selectMainRecipes);
+    
+  
+//     function flattenArray(twoDimensionalArray) {
+//     const flattenedArray = [];
+//     for (let i = 0; i < twoDimensionalArray.length; i++) {
+//         for (let j = 0; j < twoDimensionalArray[i].length; j++) {
+//             flattenedArray.push(twoDimensionalArray[i][j]);
+//         }
+//     }
+//         return flattenedArray;      
+// }
+// const flattenedArray = flattenArray(mainRecipes);
+
+const filteredArray = mainRecipes.filter(recipe => recipe.category === category);
+
+
+  useEffect(() => {
+    dispatch(fetchMainRecipes());
+  }, [dispatch]);
   return (
     <>
-      <CategoryRecipesList />
-      {/* <ButtonContainer>
-        <Button onClick={handleButtonClick}>Other drinks</Button>
-      </ButtonContainer> */}
+      <CategoryRecipesList array={filteredArray }/>
+    
     </>
   );
 };
