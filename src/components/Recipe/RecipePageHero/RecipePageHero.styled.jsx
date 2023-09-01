@@ -4,7 +4,6 @@ import { theme } from 'styles';
 
 export const HeroWrap = styled.div`
   margin-bottom: 40px;
-  border: 1px solid red;
 
   @media (min-width: 768px) {
     margin-bottom: 80px;
@@ -40,7 +39,7 @@ export const CocktailGlass = styled.p`
   }
 `;
 
-export const CocktailTitle = styled.h2`
+export const CocktailTitle = styled.h1`
   margin-bottom: 20px;
   font-size: 32px;
   font-weight: 600;

@@ -4,7 +4,6 @@ import { theme } from 'styles';
 
 export const IngredientsWrap = styled.div`
   margin-bottom: 80px;
-  border: 1px solid red;
 
   @media (min-width: 1200px) {
     margin-bottom: 100px;
