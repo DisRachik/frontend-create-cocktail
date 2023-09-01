@@ -21,7 +21,7 @@ export const CategoryRecipesPage = ({ category }) => {
         return flattenedArray;      
 }
 const flattenedArray = flattenArray(mainRecipes);
-console.log("flattenedArray",flattenedArray);
+
 const filteredArray = flattenedArray.filter(recipe => recipe.category === category);
 
 

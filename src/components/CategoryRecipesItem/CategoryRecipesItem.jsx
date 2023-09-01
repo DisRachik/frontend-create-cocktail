@@ -10,7 +10,7 @@ import {
 export const CategoryRecipesItem = ({
   data: { drink,  drinkThumb, _id },
 }) => {
-  console.log( "CategoryRecipesItem _id" ,_id, drink,  drinkThumb);
+
   return (
     <CategoryItem>
       <ImageDrinks loading="lazy" src={drinkThumb} alt="" />
