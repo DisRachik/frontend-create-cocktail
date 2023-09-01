@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import {
   DropDawnContainer,
   DropDawnText,
@@ -8,32 +8,41 @@ import {
   DropDawnTextWrapper,
   EditIcon,
 } from './ProfileDropDawn.styled';
-import ProfileLogOut from '../ProfileLogOut/ProfileLogOut';
-import ProfileModal from '../ProfileModal/ProfileEditModal';
 
-const ProfileDropDawn = ({ closeModal }) => {
-  const ROOT = document.querySelector('#modal-root');
+import { ProfileEditModal, ProfileLogOut } from 'components';
+
+export const ProfileDropDawn = ({ closeModal }) => {
+  const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
+  const [isModalProfileEditOpen, setIsModalProfileEditOpen] = useState(false);
+  // const ROOT = document.querySelector('#modal-root');
 
   useEffect(() => {
+    const handleCloseModal = event => {
+      if (event.target === event.currentTarget) closeModal();
+    };
+
     const handleKeyDown = event => {
       if (event.key === 'Escape') closeModal();
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    ROOT.addEventListener('click', handleCloseModal);
+    // ROOT.addEventListener('click', handleCloseModal);
+    document.addEventListener('click', handleCloseModal);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      ROOT.removeEventListener('click', handleCloseModal);
+      // ROOT.removeEventListener('click', handleCloseModal);
+      document.removeEventListener('click', handleCloseModal);
     };
   }, [closeModal]);
 
-  const handleCloseModal = event => {
-    if (event.target !== event.currentTarget) closeModal();
-  };
+  // const handleKeyDown = event => {
+  //   if (event.key === 'Escape') closeModal();
+  // };
 
-  const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
-  const [isModalProfileEditOpen, setIsModalProfileEditOpen] = useState(false);
+  const handleCloseModal = event => {
+    if (event.target === event.currentTarget) closeModal();
+  };
 
   const toggleLogOutModal = () => {
     setIsModalLogOutOpen(prevState => !prevState);
@@ -43,27 +52,42 @@ const ProfileDropDawn = ({ closeModal }) => {
     setIsModalProfileEditOpen(prevState => !prevState);
   };
 
-  return ReactDOM.createPortal(
-    <DropDawnContainer>
-      <DropDawnTextWrapper onClick={toggleProfileEditModal}>
-        <DropDawnText>Edit profile</DropDawnText>
-        <EditIcon />
-      </DropDawnTextWrapper>
-      <LogOutBtn onClick={toggleLogOutModal}>Log out</LogOutBtn>
+  const closeOverlayLogout = () => {
+    setIsModalLogOutOpen(false);
+  };
 
-      {isModalLogOutOpen && (
-        <ProfileLogOut toggleLogOutModal={toggleLogOutModal} />
-      )}
-      {isModalProfileEditOpen && (
-        <ProfileModal toggleProfileEditModal={toggleProfileEditModal} />
-      )}
-    </DropDawnContainer>,
-    document.body
+  const closeOverlayProfile = () => {
+    setIsModalProfileEditOpen(false);
+  };
+
+  // return ReactDOM.createPortal(
+  return (
+    <>
+      <DropDawnContainer onClick={handleCloseModal}>
+        <DropDawnTextWrapper onClick={toggleProfileEditModal}>
+          <DropDawnText>Edit profile</DropDawnText>
+          <EditIcon />
+        </DropDawnTextWrapper>
+        <LogOutBtn onClick={toggleLogOutModal}>Log out</LogOutBtn>
+
+        {isModalLogOutOpen && (
+          <ProfileLogOut
+            toggleLogOutModal={toggleLogOutModal}
+            closeOverlay={closeOverlayLogout}
+          />
+        )}
+        {isModalProfileEditOpen && (
+          <ProfileEditModal
+            toggleProfileEditModal={toggleProfileEditModal}
+            closeOverlay={closeOverlayProfile}
+          />
+        )}
+      </DropDawnContainer>
+    </>
+    // document.body
   );
 };
 
 ProfileDropDawn.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };
-
-export default ProfileDropDawn;

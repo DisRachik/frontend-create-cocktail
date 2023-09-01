@@ -1,6 +1,6 @@
 import { FiAlignJustify } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
-import { Container, Logo, ModalBtnUser, Navigation } from 'components';
+import { Container, Logo, Navigation, UserLogo } from 'components';
 import { HeaderWrrap, MenuBtn, UserBox } from './Header.styled';
 import { useState } from 'react';
 
@@ -12,7 +12,7 @@ export const Header = () => {
         <Logo />
         <Navigation nav={nav} />
         <UserBox>
-          <ModalBtnUser />
+          <UserLogo />
           <MenuBtn
             onClick={() => {
               setNav(!nav);

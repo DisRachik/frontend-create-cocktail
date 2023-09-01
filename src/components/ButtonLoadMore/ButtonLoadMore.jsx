@@ -1,7 +1,12 @@
+import { StyledButton } from 'components/shared/Button/Button.styled';
+import { LoadMoreContainer } from './ButtonLoadMore.styled';
+
 export const ButtonLoadMore = props => {
   return (
-    <button type="button" onClick={() => props.onClick()}>
-      see other
-    </button>
+    <LoadMoreContainer>
+      <StyledButton type="button" onClick={() => props.onClick()}>
+        see other
+      </StyledButton>
+    </LoadMoreContainer>
   );
 };

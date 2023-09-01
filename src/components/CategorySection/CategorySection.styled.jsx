@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { theme } from 'styles';
-
+import { Link } from 'react-router-dom';
 export const CategorySectionWrap = styled.section`
   outline: 1px solid tomato;
  display: flex-inline;
@@ -44,7 +44,7 @@ text-align: left;
 
 
 
-export const CategorySectionTitle = styled.h2`
+export const CategorySectionTitle = styled(Link)`
   max-width: 715px;
   // color:${theme.colors.lightGray};
   color:${theme.colors.lightGray};
@@ -59,5 +59,9 @@ font-weight: 600;
 line-height: 44px;
 letter-spacing: 0em;
 text-align: left;
-
+&:hover {
+    color: ${theme.colors.lightGray};
+    background-color: transparent;
+    box-shadow: ${theme.shadows.regular};
+  }
 `;

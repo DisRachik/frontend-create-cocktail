@@ -55,7 +55,7 @@ line-height: 24px;
   }
 `;
 
-export const MainSectionTitle = styled.h2`
+export const MainSectionTitle = styled.h1`
   max-width: 715px;
   // margin-top: 244px;
   // color:${theme.colors.lightGray};

@@ -8,11 +8,13 @@ import {
   RecipePageHeader,
   RecipeIngredientsList,
   RecipePreparation,
+  EmptyAndError,
 } from 'components';
 
 const Recipe = () => {
   const dispatch = useDispatch();
   const recipe = useSelector(selectRecipe.recipe);
+  const error = useSelector(selectRecipe.error);
 
   const {
     glass,
@@ -35,16 +37,22 @@ const Recipe = () => {
 
   return (
     <Section>
-      <RecipePageHeader
-        glass={glass}
-        drink={drink}
-        desc={desc}
-        recipeId={recipeId}
-        favorites={favorites}
-        drinkImage={drinkThumb}
-      />
-      <RecipeIngredientsList ingredients={ingredients} />
-      <RecipePreparation instructions={instructions} />
+      {error ? (
+        <EmptyAndError text="The recipe you were looking for is missing." />
+      ) : (
+        <>
+          <RecipePageHeader
+            glass={glass}
+            drink={drink}
+            desc={desc}
+            recipeId={recipeId}
+            favorites={favorites}
+            drinkImage={drinkThumb}
+          />
+          <RecipeIngredientsList ingredients={ingredients} />
+          <RecipePreparation instructions={instructions} />
+        </>
+      )}
     </Section>
   );
 };

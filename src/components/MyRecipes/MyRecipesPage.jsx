@@ -15,7 +15,7 @@ export const MyRecipesPage = () => {
   const myRecipes = useSelector(selectMyRecipes);
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
-  console.log(myRecipes);
+
   useEffect(() => {
     dispatch(fetchMyRecipes());
   }, [dispatch]);

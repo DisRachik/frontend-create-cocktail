@@ -10,8 +10,11 @@ import {
   CloseIcon,
 } from './ProfileLogOut.styled';
 import { Backdrop } from 'components';
+import { useAuth } from 'redux/auth/useAuth';
 
-const ProfileLogOut = ({ toggleLogOutModal }) => {
+export const ProfileLogOut = ({ toggleLogOutModal, closeOverlay }) => {
+  const { handleSignOut } = useAuth();
+
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.key === 'Escape') toggleLogOutModal();
@@ -24,13 +27,13 @@ const ProfileLogOut = ({ toggleLogOutModal }) => {
     };
   }, [toggleLogOutModal]);
 
-  const IsWork = () => {
-    document.location.reload();
-    console.log('LOG OUTED');
+  const handleCloseOverlay = event => {
+    if (event.target === event.currentTarget) {
+      closeOverlay();
+    }
   };
-
   return (
-    <Backdrop onClick={ProfileLogOut}>
+    <Backdrop onClick={handleCloseOverlay}>
       <ProfileLogOutContainer>
         <ProfileCancelBtn onClick={toggleLogOutModal}>
           <CloseIcon />
@@ -39,9 +42,9 @@ const ProfileLogOut = ({ toggleLogOutModal }) => {
 
         <ProfileLogOutButtonsWrapper>
           <ProfileLogOutSubmitBtn
-            minHeight="54px"
-            minWidth="196px"
-            onClick={IsWork}
+            onClick={() => {
+              handleSignOut();
+            }}
           >
             Log out
           </ProfileLogOutSubmitBtn>
@@ -62,5 +65,3 @@ const ProfileLogOut = ({ toggleLogOutModal }) => {
 ProfileLogOut.propTypes = {
   toggleLogOutModal: PropTypes.func.isRequired,
 };
-
-export default ProfileLogOut;

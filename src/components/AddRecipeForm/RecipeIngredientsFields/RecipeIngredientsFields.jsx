@@ -26,7 +26,7 @@ export const RecipeIngredientsFields = ({
   ingredientsList,
   measureList,
   state,
-  handleMultipleSelectChange,
+  handleSelectChange,
 }) => {
   const { fields, append, remove } = useFieldArray({
     name: 'ingredients',
@@ -36,7 +36,7 @@ export const RecipeIngredientsFields = ({
   const handleAddField = () => {
     append({ title: '', measure: '' });
 
-    handleMultipleSelectChange('ingredients');
+    handleSelectChange('ingredients');
   };
 
   const handleRemoveField = index => {
@@ -44,7 +44,7 @@ export const RecipeIngredientsFields = ({
 
     remove(index);
 
-    handleMultipleSelectChange('ingredients');
+    handleSelectChange('ingredients');
   };
 
   return (
@@ -75,7 +75,7 @@ export const RecipeIngredientsFields = ({
                     defaultValue={state.ingredients[index]}
                     onChange={selectedOption => {
                       field.onChange(selectedOption);
-                      handleMultipleSelectChange('ingredients');
+                      handleSelectChange('ingredients');
                     }}
                   />
                 )}
@@ -94,7 +94,7 @@ export const RecipeIngredientsFields = ({
                     defaultValue={state.ingredients[index]}
                     onChange={selectedOption => {
                       field.onChange(selectedOption);
-                      handleMultipleSelectChange('ingredients');
+                      handleSelectChange('ingredients');
                     }}
                   />
                 )}
@@ -129,5 +129,5 @@ RecipeIngredientsFields.propTypes = {
     ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
     instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   }).isRequired,
-  handleMultipleSelectChange: PropTypes.func.isRequired,
+  handleSelectChange: PropTypes.func.isRequired,
 };

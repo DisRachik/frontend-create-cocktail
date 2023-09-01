@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ProfileEditContainer,
@@ -17,7 +16,7 @@ import {
 import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
 import { Backdrop } from 'components';
 
-const ProfileModal = ({ toggleProfileEditModal }) => {
+export const ProfileEditModal = ({ toggleProfileEditModal, closeOverlay }) => {
   const IsWork = () => {
     console.log('CHANGES SAVED');
   };
@@ -30,8 +29,13 @@ const ProfileModal = ({ toggleProfileEditModal }) => {
     }
   };
 
+  const handleCloseOverlay = event => {
+    if (event.target === event.currentTarget) {
+      closeOverlay();
+    }
+  };
   return (
-    <Backdrop>
+    <Backdrop onClick={handleCloseOverlay}>
       <ProfileEditContainer>
         <ProfileEditCancelBtn onClick={toggleProfileEditModal}>
           <CloseIcon />
@@ -71,8 +75,6 @@ const ProfileModal = ({ toggleProfileEditModal }) => {
   );
 };
 
-ProfileModal.propTypes = {
+ProfileEditModal.propTypes = {
   toggleProfileEditModal: PropTypes.func.isRequired,
 };
-
-export default ProfileModal;

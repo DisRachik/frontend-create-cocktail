@@ -9,6 +9,7 @@ export const theme = Object.freeze({
     lightGray: '#f3f3f3',
     lightGrayTransparent: 'rgba(243, 243, 243, 0.50)',
     transparentLight: 'rgba(243, 243, 243, 0.20)',
+    errorOpacity: '#f3f3f31a',
     grayOpacity: '#f3f3f37e',
     gray: '#F3F3F333',
     errorRed: '#DA1414',

@@ -5,6 +5,8 @@ import { selectUser } from 'redux/auth/selectors';
 import { getFavoriteLoading } from 'redux/favorite/selectors';
 import { changeFavoriteStatus } from 'redux/favorite/operations';
 
+import defaultImageUrl from '../../../img/thumb400x400.png';
+
 import { Button } from '../../shared/Button/Button';
 import {
   HeroWrap,
@@ -16,8 +18,6 @@ import {
 } from './RecipePageHero.styled';
 
 import { lostRecipeDesc } from 'constans';
-
-const defaultImageUrl = require('../../../img/thumb400x400.png');
 
 export const RecipePageHeader = ({
   glass,

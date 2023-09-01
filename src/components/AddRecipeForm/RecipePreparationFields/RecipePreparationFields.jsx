@@ -23,9 +23,7 @@ export const RecipePreparationFields = ({
           name="instructions"
           {...register('instructions')}
           value={state.instructions.join('\n')}
-          onChange={({ target: { name, value } }) =>
-            handleInputChange(name, value)
-          }
+          onChange={handleInputChange}
         />
         {errors.instructions && (
           <p style={{ color: 'deeppink' }}>
