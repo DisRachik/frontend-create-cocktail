@@ -3,7 +3,7 @@ import { theme } from 'styles';
 
 export const BackdropStyled = styled.div`
   position: fixed;
-  z-index: 100;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;

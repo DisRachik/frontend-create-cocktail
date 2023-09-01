@@ -46,7 +46,7 @@ export const StyledButton = styled.button`
   ${getMinWidthStyle}
   ${getMinHeightStyle}
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding: 18px 44px;
   }
 

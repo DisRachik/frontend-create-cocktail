@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "What personal data do we collect:",
+    "content": "We may collect various types of personal data that you voluntarily provide when interacting with our website, registering an account or filling out forms. This may include your name, email address, phone number and more."
+  },
+  {
+    "id": 2,
+    "title": "How we use your personal data:",
+    "content": "We use the collected personal data to provide services, manage your account, provide you with information about our products and services, and to communicate with you regarding inquiries and updates."
+  },
+  {
+    "id": 3,
+    "title": "Protection of personal data:",
+    "content": "We take every effort to protect your information and use modern technologies to prevent unauthorized access, loss, or disclosure of your personal information."
+  },
+  {
+    "id": 4,
+    "title": "Disclosure to third parties:",
+    "content": "We do not disclose your personal data to third parties without your consent, except when required by law or to provide the services you requested."
+  },
+  {
+    "id": 5,
+    "title": "Changes to the Privacy Policy:",
+    "content": "We may periodically update this Privacy Policy. Please refer to this page to stay informed about any changes."
+  },
+  {
+    "id": 6,
+    "title": "Contact us:",
+    "content": "If you have any questions or concerns regarding this Privacy Policy or your information, please contact us using the contact details provided on our website."
+  }
+]

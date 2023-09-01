@@ -32,7 +32,7 @@ const myRecipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.myRecipes = state.myRecipes.filter(
-          recipt => recipt.id !== action.payload
+          recipt => recipt._id !== action.payload
         );
       })
       .addCase(deleteMyRecipes.rejected, handleRejected);

@@ -7,3 +7,6 @@ export * from 'api/getDrinks';
 export * from 'api/recipes';
 export * from 'api/myRecipes';
 export * from 'api/mainRecipes';
+export * from 'api/ownRecipes';
+export * from 'api/subscribe';
+

@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectError,
   selectLoading,
-  // selectError,
-  // selectLoading,
   selectMyRecipes,
 } from 'redux/myRecipes/selectors';
 import { useEffect } from 'react';
