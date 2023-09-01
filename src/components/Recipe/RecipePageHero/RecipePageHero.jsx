@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
-import { getFavoriteLoading } from 'redux/favorite/selectors';
-import { changeFavoriteStatus } from 'redux/favorite/operations';
+import { deleteFromFavorites, addToFavorites } from 'api';
 
 import defaultImageUrl from '../../../img/thumb400x400.png';
 
@@ -20,52 +19,52 @@ import {
 import { lostRecipeDesc } from 'constans';
 
 export const RecipePageHeader = ({
-  glass,
-  drink,
-  desc,
+  glass = 'N/A',
+  drink = 'N/A',
+  desc = lostRecipeDesc,
   recipeId,
   favorites,
-  drinkImage,
+  drinkImage = defaultImageUrl,
 }) => {
   const [drinkFavoriteUsers, setDrinkFavoriteUsers] = useState([]);
-  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   const user = useSelector(selectUser);
-  const isLoading = useSelector(getFavoriteLoading);
 
   useEffect(() => {
     setDrinkFavoriteUsers(favorites);
   }, [favorites]);
 
-  const handleChangeFavoriteStatus = () => {
-    dispatch(changeFavoriteStatus(recipeId))
-      .then(() => {
-        setDrinkFavoriteUsers(newFavorites => {
-          if (newFavorites.includes(user._id)) {
-            return newFavorites.filter(id => id !== user._id);
-          } else {
-            return [...newFavorites, user._id];
-          }
-        });
-      })
-      .catch(error => {
-        console.error('An error occurred:', error);
-      });
+  const handleToggleFavoriteStatus = async () => {
+    setIsLoading(true);
+
+    try {
+      if (drinkFavoriteUsers.includes(user._id)) {
+        await deleteFromFavorites(recipeId);
+        setDrinkFavoriteUsers(newFavorites =>
+          newFavorites.filter(id => id !== user._id)
+        );
+      } else {
+        await addToFavorites(recipeId);
+        setDrinkFavoriteUsers(newFavorites => [...newFavorites, user._id]);
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const isFavorite =
-    drinkFavoriteUsers && drinkFavoriteUsers.includes(user._id);
+  const isFavorite = drinkFavoriteUsers.includes(user._id);
 
   return (
     <HeroWrap>
       <LeftSideWrap>
-        <CocktailGlass>{glass ? glass : 'N/A'}</CocktailGlass>
-        <CocktailTitle>{drink ? drink : 'N/A'}</CocktailTitle>
-        <CocktailDescription>
-          {desc ? desc : lostRecipeDesc}
-        </CocktailDescription>
+        <CocktailGlass>{glass}</CocktailGlass>
+        <CocktailTitle>{drink}</CocktailTitle>
+        <CocktailDescription>{desc}</CocktailDescription>
         <Button
           minHeight={'46px'}
-          onClick={handleChangeFavoriteStatus}
+          onClick={handleToggleFavoriteStatus}
           disabled={isLoading}
         >
           {isFavorite
@@ -73,10 +72,7 @@ export const RecipePageHeader = ({
             : 'Add to favorite recipes'}
         </Button>
       </LeftSideWrap>
-      <CocktailImage
-        src={drinkImage || defaultImageUrl}
-        alt={drink}
-      ></CocktailImage>
+      <CocktailImage src={drinkImage} alt={drink} />
     </HeroWrap>
   );
 };
@@ -85,6 +81,7 @@ RecipePageHeader.propTypes = {
   glass: PropTypes.string,
   drink: PropTypes.string,
   desc: PropTypes.string,
-  favorite: PropTypes.array,
+  favorites: PropTypes.array,
   drinkImage: PropTypes.string,
+  recipeId: PropTypes.string.isRequired,
 };
