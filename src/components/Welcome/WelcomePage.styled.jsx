@@ -1,16 +1,16 @@
 import styled from '@emotion/styled';
-import desktop from '../../img/welcome/des.jpg';
-import tablet from '../../img/welcome/tab.jpg';
-import mobile from '../../img/welcome/mob.jpg';
+import desktop from '../../img/def/des.jpg';
+import tablet from '../../img/def/tab.jpg';
+import mobile from '../../img/def/mob.jpg';
 import { theme } from 'styles';
 
 export const Wrapper = styled.div`
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.6) 46.3%,
     rgba(0, 0, 0, 0.35) 72.75%,
     rgba(0, 0, 0, 0.6) 100%
-  );
+  ); */
 `;
 
 export const ContainerWelcome = styled.div`
@@ -35,11 +35,36 @@ export const ContainerWelcome = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  background-image: url('${desktop}');
+  /* background: linear-gradient(
+      0deg,
+      rgba(10, 10, 17, 0.2) 0%,
+      rgba(10, 10, 17, 0.2) 100%
+    ),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
+    url('${mobile}'),
+    lightgray -3px -13.319px / 100.511% 101.679% no-repeat/ right/ contain; */
+
+  background-image: url('${mobile}');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  @media (min-width: 768px) {
+    background-image: url('${tablet}');
+  }
+
+  @media (min-width: 1200px) {
+    background-image: url('${desktop}');
+  }
+
+  /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+  /* background-image: url('${desktop}');
   background-repeat: no-repeat;
   background-size: cover;
 
-  /* background-image: url('${mobile}');
+  background-image: url('${mobile}');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;

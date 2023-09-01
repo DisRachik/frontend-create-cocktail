@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useAuth } from 'redux/auth/useAuth';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signIn } from 'redux/auth/operations';
 import {
   BackgroundImage,
   ContainerWelcome,
@@ -18,9 +20,11 @@ import {
   Link,
   LinkWrap,
 } from 'components/Signup/SignupPage.styled';
+import { toast } from 'react-toastify';
 
 export const SigninPage = () => {
-  const { handleSignIn, navigation } = useAuth();
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const {
     register,
@@ -33,15 +37,20 @@ export const SigninPage = () => {
   });
 
   const onSubmit = async data => {
-    try {
-      const lowercasedData = {
-        ...data,
-        email: data.email.toLowerCase(),
-      };
+    const lowercasedData = {
+      ...data,
+      email: data.email.toLowerCase(),
+    };
 
-      await handleSignIn(lowercasedData);
+    try {
+      const response = await dispatch(signIn(lowercasedData));
+
+      if (response.type === 'auth/signin/fulfilled') {
+        toast.success(`Congratulations ${data.email}`);
+        navigation('/main');
+      }
+
       reset();
-      navigation('/main');
     } catch (error) {
       return console.log(error.message);
     }
