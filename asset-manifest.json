@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend-create-cocktail/static/css/main.1a24fdc4.css",
-    "main.js": "/frontend-create-cocktail/static/js/main.36a2b9b9.js",
+    "main.js": "/frontend-create-cocktail/static/js/main.1267bb06.js",
     "static/js/271.9dce9c50.chunk.js": "/frontend-create-cocktail/static/js/271.9dce9c50.chunk.js",
     "static/js/255.551c1bf1.chunk.js": "/frontend-create-cocktail/static/js/255.551c1bf1.chunk.js",
     "static/js/643.e35c28c7.chunk.js": "/frontend-create-cocktail/static/js/643.e35c28c7.chunk.js",
@@ -25,7 +25,7 @@
     "static/media/recipe-preparation.jpg": "/frontend-create-cocktail/static/media/recipe-preparation.3df25b9e535bd802464d.jpg",
     "index.html": "/frontend-create-cocktail/index.html",
     "main.1a24fdc4.css.map": "/frontend-create-cocktail/static/css/main.1a24fdc4.css.map",
-    "main.36a2b9b9.js.map": "/frontend-create-cocktail/static/js/main.36a2b9b9.js.map",
+    "main.1267bb06.js.map": "/frontend-create-cocktail/static/js/main.1267bb06.js.map",
     "271.9dce9c50.chunk.js.map": "/frontend-create-cocktail/static/js/271.9dce9c50.chunk.js.map",
     "255.551c1bf1.chunk.js.map": "/frontend-create-cocktail/static/js/255.551c1bf1.chunk.js.map",
     "643.e35c28c7.chunk.js.map": "/frontend-create-cocktail/static/js/643.e35c28c7.chunk.js.map",
@@ -40,6 +40,6 @@
   },
   "entrypoints": [
     "static/css/main.1a24fdc4.css",
-    "static/js/main.36a2b9b9.js"
+    "static/js/main.1267bb06.js"
   ]
 }
