@@ -1,29 +1,14 @@
 import { MainSection, CategoryRecipesPage, CategorySection,Button } from 'components';
 import { ButtonContainer } from '../components/CategoryRecipesPage/CategoryRecipesPage.styled';
 import { useNavigate } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import {
-//   selectMainError,
-//   selectMainLoading,
-//   selectMainRecipes,
-// } from 'redux/mainRecipes/mainRecipesSelectors';
-// import { useEffect } from 'react';
-// import {   fetchMainRecipes } from 'redux/mainRecipes/mainRecipesOperations';
 
 const Main = () => {
-  // const dispatch = useDispatch();
-  // const mainRecipes = useSelector(selectMainRecipes);
-  // const isLoading = useSelector(selectMainLoading);
-  // const error = useSelector(selectMainError);
-
-  // useEffect(() => {
-  //   dispatch(fetchMainRecipes());
-    
-  // }, [dispatch]);
-
-
-  // console.log(isLoading, error, "mainRecipes============", mainRecipes);
-  
+ const uniqueCategories = [
+    "Cocktail",
+    "Ordinary Drink",
+    "Shake",
+    "Other/Unknown",
+  ];
    const navigate = useNavigate();
     const handleButtonClick = () => {
       navigate("/drinks");
@@ -37,18 +22,12 @@ const Main = () => {
       >
         {/* Тут вставляємо свої компоненти */}
       </MainSection>
-      <CategorySection title="Ordinary Drink">
-        <CategoryRecipesPage />
+      
+      {uniqueCategories.map(category => (
+        <CategorySection title={category}>
+          <CategoryRecipesPage category={category}  />
       </CategorySection>
-       <CategorySection title="Cocktail">
-        <CategoryRecipesPage />
-      </CategorySection>
-       <CategorySection title="Shake">
-        <CategoryRecipesPage />
-      </CategorySection>
-       <CategorySection title="Other/Unknow">
-        <CategoryRecipesPage />
-      </CategorySection>
+      ))}
       <ButtonContainer>
         <Button onClick={handleButtonClick}>Other drinks</Button>
       </ButtonContainer>
