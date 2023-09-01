@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useAuth } from 'redux/auth/useAuth';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signIn } from 'redux/auth/operations';
 import {
   BackgroundImage,
   ContainerWelcome,
@@ -18,30 +20,37 @@ import {
   Link,
   LinkWrap,
 } from 'components/Signup/SignupPage.styled';
+import { toast } from 'react-toastify';
 
 export const SigninPage = () => {
-  const { handleSignIn, navigation } = useAuth();
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid, isDirty, dirtyFields },
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(signInSchema),
   });
 
   const onSubmit = async data => {
-    try {
-      const lowercasedData = {
-        ...data,
-        email: data.email.toLowerCase(),
-      };
+    const lowercasedData = {
+      ...data,
+      email: data.email.toLowerCase(),
+    };
 
-      await handleSignIn(lowercasedData);
+    try {
+      const response = await dispatch(signIn(lowercasedData));
+
+      if (response.type === 'auth/signin/fulfilled') {
+        toast.success(`Congratulations ${data.email}`);
+        navigation('/main');
+      }
+
       reset();
-      navigation('/main');
     } catch (error) {
       return console.log(error.message);
     }
@@ -61,15 +70,18 @@ export const SigninPage = () => {
                     name="email"
                     placeholder="Email"
                     {...register('email')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.email && dirtyFields.email}
+                    invalid={errors.email && dirtyFields.email}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.email && dirtyFields.email}
+                    invalid={errors.email && dirtyFields.email}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.email}
                   validValue={isValid && isDirty}
-                  errorMessage={errors.name?.message}
+                  errorMessage={errors.email?.message}
                   checkMessage="This is valid email"
                 />
 
@@ -79,10 +91,13 @@ export const SigninPage = () => {
                     name="password"
                     placeholder="Password"
                     {...register('password')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                    valid={!errors.password && dirtyFields.password}
+                    invalid={errors.password && dirtyFields.password}
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
+                  <FormIcons
+                    valid={!errors.password && dirtyFields.password}
+                    invalid={errors.password && dirtyFields.password}
+                  />
                 </InputBox>
                 <FormMessages
                   invalidValue={errors.password}
