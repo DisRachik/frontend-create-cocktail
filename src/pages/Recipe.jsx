@@ -38,7 +38,7 @@ const Recipe = () => {
   return (
     <Section>
       {error ? (
-        <EmptyAndError text="The recipe you were looking for is missing." />
+        <EmptyAndError errorScreen text="The recipe you were looking for is missing." />
       ) : (
         <>
           <RecipePageHeader
