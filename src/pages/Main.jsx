@@ -1,27 +1,29 @@
 import { MainSection, CategoryRecipesPage, CategorySection,Button } from 'components';
 import { ButtonContainer } from '../components/CategoryRecipesPage/CategoryRecipesPage.styled';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectMainError,
-  selectMainLoading,
-  selectMainRecipes,
-} from 'redux/mainRecipes/mainRecipesSelectors';
-import { useEffect } from 'react';
-import {   fetchMainRecipes } from 'redux/mainRecipes/mainRecipesOperations';
+// import { useDispatch, useSelector } from 'react-redux';
+// import {
+//   selectMainError,
+//   selectMainLoading,
+//   selectMainRecipes,
+// } from 'redux/mainRecipes/mainRecipesSelectors';
+// import { useEffect } from 'react';
+// import {   fetchMainRecipes } from 'redux/mainRecipes/mainRecipesOperations';
 
 const Main = () => {
-  const dispatch = useDispatch();
-  const mainRecipes = useSelector(selectMainRecipes);
-  const isLoading = useSelector(selectMainLoading);
-  const error = useSelector(selectMainError);
+  // const dispatch = useDispatch();
+  // const mainRecipes = useSelector(selectMainRecipes);
+  // const isLoading = useSelector(selectMainLoading);
+  // const error = useSelector(selectMainError);
 
-  useEffect(() => {
-    dispatch(fetchMainRecipes());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchMainRecipes());
+    
+  // }, [dispatch]);
 
 
-    console.log( isLoading, error,mainRecipes);
+  // console.log(isLoading, error, "mainRecipes============", mainRecipes);
+  
    const navigate = useNavigate();
     const handleButtonClick = () => {
       navigate("/drinks");
