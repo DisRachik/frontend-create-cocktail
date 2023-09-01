@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 export const ButtonContainer = styled.div`
-outline: 1px solid tomato;
+//outline: 1px solid tomato;
 
   max-width: 1440px;
   min-height: 100%;
