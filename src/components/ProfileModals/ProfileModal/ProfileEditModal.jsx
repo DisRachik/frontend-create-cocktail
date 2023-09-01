@@ -78,5 +78,3 @@ export const ProfileEditModal = ({ toggleProfileEditModal, closeOverlay }) => {
 ProfileEditModal.propTypes = {
   toggleProfileEditModal: PropTypes.func.isRequired,
 };
-
-// export default ProfileModal;

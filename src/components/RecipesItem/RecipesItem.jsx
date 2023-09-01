@@ -13,7 +13,8 @@ import {
   TitleDrinks,
 } from './RecipesItem.styled';
 
-import { useDispatch } from 'react-redux';
+import defaultImageUrl from '../../img/thumb400x400.png';
+
 // Icons
 import { RiDeleteBinLine } from 'react-icons/ri';
 
@@ -21,21 +22,17 @@ export const RecipesItem = ({
   data: { drink, instructions, drinkThumb, _id },
   action,
 }) => {
-  const dispatch = useDispatch();
   return (
     <FavoriteItem>
-      <ImageDrinks loading="lazy" src={drinkThumb} alt="" />
-      <TitleDrinks>{drink}</TitleDrinks>
+      <ImageDrinks loading="lazy" src={drinkThumb || defaultImageUrl} alt="" />
+      <TitleDrinks>{drink ? drink : 'N/a'}</TitleDrinks>
       <Text>Ingredients</Text>
-      <DescriptionDrinks>{instructions}</DescriptionDrinks>
+      <DescriptionDrinks>
+        {instructions ? instructions : 'N/a'}
+      </DescriptionDrinks>
       <BatonsContainer>
         <SeeRecipe to={`/recipe/${_id}`}>See recipe</SeeRecipe>
-        <DeleteFavoriteDrinksBtn
-          type="button"
-          onClick={() => {
-            dispatch(action(_id));
-          }}
-        >
+        <DeleteFavoriteDrinksBtn type="button" onClick={() => action(_id)}>
           <RiDeleteBinLine />
         </DeleteFavoriteDrinksBtn>
       </BatonsContainer>

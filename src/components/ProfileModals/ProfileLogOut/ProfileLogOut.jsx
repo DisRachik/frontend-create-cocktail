@@ -65,5 +65,3 @@ export const ProfileLogOut = ({ toggleLogOutModal, closeOverlay }) => {
 ProfileLogOut.propTypes = {
   toggleLogOutModal: PropTypes.func.isRequired,
 };
-
-// export default ProfileLogOut;

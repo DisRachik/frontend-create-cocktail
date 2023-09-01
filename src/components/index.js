@@ -5,9 +5,11 @@ export * from 'components/PublicRoute';
 export * from 'components/shared/Section/Section';
 export * from 'components/shared/Container/Container';
 export * from 'components/shared/Button/Button';
+export * from 'components/shared/EmptyAndError/EmptyAndError';
 export * from 'components/shared/FormIcons/FormIcons';
 export * from 'components/shared/FormMessages/FormMessages';
 export * from 'components/shared/Backdrop/Backdrop';
+export * from 'components/shared/Spinner';
 // AddRecipePage
 export * from 'components/AddRecipeForm/AddRecipeForm';
 export * from 'components/FollowUs/FollowUs';
@@ -19,7 +21,6 @@ export * from 'components/Footer/Footer';
 export * from 'components/Nav/Nav';
 export * from 'components/SubscribeForm/SubscribeForm';
 // Favorite
-export * from 'components/Favorite/FavoritePage';
 export * from 'components/RecipesList/RecipesList';
 export * from 'components/RecipesItem/RecipesItem';
 // Main
