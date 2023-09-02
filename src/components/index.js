@@ -25,7 +25,6 @@ export * from 'components/RecipesList/RecipesList';
 export * from 'components/RecipesItem/RecipesItem';
 // Main
 export * from 'components/Main/MainSection';
-export * from 'components/CategoryRecipesPage/CategoryRecipesPage';
 export * from 'components/CategoryRecipesList/CategoryRecipesList';
 export * from 'components/shared/Card/CardItem';
 export * from 'components/CategorySection/CategorySection';
