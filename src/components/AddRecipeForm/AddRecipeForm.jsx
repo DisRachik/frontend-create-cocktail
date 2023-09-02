@@ -73,7 +73,7 @@ export const AddRecipeForm = () => {
 
   const handleFormSubmit = async data => {
     const reqBody = normalizeAddRecipeRequestData(data, ingredients);
-
+    console.log(data);
     // !TODO: change reqBody to formData in dispatch(addOwnRecipe(reqBody)) when finish backend part of image loading
     // const formData = generateFormData(reqBody);
 
