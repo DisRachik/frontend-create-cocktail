@@ -11,23 +11,23 @@ export const DrinkSearchBar = ({ drinksPerPage, currentPage }) => {
     defaultValues: {
       search: '',
       category: null,
-      ingridients: null,
+      ingredients: null,
     },
   });
   const categories = useSelector(selectCategories.data);
-  const ingridients = useSelector(selectIngredients.data);
+  const ingredients = useSelector(selectIngredients.data);
 
   const onSubmit = async () => {
     const formData = getValues();
-    const { search, category, ingridients } = formData;
+    const { search, category, ingredients } = formData;
     const searchValue = search || '';
     const categoryValue = category ? category.value : '';
-    const ingridientValue = ingridients ? ingridients.value : '';
+    const ingridientValue = ingredients ? ingredients.value : '';
     console.log(formData);
     const querySearch = {
       search: searchValue,
       category: categoryValue,
-      ingridients: ingridientValue,
+      ingredients: ingridientValue,
       limit: drinksPerPage,
       page: currentPage,
     };
@@ -64,21 +64,21 @@ export const DrinkSearchBar = ({ drinksPerPage, currentPage }) => {
         )}
       />
       <Controller
-        name="ingridients"
+        name="ingredients"
         control={control}
         render={({ field }) => (
           <Selector
-            placeholder="Ingridients"
+            placeholder="Ingredients"
             styles={selectStyles}
             {...field}
-            options={ingridients.map(option => ({
+            options={ingredients.map(option => ({
               value: option.title,
               label: option.title,
             }))}
             onChange={selectedOption => {
               field.onChange(selectedOption);
               const req = {
-                ingridients: selectedOption.value,
+                ingredients: selectedOption.value,
               };
               dispatch(fetchDrinksByQuery(req));
             }}

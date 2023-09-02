@@ -5,11 +5,12 @@ import { getDrinksByQuery } from 'redux/drinks';
 
 export const DrinkList = () => {
   const { drinks } = useSelector(getDrinksByQuery);
-  const drinkList = drinks.drinks || [];
+  // const drinksArr = drinks || [];
+  console.log(drinks);
 
   return (
     <DrinksList>
-      {drinkList.map(data => (
+      {drinks.drinks.map(data => (
         <CategoryRecipesItem key={data._id} data={data} />
       ))}
     </DrinksList>

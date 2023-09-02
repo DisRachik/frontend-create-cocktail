@@ -1,7 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-export const getAllDrinks = async () => {
-  const res = await axios.get(`/recipes/main-page`);
+// export const getAllDrinks = async () => {
+//   const res = await axios.get(`/recipes/main-page`);
 
-  return res.data;
-};
+//   return res.data;
+// };

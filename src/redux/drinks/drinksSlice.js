@@ -11,16 +11,12 @@ const drinksSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchDrinksByQuery.fulfilled, (state, { payload }) => {
+        console.log('p', payload.drinks);
         state.drinks = {
-          drinks: payload.filter, // Оновлюємо дані про коктейлі
-          totalPages: payload.totalPages, // Оновлюємо загальну кількість сторінок
+          drinks: payload.drinks,
+          totalPages: payload.totalPages,
         };
-
         state.error = null; // Очищуємо помилки
-        // state.drinks.drinks = payload.filter;
-        // state.drinks.totalPages = payload.totalPages;
-        // state.state.error = null;
-        // console.log('payload', payload.filter);
       })
       .addCase(fetchDrinksByQuery.rejected, (state, { payload }) => {
         state.error = payload;
