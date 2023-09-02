@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 // Components
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredientsFields } from './RecipeIngredientsFields/RecipeIngredientsFields';
@@ -12,7 +13,7 @@ import { Form } from './AddRecipeForm.styled';
 // Helpers
 import {
   transformSelectData,
-  // generateFormData,
+  generateFormData,
   normalizeAddRecipeRequestData,
 } from 'helpers';
 // Redux
@@ -47,6 +48,7 @@ export const AddRecipeForm = () => {
   } = useForm(formSettings);
 
   const [formState, setFormState] = useState({ ...initialValues });
+  const navigate = useNavigate();
 
   const categories = useSelector(selectCategories.data);
   const glasses = useSelector(selectGlasses.data);
@@ -72,15 +74,26 @@ export const AddRecipeForm = () => {
   }, [dispatch]);
 
   const handleFormSubmit = async data => {
-    const reqBody = normalizeAddRecipeRequestData(data, ingredients);
-    console.log(data);
-    // !TODO: change reqBody to formData in dispatch(addOwnRecipe(reqBody)) when finish backend part of image loading
-    // const formData = generateFormData(reqBody);
+    const reqBody = normalizeAddRecipeRequestData(
+      data,
+      ingredients,
+      formState.drinkThumb
+    );
+    const formData = generateFormData(reqBody);
 
-    dispatch(addOwnRecipe(reqBody));
+    try {
+      const response = await dispatch(addOwnRecipe(formData));
 
-    setFormState({ ...initialValues });
-    reset({ ...initialValues });
+      if (response.error) {
+        throw new Error(response.payload);
+      } else {
+        setFormState({ ...initialValues });
+        reset({ ...initialValues });
+        navigate('/my');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleFileInputChange = evt => {

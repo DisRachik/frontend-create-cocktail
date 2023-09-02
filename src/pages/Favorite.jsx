@@ -7,7 +7,8 @@ import {
 } from 'redux/favorite/selectors';
 
 import {
-  changeFavoriteStatus,
+  // changeFavoriteStatus,
+  deleteFavoriteDrink,
   fetchUserFavoriteDrinks,
 } from 'redux/favorite/operations';
 import { useEffect, useState } from 'react';
@@ -31,8 +32,8 @@ const Favorite = () => {
     dispatch(fetchUserFavoriteDrinks({ page, limit: 9 }));
   };
 
-  const handleClick = async id => {
-    dispatch(changeFavoriteStatus(id));
+  const handleClick = id => {
+    dispatch(deleteFavoriteDrink(id));
   };
 
   return (
