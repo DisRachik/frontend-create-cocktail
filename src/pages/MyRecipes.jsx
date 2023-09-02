@@ -1,4 +1,4 @@
-import { EmptyAndError, Section } from 'components';
+import { Button, EmptyAndError, Section } from 'components';
 import { RecipesList } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,7 +8,6 @@ import {
 } from 'redux/myRecipes/selectors';
 import { useEffect, useState } from 'react';
 import { deleteMyRecipes, fetchMyRecipes } from 'redux/myRecipes/operations';
-import { StyledButton } from 'components/shared/Button/Button.styled';
 
 const MyRecipes = () => {
   const dispatch = useDispatch();
@@ -47,9 +46,9 @@ const MyRecipes = () => {
           {myRecipes.length !== sliceRecipes.length && (
             <>
               <div style={{ textAlign: 'center' }}>
-                <StyledButton type="button" onClick={seeMoreDrinks}>
+                <Button type="button" onClick={seeMoreDrinks}>
                   see other
-                </StyledButton>
+                </Button>
               </div>
             </>
           )}

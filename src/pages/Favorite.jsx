@@ -1,9 +1,8 @@
-import { Section, RecipesList, EmptyAndError } from 'components';
+import { Section, RecipesList, EmptyAndError, Button } from 'components';
 
 import { useEffect, useState } from 'react';
 
 import { deleteFromFavorites, getFavorites } from 'api';
-import { StyledButton } from 'components/shared/Button/Button.styled';
 
 const Favorite = () => {
   const [favorites, setFavorite] = useState([]);
@@ -57,9 +56,9 @@ const Favorite = () => {
 
             {visibleCount < favorites.length && (
               <div style={{ textAlign: 'center' }}>
-                <StyledButton type="button" onClick={seeMoreDrinks}>
+                <Button type="button" onClick={seeMoreDrinks}>
                   see other
-                </StyledButton>
+                </Button>
               </div>
             )}
           </>
