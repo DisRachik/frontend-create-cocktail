@@ -1,60 +1,60 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Section, RecipesList, EmptyAndError } from 'components';
 
-import { getFavoriteDrinks } from 'redux/favorite/selectors';
-
-import {
-  deleteFavoriteDrink,
-  fetchUserFavoriteDrinks,
-} from 'redux/favorite/operations';
+import { deleteFavoriteDrink } from 'redux/favorite/operations';
 import { useEffect, useState } from 'react';
 import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
 
+import { getFavorites } from 'api';
+
 const Favorite = () => {
-  const [drinksPerPage, setDrinksPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [favorites, setFavorite] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(9);
 
   const dispatch = useDispatch();
-
-  const { favoriteDrinks } = useSelector(getFavoriteDrinks);
 
   useEffect(() => {
     function calculatePerPage(windowWidth) {
       return windowWidth < 1440 ? 8 : 9;
     }
     function handleResize() {
-      setDrinksPerPage(calculatePerPage(window.innerWidth));
+      setVisibleCount(calculatePerPage(window.innerWidth));
     }
-    setDrinksPerPage(calculatePerPage(window.innerWidth));
+    setVisibleCount(calculatePerPage(window.innerWidth));
     window.addEventListener('resize', handleResize);
 
-    dispatch(fetchUserFavoriteDrinks());
+    (async () => {
+      setFavorite(await getFavorites());
+    })();
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [dispatch]);
 
-  const indexOfLastDrink = currentPage * drinksPerPage;
-  const indexOfFirstDrink = indexOfLastDrink - drinksPerPage;
-  const currentDrinks = favoriteDrinks.slice(
-    indexOfFirstDrink,
-    indexOfLastDrink
-  );
+  const currentDrinks = favorites.slice(0, visibleCount);
 
-  const seeMoreDrinks = () => {};
+  const seeMoreDrinks = () => {
+    setVisibleCount(prevState => prevState + 9);
+  };
 
-  const handleClick = id => {
+  const handleClick = async id => {
     dispatch(deleteFavoriteDrink(id));
+
+    const filterDrinks = favorites.filter(data => data._id !== id);
+    setFavorite(filterDrinks);
   };
 
   return (
     <>
       <Section title="Favorites">
-        {favoriteDrinks.length !== 0 ? (
+        {currentDrinks.length !== 0 ? (
           <>
             <RecipesList array={currentDrinks} action={handleClick} />
 
-            <ButtonLoadMore onClick={seeMoreDrinks} />
+            {visibleCount < favorites.length && (
+              <ButtonLoadMore onClick={seeMoreDrinks} />
+            )}
           </>
         ) : (
           <EmptyAndError text="You haven`t added any favorite cocktails yet" />

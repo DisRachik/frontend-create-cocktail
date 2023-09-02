@@ -1,20 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {
-  addToFavorites,
-  deleteFromFavorites,
-  getFavorites,
-} from 'api';
-
-export const fetchUserFavoriteDrinks = createAsyncThunk(
-  'drinks/fetchFavorite',
-  async (_, thunkAPI) => {
-    try {
-      return await getFavorites();
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.massage);
-    }
-  }
-);
+import { addToFavorites, deleteFromFavorites } from 'api';
 
 export const deleteFavoriteDrink = createAsyncThunk(
   'favorite/deleteFavorite',
