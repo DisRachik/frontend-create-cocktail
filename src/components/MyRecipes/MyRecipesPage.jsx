@@ -20,11 +20,15 @@ export const MyRecipesPage = () => {
     dispatch(fetchMyRecipes());
   }, [dispatch]);
 
+  const handleClick = async id => {
+    dispatch(deleteMyRecipes(id));
+  };
+
   const isMyRecipes = myRecipes.length > 0;
   return (
     <>
       {isMyRecipes ? (
-        <RecipesList array={myRecipes} action={deleteMyRecipes} />
+        <RecipesList array={myRecipes} action={handleClick} />
       ) : (
         <EmptyMyRecipesPage />
       )}
