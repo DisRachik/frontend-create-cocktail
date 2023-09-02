@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signUp } from 'redux/auth/operations';
+import { signIn, signUp } from 'redux/auth/operations';
 import { signUpSchema } from 'schema/signUpSchema';
 import {
   BackgroundImage,
@@ -42,9 +42,17 @@ export const SignupPage = () => {
     };
 
     try {
-      const response = await dispatch(signUp(lowercasedData));
+      const responseSignUp = await dispatch(signUp(lowercasedData));
 
-      if (response.type === 'auth/signup/fulfilled') navigation('/signin');
+      if (responseSignUp.type === 'auth/signup/fulfilled') {
+        const sigInData = {
+          ...lowercasedData,
+          email: lowercasedData.email,
+          password: lowercasedData.password,
+        };
+        await dispatch(signIn(sigInData));
+        navigation('/main');
+      }
 
       reset();
     } catch (error) {

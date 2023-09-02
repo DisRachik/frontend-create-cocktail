@@ -49,14 +49,45 @@ export const Top = styled.div`
   height: 247px;
 
   top: 84px;
+  left: 42px;
   border-radius: 257px;
   background: rgba(188, 230, 210, 0.4);
   filter: blur(104.8543701171875px);
 
   @media (min-width: 768px) {
+    width: 387px;
+    height: 372px;
+    top: 46px;
+    left: 0;
   }
 
   @media (min-width: 1200px) {
+    left: 170px;
+    top: -130px;
+  }
+`;
+
+export const Left = styled.div`
+  position: absolute;
+  width: 520px;
+  height: 550px;
+
+  top: 20px;
+  left: -400px;
+  border-radius: 550px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+  @media (min-width: 768px) {
+    width: 784px;
+    height: 830px;
+
+    top: -50px;
+    left: -600px;
+  }
+
+  @media (min-width: 1200px) {
+    top: -100px;
+    left: -500px;
   }
 `;
 
@@ -66,41 +97,22 @@ export const Right = styled.div`
   height: 543px;
 
   bottom: -400px;
-  right: -200px;
+  right: -280px;
   border-radius: 549px;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(104.8543701171875px);
 
   @media (min-width: 768px) {
-    bottom: -200px;
+    bottom: -10px;
   }
 
   @media (min-width: 1200px) {
-    bottom: -300px;
-  }
-`;
-
-export const Left = styled.div`
-  position: absolute;
-  width: 520px;
-  height: 550px;
-  flex-shrink: 0;
-
-  top: 20px;
-  left: -400px;
-  border-radius: 550px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-  @media (min-width: 768px) {
-  }
-
-  @media (min-width: 1200px) {
+    bottom: -100px;
+    right: -150px;
   }
 `;
 
 export const ContainerWelcome = styled.div`
-  /* outline: 1px solid tomato; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
