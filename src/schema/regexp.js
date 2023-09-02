@@ -5,4 +5,4 @@ export const passwordMinLength = 'Password must be at least 6 characters';
 export const passwordMaxLength = 'Password must not exceed 16 characters';
 export const passwordUppercase = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/;
 export const passwordUppercaseMessage =
-  'Password must contain at least 1 uppercase letter';
+  'Password Must contain 1 uppercase letter, 1 lowercase letter and 1 number';

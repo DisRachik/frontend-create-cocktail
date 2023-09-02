@@ -5,15 +5,17 @@ import {
   SeeIngredients,
   TitleDrinks,
   TextContainer,
-} from './CategoryRecipesItem.styled';
+} from './CardItem.styled';
+ const defaultImageUrl = require('../../../img/thumb400x400.png');
 
 export const CategoryRecipesItem = ({
   data: { drink,  drinkThumb, _id },
 }) => {
-
+const imageUrl = drinkThumb || defaultImageUrl;
   return (
     <CategoryItem>
-      <ImageDrinks loading="lazy" src={drinkThumb} alt="" />
+      
+      <ImageDrinks loading="lazy" src={imageUrl} alt="" />
       <TextContainer>
       <TitleDrinks>{drink}</TitleDrinks>
       <SeeIngredients to={`/recipe/${_id}`}>Ingredients</SeeIngredients>
@@ -27,6 +29,6 @@ CategoryRecipesItem.propTypes = {
     drink: PropTypes.string.isRequired,
     drinkThumb: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
-    action: PropTypes.func.isRequired,
+    
   }),
 };

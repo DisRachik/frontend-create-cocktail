@@ -1,8 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
-import { fetchRecipeById, selectRecipe } from 'redux/recipe/index';
-
+import { useEffect, useState } from 'react';
+import { getRecipeById } from 'api';
 import {
   Section,
   RecipePageHeader,
@@ -12,46 +9,52 @@ import {
 } from 'components';
 
 const Recipe = () => {
-  const dispatch = useDispatch();
-  const recipe = useSelector(selectRecipe.recipe);
-  const error = useSelector(selectRecipe.error);
-
-  const {
-    glass,
-    desc,
-    drink,
-    drinkThumb,
-    favorites,
-    ingredients,
-    instructions,
-  } = recipe;
+  const [recipeInfo, setRecipeInfo] = useState(null);
+  const [status, setStatus] = useState('IDLE');
+  const [error, setError] = useState(null);
 
   const location = window.location.pathname.split('recipe/');
   const recipeId = location[1];
 
   useEffect(() => {
-    dispatch(fetchRecipeById(recipeId));
-  }, [dispatch, recipeId]);
+    const fetchData = async () => {
+      try {
+        const data = await getRecipeById(recipeId);
+        setRecipeInfo(data);
+        setStatus('RESOLVED');
+      } catch (error) {
+        setError(error);
+        setStatus('REJECTED');
+      }
+    };
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    fetchData();
+  }, [recipeId]);
+
+  const isRecipeAvailable = status === 'RESOLVED';
 
   return (
     <Section>
       {error ? (
-        <EmptyAndError text="The recipe you were looking for is missing." />
+        <EmptyAndError
+          errorScreen
+          text="The recipe you were looking for is missing."
+        />
       ) : (
-        <>
-          <RecipePageHeader
-            glass={glass}
-            drink={drink}
-            desc={desc}
-            recipeId={recipeId}
-            favorites={favorites}
-            drinkImage={drinkThumb}
-          />
-          <RecipeIngredientsList ingredients={ingredients} />
-          <RecipePreparation instructions={instructions} />
-        </>
+        isRecipeAvailable && (
+          <>
+            <RecipePageHeader
+              glass={recipeInfo.glass}
+              drink={recipeInfo.drink}
+              desc={recipeInfo.desc}
+              recipeId={recipeInfo._id || recipeInfo.recipeId}
+              favorites={recipeInfo.favorites}
+              drinkImage={recipeInfo.drinkThumb}
+            />
+            <RecipeIngredientsList ingredients={recipeInfo.ingredients} />
+            <RecipePreparation instructions={recipeInfo.instructions} />
+          </>
+        )
       )}
     </Section>
   );

@@ -1,10 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useAuth } from 'redux/auth/useAuth';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signIn } from 'redux/auth/operations';
 import {
+  BackgroundGradient,
   BackgroundImage,
   ContainerWelcome,
+  Left,
+  Right,
   SectionWelcome,
+  Top,
   WelcomeWrap,
   Wrapper,
 } from 'components/Welcome/WelcomePage.styled';
@@ -20,95 +26,109 @@ import {
 } from 'components/Signup/SignupPage.styled';
 
 export const SigninPage = () => {
-  const { handleSignIn, navigation } = useAuth();
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid, isDirty, dirtyFields },
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(signInSchema),
   });
 
   const onSubmit = async data => {
-    try {
-      const lowercasedData = {
-        ...data,
-        email: data.email.toLowerCase(),
-      };
+    const lowercasedData = {
+      ...data,
+      email: data.email.toLowerCase(),
+    };
 
-      await handleSignIn(lowercasedData);
+    try {
+      const response = await dispatch(signIn(lowercasedData));
+
+      if (response.type === 'auth/signin/fulfilled') navigation('/main');
+
       reset();
-      navigation('/main');
     } catch (error) {
       return console.log(error.message);
     }
   };
 
   return (
-    <BackgroundImage>
-      <Wrapper>
-        <ContainerWelcome>
-          <SectionWelcome>
-            <WelcomeWrap>
-              <AuthTitle>Sign In</AuthTitle>
-              <FormWrap onSubmit={handleSubmit(onSubmit)}>
-                <InputBox>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    {...register('email')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+    <Wrapper>
+      <BackgroundGradient>
+        <BackgroundImage>
+          <Top />
+          <Left />
+          <ContainerWelcome>
+            <SectionWelcome>
+              <WelcomeWrap>
+                <AuthTitle>Sign In</AuthTitle>
+                <FormWrap onSubmit={handleSubmit(onSubmit)}>
+                  <InputBox>
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      {...register('email')}
+                      valid={!errors.email && dirtyFields.email}
+                      invalid={errors.email && dirtyFields.email}
+                    />
+                    <FormIcons
+                      valid={!errors.email && dirtyFields.email}
+                      invalid={errors.email && dirtyFields.email}
+                    />
+                  </InputBox>
+                  <FormMessages
+                    invalidValue={errors.email}
+                    validValue={isValid && isDirty}
+                    errorMessage={errors.email?.message}
+                    checkMessage="This is valid email"
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
-                </InputBox>
-                <FormMessages
-                  invalidValue={errors.email}
-                  validValue={isValid && isDirty}
-                  errorMessage={errors.name?.message}
-                  checkMessage="This is valid email"
-                />
 
-                <InputBox>
-                  <Input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    {...register('password')}
-                    valid={isValid}
-                    invalid={isDirty && !isValid}
+                  <InputBox>
+                    <Input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      {...register('password')}
+                      valid={!errors.password && dirtyFields.password}
+                      invalid={errors.password && dirtyFields.password}
+                    />
+                    <FormIcons
+                      valid={!errors.password && dirtyFields.password}
+                      invalid={errors.password && dirtyFields.password}
+                    />
+                  </InputBox>
+                  <FormMessages
+                    invalidValue={errors.password}
+                    validValue={isValid && isDirty}
+                    errorMessage={errors.password?.message}
+                    checkMessage="This is valid password"
                   />
-                  <FormIcons valid={isValid} invalid={!isValid && isDirty} />
-                </InputBox>
-                <FormMessages
-                  invalidValue={errors.password}
-                  validValue={isValid && isDirty}
-                  errorMessage={errors.password?.message}
-                  checkMessage="This is valid password"
-                />
 
-                <ButtonWrap>
-                  <Button
-                    disabled={!isValid || !isDirty}
-                    transparent
-                    minWidth="100%"
-                    minHeight="56px"
-                  >
-                    Sign In
-                  </Button>
-                </ButtonWrap>
-                <LinkWrap>
-                  <Link to="/signup">Registration</Link>
-                </LinkWrap>
-              </FormWrap>
-            </WelcomeWrap>
-          </SectionWelcome>
-        </ContainerWelcome>
-      </Wrapper>
-    </BackgroundImage>
+                  <ButtonWrap>
+                    <Button
+                      disabled={!isValid || !isDirty}
+                      transparent
+                      minWidth="100%"
+                      minHeight="56px"
+                    >
+                      Sign In
+                    </Button>
+                  </ButtonWrap>
+                  <LinkWrap>
+                    <Link to="/signup">Registration</Link>
+                  </LinkWrap>
+                </FormWrap>
+              </WelcomeWrap>
+            </SectionWelcome>
+          </ContainerWelcome>
+          <Right />
+        </BackgroundImage>
+      </BackgroundGradient>
+    </Wrapper>
   );
 };
