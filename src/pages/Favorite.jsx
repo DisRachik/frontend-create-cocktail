@@ -1,13 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Section, RecipesList, EmptyAndError } from 'components';
 
-import {
-  getFavoriteDrinks,
-  getTotalHitsFavorite,
-} from 'redux/favorite/selectors';
+import { getFavoriteDrinks } from 'redux/favorite/selectors';
 
 import {
-  // changeFavoriteStatus,
   deleteFavoriteDrink,
   fetchUserFavoriteDrinks,
 } from 'redux/favorite/operations';
@@ -15,22 +11,37 @@ import { useEffect, useState } from 'react';
 import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
 
 const Favorite = () => {
-  const [page, setPage] = useState(1);
+  const [drinksPerPage, setDrinksPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const dispatch = useDispatch();
 
   const { favoriteDrinks } = useSelector(getFavoriteDrinks);
 
-  const TotalHitsFavorite = useSelector(getTotalHitsFavorite);
-
   useEffect(() => {
-    dispatch(fetchUserFavoriteDrinks({ page, limit: 9 }));
-  }, [dispatch, page]);
+    function calculatePerPage(windowWidth) {
+      return windowWidth < 1440 ? 8 : 9;
+    }
+    function handleResize() {
+      setDrinksPerPage(calculatePerPage(window.innerWidth));
+    }
+    setDrinksPerPage(calculatePerPage(window.innerWidth));
+    window.addEventListener('resize', handleResize);
 
-  const seeMoreDrinks = () => {
-    setPage(prevState => prevState + 1);
-    dispatch(fetchUserFavoriteDrinks({ page, limit: 9 }));
-  };
+    dispatch(fetchUserFavoriteDrinks());
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [dispatch]);
+
+  const indexOfLastDrink = currentPage * drinksPerPage;
+  const indexOfFirstDrink = indexOfLastDrink - drinksPerPage;
+  const currentDrinks = favoriteDrinks.slice(
+    indexOfFirstDrink,
+    indexOfLastDrink
+  );
+
+  const seeMoreDrinks = () => {};
 
   const handleClick = id => {
     dispatch(deleteFavoriteDrink(id));
@@ -41,10 +52,9 @@ const Favorite = () => {
       <Section title="Favorites">
         {favoriteDrinks.length !== 0 ? (
           <>
-            <RecipesList array={favoriteDrinks} action={handleClick} />
-            {TotalHitsFavorite > favoriteDrinks.length && (
-              <ButtonLoadMore onClick={seeMoreDrinks} />
-            )}
+            <RecipesList array={currentDrinks} action={handleClick} />
+
+            <ButtonLoadMore onClick={seeMoreDrinks} />
           </>
         ) : (
           <EmptyAndError text="You haven`t added any favorite cocktails yet" />

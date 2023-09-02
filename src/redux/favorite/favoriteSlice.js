@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUserFavoriteDrinks, changeFavoriteStatus } from './operations';
+import {
+  fetchUserFavoriteDrinks,
+  changeFavoriteStatus,
+  deleteFavoriteDrink,
+} from './operations';
 
 const favoriteSlice = createSlice({
   name: 'favorites',
@@ -17,7 +21,7 @@ const favoriteSlice = createSlice({
     },
     [fetchUserFavoriteDrinks.fulfilled](state, { payload }) {
       state.isLoading = false;
-      state.favoriteDrinks = [...payload.favorites];
+      state.favoriteDrinks = [...payload];
       state.totalHits = payload.totalHits;
     },
     [fetchUserFavoriteDrinks.rejected](state, action) {
@@ -35,6 +39,11 @@ const favoriteSlice = createSlice({
     [changeFavoriteStatus.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
+    },
+    [deleteFavoriteDrink.fulfilled](state, action) {
+      state.favoriteDrinks = state.favoriteDrinks.filter(
+        drink => drink._id !== action.meta.arg
+      );
     },
   },
 });
