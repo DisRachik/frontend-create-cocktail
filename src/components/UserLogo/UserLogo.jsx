@@ -16,7 +16,10 @@ export const UserLogo = () => {
   return (
     <div style={{ position: 'relative' }}>
       <UserBtn onClick={openModalWindow}>
-        <UserImg src={DEFAULT_AVATAR} alt="logo" />
+        <UserImg
+          src={user.avatarURL ? user.avatarURL : DEFAULT_AVATAR}
+          alt="logo"
+        />
         <UserText> {user.name} </UserText>
       </UserBtn>
       {openModal && <UserLogoModal />}

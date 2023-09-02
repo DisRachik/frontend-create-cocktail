@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PropTypes from 'prop-types';
 import { nameSchema } from 'schema';
 import { useAuth } from 'redux/auth/useAuth';
-import { Button, FormMessages, CancelBtn } from 'components';
+import { updateUser } from 'redux/auth/operations';
+import { generateFormData } from 'helpers';
+import { Button, FormMessages, CancelBtn, Backdrop } from 'components';
 import {
   ProfileEditContainer,
   UserAvatar,
@@ -23,19 +26,17 @@ import {
   BtnBox,
 } from './UserInfoModal.styled';
 import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
-import { Backdrop } from 'components';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserInfoModal = ({ toggle }) => {
-  const [image, setImage] = useState(null);
-
+  const [avatarURL, setAvatarURL] = useState(null);
+  const dispatch = useDispatch();
   const {
     register,
     control,
     handleSubmit,
-
-    // reset,
+    reset,
     formState: { isDirty, isValid, errors, dirtyFields },
   } = useForm({
     mode: 'onChange',
@@ -63,16 +64,28 @@ export const UserInfoModal = ({ toggle }) => {
     }
   };
 
-  const imageURL = image ? URL.createObjectURL(image) : null;
+  const imageURL = avatarURL ? URL.createObjectURL(avatarURL) : null;
 
   const avatarChange = evt => {
     const value = evt.target.files[0];
 
-    setImage(value);
+    setAvatarURL(value);
   };
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async data => {
+    const name = data.name;
+    const reqBody = { name, avatarURL };
+
+    const formData = generateFormData(reqBody);
+
+    try {
+      await dispatch(updateUser(formData));
+
+      toggle();
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return createPortal(
@@ -93,10 +106,10 @@ export const UserInfoModal = ({ toggle }) => {
             </AwatarWrapper>
 
             <FileInput
-              name="image"
+              name="avatarURL"
               type="file"
               accept="image/*, .png, .jpg, .gif, .web"
-              {...register('image')}
+              {...register('avatarURL')}
               onChange={avatarChange}
             />
           </FileInputBox>
