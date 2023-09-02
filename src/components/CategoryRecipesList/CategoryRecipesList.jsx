@@ -6,6 +6,7 @@ export const CategoryRecipesList = ({ category,mainRecipes }) => {
   const filteredArray = mainRecipes.filter(
     recipe => recipe.category === category
   ); 
+
   return (
     <CatigoryList>
       {filteredArray.map(data => (
@@ -18,5 +19,4 @@ export const CategoryRecipesList = ({ category,mainRecipes }) => {
 CategoryRecipesList.propTypes = {
   mainRecipes: PropTypes.array,
   category: PropTypes.string.isRequired,
-
 };

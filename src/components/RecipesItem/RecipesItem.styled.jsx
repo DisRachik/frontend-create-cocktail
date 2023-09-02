@@ -45,7 +45,8 @@ export const TitleDrinks = styled.p`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled(Link)`
+  display: inline-block;
   color: rgba(243, 243, 243, 0.5);
 
   font-size: ${theme.fontSizes.small};
