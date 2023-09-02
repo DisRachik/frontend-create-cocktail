@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { theme } from 'styles';
-import { IoMdClose } from 'react-icons/io';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { FiEdit2 } from 'react-icons/fi';
 
@@ -45,6 +44,7 @@ export const ProfileEditForm = styled.form`
 export const FileInputBox = styled.div`
   margin-bottom: 50px;
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,6 +57,7 @@ export const AwatarWrapper = styled.div`
   width: 100px;
   height: 100px;
   position: absolute;
+  top: 0;
 `;
 
 export const UserAvatar = styled.img`
@@ -175,40 +176,6 @@ export const BtnBox = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-top: 25px;
-  }
-`;
-
-export const ProfileEditCancelBtn = styled.button`
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  padding: 2px;
-
-  width: 32px;
-  height: 32px;
-
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 50%;
-  transition: ${theme.animation('border')};
-
-  &:hover,
-  &:focus {
-    border: 1px solid ${theme.colors.lightGray};
-  }
-`;
-
-export const CloseIcon = styled(IoMdClose)`
-  width: 24px;
-  height: 24px;
-  color: ${theme.colors.lightGray};
-
-  @media screen and (min-width: 768px) {
-    width: 32px;
-    height: 32px;
   }
 `;
 

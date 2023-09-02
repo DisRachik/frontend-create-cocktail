@@ -79,6 +79,7 @@ export const AddRecipeForm = () => {
       ingredients,
       formState.drinkThumb
     );
+
     const formData = generateFormData(reqBody);
 
     try {
