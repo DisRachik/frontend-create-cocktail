@@ -2,7 +2,6 @@ import {
   ArrowNext,
   ArrowPrev,
   BtnItem,
-  PagItem,
   PaginListItem,
   PaginWrapper,
   PaginationList,
@@ -15,10 +14,13 @@ export const Pagination = ({
   prevPage,
   nextPage,
   currentPage,
+  totalPages,
 }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalDrinks / drinksPerPage); i++) {
+  console.log(totalPages);
+
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
 
@@ -34,10 +36,7 @@ export const Pagination = ({
           </PaginListItem>
         ))}
       </PaginationList>
-      <button
-        onClick={prevPage}
-        disabled={currentPage === (totalDrinks / drinksPerPage).length}
-      >
+      <button onClick={nextPage} disabled={currentPage === totalPages}>
         <ArrowNext />
       </button>
     </PaginWrapper>

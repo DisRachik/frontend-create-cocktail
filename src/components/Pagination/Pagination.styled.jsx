@@ -2,7 +2,7 @@ import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from 'react-icons/md';
-// import { IoEllipseSharp } from 'react-icons/io5';
+
 import styled from '@emotion/styled';
 
 export const PaginWrapper = styled.div`
@@ -37,9 +37,3 @@ export const BtnItem = styled.button`
   height: 27px;
   margin-bottom: 10px;
 `;
-
-// export const PagItem = styled(IoEllipseSharp)`
-//   color: rgba(64, 112, 205, 0.5);
-//   width: 27px;
-//   height: 27px;
-// `;

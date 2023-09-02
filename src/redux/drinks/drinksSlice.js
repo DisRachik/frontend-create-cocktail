@@ -3,16 +3,24 @@ import { fetchDrinksByQuery } from './operations';
 
 const drinksSlice = createSlice({
   name: 'drinks',
-  initialState: { drinks: [], error: null },
+  initialState: { drinks: [], totalPages: 0, error: null },
   extraReducers: builder => {
     builder
-      .addCase(fetchDrinksByQuery.pending, (state, { payload }) => {
+      .addCase(fetchDrinksByQuery.pending, (state, action) => {
         // state.drinks = [];
         state.error = null;
       })
       .addCase(fetchDrinksByQuery.fulfilled, (state, { payload }) => {
-        state.drinks = payload;
-        state.error = null;
+        state.drinks = {
+          drinks: payload.filter, // Оновлюємо дані про коктейлі
+          totalPages: payload.totalPages, // Оновлюємо загальну кількість сторінок
+        };
+
+        state.error = null; // Очищуємо помилки
+        // state.drinks.drinks = payload.filter;
+        // state.drinks.totalPages = payload.totalPages;
+        // state.state.error = null;
+        // console.log('payload', payload.filter);
       })
       .addCase(fetchDrinksByQuery.rejected, (state, { payload }) => {
         state.error = payload;

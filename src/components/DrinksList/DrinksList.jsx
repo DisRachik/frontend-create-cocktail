@@ -1,10 +1,17 @@
-import { DrinkListItem } from 'components';
+import { CategoryRecipesItem } from 'components';
 import { DrinksList } from './DrinksList.styled';
+import { useSelector } from 'react-redux';
+import { getDrinksByQuery } from 'redux/drinks';
 
-export const DrinkList = ({ currentDrinks }) => {
+export const DrinkList = () => {
+  const { drinks } = useSelector(getDrinksByQuery);
+  const drinkList = drinks.drinks || [];
+
   return (
     <DrinksList>
-      <DrinkListItem currentDrinks={currentDrinks} />
+      {drinkList.map(data => (
+        <CategoryRecipesItem key={data._id} data={data} />
+      ))}
     </DrinksList>
   );
 };
