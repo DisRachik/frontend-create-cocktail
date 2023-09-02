@@ -10,6 +10,8 @@ export * from 'components/shared/FormIcons/FormIcons';
 export * from 'components/shared/FormMessages/FormMessages';
 export * from 'components/shared/Backdrop/Backdrop';
 export * from 'components/shared/Spinner';
+export * from 'components/shared/CheckoutModal/CheckoutModal';
+export * from 'components/shared/CancelBtn/CancelBtn';
 // AddRecipePage
 export * from 'components/AddRecipeForm/AddRecipeForm';
 export * from 'components/FollowUs/FollowUs';
@@ -42,16 +44,14 @@ export * from 'components/Signin/SigninPage';
 export * from 'components/Header/Header';
 export * from 'components/Navigation/Navigation';
 export * from 'components/UserLogo/UserLogo';
-export * from 'components/ProfileModals/ProfileDropDawn/ProfileDropDawn';
-export * from 'components/ProfileModals/ProfileModal/ProfileEditModal';
-export * from 'components/ProfileModals/ProfileLogOut/ProfileLogOut';
+export * from 'components/Modals/UserInfoModal/UserInfoModal';
+export * from 'components/Modals/UserLogoModal/UserLogoModal';
+export * from 'components/Modals/LogOutModal/LogOutModal';
 // Drinks
 export * from 'components/DrinkListItem/DrinkListItem';
 export * from 'components/DrinksList/DrinksList';
 export * from 'components/DrinksSearchBar/DrinksSearchBar';
-// My recipes
-export * from 'components/MyRecipes/MyRecipesPage';
-export * from 'components/MyRecipes/EmptyMyRecipesPage';
+
 //PrivacyPolicy
 export * from 'components/PrivacyPolicyText/PrivacyPolicyText';
 export * from 'components/PublicOfferingAgreement/PublicOfferingAgreement';

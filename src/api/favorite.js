@@ -6,7 +6,7 @@ export const getFavorites = async (page = 1, limit = 3) => {
   return res.data;
 };
 
-export const deleteFavorites = async id => {
+export const deleteFromFavorites = async id => {
   const res = await axios.delete(`/favorite/${id}`);
 
   return res.data;
@@ -14,12 +14,6 @@ export const deleteFavorites = async id => {
 
 export const addToFavorites = async id => {
   const res = await axios.post(`/favorite/${id}`);
-
-  return res.data;
-};
-
-export const updateFavoriteStatus = async id => {
-  const res = await axios.patch(`/favorite/${id}`);
 
   return res.data;
 };

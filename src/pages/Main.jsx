@@ -1,17 +1,22 @@
-import { MainSection, CategoryRecipesPage, CategorySection,Button } from 'components';
+import {
+  MainSection,
+  CategoryRecipesPage,
+  CategorySection,
+  Button,
+} from 'components';
 import { ButtonContainer } from '../components/CategoryRecipesPage/CategoryRecipesPage.styled';
 import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
- const uniqueCategories = [
-    "Cocktail",
-    "Ordinary Drink",
-    "Shake",
-    "Other/Unknown",
+  const uniqueCategories = [
+    'Cocktail',
+    'Ordinary Drink',
+    'Shake',
+    'Other/Unknown',
   ];
-   const navigate = useNavigate();
-    const handleButtonClick = () => {
-      navigate("/drinks");
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate('/drinks');
   };
   // const isMainRecipes = mainRecipes.length > 0;
   return (
@@ -22,11 +27,11 @@ const Main = () => {
       >
         {/* Тут вставляємо свої компоненти */}
       </MainSection>
-      
+
       {uniqueCategories.map(category => (
         <CategorySection title={category}>
-          <CategoryRecipesPage category={category}  />
-      </CategorySection>
+          <CategoryRecipesPage category={category} />
+        </CategorySection>
       ))}
       <ButtonContainer>
         <Button onClick={handleButtonClick}>Other drinks</Button>
