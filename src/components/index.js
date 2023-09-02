@@ -42,9 +42,9 @@ export * from 'components/Signin/SigninPage';
 export * from 'components/Header/Header';
 export * from 'components/Navigation/Navigation';
 export * from 'components/UserLogo/UserLogo';
-export * from 'components/ProfileModals/ProfileDropDawn/ProfileDropDawn';
-export * from 'components/ProfileModals/ProfileModal/ProfileEditModal';
-export * from 'components/ProfileModals/ProfileLogOut/ProfileLogOut';
+export * from 'components/Modals/UserInfoModal/UserInfoModal';
+export * from 'components/Modals/UserLogoModal/UserLogoModal';
+export * from 'components/Modals/LogOutModal/LogOutModal';
 // Drinks
 export * from 'components/DrinksList/DrinksList';
 export * from 'components/DrinksSearchBar/DrinksSearchBar';
