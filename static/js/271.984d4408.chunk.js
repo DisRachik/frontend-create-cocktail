@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfrontend_create_cocktail=self.webpackChunkfrontend_create_cocktail||[]).push([[271],{3271:function(e,c,r){r.r(c);var n=r(5659),t=r(184);c.default=function(){return(0,t.jsx)(t.Fragment,{children:(0,t.jsxs)(n.$0,{title:"Add recipe",children:[(0,t.jsx)(n.bb,{}),(0,t.jsx)("h2",{children:"Follow Us"}),(0,t.jsx)(n.Lg,{}),(0,t.jsx)("h2",{children:"Popular recipe"}),(0,t.jsx)(n._i,{})]})})}}}]);
-//# sourceMappingURL=271.984d4408.chunk.js.map
