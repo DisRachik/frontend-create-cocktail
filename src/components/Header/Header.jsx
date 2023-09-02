@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { BurgerMenuNavigation } from 'components/BurgerMenuNavigation/BurgerMenuNavigation';
 
 export const Header = () => {
-  const [nav, setNav] = useState(null);
+  const [nav, setNav] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -20,23 +20,6 @@ export const Header = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       setNav(false);
-    };
-  }, []);
-
-  useEffect(() => {
-    const closeMenu = () => {
-      setNav(false);
-    };
-
-    const closeWrrap = () => {
-      if (windowWidth > 1200) {
-        return closeMenu();
-      }
-    };
-
-    window.addEventListener('resize', closeWrrap);
-    return () => {
-      window.removeEventListener('resize', closeWrrap);
     };
   }, [windowWidth]);
 
@@ -64,10 +47,10 @@ export const Header = () => {
               )}
             </BurgerMenu>
           </UserBox>
+          {nav && windowWidth < 1200 && (
+            <BurgerMenuNavigation closeMenu={closeMenu} />
+          )}
         </FlexWrapper>
-        {nav && windowWidth < 1200 && (
-          <BurgerMenuNavigation closeMenu={closeMenu} />
-        )}
       </Container>
     </header>
   );
