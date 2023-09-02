@@ -5,7 +5,10 @@ import {
   SeeIngredients,
   TitleDrinks,
   TextContainer,
-} from './CategoryRecipesItem.styled';
+} from './CardItem.styled';
+// const defaultImageUrl = require('../../img/thumb400x400.png');
+
+
 
 export const CategoryRecipesItem = ({
   data: { drink,  drinkThumb, _id },
@@ -27,6 +30,6 @@ CategoryRecipesItem.propTypes = {
     drink: PropTypes.string.isRequired,
     drinkThumb: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
-    action: PropTypes.func.isRequired,
+    
   }),
 };

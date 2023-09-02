@@ -11,17 +11,6 @@ export const CategoryRecipesPage = ({ category }) => {
     const mainRecipes = useSelector(selectMainRecipes);
     
   
-//     function flattenArray(twoDimensionalArray) {
-//     const flattenedArray = [];
-//     for (let i = 0; i < twoDimensionalArray.length; i++) {
-//         for (let j = 0; j < twoDimensionalArray[i].length; j++) {
-//             flattenedArray.push(twoDimensionalArray[i][j]);
-//         }
-//     }
-//         return flattenedArray;      
-// }
-// const flattenedArray = flattenArray(mainRecipes);
-
 const filteredArray = mainRecipes.filter(recipe => recipe.category === category);
 
 

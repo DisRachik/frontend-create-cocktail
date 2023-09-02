@@ -27,7 +27,7 @@ export * from 'components/RecipesItem/RecipesItem';
 export * from 'components/Main/MainSection';
 export * from 'components/CategoryRecipesPage/CategoryRecipesPage';
 export * from 'components/CategoryRecipesList/CategoryRecipesList';
-export * from 'components/CategoryRecipesItem/CategoryRecipesItem';
+export * from 'components/shared/Card/CardItem';
 export * from 'components/CategorySection/CategorySection';
 // Recipe
 export * from 'components/Recipe/RecipePageHero/RecipePageHero';

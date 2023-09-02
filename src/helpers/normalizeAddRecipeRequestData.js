@@ -1,4 +1,8 @@
-export const normalizeAddRecipeRequestData = (data, allIngredients) => {
+export const normalizeAddRecipeRequestData = (
+  data,
+  allIngredients,
+  imageFile
+) => {
   const populatedIngredients = data.ingredients.map(ingredient => {
     const title = ingredient.title.value;
     const measure = ingredient.measure.value;
@@ -19,6 +23,7 @@ export const normalizeAddRecipeRequestData = (data, allIngredients) => {
 
   return {
     ...data,
+    drinkThumb: imageFile,
     instructions: data.instructions.split(/\r\n|\r|\n/g),
     glass: data.glass.value,
     category: data.category.value,
