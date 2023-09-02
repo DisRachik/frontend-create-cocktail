@@ -7,8 +7,6 @@ export const fetchMyRecipes = createAsyncThunk(
     try {
       const data = await getMyRecipes();
 
-      console.log(data);
-
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -21,7 +19,7 @@ export const deleteMyRecipes = createAsyncThunk(
   async (_id, thunkAPI) => {
     try {
       const { result } = await deleteMyRecip(_id);
-      console.log(result);
+
       return result;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
