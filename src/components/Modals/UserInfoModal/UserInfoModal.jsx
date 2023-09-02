@@ -36,7 +36,6 @@ export const UserInfoModal = ({ toggle }) => {
     register,
     control,
     handleSubmit,
-
     reset,
     formState: { isDirty, isValid, errors, dirtyFields },
   } = useForm({
@@ -78,18 +77,15 @@ export const UserInfoModal = ({ toggle }) => {
     const reqBody = { name, avatarURL };
 
     const formData = generateFormData(reqBody);
-    console.log(formData);
 
     try {
-      const response = await dispatch(updateUser(formData));
+      await dispatch(updateUser(formData));
+
+      toggle();
+      reset();
     } catch (error) {
       console.log(error);
     }
-
-    const newUser = {
-      name: data.name,
-    };
-    dispatch(updateUser(newUser));
   };
 
   return createPortal(
@@ -119,11 +115,10 @@ export const UserInfoModal = ({ toggle }) => {
           </FileInputBox>
 
           <InputNameBox>
-            <ProfileEditInput name="name" {...register('name')} />
-            {/* <Controller
+            <Controller
               name="name"
               control={control}
-              defaultValue={'Natali'}
+              defaultValue={user.name}
               render={({ field }) => (
                 <ProfileEditInput
                   type="text"
@@ -132,7 +127,7 @@ export const UserInfoModal = ({ toggle }) => {
                   invalid={dirtyFields.name && errors.name}
                 />
               )}
-            /> */}
+            />
 
             <EditIcon />
           </InputNameBox>
