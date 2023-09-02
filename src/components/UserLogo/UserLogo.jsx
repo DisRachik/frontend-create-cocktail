@@ -3,7 +3,7 @@ import DEFAULT_AVATAR from '../../img/default_user_avatar.png';
 
 import { useAuth } from 'redux/auth/useAuth';
 import { useState } from 'react';
-import { ProfileDropDawn } from 'components';
+import { UserLogoModal } from 'components';
 
 export const UserLogo = () => {
   const [openModal, setOpenModal] = useState(null);
@@ -21,7 +21,8 @@ export const UserLogo = () => {
         <UserImg src={DEFAULT_AVATAR} alt="logo" />
         <UserText> {user.name} </UserText>
       </UserBtn>
-      {openModal && <ProfileDropDawn closeModal={closeModalWindow} />}
+      {openModal && <UserLogoModal />}
+      {/* closeModal={closeModalWindow} */}
     </div>
   );
 };

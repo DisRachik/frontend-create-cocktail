@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
   fetchUserFavoriteDrinks,
   changeFavoriteStatus,
   deleteFavoriteDrink,
 } from './operations';
+
+import { fetchUserFavoriteDrinks } from './operations';
 
 const favoriteSlice = createSlice({
   name: 'favorites',
@@ -29,6 +32,7 @@ const favoriteSlice = createSlice({
       state.favoriteDrinks = [];
       state.error = action.payload;
     },
+
     [changeFavoriteStatus.pending](state) {
       state.isLoading = true;
       state.error = null;

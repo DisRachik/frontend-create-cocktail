@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import {
   ProfileLogOutContainer,
@@ -8,34 +9,37 @@ import {
   ProfileLogOutCancelBtn,
   ProfileLogOutSubmitBtn,
   CloseIcon,
-} from './ProfileLogOut.styled';
+} from './LogOutModal.styled';
 import { Backdrop } from 'components';
 import { useAuth } from 'redux/auth/useAuth';
 
-export const ProfileLogOut = ({ toggleLogOutModal, closeOverlay }) => {
+const modalRoot = document.querySelector('#modal-root');
+
+export const LogOutModal = ({ toggle }) => {
   const { handleSignOut } = useAuth();
 
   useEffect(() => {
-    const handleKeyDown = event => {
-      if (event.key === 'Escape') toggleLogOutModal();
+    const handleCloseEsc = evt => {
+      if (evt.code === 'Escape') {
+        toggle();
+        return;
+      }
     };
-
-    document.addEventListener('keydown', handleKeyDown);
-
+    document.addEventListener('keydown', handleCloseEsc);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', handleCloseEsc);
     };
-  }, [toggleLogOutModal]);
+  }, [toggle]);
 
   const handleCloseOverlay = event => {
     if (event.target === event.currentTarget) {
-      closeOverlay();
+      toggle();
     }
   };
-  return (
+  return createPortal(
     <Backdrop onClick={handleCloseOverlay}>
       <ProfileLogOutContainer>
-        <ProfileCancelBtn onClick={toggleLogOutModal}>
+        <ProfileCancelBtn onClick={toggle}>
           <CloseIcon />
         </ProfileCancelBtn>
         <ProfileLogOutText>Are you sure you want to log out?</ProfileLogOutText>
@@ -52,16 +56,17 @@ export const ProfileLogOut = ({ toggleLogOutModal, closeOverlay }) => {
             minHeight="54px"
             minWidth="196px"
             transparent
-            onClick={toggleLogOutModal}
+            onClick={toggle}
           >
             Cancel
           </ProfileLogOutCancelBtn>
         </ProfileLogOutButtonsWrapper>
       </ProfileLogOutContainer>
-    </Backdrop>
+    </Backdrop>,
+    modalRoot
   );
 };
 
-ProfileLogOut.propTypes = {
-  toggleLogOutModal: PropTypes.func.isRequired,
+LogOutModal.propTypes = {
+  toggle: PropTypes.func.isRequired,
 };
