@@ -49,12 +49,9 @@ export const SignupPage = () => {
       const responseSignUp = await dispatch(signUp(lowercasedData));
 
       if (responseSignUp.type === 'auth/signup/fulfilled') {
-        const sigInData = {
-          ...lowercasedData,
-          email: lowercasedData.email,
-          password: lowercasedData.password,
-        };
-        await dispatch(signIn(sigInData));
+        const { email, password } = lowercasedData;
+
+        await dispatch(signIn({ email, password }));
         navigation('/main');
       }
 
