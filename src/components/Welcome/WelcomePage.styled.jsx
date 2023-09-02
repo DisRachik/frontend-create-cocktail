@@ -1,8 +1,11 @@
 import styled from '@emotion/styled';
-import desktop from '../../img/def/des.jpg';
-import tablet from '../../img/def/tab.jpg';
-import mobile from '../../img/def/mob.jpg';
 import { theme } from 'styles';
+import desktopWebp from '../../img/welcome/des.webp';
+import desktopWebp2x from '../../img/welcome/des_@2x.webp';
+import tabletWebp from '../../img/welcome/tab.webp';
+import tabletWebp2x from '../../img/welcome/tab_@2x.webp';
+import mobileWebp from '../../img/welcome/mob.webp';
+import mobileWebp2x from '../../img/welcome/mob_@2x.webp';
 
 export const Wrapper = styled.div`
   background: linear-gradient(
@@ -19,18 +22,8 @@ export const BackgroundGradient = styled.div`
       rgba(10, 10, 17, 0.2) 0%,
       rgba(10, 10, 17, 0.2) 100%
     ),
-    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
-    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%);
-
-  @media (min-width: 768px) {
-    background: linear-gradient(
-        0deg,
-        rgba(10, 10, 17, 0.2) 0%,
-        rgba(10, 10, 17, 0.2) 100%
-      ),
-      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
-      linear-gradient(78deg, #0a0a11 14.73%, rgba(10, 10, 17, 0) 52.34%);
-  }
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 20) 21.93%),
+    linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 20) 51.07%);
 
   @media (min-width: 1200px) {
     background: linear-gradient(
@@ -132,55 +125,47 @@ export const ContainerWelcome = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  /* background: linear-gradient(
-      0deg,
-      rgba(10, 10, 17, 0.2) 0%,
-      rgba(10, 10, 17, 0.2) 100%
-    ),
-    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
-    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
-    url('${mobile}'),
-    lightgray -3px -13.319px / 100.511% 101.679% no-repeat/ right/ contain; */
-
   position: relative;
-  background-image: url('${mobile}');
+  background-image: url('${mobileWebp}');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
   overflow: hidden;
 
   @media (min-width: 768px) {
-    background-image: url('${tablet}');
+    background-image: url('${tabletWebp}');
   }
 
   @media (min-width: 1200px) {
-    background-image: url('${desktop}');
+    background-image: url('${desktopWebp}');
   }
 
-  /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url('${mobileWebp2x}');
+    background-image: -webkit-image-set(
+      url('${mobileWebp2x}') 2x,
+      url('${mobileWebp}') 1x
+    );
 
-  /* background-image: url('${desktop}');
-  background-repeat: no-repeat;
-  background-size: cover;
+    @media (min-width: 768px) {
+      background-image: url('${tabletWebp2x}');
+      background-image: -webkit-image-set(
+        url('${tabletWebp2x}') 2x,
+        url('${tabletWebp}') 1x
+      );
+    }
 
-  background-image: url('${mobile}');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
-
-  @media (min-width: 768px) {
-    background-image: url('${tablet}');
+    @media (min-width: 1200px) {
+      background-image: url('${desktopWebp2x}');
+      background-image: -webkit-image-set(
+        url('${desktopWebp2x}') 2x,
+        url('${desktopWebp}') 1x
+      );
+    }
   }
-
-  @media (min-width: 1200px) {
-    background-image: url('${desktop}');
-    background-size: cover;
-  } */
 `;
 
-export const SectionWelcome = styled.section`
-  /* outline: 1px solid tomato; */
-`;
+export const SectionWelcome = styled.section``;
 
 export const WelcomeWrap = styled.div`
   max-width: 485px;
