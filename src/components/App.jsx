@@ -1,6 +1,6 @@
 import { lazy, useEffect } from 'react';
 
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { EmptyAndError, Layout, PrivateRoute, PublicRoute } from 'components';
 
 import { useAuth } from 'redux/auth/useAuth';
@@ -22,6 +22,15 @@ const TermsOfService = lazy(() => import('pages/TermsOfService'));
 export const App = () => {
   const { isAuth, isRefreshing } = useAuth();
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      right: 0,
+      behavior: 'smooth',
+    });
+  }, [pathname]);
 
   useEffect(() => {
     dispatch(refreshUser());
