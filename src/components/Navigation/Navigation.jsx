@@ -2,33 +2,24 @@
 import PropTypes from 'prop-types';
 import { Li, MenuLink, NavList } from './Navigation.styled';
 
-export const Navigation = ({ closeMenu }) => {
-  const handleCloseMenu = e => {
-    if (e.targer === e.CurrentTarget) {
-      closeMenu();
-    }
-  };
+export const Navigation = () => {
   return (
-    <NavList onClick={handleCloseMenu}>
-      <Li onClick={handleCloseMenu}>
+    <NavList>
+      <Li>
         <MenuLink to="/main">Home</MenuLink>
       </Li>
-      <Li onClick={handleCloseMenu}>
+      <Li>
         <MenuLink to="/drinks">Drinks</MenuLink>
       </Li>
-      <Li onClick={handleCloseMenu}>
+      <Li>
         <MenuLink to="/add">Add recipe</MenuLink>
       </Li>
-      <Li onClick={handleCloseMenu}>
+      <Li>
         <MenuLink to="/my">My recipe</MenuLink>
       </Li>
-      <Li onClick={handleCloseMenu}>
+      <Li>
         <MenuLink to="/favorite">Favorite</MenuLink>
       </Li>
     </NavList>
   );
-};
-Navigation.propTypes = {
-  nav: PropTypes.bool.isRequired,
-  closeMenu: PropTypes.func.isRequired,
 };

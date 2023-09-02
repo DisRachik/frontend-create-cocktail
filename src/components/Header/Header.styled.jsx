@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
-export const HeaderContainer = styled.header``;
-
-export const HeaderWrrap = styled.div`
+export const FlexFrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

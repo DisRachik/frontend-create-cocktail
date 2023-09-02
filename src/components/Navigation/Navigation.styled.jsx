@@ -2,22 +2,9 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const NavList = styled.ul`
-  position: fixed;
-
-  flex-direction: column;
-  gap: 32px;
-  align-items: center;
-  justify-content: center;
-
-  padding-left: 0;
-  margin: 0;
-
-  left: 20px;
-  right: 20px;
-  top: 85px;
-  width: 100%vw;
-  height: 100vh;
-  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 
   list-style: none;
 
@@ -34,17 +21,6 @@ export const NavList = styled.ul`
       ${({ theme }) => theme.colors.mintGreen} 0%,
       ${({ theme }) => theme.colors.black} 50px
     );
-
-  display: flex;
-  @media screen and (min-width: 1200px) {
-    position: static;
-
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    width: 100;
-    height: 0;
-  }
 `;
 
 export const Li = styled.li``;
