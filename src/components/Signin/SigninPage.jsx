@@ -4,9 +4,13 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signIn } from 'redux/auth/operations';
 import {
+  BackgroundGradient,
   BackgroundImage,
   ContainerWelcome,
+  Left,
+  Right,
   SectionWelcome,
+  Top,
   WelcomeWrap,
   Wrapper,
 } from 'components/Welcome/WelcomePage.styled';
@@ -53,73 +57,78 @@ export const SigninPage = () => {
   };
 
   return (
-    <BackgroundImage>
-      <Wrapper>
-        <ContainerWelcome>
-          <SectionWelcome>
-            <WelcomeWrap>
-              <AuthTitle>Sign In</AuthTitle>
-              <FormWrap onSubmit={handleSubmit(onSubmit)}>
-                <InputBox>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    {...register('email')}
-                    valid={!errors.email && dirtyFields.email}
-                    invalid={errors.email && dirtyFields.email}
+    <Wrapper>
+      <BackgroundGradient>
+        <BackgroundImage>
+          <Top />
+          <Left />
+          <ContainerWelcome>
+            <SectionWelcome>
+              <WelcomeWrap>
+                <AuthTitle>Sign In</AuthTitle>
+                <FormWrap onSubmit={handleSubmit(onSubmit)}>
+                  <InputBox>
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      {...register('email')}
+                      valid={!errors.email && dirtyFields.email}
+                      invalid={errors.email && dirtyFields.email}
+                    />
+                    <FormIcons
+                      valid={!errors.email && dirtyFields.email}
+                      invalid={errors.email && dirtyFields.email}
+                    />
+                  </InputBox>
+                  <FormMessages
+                    invalidValue={errors.email}
+                    validValue={isValid && isDirty}
+                    errorMessage={errors.email?.message}
+                    checkMessage="This is valid email"
                   />
-                  <FormIcons
-                    valid={!errors.email && dirtyFields.email}
-                    invalid={errors.email && dirtyFields.email}
-                  />
-                </InputBox>
-                <FormMessages
-                  invalidValue={errors.email}
-                  validValue={isValid && isDirty}
-                  errorMessage={errors.email?.message}
-                  checkMessage="This is valid email"
-                />
 
-                <InputBox>
-                  <Input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    {...register('password')}
-                    valid={!errors.password && dirtyFields.password}
-                    invalid={errors.password && dirtyFields.password}
+                  <InputBox>
+                    <Input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      {...register('password')}
+                      valid={!errors.password && dirtyFields.password}
+                      invalid={errors.password && dirtyFields.password}
+                    />
+                    <FormIcons
+                      valid={!errors.password && dirtyFields.password}
+                      invalid={errors.password && dirtyFields.password}
+                    />
+                  </InputBox>
+                  <FormMessages
+                    invalidValue={errors.password}
+                    validValue={isValid && isDirty}
+                    errorMessage={errors.password?.message}
+                    checkMessage="This is valid password"
                   />
-                  <FormIcons
-                    valid={!errors.password && dirtyFields.password}
-                    invalid={errors.password && dirtyFields.password}
-                  />
-                </InputBox>
-                <FormMessages
-                  invalidValue={errors.password}
-                  validValue={isValid && isDirty}
-                  errorMessage={errors.password?.message}
-                  checkMessage="This is valid password"
-                />
 
-                <ButtonWrap>
-                  <Button
-                    disabled={!isValid || !isDirty}
-                    transparent
-                    minWidth="100%"
-                    minHeight="56px"
-                  >
-                    Sign In
-                  </Button>
-                </ButtonWrap>
-                <LinkWrap>
-                  <Link to="/signup">Registration</Link>
-                </LinkWrap>
-              </FormWrap>
-            </WelcomeWrap>
-          </SectionWelcome>
-        </ContainerWelcome>
-      </Wrapper>
-    </BackgroundImage>
+                  <ButtonWrap>
+                    <Button
+                      disabled={!isValid || !isDirty}
+                      transparent
+                      minWidth="100%"
+                      minHeight="56px"
+                    >
+                      Sign In
+                    </Button>
+                  </ButtonWrap>
+                  <LinkWrap>
+                    <Link to="/signup">Registration</Link>
+                  </LinkWrap>
+                </FormWrap>
+              </WelcomeWrap>
+            </SectionWelcome>
+          </ContainerWelcome>
+          <Right />
+        </BackgroundImage>
+      </BackgroundGradient>
+    </Wrapper>
   );
 };

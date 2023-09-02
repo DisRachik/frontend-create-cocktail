@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     180deg,
     rgba(0, 0, 0, 0.6) 58.58%,
     rgba(0, 0, 0, 0.35) 78.98%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 2) 100%
   );
 `;
 
@@ -80,7 +80,7 @@ export const Left = styled.div`
 
   @media (min-width: 1200px) {
     top: -100px;
-    left: -500px;
+    left: -550px;
   }
 `;
 
