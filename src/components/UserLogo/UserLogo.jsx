@@ -17,7 +17,8 @@ export const UserLogo = () => {
     <div style={{ position: 'relative' }}>
       <UserBtn onClick={openModalWindow}>
         <UserImg src={DEFAULT_AVATAR} alt="logo" />
-        <UserText> {user.name} </UserText>
+        <UserText> Test </UserText>
+        {/* {user.name} */}
       </UserBtn>
       {openModal && <UserLogoModal />}
     </div>
