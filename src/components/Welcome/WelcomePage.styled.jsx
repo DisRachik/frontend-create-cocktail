@@ -72,9 +72,11 @@ export const Right = styled.div`
   filter: blur(104.8543701171875px);
 
   @media (min-width: 768px) {
+    bottom: -200px;
   }
 
   @media (min-width: 1200px) {
+    bottom: -300px;
   }
 `;
 
@@ -133,6 +135,7 @@ export const BackgroundImage = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     background-image: url('${tablet}');

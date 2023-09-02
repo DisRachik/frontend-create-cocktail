@@ -20,7 +20,6 @@ import {
   Link,
   LinkWrap,
 } from 'components/Signup/SignupPage.styled';
-import { toast } from 'react-toastify';
 
 export const SigninPage = () => {
   const dispatch = useDispatch();
@@ -45,10 +44,7 @@ export const SigninPage = () => {
     try {
       const response = await dispatch(signIn(lowercasedData));
 
-      if (response.type === 'auth/signin/fulfilled') {
-        toast.success(`Congratulations ${data.email}`);
-        navigation('/main');
-      }
+      if (response.type === 'auth/signin/fulfilled') navigation('/main');
 
       reset();
     } catch (error) {

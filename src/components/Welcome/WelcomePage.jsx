@@ -22,11 +22,11 @@ export const WelcomePage = () => {
     <Wrapper>
       <BackgroundGradient>
         <BackgroundImage>
+          <Top />
+          <Left />
           <ContainerWelcome>
             <SectionWelcome>
               <WelcomeWrap>
-                <Top />
-                <Left />
                 <WelcomeTitle>Welcome to the app!</WelcomeTitle>
                 <Text>
                   This app offers more than just a collection of recipes - it is
@@ -54,11 +54,10 @@ export const WelcomePage = () => {
                     </Button>
                   </li>
                 </List>
-
-                <Right />
               </WelcomeWrap>
             </SectionWelcome>
           </ContainerWelcome>
+          <Right />
         </BackgroundImage>
       </BackgroundGradient>
     </Wrapper>
