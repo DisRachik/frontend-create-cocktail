@@ -5,6 +5,15 @@ export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 28px;
+  }
+
+  @media (min-width: 1200px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const LogoImg = styled.img`
