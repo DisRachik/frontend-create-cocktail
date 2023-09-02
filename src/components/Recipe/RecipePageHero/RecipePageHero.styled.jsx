@@ -98,6 +98,7 @@ export const CocktailImage = styled.img`
   margin-top: 80px;
   object-fit: cover;
   object-position: center;
+  border-radius: 8px;
 
   @media (min-width: 768px) {
     width: 704px;

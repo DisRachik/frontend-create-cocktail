@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import { CategoryRecipesItem } from 'components';
 import { CatigoryList } from './CategoryRecipesList.styled';
 
-export const CategoryRecipesList = ({ array }) => {
-  const array1 = [...array].slice(0, 3);
-  console.log(array1);
+export const CategoryRecipesList = ({ category, mainRecipes }) => {
+  const filteredArray = mainRecipes.filter(
+    recipe => recipe.category === category
+  );
 
   return (
     <CatigoryList>
-      {array1.map(data => (
+      {filteredArray.map(data => (
         <CategoryRecipesItem key={data._id} data={data} />
       ))}
     </CatigoryList>
@@ -16,5 +17,6 @@ export const CategoryRecipesList = ({ array }) => {
 };
 
 CategoryRecipesList.propTypes = {
-  array: PropTypes.array,
+  mainRecipes: PropTypes.array,
+  category: PropTypes.string.isRequired,
 };
