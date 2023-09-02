@@ -52,6 +52,7 @@ export const BurgerMenuNavigation = ({ closeMenu }) => {
     </NavigationWrap>
   );
 };
+
 BurgerMenuNavigation.propTypes = {
   closeMenu: PropTypes.func.isRequired,
 };
