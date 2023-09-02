@@ -4,7 +4,6 @@ import { CatigoryList } from './CategoryRecipesList.styled';
 
 export const CategoryRecipesList = ({ array }) => {
   const array1 = [...array].slice(0, 3);
-  console.log(array1);
 
   return (
     <CatigoryList>
