@@ -24,6 +24,7 @@ export const WelcomePage = () => {
         <BackgroundImage>
           <Top />
           <Left />
+          <Right />
           <ContainerWelcome>
             <SectionWelcome>
               <WelcomeWrap>
@@ -57,7 +58,6 @@ export const WelcomePage = () => {
               </WelcomeWrap>
             </SectionWelcome>
           </ContainerWelcome>
-          <Right />
         </BackgroundImage>
       </BackgroundGradient>
     </Wrapper>
