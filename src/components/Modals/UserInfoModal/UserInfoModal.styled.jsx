@@ -44,6 +44,7 @@ export const ProfileEditForm = styled.form`
 export const FileInputBox = styled.div`
   margin-bottom: 50px;
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,6 +57,7 @@ export const AwatarWrapper = styled.div`
   width: 100px;
   height: 100px;
   position: absolute;
+  top: 0;
 `;
 
 export const UserAvatar = styled.img`
