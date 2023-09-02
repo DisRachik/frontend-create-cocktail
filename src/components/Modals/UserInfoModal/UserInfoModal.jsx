@@ -5,14 +5,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import PropTypes from 'prop-types';
 import { nameSchema } from 'schema';
 import { useAuth } from 'redux/auth/useAuth';
-import { Button, FormMessages } from 'components';
+import { Button, FormMessages, CancelBtn } from 'components';
 import {
   ProfileEditContainer,
   UserAvatar,
   ProfileEditInput,
-  ProfileEditCancelBtn,
   ProfileEditForm,
-  CloseIcon,
   AddPhotoIcon,
   EditIcon,
   TopDecorCircle,
@@ -38,7 +36,7 @@ export const UserInfoModal = ({ toggle }) => {
     handleSubmit,
 
     // reset,
-    formState: { errors, dirtyFields },
+    formState: { isDirty, isValid, errors, dirtyFields },
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(nameSchema),
@@ -80,9 +78,7 @@ export const UserInfoModal = ({ toggle }) => {
   return createPortal(
     <Backdrop onClick={handelBackdropClick}>
       <ProfileEditContainer>
-        <ProfileEditCancelBtn onClick={toggle}>
-          <CloseIcon />
-        </ProfileEditCancelBtn>
+        <CancelBtn cancelClick={toggle} />
 
         <ProfileEditForm onSubmit={handleSubmit(onSubmit)}>
           <FileInputBox>
@@ -129,7 +125,11 @@ export const UserInfoModal = ({ toggle }) => {
             checkMessage="This is valid name"
           />
           <BtnBox>
-            <Button minWidth="100%" minHeight="54px">
+            <Button
+              minWidth="100%"
+              minHeight="54px"
+              disabled={!isValid || !isDirty}
+            >
               Save changes
             </Button>
           </BtnBox>

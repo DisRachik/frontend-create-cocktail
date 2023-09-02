@@ -1,16 +1,7 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import {
-  ProfileLogOutContainer,
-  ProfileLogOutButtonsWrapper,
-  ProfileLogOutText,
-  ProfileCancelBtn,
-  ProfileLogOutCancelBtn,
-  ProfileLogOutSubmitBtn,
-  CloseIcon,
-} from './LogOutModal.styled';
-import { Backdrop } from 'components';
+import { Backdrop, CheckoutModal } from 'components';
 import { useAuth } from 'redux/auth/useAuth';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -38,30 +29,13 @@ export const LogOutModal = ({ toggle }) => {
   };
   return createPortal(
     <Backdrop onClick={handleCloseOverlay}>
-      <ProfileLogOutContainer>
-        <ProfileCancelBtn onClick={toggle}>
-          <CloseIcon />
-        </ProfileCancelBtn>
-        <ProfileLogOutText>Are you sure you want to log out?</ProfileLogOutText>
-
-        <ProfileLogOutButtonsWrapper>
-          <ProfileLogOutSubmitBtn
-            onClick={() => {
-              handleSignOut();
-            }}
-          >
-            Log out
-          </ProfileLogOutSubmitBtn>
-          <ProfileLogOutCancelBtn
-            minHeight="54px"
-            minWidth="196px"
-            transparent
-            onClick={toggle}
-          >
-            Cancel
-          </ProfileLogOutCancelBtn>
-        </ProfileLogOutButtonsWrapper>
-      </ProfileLogOutContainer>
+      <CheckoutModal
+        cancelClick={toggle}
+        contentText="Are you sure you want to log out?"
+        agreementBtnText="Log out"
+        agreeClick={handleSignOut}
+        disagreeClick={toggle}
+      />
     </Backdrop>,
     modalRoot
   );
