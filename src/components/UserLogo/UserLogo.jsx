@@ -12,9 +12,7 @@ export const UserLogo = () => {
   const openModalWindow = () => {
     setOpenModal(prevState => !prevState);
   };
-  const closeModalWindow = () => {
-    setOpenModal(null);
-  };
+
   return (
     <div style={{ position: 'relative' }}>
       <UserBtn onClick={openModalWindow}>
@@ -22,7 +20,6 @@ export const UserLogo = () => {
         <UserText> {user.name} </UserText>
       </UserBtn>
       {openModal && <UserLogoModal />}
-      {/* closeModal={closeModalWindow} */}
     </div>
   );
 };
