@@ -46,7 +46,6 @@ export * from 'components/ProfileModals/ProfileDropDawn/ProfileDropDawn';
 export * from 'components/ProfileModals/ProfileModal/ProfileEditModal';
 export * from 'components/ProfileModals/ProfileLogOut/ProfileLogOut';
 // Drinks
-export * from 'components/DrinkListItem/DrinkListItem';
 export * from 'components/DrinksList/DrinksList';
 export * from 'components/DrinksSearchBar/DrinksSearchBar';
 // My recipes
