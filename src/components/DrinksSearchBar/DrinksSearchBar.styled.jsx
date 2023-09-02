@@ -3,7 +3,6 @@ import Select from 'react-select';
 import { theme } from 'styles';
 
 export const Form = styled.form`
-  /* background-color: #161f37; */
   margin-top: 40px;
   min-width: 335px;
   @media (min-width: 768px) {
@@ -13,22 +12,22 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  min-width: 335px;
-  @media (min-width: 768px) {
-    min-width: 199px;
-  }
-  background-color: #161f37;
-  border-color: rgba(243, 243, 243, 0.2);
+  /* min-width: 335px; */
+  /* @media (min-width: 768px) { */
+  min-width: 199px;
+  /* } */
+  background-color: ${theme.colors.midnightBlue};
+  border: 1px solid ${theme.colors.transparentLight};
   border-radius: 20px;
-  color: #fff;
+  color: ${theme.colors.lightGray};
 `;
 
 export const Selector = styled(Select)`
-  color: rgba(243, 243, 243, 1);
-  max-width: 335px;
-  @media (min-width: 768px) {
-    min-width: 199px;
-  }
+  color: ${theme.colors.lightGrayTransparent};
+  /* max-width: 335px; */
+  /* @media (min-width: 768px) { */
+  min-width: 199px;
+  /* } */
 `;
 
 // export const selectStyles = {
@@ -59,10 +58,10 @@ export const selectStyles = {
     ...baseStyles,
     alignItems: 'flex-start',
     minHeight: '34px',
-    paddingLeft: '140px',
+    paddingLeft: '40px',
     fontSize: '14px',
     lineHeight: 'calc(14 / 14)',
-    textAlign: 'right',
+    // textAlign: 'right',
     backgroundColor: 'transparent',
     border: 0,
     borderRadius: 0,
@@ -81,7 +80,7 @@ export const selectStyles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '6px',
-    width: '131px',
+    width: '199px',
     height: '129px',
     padding: '10px',
     marginLeft: 'auto',
@@ -118,7 +117,7 @@ export const selectStyles = {
     ...baseStyles,
     paddingTop: '2px',
     lineHeight: 'normal',
-    textAlign: 'right',
+    // textAlign: 'right',
     width: '100%',
   }),
 
@@ -126,15 +125,16 @@ export const selectStyles = {
     ...baseStyles,
     width: '100%',
     paddingTop: '2px',
-    textAlign: 'right',
+    // textAlign: 'right',
     lineHeight: 'normal',
+    color: `${theme.colors.lightGray}`,
   }),
 
   input: baseStyles => ({
     ...baseStyles,
     paddingTop: '2px',
     lineHeight: 'normal',
-    justifyContent: 'end',
+    // justifyContent: 'end',
   }),
 
   indicatorSeparator: () => ({

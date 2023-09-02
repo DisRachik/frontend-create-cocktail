@@ -7,15 +7,20 @@ import styled from '@emotion/styled';
 
 export const PaginWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
+
 export const PaginationList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 10px;
 `;
+
 export const PaginListItem = styled.li`
-  margin-right: 10px;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 `;
 
 export const ArrowPrev = styled(MdOutlineKeyboardArrowLeft)`
