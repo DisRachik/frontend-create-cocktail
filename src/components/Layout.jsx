@@ -7,7 +7,8 @@ import { useAuth } from 'redux/auth/useAuth';
 export const Layout = () => {
   const { isAuth } = useAuth();
   return (
-    <>
+    <div>
+      {/* <div style={{ position: 'relative' }}> */}
       {/* Authorized user routes */}
 
       {isAuth && <Header />}
@@ -18,6 +19,6 @@ export const Layout = () => {
       </main>
       {isAuth && <Footer />}
       <ToastContainer theme="dark" />
-    </>
+    </div>
   );
 };
