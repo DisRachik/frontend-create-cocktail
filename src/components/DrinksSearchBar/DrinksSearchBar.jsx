@@ -1,40 +1,20 @@
 import { Controller, useForm } from 'react-hook-form';
 import { Form, Input, Selector, selectStyles } from './DrinksSearchBar.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCategories } from '../../redux';
-import { selectIngredients } from '../../redux';
 import { fetchDrinksByQuery } from 'redux/drinks';
 
-export const DrinkSearchBar = ({ drinksPerPage, currentPage }) => {
-  const dispatch = useDispatch();
-  const { control, handleSubmit, getValues } = useForm({
-    defaultValues: {
-      search: '',
-      category: null,
-      ingredients: null,
-    },
-  });
-  const categories = useSelector(selectCategories.data);
-  const ingredients = useSelector(selectIngredients.data);
-
-  const onSubmit = async () => {
-    const formData = getValues();
-    const { search, category, ingredients } = formData;
-    const searchValue = search || '';
-    const categoryValue = category ? category.value : '';
-    const ingridientValue = ingredients ? ingredients.value : '';
-    console.log(formData);
-    const querySearch = {
-      search: searchValue,
-      category: categoryValue,
-      ingredients: ingridientValue,
-      limit: drinksPerPage,
-      page: currentPage,
-    };
-    dispatch(fetchDrinksByQuery(querySearch));
-  };
+export const DrinkSearchBar = ({
+  onSubmit,
+  control,
+  categories,
+  ingredients,
+  onChangeCategory,
+  onChangeIngredient,
+  initialCategory,
+}) => {
+  console.log(initialCategory);
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={onSubmit}>
       <Controller
         name="search"
         control={control}
@@ -53,12 +33,10 @@ export const DrinkSearchBar = ({ drinksPerPage, currentPage }) => {
               value: option.title,
               label: option.title,
             }))}
+            // defaultValue={initialCategory || ''}
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              const req = {
-                category: selectedOption.value,
-              };
-              dispatch(fetchDrinksByQuery(req));
+              onChangeCategory(selectedOption);
             }}
           />
         )}
@@ -77,10 +55,7 @@ export const DrinkSearchBar = ({ drinksPerPage, currentPage }) => {
             }))}
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              const req = {
-                ingredients: selectedOption.value,
-              };
-              dispatch(fetchDrinksByQuery(req));
+              onChangeIngredient(selectedOption);
             }}
           />
         )}
