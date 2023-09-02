@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-
 import { getRecipeById } from 'api';
-
 import {
   Section,
   RecipePageHeader,
@@ -19,18 +17,21 @@ const Recipe = () => {
   const recipeId = location[1];
 
   useEffect(() => {
-    getRecipeById(recipeId)
-      .then(data => {
-        setStatus('RESOLVED');
+    const fetchData = async () => {
+      try {
+        const data = await getRecipeById(recipeId);
         setRecipeInfo(data);
-      })
-      .catch(error => {
-        setStatus('REJECTED');
+        setStatus('RESOLVED');
+      } catch (error) {
         setError(error);
-      });
+        setStatus('REJECTED');
+      }
+    };
+
+    fetchData();
   }, [recipeId]);
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const isRecipeAvailable = status === 'RESOLVED';
 
   return (
     <Section>
@@ -40,7 +41,7 @@ const Recipe = () => {
           text="The recipe you were looking for is missing."
         />
       ) : (
-        status === 'RESOLVED' && (
+        isRecipeAvailable && (
           <>
             <RecipePageHeader
               glass={recipeInfo.glass}

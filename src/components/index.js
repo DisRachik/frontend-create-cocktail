@@ -27,7 +27,7 @@ export * from 'components/RecipesItem/RecipesItem';
 export * from 'components/Main/MainSection';
 export * from 'components/CategoryRecipesPage/CategoryRecipesPage';
 export * from 'components/CategoryRecipesList/CategoryRecipesList';
-export * from 'components/CategoryRecipesItem/CategoryRecipesItem';
+export * from 'components/shared/Card/CardItem';
 export * from 'components/CategorySection/CategorySection';
 // Recipe
 export * from 'components/Recipe/RecipePageHero/RecipePageHero';
@@ -42,9 +42,9 @@ export * from 'components/Signin/SigninPage';
 export * from 'components/Header/Header';
 export * from 'components/Navigation/Navigation';
 export * from 'components/UserLogo/UserLogo';
-export * from 'components/ProfileModals/ProfileDropDawn/ProfileDropDawn';
-export * from 'components/ProfileModals/ProfileModal/ProfileEditModal';
-export * from 'components/ProfileModals/ProfileLogOut/ProfileLogOut';
+export * from 'components/Modals/UserInfoModal/UserInfoModal';
+export * from 'components/Modals/UserLogoModal/UserLogoModal';
+export * from 'components/Modals/LogOutModal/LogOutModal';
 // Drinks
 export * from 'components/DrinkListItem/DrinkListItem';
 export * from 'components/DrinksList/DrinksList';

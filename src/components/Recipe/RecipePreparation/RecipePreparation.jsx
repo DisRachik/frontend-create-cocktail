@@ -40,7 +40,7 @@ export const RecipePreparation = ({ instructions }) => {
                 .filter(instruction => instruction.trim() !== '')
                 .map(instruction => (
                   <PreparationListItem key={nanoid()}>
-                    {instruction.indexOf('.') === -1
+                    {!instruction.endsWith('.') && !instruction.endsWith('!')
                       ? instruction + '.'
                       : instruction}
                   </PreparationListItem>

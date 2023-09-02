@@ -2,7 +2,7 @@ import logo from 'img/logo.png';
 import { UserImg, UserText, UserBtn } from './ModalBtnUser.styled';
 import { useState } from 'react';
 import { useAuth } from 'redux/auth/useAuth';
-import ProfileDropDawn from 'components/ProfileModals/ProfileDropDawn/ProfileDropDawn';
+import ProfileDropDawn from 'components/ProfileModals/UserLogoModal/UserLogoModal';
 
 export const ModalBtnUser = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

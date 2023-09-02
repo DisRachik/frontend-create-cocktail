@@ -24,7 +24,11 @@ export const RecipesItem = ({
 }) => {
   return (
     <FavoriteItem>
-      <ImageDrinks loading="lazy" src={drinkThumb || defaultImageUrl} alt="" />
+      <ImageDrinks
+        loading="lazy"
+        src={drinkThumb || defaultImageUrl}
+        alt="drink"
+      />
       <TitleDrinks>{drink ? drink : 'N/a'}</TitleDrinks>
       <Text>Ingredients</Text>
       <DescriptionDrinks>
@@ -43,7 +47,7 @@ export const RecipesItem = ({
 RecipesItem.propTypes = {
   data: PropTypes.shape({
     drink: PropTypes.string.isRequired,
-    instructions: PropTypes.string.isRequired,
+    instructions: PropTypes.array.isRequired,
     drinkThumb: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
     action: PropTypes.func,

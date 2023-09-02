@@ -5,7 +5,7 @@ import background2 from "../../img/mae-mu-T7heq8rawkc-unsplash 2.png";
 import background3 from "../../img/mae-mu-T7heq8rawkc-unsplash 3.png";
 
 export const MainSectionWrap = styled.section`
-  outline: 1px solid tomato;
+  //outline: 1px solid tomato;
  display: flex-inline;
  justify-content: st;
  flex-direction: column;
