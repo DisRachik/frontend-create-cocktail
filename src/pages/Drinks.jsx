@@ -1,10 +1,9 @@
-import { EmptyFavoritePage, Section } from 'components';
+import { Section } from 'components';
 import { getDrinksByQuery } from 'redux/drinks';
 import { DrinkList, DrinkSearchBar } from 'components';
 import { Pagination } from 'components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useParams } from 'react-router-dom';
 import { fetchDrinksByQuery } from 'redux/drinks';
 
 import { fetchCategories } from '../redux';
@@ -24,7 +23,9 @@ const Drinks = () => {
     calculatePerPage(window.innerWidth)
   );
 
+  // console.log('searchParams', searchParams.get('category'));
   useEffect(() => {
+    console.log('Component mounted');
     dispatch(fetchCategories());
     dispatch(fetchIngredients());
 
@@ -38,36 +39,32 @@ const Drinks = () => {
 
     setDrinksPerPage(calculatePerPage(window.innerWidth));
     window.addEventListener('resize', handleResize);
+    const query = {
+      category: 'Cocktail',
+      limit: drinksPerPage,
+      page: currentPage,
+    };
+    // if (searchParams) {
+    //   console.log(searchParams);
+    //   const queryUrl = {
+    //     category: searchParams.get('category'),
+    //     limit: drinksPerPage,
+    //     page: currentPage,
+    //   };
 
-    if (searchParams) {
-      // const queryUrl = params;
-      const queryUrl = {
-        category: searchParams.get('category'),
-        limit: drinksPerPage,
-        page: currentPage,
-      };
-      console.log(queryUrl);
-      dispatch(fetchDrinksByQuery(queryUrl));
-    } else {
-      const query = {
-        category: 'Cocktail',
-        limit: drinksPerPage,
-        page: currentPage,
-      };
+    //   dispatch(fetchDrinksByQuery(queryUrl));
+    // } else {
 
-      dispatch(fetchDrinksByQuery(query));
-    }
+    dispatch(fetchDrinksByQuery(query));
+    // }
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [currentPage, dispatch, drinksPerPage, searchParams]);
-
-  const indexOfLastDrink = currentPage * drinksPerPage;
-  const indexOfFirstDrink = indexOfLastDrink - drinksPerPage;
-  const currentDrinks = drinks.drinks.slice(
-    indexOfFirstDrink,
-    indexOfLastDrink
-  );
+  }, [currentPage, dispatch, drinksPerPage]);
+  console.log(drinks);
+  // const indexOfLastDrink = currentPage * drinksPerPage;
+  // const indexOfFirstDrink = indexOfLastDrink - drinksPerPage;
+  // const currentDrinks = drinks.slice(indexOfFirstDrink, indexOfLastDrink);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
   const nextPage = () => setCurrentPage(prev => prev + 1);
@@ -81,13 +78,13 @@ const Drinks = () => {
           drinksPerPage={drinksPerPage}
         />
         <DrinkList />
-        <Pagination
+        {/* <Pagination
           paginate={paginate}
           nextPage={nextPage}
           prevPage={prevPage}
           currentPage={currentPage}
-          totalPages={drinks.totalPages}
-        />
+          totalPages={totalPages}
+        /> */}
       </Section>
     </>
   );
