@@ -8,7 +8,7 @@ import {
 } from 'redux/myRecipes/selectors';
 import { useEffect, useState } from 'react';
 import { deleteMyRecipes, fetchMyRecipes } from 'redux/myRecipes/operations';
-import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
+import { StyledButton } from 'components/shared/Button/Button.styled';
 
 const MyRecipes = () => {
   const dispatch = useDispatch();
@@ -45,7 +45,13 @@ const MyRecipes = () => {
             <EmptyAndError text="You don't have your recipes" />
           )}
           {myRecipes.length !== sliceRecipes.length && (
-            <ButtonLoadMore onClick={seeMoreDrinks} />
+            <>
+              <div style={{ textAlign: 'center' }}>
+                <StyledButton type="button" onClick={seeMoreDrinks}>
+                  see other
+                </StyledButton>
+              </div>
+            </>
           )}
           {isLoading && !error && <b>Request in progress...</b>}
         </>
