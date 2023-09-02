@@ -9,3 +9,10 @@ export const lostRecipeDesc =
 
 export const preparationForeward =
   "As you read through the instructions, you might find them straightforward or familiar. However, we strongly urge you to adhere to every step with precision. Remember, it's the combination of seemingly simple actions that transforms a collection of ingredients into a delightful elixir. Get ready to embark on a culinary adventure that rewards your patience and precision. Cheers to crafting a masterpiece step by step!";
+
+export const uniqueCategories = [
+  'Cocktail',
+  'Ordinary Drink',
+  'Shake',
+  'Other/Unknown',
+];
