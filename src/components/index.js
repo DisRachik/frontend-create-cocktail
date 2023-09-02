@@ -51,9 +51,7 @@ export * from 'components/Modals/LogOutModal/LogOutModal';
 export * from 'components/DrinkListItem/DrinkListItem';
 export * from 'components/DrinksList/DrinksList';
 export * from 'components/DrinksSearchBar/DrinksSearchBar';
-// My recipes
-export * from 'components/MyRecipes/MyRecipesPage';
-export * from 'components/MyRecipes/EmptyMyRecipesPage';
+
 //PrivacyPolicy
 export * from 'components/PrivacyPolicyText/PrivacyPolicyText';
 export * from 'components/PublicOfferingAgreement/PublicOfferingAgreement';

@@ -1,21 +1,111 @@
 import styled from '@emotion/styled';
-import desktop from '../../img/def/des.jpg';
-import tablet from '../../img/def/tab.jpg';
-import mobile from '../../img/def/mob.jpg';
 import { theme } from 'styles';
+import desktopWebp from '../../img/welcome/des.webp';
+import desktopWebp2x from '../../img/welcome/des_@2x.webp';
+import tabletWebp from '../../img/welcome/tab.webp';
+import tabletWebp2x from '../../img/welcome/tab_@2x.webp';
+import mobileWebp from '../../img/welcome/mob.webp';
+import mobileWebp2x from '../../img/welcome/mob_@2x.webp';
 
 export const Wrapper = styled.div`
-  /* background: linear-gradient(
+  background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.6) 46.3%,
-    rgba(0, 0, 0, 0.35) 72.75%,
-    rgba(0, 0, 0, 0.6) 100%
-  ); */
+    rgba(0, 0, 0, 0.6) 58.58%,
+    rgba(0, 0, 0, 0.35) 78.98%,
+    rgba(0, 0, 0, 2) 100%
+  );
+`;
+
+export const BackgroundGradient = styled.div`
+  background: linear-gradient(
+      0deg,
+      rgba(10, 10, 17, 0.2) 0%,
+      rgba(10, 10, 17, 0.2) 100%
+    ),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 20) 21.93%),
+    linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 20) 51.07%);
+
+  @media (min-width: 1200px) {
+    background: linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
+      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+      linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 0) 51.07%);
+  }
+`;
+
+export const Top = styled.div`
+  position: absolute;
+  width: 257px;
+  height: 247px;
+
+  top: 84px;
+  left: 42px;
+  border-radius: 257px;
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px);
+
+  @media (min-width: 768px) {
+    width: 387px;
+    height: 372px;
+    top: 46px;
+    left: 0;
+  }
+
+  @media (min-width: 1200px) {
+    left: 170px;
+    top: -130px;
+  }
+`;
+
+export const Left = styled.div`
+  position: absolute;
+  width: 520px;
+  height: 550px;
+
+  top: 20px;
+  left: -400px;
+  border-radius: 550px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+  @media (min-width: 768px) {
+    width: 784px;
+    height: 830px;
+
+    top: -50px;
+    left: -600px;
+  }
+
+  @media (min-width: 1200px) {
+    top: -100px;
+    left: -550px;
+  }
+`;
+
+export const Right = styled.div`
+  position: absolute;
+  width: 549px;
+  height: 543px;
+
+  bottom: -400px;
+  right: -280px;
+  border-radius: 549px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+
+  @media (min-width: 768px) {
+    bottom: -10px;
+  }
+
+  @media (min-width: 1200px) {
+    bottom: -100px;
+    right: -150px;
+  }
 `;
 
 export const ContainerWelcome = styled.div`
-  outline: 1px solid tomato;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,53 +125,47 @@ export const ContainerWelcome = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  /* background: linear-gradient(
-      0deg,
-      rgba(10, 10, 17, 0.2) 0%,
-      rgba(10, 10, 17, 0.2) 100%
-    ),
-    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
-    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
-    url('${mobile}'),
-    lightgray -3px -13.319px / 100.511% 101.679% no-repeat/ right/ contain; */
-
-  background-image: url('${mobile}');
+  position: relative;
+  background-image: url('${mobileWebp}');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
+  overflow: hidden;
 
   @media (min-width: 768px) {
-    background-image: url('${tablet}');
+    background-image: url('${tabletWebp}');
   }
 
   @media (min-width: 1200px) {
-    background-image: url('${desktop}');
+    background-image: url('${desktopWebp}');
   }
 
-  /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url('${mobileWebp2x}');
+    background-image: -webkit-image-set(
+      url('${mobileWebp2x}') 2x,
+      url('${mobileWebp}') 1x
+    );
 
-  /* background-image: url('${desktop}');
-  background-repeat: no-repeat;
-  background-size: cover;
+    @media (min-width: 768px) {
+      background-image: url('${tabletWebp2x}');
+      background-image: -webkit-image-set(
+        url('${tabletWebp2x}') 2x,
+        url('${tabletWebp}') 1x
+      );
+    }
 
-  background-image: url('${mobile}');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
-
-  @media (min-width: 768px) {
-    background-image: url('${tablet}');
+    @media (min-width: 1200px) {
+      background-image: url('${desktopWebp2x}');
+      background-image: -webkit-image-set(
+        url('${desktopWebp2x}') 2x,
+        url('${desktopWebp}') 1x
+      );
+    }
   }
-
-  @media (min-width: 1200px) {
-    background-image: url('${desktop}');
-    background-size: cover;
-  } */
 `;
 
-export const SectionWelcome = styled.section`
-  outline: 1px solid tomato;
-`;
+export const SectionWelcome = styled.section``;
 
 export const WelcomeWrap = styled.div`
   max-width: 485px;
