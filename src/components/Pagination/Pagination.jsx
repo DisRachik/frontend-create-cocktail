@@ -8,8 +8,6 @@ import {
 } from './Pagination.styled';
 
 export const Pagination = ({
-  drinksPerPage,
-  totalDrinks,
   paginate,
   prevPage,
   nextPage,
