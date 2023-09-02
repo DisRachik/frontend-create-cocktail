@@ -1,17 +1,13 @@
-import { useDispatch } from 'react-redux';
 import { Section, RecipesList, EmptyAndError } from 'components';
 
-import { deleteFavoriteDrink } from 'redux/favorite/operations';
 import { useEffect, useState } from 'react';
-import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
 
-import { getFavorites } from 'api';
+import { deleteFromFavorites, getFavorites } from 'api';
+import { StyledButton } from 'components/shared/Button/Button.styled';
 
 const Favorite = () => {
   const [favorites, setFavorite] = useState([]);
   const [visibleCount, setVisibleCount] = useState(9);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     function calculatePerPage(windowWidth) {
@@ -20,7 +16,7 @@ const Favorite = () => {
     function handleResize() {
       setVisibleCount(calculatePerPage(window.innerWidth));
     }
-    setVisibleCount(calculatePerPage(window.innerWidth));
+
     window.addEventListener('resize', handleResize);
 
     (async () => {
@@ -30,7 +26,7 @@ const Favorite = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [dispatch]);
+  }, []);
 
   const currentDrinks = favorites.slice(0, visibleCount);
 
@@ -39,7 +35,7 @@ const Favorite = () => {
   };
 
   const handleClick = async id => {
-    dispatch(deleteFavoriteDrink(id));
+    deleteFromFavorites(id);
 
     const filterDrinks = favorites.filter(data => data._id !== id);
     setFavorite(filterDrinks);
@@ -50,10 +46,21 @@ const Favorite = () => {
       <Section title="Favorites">
         {currentDrinks.length !== 0 ? (
           <>
-            <RecipesList array={currentDrinks} action={handleClick} />
+            <RecipesList
+              array={currentDrinks}
+              action={handleClick}
+              params={{
+                title: 'Do you really want to delete this cocktail',
+                agreementBtnText: 'Yes',
+              }}
+            />
 
             {visibleCount < favorites.length && (
-              <ButtonLoadMore onClick={seeMoreDrinks} />
+              <div style={{ textAlign: 'center' }}>
+                <StyledButton type="button" onClick={seeMoreDrinks}>
+                  see other
+                </StyledButton>
+              </div>
             )}
           </>
         ) : (
