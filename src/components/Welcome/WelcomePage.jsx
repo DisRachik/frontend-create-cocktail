@@ -9,48 +9,58 @@ import {
   WelcomeTitle,
   WelcomeWrap,
   Wrapper,
+  BackgroundGradient,
+  Top,
+  Right,
+  Left,
 } from './WelcomePage.styled';
 
 export const WelcomePage = () => {
   const { navigation } = useAuth();
 
   return (
-    <BackgroundImage>
-      <Wrapper>
-        <ContainerWelcome>
-          <SectionWelcome>
-            <WelcomeWrap>
-              <WelcomeTitle>Welcome to the app!</WelcomeTitle>
-              <Text>
-                This app offers more than just a collection of recipes - it is
-                designed to be your very own digital cookbook. You can easily
-                save and retrieve your own recipes at any time.
-              </Text>
-              <List>
-                <li>
-                  <Button
-                    minWidth="164px"
-                    minHeight="46px"
-                    onClick={() => navigation('/signup')}
-                  >
-                    Registration
-                  </Button>
-                </li>
-                <li>
-                  <Button
-                    transparent
-                    minWidth="141px"
-                    minHeight="46px"
-                    onClick={() => navigation('/signin')}
-                  >
-                    Sign In
-                  </Button>
-                </li>
-              </List>
-            </WelcomeWrap>
-          </SectionWelcome>
-        </ContainerWelcome>
-      </Wrapper>
-    </BackgroundImage>
+    <Wrapper>
+      <BackgroundGradient>
+        <BackgroundImage>
+          <ContainerWelcome>
+            <SectionWelcome>
+              <WelcomeWrap>
+                <Top />
+                <Left />
+                <WelcomeTitle>Welcome to the app!</WelcomeTitle>
+                <Text>
+                  This app offers more than just a collection of recipes - it is
+                  designed to be your very own digital cookbook. You can easily
+                  save and retrieve your own recipes at any time.
+                </Text>
+                <List>
+                  <li>
+                    <Button
+                      minWidth="164px"
+                      minHeight="46px"
+                      onClick={() => navigation('/signup')}
+                    >
+                      Registration
+                    </Button>
+                  </li>
+                  <li>
+                    <Button
+                      transparent
+                      minWidth="141px"
+                      minHeight="46px"
+                      onClick={() => navigation('/signin')}
+                    >
+                      Sign In
+                    </Button>
+                  </li>
+                </List>
+
+                <Right />
+              </WelcomeWrap>
+            </SectionWelcome>
+          </ContainerWelcome>
+        </BackgroundImage>
+      </BackgroundGradient>
+    </Wrapper>
   );
 };
