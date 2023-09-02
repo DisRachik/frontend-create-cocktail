@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/526.d8371c6b.chunk.js","mappings":"uKAUA,UARe,WACb,OACE,+BACE,SAAC,KAAD,KAGL,C","sources":["pages/Signin.jsx"],"sourcesContent":["import { SigninPage } from 'components';\n\nconst Signin = () => {\n  return (\n    <>\n      <SigninPage />\n    </>\n  );\n};\n\nexport default Signin;\n"],"names":[],"sourceRoot":""}
