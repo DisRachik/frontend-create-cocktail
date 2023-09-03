@@ -1,5 +1,7 @@
 // Libs
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 // Styled components
 
 import {
@@ -14,16 +16,13 @@ import {
 } from './RecipesItem.styled';
 
 import defaultImageUrl from '../../img/thumb400x400.png';
+import { Backdrop, CheckoutModal } from 'components';
 
 // Icons
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { Backdrop, CheckoutModal } from 'components';
-
-import { useState } from 'react';
-import { toast } from 'react-toastify';
 
 export const RecipesItem = ({
-  data: { drink, instructions, drinkThumb, _id },
+  data: { drink, instructions, drinkThumb, _id, about },
   action,
   params: { title, agreementBtnText },
 }) => {
@@ -43,9 +42,7 @@ export const RecipesItem = ({
       />
       <TitleDrinks>{drink ? drink : 'N/a'}</TitleDrinks>
       <Text to={`/recipe/${_id}`}>Ingredients</Text>
-      <DescriptionDrinks>
-        {instructions ? instructions : 'N/a'}
-      </DescriptionDrinks>
+      <DescriptionDrinks>{about ? about : instructions}</DescriptionDrinks>
       <BatonsContainer>
         <SeeRecipe to={`/recipe/${_id}`}>See recipe</SeeRecipe>
 
