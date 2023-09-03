@@ -1,9 +1,6 @@
-// Libs
 import styled from '@emotion/styled';
-// Icons
 import { BiLogoFacebook } from 'react-icons/bi';
 import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
-// Theme
 import { theme } from 'styles';
 
 export const List = styled.ul`
@@ -37,6 +34,14 @@ export const FacebookIcon = styled(BiLogoFacebook)`
   width: 22px;
   height: 22px;
   color: ${theme.colors.lightGray};
+  transition: filter linear 200ms, scale linear 200ms;
+
+  &:hover {
+    color: ${theme.colors.lightGray};
+    background-color: transparent;
+    box-shadow: ${theme.shadows.regular};
+    transform: scale(1.5);
+  }
 
   @media (min-width: 768px) {
     width: 28px;
