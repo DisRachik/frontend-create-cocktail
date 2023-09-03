@@ -1,41 +1,45 @@
 import {
+  ArrowBtn,
+  ArrowNext,
+  ArrowPrev,
+  BtnItem,
   PaginListItem,
   PaginWrapper,
   PaginationList,
 } from './Pagination.styled';
 
 export const Pagination = ({
-  drinksPerPage,
-  totalDrinks,
   paginate,
   prevPage,
   nextPage,
   currentPage,
+  totalPages,
 }) => {
   const pageNumbers = [];
-
-  for (let i = 1; i <= Math.ceil(totalDrinks / drinksPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
 
   return (
     <PaginWrapper>
-      <button onClick={prevPage} disabled={currentPage === 1}>
-        Prev
-      </button>
+      <ArrowBtn onClick={prevPage} disabled={currentPage === 1}>
+        <ArrowPrev />
+      </ArrowBtn>
       <PaginationList>
         {pageNumbers.map(number => (
           <PaginListItem key={number}>
-            <button
+            <BtnItem
+              className={number === currentPage ? 'active' : ''}
               onClick={() => paginate(number)}
-              disabled={currentPage === (totalDrinks / drinksPerPage).length}
             >
               {number}
-            </button>
+            </BtnItem>
           </PaginListItem>
         ))}
       </PaginationList>
-      <button onClick={nextPage}>Next</button>
+      <ArrowBtn onClick={nextPage} disabled={currentPage === totalPages}>
+        <ArrowNext />
+      </ArrowBtn>
     </PaginWrapper>
   );
 };

@@ -1,10 +1,12 @@
-import { DrinkListItem } from 'components';
+import { CategoryRecipesItem } from 'components';
 import { DrinksList } from './DrinksList.styled';
 
-export const DrinkList = ({ currentDrinks }) => {
+export const DrinkList = ({ drinks }) => {
   return (
     <DrinksList>
-      <DrinkListItem currentDrinks={currentDrinks} />
+      {drinks.map(data => (
+        <CategoryRecipesItem key={data._id} data={data} />
+      ))}
     </DrinksList>
   );
 };
