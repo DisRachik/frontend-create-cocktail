@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 import { theme } from 'styles';
 import background1 from "../../img/mae-mu-T7heq8rawkc-unsplash 1.png";
-import background2 from "../../img/mae-mu-T7heq8rawkc-unsplash 2.png";
-import background3 from "../../img/mae-mu-T7heq8rawkc-unsplash 3.png";
+
 
 export const MainSectionWrap = styled.section`
 // outline: 1px solid tomato;
@@ -10,7 +9,7 @@ export const MainSectionWrap = styled.section`
   max-width: 1440px;
   height: 796px;
   margin: 0 auto;
-  // padding: 80px 20px;
+   padding: 80px 20px;
 
   @media screen and (min-width: 375px) {
     height: 1001px;
