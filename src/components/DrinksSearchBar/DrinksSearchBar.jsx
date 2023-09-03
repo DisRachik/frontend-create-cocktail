@@ -1,6 +1,7 @@
 import { Controller } from 'react-hook-form';
 import {
   Form,
+  SearchFieldWrap,
   Input,
   SearchBtn,
   Selector,
@@ -24,15 +25,18 @@ export const DrinkSearchBar = ({
 
   return (
     <Form onSubmit={onSubmit}>
-      <Controller
-        name="drink"
-        control={control}
-        render={({ field }) => <Input {...field} />}
-      />
-
-      <SearchBtn type="submit">
-        <LuSearch />
-      </SearchBtn>
+      <SearchFieldWrap>
+        <Controller
+          name="search"
+          control={control}
+          render={({ field }) => (
+            <Input {...field} placeholder="Enter the text" />
+          )}
+        />
+        <SearchBtn type="submit">
+          <LuSearch style={{ width: 20, height: 20 }} />
+        </SearchBtn>
+      </SearchFieldWrap>
       <Controller
         name="category"
         control={control}

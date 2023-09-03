@@ -27,6 +27,7 @@ export const ImageDrinks = styled.img`
   width: 335px;
   height: 360px;
   border-radius: 8px;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 342px;
