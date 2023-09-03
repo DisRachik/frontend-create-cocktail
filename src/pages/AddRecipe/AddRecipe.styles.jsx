@@ -2,14 +2,16 @@
 import styled from '@emotion/styled';
 
 export const PageWrapper = styled.div`
+  margin-top: 40px;
+
+  @media (min-width: 768px) {
+    margin-top: 60px;
+  }
+
   @media (min-width: 1200px) {
     display: flex;
-    gap: 94px;
+    gap: 60px;
   }
-`;
-
-export const Aside = styled.div`
-  max-width: 313px;
 `;
 
 export const FollowUsWrapper = styled.div`
