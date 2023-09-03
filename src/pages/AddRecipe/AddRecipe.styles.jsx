@@ -10,7 +10,7 @@ export const PageWrapper = styled.div`
 
   @media (min-width: 1200px) {
     display: flex;
-    gap: 94px;
+    gap: 60px;
   }
 `;
 

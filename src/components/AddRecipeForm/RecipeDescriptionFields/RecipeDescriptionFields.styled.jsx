@@ -22,7 +22,11 @@ export const FileInputBox = styled.div`
   width: auto;
 
   @media screen and (max-width: 767.98px) {
+    max-width: 400px;
+    max-height: 400px;
     margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 

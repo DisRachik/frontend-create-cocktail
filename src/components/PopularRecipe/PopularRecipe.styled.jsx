@@ -16,6 +16,7 @@ export const CocktailList = styled.ul`
 
   @media screen and (min-width: 1200px) {
     gap: 28px;
+    max-width: 360px;
   }
 `;
 
