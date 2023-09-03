@@ -46,7 +46,7 @@ const Recipe = () => {
             <RecipePageHeader
               glass={recipeInfo.glass}
               drink={recipeInfo.drink}
-              desc={recipeInfo.desc}
+              about={recipeInfo.about}
               recipeId={recipeInfo._id || recipeInfo.recipeId}
               favorites={recipeInfo.favorites}
               drinkImage={recipeInfo.drinkThumb}
