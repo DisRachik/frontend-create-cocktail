@@ -1,5 +1,4 @@
 import { Section } from 'components';
-
 import { DrinkList, DrinkSearchBar } from 'components';
 import { Pagination } from 'components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
@@ -23,26 +22,27 @@ const Drinks = () => {
   function calculatePerPage(windowWidth) {
     return windowWidth < 1440 ? 10 : 9;
   }
-  const categories = useSelector(selectCategories.data);
-  const ingredients = useSelector(selectIngredients.data);
-  if (categories.length === 0) {
+
+  const categoriesList = useSelector(selectCategories.data);
+  const ingredientsList = useSelector(selectIngredients.data);
+
+  if (categoriesList.length === 0) {
     dispatch(fetchCategories());
   }
 
-  if (ingredients.length === 0) {
+  if (ingredientsList.length === 0) {
     dispatch(fetchIngredients());
   }
 
   const { control, handleSubmit, getValues } = useForm({
     defaultValues: {
-      search: '',
+      drink: '',
       category: null,
       ingredients: null,
     },
   });
 
   useEffect(() => {
-    console.log('mount');
     function handleResize() {
       setDrinksPerPage(calculatePerPage(window.innerWidth));
     }
@@ -57,11 +57,12 @@ const Drinks = () => {
         limit: drinksPerPage,
         page: currentPage,
       };
-      getDrinks(queryUrl).then(data => {
-        console.log('data', data);
-        setDrinks(data.results);
-        setTotalPages(data.totalPages);
-      });
+      getDrinks(queryUrl)
+        .then(data => {
+          setDrinks(data.results);
+          setTotalPages(data.totalPages);
+        })
+        .catch(console.log);
     } else {
       const query = {
         category: 'Cocktail',
@@ -77,44 +78,40 @@ const Drinks = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [currentPage, drinksPerPage, searchParams]);
-  console.log(drinks);
 
-  const onSubmit = async () => {
+  const getQuery = () => {
     const formData = getValues();
-    const { search, category, ingredients } = formData;
-    const searchValue = search || '';
+    const { drink, category, ingredients } = formData;
+    const searchValue = drink || '';
     const categoryValue = category ? category.value : '';
     const ingridientValue = ingredients ? ingredients.value : '';
-    console.log(formData);
     const querySearch = {
-      search: searchValue,
+      drink: searchValue,
       category: categoryValue,
       ingredients: ingridientValue,
       limit: drinksPerPage,
       page: currentPage,
     };
-    getDrinks(querySearch).then(data => {
+
+    return querySearch;
+  };
+
+  const onSubmit = async () => {
+    getDrinks(getQuery()).then(data => {
       setDrinks(data.results);
       setTotalPages(data.totalPages);
     });
   };
 
-  const handleCategoryChange = selectedOption => {
-    const req = {
-      category: selectedOption.value,
-    };
-    getDrinks(req).then(data => {
-      console.log('dataS', data);
+  const handleCategoryChange = () => {
+    getDrinks(getQuery()).then(data => {
       setDrinks(data.results);
       setTotalPages(data.totalPages);
     });
   };
-  const handleIngredientChange = selectedOption => {
-    const req = {
-      ingredients: selectedOption.value,
-    };
-    getDrinks(req).then(data => {
-      console.log('dataS', data);
+
+  const handleIngredientChange = () => {
+    getDrinks(getQuery()).then(data => {
       setDrinks(data.results);
       setTotalPages(data.totalPages);
     });
@@ -130,8 +127,8 @@ const Drinks = () => {
         <DrinkSearchBar
           onSubmit={handleSubmit(onSubmit)}
           control={control}
-          categories={categories}
-          ingredients={ingredients}
+          categoriesList={categoriesList}
+          ingredientsList={ingredientsList}
           onChangeCategory={handleCategoryChange}
           onChangeIngredient={handleIngredientChange}
           initialCategory={searchParams.get('category')}

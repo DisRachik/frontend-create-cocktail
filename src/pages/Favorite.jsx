@@ -1,49 +1,65 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Section, RecipesList, EmptyAndError } from 'components';
+import { Section, RecipesList, EmptyAndError, Button } from 'components';
 
-import {
-  getFavoriteDrinks,
-  getTotalHitsFavorite,
-} from 'redux/favorite/selectors';
-
-import {
-  // changeFavoriteStatus,
-  deleteFavoriteDrink,
-  fetchUserFavoriteDrinks,
-} from 'redux/favorite/operations';
 import { useEffect, useState } from 'react';
-import { ButtonLoadMore } from 'components/ButtonLoadMore/ButtonLoadMore';
+
+import { deleteFromFavorites, getFavorites } from 'api';
 
 const Favorite = () => {
-  const [page, setPage] = useState(1);
-
-  const dispatch = useDispatch();
-
-  const { favoriteDrinks } = useSelector(getFavoriteDrinks);
-
-  const TotalHitsFavorite = useSelector(getTotalHitsFavorite);
+  const [favorites, setFavorite] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(9);
 
   useEffect(() => {
-    dispatch(fetchUserFavoriteDrinks({ page, limit: 9 }));
-  }, [dispatch, page]);
+    function calculatePerPage(windowWidth) {
+      return windowWidth < 1440 ? 8 : 9;
+    }
+    function handleResize() {
+      setVisibleCount(calculatePerPage(window.innerWidth));
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    (async () => {
+      setFavorite(await getFavorites());
+    })();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const currentDrinks = favorites.slice(0, visibleCount);
 
   const seeMoreDrinks = () => {
-    setPage(prevState => prevState + 1);
-    dispatch(fetchUserFavoriteDrinks({ page, limit: 9 }));
+    setVisibleCount(prevState => prevState + 9);
   };
 
-  const handleClick = id => {
-    dispatch(deleteFavoriteDrink(id));
+  const handleClick = async id => {
+    deleteFromFavorites(id);
+
+    const filterDrinks = favorites.filter(data => data._id !== id);
+    setFavorite(filterDrinks);
   };
 
   return (
     <>
       <Section title="Favorites">
-        {favoriteDrinks.length !== 0 ? (
+        {currentDrinks.length !== 0 ? (
           <>
-            <RecipesList array={favoriteDrinks} action={handleClick} />
-            {TotalHitsFavorite > favoriteDrinks.length && (
-              <ButtonLoadMore onClick={seeMoreDrinks} />
+            <RecipesList
+              array={currentDrinks}
+              action={handleClick}
+              params={{
+                title: 'Do you really want to delete this cocktail',
+                agreementBtnText: 'Yes',
+              }}
+            />
+
+            {visibleCount < favorites.length && (
+              <div style={{ textAlign: 'center' }}>
+                <Button type="button" onClick={seeMoreDrinks}>
+                  see other
+                </Button>
+              </div>
             )}
           </>
         ) : (

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { theme } from 'styles';
 import { Link } from 'react-router-dom';
 export const CategorySectionWrap = styled.section`
-  // outline: 1px solid tomato;
+
   //  display: flex-inline;
   //  justify-content: st;
   //  flex-direction: column;
