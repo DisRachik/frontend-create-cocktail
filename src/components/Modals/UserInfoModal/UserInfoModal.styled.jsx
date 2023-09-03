@@ -111,7 +111,6 @@ export const FileInput = styled.input`
 `;
 
 export const InputNameBox = styled.div`
-  /* margin-bottom: 18px; */
   position: relative;
   width: 100%;
 `;
