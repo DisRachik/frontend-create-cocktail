@@ -60,7 +60,8 @@ export const RecipePageHeader = ({
     }
   };
 
-  const isFavorite = drinkFavoriteUsers.includes(user._id);
+  const isFavorite =
+    drinkFavoriteUsers && drinkFavoriteUsers.includes(user._id);
 
   return (
     <HeroWrap>
