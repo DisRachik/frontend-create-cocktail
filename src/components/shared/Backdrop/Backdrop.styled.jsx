@@ -10,6 +10,10 @@ export const BackdropStyled = styled.div`
   height: 100%;
   background-color: rgba(255, 255, 255, 0.1);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   visibility: visible;
   opacity: 1;
   pointer-events: auto;

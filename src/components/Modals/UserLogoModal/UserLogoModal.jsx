@@ -1,4 +1,3 @@
-import { useToggleForInfoModal, useToggleForLogOutModal } from 'helpers';
 import {
   DropDawnContainer,
   DropDawnText,
@@ -7,12 +6,7 @@ import {
   EditIcon,
 } from './UserLogoModal.styled';
 
-import { UserInfoModal, LogOutModal } from 'components';
-
-export const UserLogoModal = () => {
-  const { isUserModalOpen, userModalToggle } = useToggleForInfoModal();
-  const { isLogOutModalOpen, logOutModalToggle } = useToggleForLogOutModal();
-
+export const UserLogoModal = ({ userModalToggle, logOutModalToggle }) => {
   return (
     <>
       <DropDawnContainer>
@@ -21,9 +15,6 @@ export const UserLogoModal = () => {
           <EditIcon />
         </DropDawnTextWrapper>
         <LogOutBtn onClick={logOutModalToggle}>Log out</LogOutBtn>
-
-        {isLogOutModalOpen && <LogOutModal toggle={logOutModalToggle} />}
-        {isUserModalOpen && <UserInfoModal toggle={userModalToggle} />}
       </DropDawnContainer>
     </>
   );
