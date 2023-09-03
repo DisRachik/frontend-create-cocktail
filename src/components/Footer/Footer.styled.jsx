@@ -37,6 +37,20 @@ export const Box = styled.div`
   }
 `;
 
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    gap: 28px;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 40px;
+  }
+`;
+
 export const Thumb = styled.div`
   @media (min-width: 768px) {
     display: flex;
@@ -55,4 +69,3 @@ export const Text = styled.p`
 `;
 
 export const PolicyText = Text.withComponent(Link);
-

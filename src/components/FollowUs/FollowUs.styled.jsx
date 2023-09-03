@@ -7,17 +7,10 @@ import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
 import { theme } from 'styles';
 
 export const List = styled.ul`
-  margin-top: 20px;
   display: flex;
   gap: 14px;
 
   @media (min-width: 768px) {
-    margin-top: 28px;
-    gap: 16px;
-  }
-
-  @media (min-width: 1200px) {
-    margin-top: 40px;
     gap: 16px;
   }
 `;
