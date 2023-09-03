@@ -7,7 +7,7 @@ import { useAuth } from 'redux/auth/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 
-const AddRecipe = lazy(() => import('pages/AddRecipe'));
+const AddRecipe = lazy(() => import('pages/AddRecipe/AddRecipe'));
 const Drinks = lazy(() => import('pages/Drinks'));
 const Favorite = lazy(() => import('pages/Favorite'));
 const Main = lazy(() => import('pages/Main'));

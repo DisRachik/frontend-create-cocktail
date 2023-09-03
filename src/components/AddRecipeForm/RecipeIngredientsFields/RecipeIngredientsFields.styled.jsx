@@ -30,7 +30,7 @@ export const SelectListItem = styled.li`
   gap: 8px;
 `;
 
-export const RemoveDtn = styled.button`
+export const RemoveBtn = styled.button`
   color: ${theme.colors.lightGrayTransparent};
 
   &:hover,

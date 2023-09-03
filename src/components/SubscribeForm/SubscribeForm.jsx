@@ -47,7 +47,7 @@ export const SubscribeForm = () => {
         Subscribe up to our newsletter. Be in touch with latest news and special
         offers, etc.
       </Description>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <InputBox>
           <Input
             type="email"
