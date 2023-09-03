@@ -16,7 +16,6 @@ export const DrinkSearchBar = ({
   onChangeCategory,
   onChangeIngredient,
   initialCategory,
-  handleSubmit,
 }) => {
   const defCategory = {
     value: initialCategory,
@@ -24,12 +23,13 @@ export const DrinkSearchBar = ({
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={onSubmit}>
       <Controller
         name="drink"
         control={control}
         render={({ field }) => <Input {...field} />}
       />
+
       <SearchBtn type="submit">
         <LuSearch />
       </SearchBtn>
@@ -67,7 +67,6 @@ export const DrinkSearchBar = ({
               value: option.title,
               label: option.title,
             }))}
-            // defaultValue={initialCategory}
             onChange={selectedOption => {
               field.onChange(selectedOption);
               onChangeIngredient();

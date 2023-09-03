@@ -1,5 +1,4 @@
 import { Section } from 'components';
-
 import { DrinkList, DrinkSearchBar } from 'components';
 import { Pagination } from 'components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
@@ -23,6 +22,7 @@ const Drinks = () => {
   function calculatePerPage(windowWidth) {
     return windowWidth < 1440 ? 10 : 9;
   }
+
   const categoriesList = useSelector(selectCategories.data);
   const ingredientsList = useSelector(selectIngredients.data);
   if (categoriesList.length === 0) {
@@ -75,6 +75,7 @@ const Drinks = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [currentPage, drinksPerPage, searchParams]);
+
   const getQuery = () => {
     const formData = getValues();
     const { drink, category, ingredients } = formData;
@@ -88,6 +89,7 @@ const Drinks = () => {
       limit: drinksPerPage,
       page: currentPage,
     };
+
     return querySearch;
   };
 
@@ -104,6 +106,7 @@ const Drinks = () => {
       setTotalPages(data.totalPages);
     });
   };
+
   const handleIngredientChange = () => {
     getDrinks(getQuery()).then(data => {
       setDrinks(data.results);
@@ -119,14 +122,13 @@ const Drinks = () => {
     <>
       <Section title="Drinks">
         <DrinkSearchBar
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           control={control}
-          categoriesList={categoriesList}
-          ingredientsList={ingredientsList}
+          categories={categoriesList}
+          ingredients={ingredientsList}
           onChangeCategory={handleCategoryChange}
           onChangeIngredient={handleIngredientChange}
           initialCategory={searchParams.get('category')}
-          handleSubmit={handleSubmit}
         />
         <DrinkList drinks={drinks} />
         <Pagination
