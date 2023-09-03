@@ -182,13 +182,29 @@ export const selectStyles = {
     marginTop: '-6px',
     overflowX: 'hidden',
     color: `${theme.colors.lightGrayTransparent}`,
-    borderRadius: '12px',
+    borderRadius: '10px',
     backgroundColor: `${theme.colors.midnightBlue}`,
 
     '@media screen and (min-width: 768px)': {
       width: '190px',
       height: '169px',
       gap: '8px',
+    },
+
+    // ============== scrollbar ==============
+
+    '&::-webkit-scrollbar': {
+      width: '20px',
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      borderRadius: '10px',
+      backgroundColor: `${theme.colors.lightGrayTransparent}`,
+      border: `8px solid ${theme.colors.midnightBlue}`,
+    },
+
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: `${theme.colors.lightGray}`,
     },
   }),
 

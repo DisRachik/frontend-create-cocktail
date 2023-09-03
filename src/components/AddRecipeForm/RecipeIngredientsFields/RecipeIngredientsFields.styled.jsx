@@ -71,16 +71,33 @@ export const selectStyles = {
 
   menuList: baseStyles => ({
     ...baseStyles,
+    marginTop: '4px',
     display: 'flex',
     flexDirection: 'column',
     gap: '8px',
-    height: '165px',
+    height: '164px',
     padding: '18px 24px',
     fontSize: '14px',
     overflowX: 'hidden',
     color: `${theme.colors.lightGrayTransparent}`,
-    borderRadius: '20px',
+    borderRadius: '10px',
     backgroundColor: `${theme.colors.midnightBlue}`,
+
+    // ============== scrollbar ==============
+
+    '&::-webkit-scrollbar': {
+      width: '20px',
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      borderRadius: '10px',
+      backgroundColor: `${theme.colors.lightGrayTransparent}`,
+      border: `4px solid ${theme.colors.midnightBlue}`,
+    },
+
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: `${theme.colors.lightGray}`,
+    },
   }),
 
   option: (baseStyles, state) => ({
@@ -109,5 +126,36 @@ export const measureSelectStyles = {
   container: baseStyles => ({
     ...baseStyles,
     width: '35%',
+  }),
+
+  menuList: baseStyles => ({
+    ...baseStyles,
+    marginTop: '4px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '8px',
+    height: '164px',
+    padding: '18px 24px',
+    fontSize: '14px',
+    overflowX: 'hidden',
+    color: `${theme.colors.lightGrayTransparent}`,
+    borderRadius: '10px',
+    backgroundColor: `${theme.colors.midnightBlue}`,
+
+    // ============== scrollbar ==============
+
+    '&::-webkit-scrollbar': {
+      width: '20px',
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      borderRadius: '10px',
+      backgroundColor: `${theme.colors.lightGrayTransparent}`,
+      border: `8px solid ${theme.colors.midnightBlue}`,
+    },
+
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: `${theme.colors.lightGray}`,
+    },
   }),
 };
