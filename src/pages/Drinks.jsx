@@ -25,6 +25,7 @@ const Drinks = () => {
 
   const categoriesList = useSelector(selectCategories.data);
   const ingredientsList = useSelector(selectIngredients.data);
+
   if (categoriesList.length === 0) {
     dispatch(fetchCategories());
   }
@@ -56,10 +57,12 @@ const Drinks = () => {
         limit: drinksPerPage,
         page: currentPage,
       };
-      getDrinks(queryUrl).then(data => {
-        setDrinks(data.results);
-        setTotalPages(data.totalPages);
-      });
+      getDrinks(queryUrl)
+        .then(data => {
+          setDrinks(data.results);
+          setTotalPages(data.totalPages);
+        })
+        .catch(console.log);
     } else {
       const query = {
         category: 'Cocktail',
@@ -124,8 +127,8 @@ const Drinks = () => {
         <DrinkSearchBar
           onSubmit={handleSubmit(onSubmit)}
           control={control}
-          categories={categoriesList}
-          ingredients={ingredientsList}
+          categoriesList={categoriesList}
+          ingredientsList={ingredientsList}
           onChangeCategory={handleCategoryChange}
           onChangeIngredient={handleIngredientChange}
           initialCategory={searchParams.get('category')}
