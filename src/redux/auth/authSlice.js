@@ -23,7 +23,13 @@ const authSlice = createSlice({
         state.tokenCount = payload.tokenCount;
       })
       .addCase(signOut.fulfilled, state => {
-        state.user = { name: null, email: null, _id: null, tokenCount: null };
+        state.user = {
+          name: null,
+          email: null,
+          _id: null,
+          tokenCount: null,
+          avatarURL: '',
+        };
         state.token = null;
         state.isAuth = false;
       })
