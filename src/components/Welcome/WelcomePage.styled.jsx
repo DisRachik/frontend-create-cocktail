@@ -29,7 +29,7 @@ export const BackgroundGradient = styled.div`
     background: linear-gradient(
         0deg,
         rgba(10, 10, 17, 0.2) 0%,
-        rgba(10, 10, 17, 0.2) 100%
+        rgba(10, 10, 17, 0.4) 100%
       ),
       linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
       linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 0) 51.07%);
@@ -70,6 +70,7 @@ export const Left = styled.div`
   border-radius: 550px;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(104.8543701171875px);
+  z-index: 1;
   @media (min-width: 768px) {
     width: 784px;
     height: 830px;
@@ -80,7 +81,7 @@ export const Left = styled.div`
 
   @media (min-width: 1200px) {
     top: -100px;
-    left: -550px;
+    left: -450px;
   }
 `;
 
@@ -109,8 +110,10 @@ export const ContainerWelcome = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 2;
+  position: relative;
 
-  max-width: 1440px;
+  width: '100%';
   height: 100vh;
   margin: 0 auto;
   padding: 0 20px;

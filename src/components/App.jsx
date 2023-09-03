@@ -1,13 +1,13 @@
 import { lazy, useEffect } from 'react';
 
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { EmptyAndError, Layout, PrivateRoute, PublicRoute } from 'components';
 
 import { useAuth } from 'redux/auth/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 
-const AddRecipe = lazy(() => import('pages/AddRecipe'));
+const AddRecipe = lazy(() => import('pages/AddRecipe/AddRecipe'));
 const Drinks = lazy(() => import('pages/Drinks'));
 const Favorite = lazy(() => import('pages/Favorite'));
 const Main = lazy(() => import('pages/Main'));
@@ -22,6 +22,15 @@ const TermsOfService = lazy(() => import('pages/TermsOfService'));
 export const App = () => {
   const { isAuth, isRefreshing } = useAuth();
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      right: 0,
+      behavior: 'smooth',
+    });
+  }, [pathname]);
 
   useEffect(() => {
     dispatch(refreshUser());

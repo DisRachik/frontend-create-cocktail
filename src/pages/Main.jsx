@@ -1,36 +1,46 @@
 import {
   MainSection,
-  CategoryRecipesPage,
+  CategoryRecipesList,
   CategorySection,
   Button,
 } from 'components';
-import { ButtonContainer } from '../components/CategoryRecipesPage/CategoryRecipesPage.styled';
+import { ButtonContainer } from '../components/CategoryRecipesList/CategoryRecipesList.styled';
 import { useNavigate } from 'react-router-dom';
+import { uniqueCategories } from '../constans';
+import { nanoid } from '@reduxjs/toolkit';
+import React, { useEffect, useState } from 'react';
+import { getMainRecipes } from 'api';
 
 const Main = () => {
-  const uniqueCategories = [
-    'Cocktail',
-    'Ordinary Drink',
-    'Shake',
-    'Other/Unknown',
-  ];
+  const [mainRecipes, setMainRecipes] = useState([]);
   const navigate = useNavigate();
+   
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const results = await getMainRecipes();
+        setMainRecipes(results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const handleButtonClick = () => {
     navigate('/drinks');
-  };
-  // const isMainRecipes = mainRecipes.length > 0;
+  }; 
   return (
     <>
       <MainSection
         title="Craft Your Perfect Drink with Drink Master"
         posttitle="Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the world's finest beverages."
       >
-        {/* Тут вставляємо свої компоненти */}
       </MainSection>
 
       {uniqueCategories.map(category => (
-        <CategorySection title={category}>
-          <CategoryRecipesPage category={category} />
+        <CategorySection key={nanoid()} title={category}>
+          <CategoryRecipesList key={nanoid()} category={category} mainRecipes={mainRecipes } />
         </CategorySection>
       ))}
       <ButtonContainer>
