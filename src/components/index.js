@@ -47,7 +47,6 @@ export * from 'components/Modals/UserInfoModal/UserInfoModal';
 export * from 'components/Modals/UserLogoModal/UserLogoModal';
 export * from 'components/Modals/LogOutModal/LogOutModal';
 // Drinks
-export * from 'components/DrinkListItem/DrinkListItem';
 export * from 'components/DrinksList/DrinksList';
 export * from 'components/DrinksSearchBar/DrinksSearchBar';
 
