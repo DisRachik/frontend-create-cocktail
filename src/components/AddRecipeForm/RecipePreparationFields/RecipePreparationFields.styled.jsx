@@ -8,6 +8,11 @@ export const RecipeTitle = styled.h2`
   font-size: 28px;
   font-weight: 600;
   line-height: calc(32 / 28);
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: calc(44 / 40);
+  }
 `;
 
 export const TextareaBox = styled.h2`
@@ -34,5 +39,10 @@ export const Textarea = styled.textarea`
     opacity: 1;
     color: ${theme.colors.lightGray};
     background-color: ${theme.colors.midnightBlueTransparent};
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+    line-height: calc(26 / 17);
   }
 `;

@@ -5,10 +5,25 @@ import { theme } from 'styles/theme';
 
 export const DescriptionBox = styled.div`
   margin-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    gap: 40px;
+  }
 `;
 
 export const FileInputBox = styled.div`
-  margin-bottom: 40px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  width: auto;
+
+  @media screen and (max-width: 767.98px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const CustomFileInputWrapper = styled.div`
@@ -17,15 +32,16 @@ export const CustomFileInputWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 320px;
+  height: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 8px;
   background-color: ${theme.colors.midnightBlueTransparent};
   overflow: hidden;
+  border: 1px solid ${theme.colors.black};
 
   &:hover,
   &:focus {
-    outline: 1px dashed ${theme.colors.lightGrayTransparent};
+    border: 1px dashed ${theme.colors.lightGrayTransparent};
   }
 `;
 
@@ -70,12 +86,14 @@ export const DefaultFileInput = styled.input`
 `;
 
 export const TextFieldsWrapper = styled.div`
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 34px;
 `;
 
 export const Label = styled.label`
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -90,6 +108,11 @@ export const InputHeading = styled.span`
   line-height: normal;
   letter-spacing: -0.28px;
   opacity: 0.5;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    letter-spacing: -0.32px;
+  }
 `;
 
 export const TextInput = styled.input`
@@ -110,6 +133,10 @@ export const TextInput = styled.input`
     border-color: ${theme.colors.lightGray};
     background-color: ${theme.colors.midnightBlueTransparent};
   }
+
+  @media screen and (min-width: 768px) {
+    height: 41px;
+  }
 `;
 
 export const selectStyles = {
@@ -127,6 +154,11 @@ export const selectStyles = {
     borderBottom: `1px solid ${theme.colors.lightGrayTransparent}`,
     outline: 0,
     cursor: 'text',
+
+    '@media screen and (min-width: 768px)': {
+      height: '41px',
+      fontSize: '16px',
+    },
   }),
 
   menu: baseStyles => ({
@@ -139,8 +171,8 @@ export const selectStyles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '6px',
-    width: '131px',
-    height: '129px',
+    width: '160px',
+    height: '145px',
     padding: '10px',
     marginLeft: 'auto',
     marginTop: '-6px',
@@ -148,22 +180,37 @@ export const selectStyles = {
     color: `${theme.colors.lightGrayTransparent}`,
     borderRadius: '12px',
     backgroundColor: `${theme.colors.midnightBlue}`,
+
+    '@media screen and (min-width: 768px)': {
+      width: '190px',
+      height: '169px',
+      gap: '8px',
+    },
   }),
 
   option: (baseStyles, state) => ({
     ...baseStyles,
     fontSize: '12px',
+    lineHeight: 'calc(16 / 12)',
     textWrap: 'nowrap',
     padding: 0,
     color: state.isSelected ? `${theme.colors.lightGray}` : 'inherit',
+
     '&:hover': {
       color: `${theme.colors.lightGray}`,
+    },
+
+    '@media screen and (min-width: 768px)': {
+      fontSize: '14px',
+      lineHeight: 'calc(18 / 14)',
     },
   }),
 
   indicatorsContainer: baseStyles => ({
     ...baseStyles,
     height: '100%',
+    alignItems: 'flex-start',
+    paddingTop: '2px',
   }),
 
   valueContainer: baseStyles => ({
@@ -178,6 +225,9 @@ export const selectStyles = {
     lineHeight: 'normal',
     textAlign: 'right',
     width: '100%',
+    textWrap: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   }),
 
   singleValue: baseStyles => ({

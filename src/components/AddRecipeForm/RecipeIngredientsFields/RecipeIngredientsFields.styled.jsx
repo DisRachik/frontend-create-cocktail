@@ -17,6 +17,11 @@ export const IngredientsTitle = styled.h2`
   font-size: 28px;
   font-weight: 600;
   line-height: calc(32 / 28);
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: calc(44 / 40);
+  }
 `;
 
 export const SelectList = styled.ul`
@@ -31,6 +36,7 @@ export const SelectListItem = styled.li`
 `;
 
 export const RemoveBtn = styled.button`
+  margin-left: auto;
   color: ${theme.colors.lightGrayTransparent};
 
   &:hover,
@@ -40,17 +46,27 @@ export const RemoveBtn = styled.button`
 `;
 
 export const selectStyles = {
+  container: baseStyles => ({
+    ...baseStyles,
+    width: '60%',
+  }),
+
   control: baseStyles => ({
     ...baseStyles,
     padding: '14px 16px',
     height: '50px',
-    width: '200px',
+    width: '100%',
     fontSize: '14px',
     lineHeight: 'calc(18 / 14)',
     backgroundColor: 'transparent',
     borderRadius: '100px',
     border: `1px solid ${theme.colors.lightGrayTransparent}`,
     cursor: 'text',
+
+    '@media screen and (min-width: 768px)': {
+      height: '56px',
+      padding: '14px 24px',
+    },
   }),
 
   menuList: baseStyles => ({
@@ -89,16 +105,9 @@ export const selectStyles = {
 
 export const measureSelectStyles = {
   ...selectStyles,
-  control: baseStyles => ({
+
+  container: baseStyles => ({
     ...baseStyles,
-    padding: '14px 16px',
-    height: '50px',
-    width: '101px',
-    fontSize: '14px',
-    lineHeight: 'calc(18 / 14)',
-    backgroundColor: 'transparent',
-    borderRadius: '100px',
-    border: `1px solid ${theme.colors.lightGrayTransparent}`,
-    cursor: 'text',
+    width: '35%',
   }),
 };

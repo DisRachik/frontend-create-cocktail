@@ -6,16 +6,37 @@ export const CocktailList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media screen and (min-width: 768px) and (max-width: 1199.98px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    gap: 28px;
+  }
+`;
+
+export const CocktailItem = styled.li`
+  @media screen and (min-width: 768px) and (max-width: 1199.98px) {
+    flex-basis: calc(50% - 32px);
+  }
 `;
 
 export const StyledLink = styled(Link)`
   display: flex;
   gap: 14px;
+  height: 90px;
+  overflow: hidden;
 `;
 
 export const CocktailImg = styled.img`
   display: block;
   border-radius: 8px;
+  width: 90px;
+  height: 90px;
 `;
 
 export const CocktailTitle = styled.h3`
@@ -30,4 +51,8 @@ export const CocktailText = styled.h3`
   font-size: 14px;
   font-weight: 400;
   line-height: calc(18 / 14);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 `;
