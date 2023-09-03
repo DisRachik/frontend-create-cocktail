@@ -21,7 +21,6 @@ import {
   FileInputBox,
   FileInput,
   IconBox,
-  AwatarWrapper,
   InputNameBox,
   BtnBox,
 } from './UserInfoModal.styled';
@@ -104,14 +103,7 @@ export const UserInfoModal = ({ toggle, isOpen }) => {
     } else if (userName === '') {
       return true;
     }
-    // else if (user.name === userName) {
-    //   console.log('2');
-    //   return true;
-    // }
-    // else if (user.name === userName && imageURL) {
-    //   console.log('3');
-    //   return true;
-    // }
+
     return false;
   })();
 
@@ -122,42 +114,20 @@ export const UserInfoModal = ({ toggle, isOpen }) => {
 
         <ProfileEditForm autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <FileInputBox>
-            <AwatarWrapper>
-              <UserAvatar src={previewAvatar} alt="User Avatar" />
-              <IconBox>
-                <AddPhotoIcon />
-              </IconBox>
-            </AwatarWrapper>
-
-            <FileInput
-              name="avatarURL"
-              type="file"
-              accept="image/*, .png, .jpg, .gif, .web"
-              {...register('avatarURL')}
-              onChange={avatarChange}
-            />
+            <UserAvatar src={previewAvatar} alt="User Avatar" />
+            <IconBox>
+              <AddPhotoIcon />
+              <FileInput
+                name="avatarURL"
+                type="file"
+                accept="image/*, .png, .jpg, .gif, .web"
+                {...register('avatarURL')}
+                onChange={avatarChange}
+              />
+            </IconBox>
           </FileInputBox>
 
           <InputNameBox>
-            {/* <Controller
-              name="name"
-              control={control}
-              defaultValue={userName}
-              render={({ field }) => (
-                <ProfileEditInput
-                  type="text"
-                  onChange={
-                    e => console.log('e', e)
-                    // setUserName(e.target.value)
-                  }
-                  {...field}
-                  valid={!errors.name && dirtyFields.name}
-                  invalid={dirtyFields.name && errors.name}
-                  //
-                />
-              )}
-            /> */}
-
             <ProfileEditInput
               type="name"
               name="name"
@@ -167,8 +137,6 @@ export const UserInfoModal = ({ toggle, isOpen }) => {
               valid={isValid && isDirty}
               invalid={!isValid}
             />
-            {/* !errors.name && dirtyFields.name */}
-            {/* dirtyFields.name && errors.name */}
 
             <EditIcon />
           </InputNameBox>

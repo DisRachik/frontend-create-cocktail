@@ -18,15 +18,17 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 50px;
+  padding: 50px 25px;
 
   @media screen and (min-width: 768px) {
+    padding: 50px;
     width: 500px;
     height: 215px;
   }
 `;
 
 export const ContentText = styled.p`
+  margin-bottom: 25px;
   color: ${theme.colors.lightGray};
   text-align: center;
   font-size: ${theme.fontSizes.small};
@@ -48,4 +50,8 @@ export const Wrapper = styled.div`
   align-items: center;
 
   gap: 12px;
+  @media screen and (max-width: 767px) {
+    width: 335px;
+    padding: 0 25px;
+  }
 `;
