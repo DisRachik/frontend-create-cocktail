@@ -76,6 +76,7 @@ export const RecipeDescriptionFields = ({
             <TextInput
               type="text"
               name="drink"
+              autocomplete="off"
               {...register('drink')}
               value={state.drink}
               onChange={handleInputChange}
@@ -94,6 +95,7 @@ export const RecipeDescriptionFields = ({
             <TextInput
               type="text"
               name="about"
+              autocomplete="off"
               {...register('about')}
               value={state.about}
               onChange={handleInputChange}
