@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredientsFields } from './RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparationFields } from './RecipePreparationFields/RecipePreparationFields';
-import { Button } from 'components';
+import { Backdrop, Button, Spinner } from 'components';
 // Styled components
 import { Form } from './AddRecipeForm.styled';
 // Helpers
@@ -24,8 +24,9 @@ import {
   fetchCategories,
   fetchGlasses,
   fetchIngredients,
-  addOwnRecipe,
 } from '../../redux';
+// Api
+import { addRecipe } from 'api';
 // Other
 import { formSettings } from './formSettings';
 import { initialValues } from './initialValues';
@@ -48,6 +49,7 @@ export const AddRecipeForm = () => {
   } = useForm(formSettings);
 
   const [formState, setFormState] = useState({ ...initialValues });
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const categories = useSelector(selectCategories.data);
@@ -83,17 +85,15 @@ export const AddRecipeForm = () => {
     const formData = generateFormData(reqBody);
 
     try {
-      const response = await dispatch(addOwnRecipe(formData));
-
-      if (response.error) {
-        throw new Error(response.payload);
-      } else {
-        setFormState({ ...initialValues });
-        reset({ ...initialValues });
-        navigate('/my');
-      }
+      setIsLoading(true);
+      await addRecipe(formData);
+      setFormState({ ...initialValues });
+      reset({ ...initialValues });
+      navigate('/my');
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -131,38 +131,47 @@ export const AddRecipeForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(handleFormSubmit)}>
-      <RecipeDescriptionFields
-        control={control}
-        register={register}
-        errors={errors}
-        categoriesList={data.categories}
-        glassesList={data.glasses}
-        state={formState}
-        handleFileInputChange={handleFileInputChange}
-        handleInputChange={handleInputChange}
-        handleSelectChange={handleSelectChange}
-      />
-
-      <RecipeIngredientsFields
-        control={control}
-        errors={errors}
-        ingredientsList={data.ingredients}
-        measureList={data.measure}
-        state={formState}
-        handleSelectChange={handleSelectChange}
-      />
-
-      <RecipePreparationFields
-        register={register}
-        errors={errors}
-        state={formState}
-        handleInputChange={handleInputChange}
-      />
-
-      <Button minWidth="107px" type="submit">
-        Add
-      </Button>
-    </Form>
+    <>
+      {isLoading && (
+        <Backdrop>
+          <Spinner />
+        </Backdrop>
+      )}
+      {/* {isLoading && (
+        <Backdrop>
+          <EmptyAndError spinner={<Spinner />} />
+        </Backdrop>
+      )} */}
+      <Form onSubmit={handleSubmit(handleFormSubmit)}>
+        <RecipeDescriptionFields
+          control={control}
+          register={register}
+          errors={errors}
+          categoriesList={data.categories}
+          glassesList={data.glasses}
+          state={formState}
+          handleFileInputChange={handleFileInputChange}
+          handleInputChange={handleInputChange}
+          handleSelectChange={handleSelectChange}
+        />
+        <RecipeIngredientsFields
+          control={control}
+          errors={errors}
+          ingredientsList={data.ingredients}
+          measureList={data.measure}
+          state={formState}
+          handleSelectChange={handleSelectChange}
+        />
+        <RecipePreparationFields
+          register={register}
+          errors={errors}
+          state={formState}
+          handleInputChange={handleInputChange}
+        />
+        <Button minWidth="107px" type="submit">
+          Add
+        </Button>
+      </Form>
+    </>
   );
 };
