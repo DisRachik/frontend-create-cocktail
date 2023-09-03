@@ -1,29 +1,43 @@
 import { Button, EmptyAndError, Section } from 'components';
 import { RecipesList } from 'components';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectError,
-  selectLoading,
-  selectMyRecipes,
-} from 'redux/myRecipes/selectors';
 import { useEffect, useState } from 'react';
-import { deleteMyRecipes, fetchMyRecipes } from 'redux/myRecipes/operations';
+import { deleteMyRecipe, getMyRecipes } from 'api';
 
 const MyRecipes = () => {
-  const dispatch = useDispatch();
-  const myRecipes = useSelector(selectMyRecipes);
-  const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  const [myRecipes, setMyRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const imagePerRow = 3;
   const [next, setNext] = useState(imagePerRow);
 
   useEffect(() => {
-    dispatch(fetchMyRecipes());
-  }, [dispatch]);
+    (async () => {
+      try {
+        setIsLoading(true);
+        const result = await getMyRecipes();
+        setMyRecipes(result);
+      } catch (error) {
+        setError(error);
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
 
-  const handleClick = async id => {
-    dispatch(deleteMyRecipes(id));
+  const handleRemoveRecipe = async id => {
+    try {
+      setIsLoading(true);
+      await deleteMyRecipe(id);
+      const result = await getMyRecipes();
+      setMyRecipes(result);
+    } catch (error) {
+      setError(error);
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const seeMoreDrinks = () => {
@@ -39,7 +53,15 @@ const MyRecipes = () => {
       <Section title="My recipes">
         <>
           {isMyRecipes ? (
-            <RecipesList array={sliceRecipes} action={handleClick} />
+            <RecipesList
+              array={sliceRecipes}
+              action={handleRemoveRecipe}
+              params={{
+                title:
+                  'Do you really want to delete this cocktail from your recipes',
+                agreementBtnText: 'Yes',
+              }}
+            />
           ) : (
             <EmptyAndError text="You don't have your recipes" />
           )}

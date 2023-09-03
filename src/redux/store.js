@@ -1,13 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-
 import { authReducer } from './auth/authSlice';
-
 import { categoriesReducer } from './categories/categoriesSlice';
 import { glassesReducer } from './glasses/glassesSlice';
 import { ingredientsReducer } from './ingredients/ingredientsSlice';
-// import { recipesReducer } from './recipes/recipesSlice';
-import { myRecipesReduser } from './myRecipes/myRecipesSlice';
-import { ownRecipesReducer } from './ownRecipes/ownRecipesSlice';
 
 import {
   persistStore,
@@ -20,7 +15,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { drinksReducer } from './drinks';
 
 const authPersistConfig = {
   key: 'auth',
@@ -52,9 +46,6 @@ export const store = configureStore({
     categories: persistReducer(categoriesPersistConfig, categoriesReducer),
     glasses: persistReducer(glassesPersistConfig, glassesReducer),
     ingredients: persistReducer(ingredientsPersistConfig, ingredientsReducer),
-    drinks: drinksReducer,
-    myRecipes: myRecipesReduser,
-    ownRecipes: ownRecipesReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
