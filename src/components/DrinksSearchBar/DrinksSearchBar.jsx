@@ -6,24 +6,33 @@ import {
   Selector,
   selectStyles,
 } from './DrinksSearchBar.styled';
+import { LuSearch } from 'react-icons/lu';
 
 export const DrinkSearchBar = ({
   onSubmit,
   control,
-  categories,
-  ingredients,
+  ingredientsList,
+  categoriesList,
   onChangeCategory,
   onChangeIngredient,
   initialCategory,
+  handleSubmit,
 }) => {
+  const defCategory = {
+    value: initialCategory,
+    label: initialCategory,
+  };
+
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        name="search"
+        name="drink"
         control={control}
         render={({ field }) => <Input {...field} />}
       />
-      <SearchBtn type="submit"></SearchBtn>
+      <SearchBtn type="submit">
+        <LuSearch />
+      </SearchBtn>
       <Controller
         name="category"
         control={control}
@@ -33,14 +42,14 @@ export const DrinkSearchBar = ({
             unstyled
             {...field}
             styles={selectStyles}
-            options={categories.map(option => ({
+            options={categoriesList.map(option => ({
               value: option.title,
               label: option.title,
             }))}
-            defaultValue={initialCategory}
+            defaultValue={defCategory}
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              onChangeCategory(selectedOption);
+              onChangeCategory();
             }}
           />
         )}
@@ -54,14 +63,14 @@ export const DrinkSearchBar = ({
             unstyled
             styles={selectStyles}
             {...field}
-            options={ingredients.map(option => ({
+            options={ingredientsList.map(option => ({
               value: option.title,
               label: option.title,
             }))}
-            defaultValue={initialCategory}
+            // defaultValue={initialCategory}
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              onChangeIngredient(selectedOption);
+              onChangeIngredient();
             }}
           />
         )}

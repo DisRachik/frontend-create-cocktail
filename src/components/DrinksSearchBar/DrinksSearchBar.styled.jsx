@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import Select from 'react-select';
 import { theme } from 'styles';
-import { LuSearch } from 'react-icons/lu';
 
 export const Form = styled.form`
   position: relative;
@@ -30,12 +29,13 @@ export const Input = styled.input`
   color: ${theme.colors.lightGray};
 `;
 
-export const SearchBtn = styled(LuSearch)`
+export const SearchBtn = styled.button`
   position: absolute;
   top: 18px;
   right: 18px;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 `;
 
 export const Selector = styled(Select)`
