@@ -69,7 +69,6 @@ const Drinks = () => {
         page: currentPage,
       };
       getDrinks(query).then(data => {
-        // console.log('data', data);
         setDrinks(data.results);
         setTotalPages(data.totalPages);
       });
