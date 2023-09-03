@@ -22,4 +22,5 @@ export const RecipesList = ({ array, action, params }) => {
 RecipesList.propTypes = {
   array: PropTypes.array,
   action: PropTypes.func.isRequired,
+  params: PropTypes.object.isRequired,
 };

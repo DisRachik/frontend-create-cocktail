@@ -3,6 +3,7 @@ import {
   FooterContainer,
   FlexContainer,
   Box,
+  Wrap,
   Text,
   PolicyText,
   Thumb,
@@ -14,10 +15,10 @@ export const Footer = () => {
       <Container>
         <FlexContainer>
           <Box>
-            <div>
+            <Wrap>
               <Logo />
               <FollowUs />
-            </div>
+            </Wrap>
 
             <Nav />
           </Box>
