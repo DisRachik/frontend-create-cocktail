@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const TopMain = styled.div`
+  pointer-events: none;
   position: absolute;
   width: 257px;
   height: 247px;
@@ -30,6 +31,7 @@ export const TopMain = styled.div`
 `;
 
 export const LeftMain = styled.div`
+  pointer-events: none;
   position: absolute;
   width: 520px;
   height: 550px;
@@ -58,6 +60,7 @@ export const LeftMain = styled.div`
 `;
 
 export const RightMain = styled.div`
+  pointer-events: none;
   position: absolute;
 
   @media (min-width: 768px) {
@@ -80,6 +83,7 @@ export const RightMain = styled.div`
 `;
 
 export const RightMainSecond = styled.div`
+  pointer-events: none;
   position: absolute;
 
   @media (min-width: 1200px) {
@@ -97,6 +101,7 @@ export const RightMainSecond = styled.div`
 `;
 
 export const FooterRight = styled.div`
+  pointer-events: none;
   position: absolute;
   width: 774px;
   height: 762px;
@@ -126,6 +131,7 @@ export const FooterRight = styled.div`
 `;
 
 export const FooterCentre = styled.div`
+  pointer-events: none;
   position: absolute;
 
   @media (min-width: 1200px) {
@@ -142,6 +148,7 @@ export const FooterCentre = styled.div`
 `;
 
 export const FooterLeft = styled.div`
+  pointer-events: none;
   position: absolute;
   width: 784px;
   height: 849px;
