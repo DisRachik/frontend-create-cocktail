@@ -84,6 +84,10 @@ RecipesItem.propTypes = {
     instructions: PropTypes.array.isRequired,
     drinkThumb: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
-    action: PropTypes.func,
+  }),
+  action: PropTypes.func,
+  params: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    agreementBtnText: PropTypes.string.isRequired,
   }),
 };

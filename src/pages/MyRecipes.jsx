@@ -39,7 +39,15 @@ const MyRecipes = () => {
       <Section title="My recipes">
         <>
           {isMyRecipes ? (
-            <RecipesList array={sliceRecipes} action={handleClick} />
+            <RecipesList
+              array={sliceRecipes}
+              action={handleClick}
+              params={{
+                title:
+                  'Do you really want to delete this cocktail from your recipes',
+                agreementBtnText: 'Yes',
+              }}
+            />
           ) : (
             <EmptyAndError text="You don't have your recipes" />
           )}
