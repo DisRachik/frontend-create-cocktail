@@ -3,7 +3,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import {
   Container,
   Logo,
-  MotivationModal,
+  // MotivationModal,
   Navigation,
   UserLogo,
 } from 'components';
