@@ -21,6 +21,7 @@ const Recipe = () => {
       try {
         const data = await getRecipeById(recipeId);
         setRecipeInfo(data);
+        console.log(recipeInfo);
         setStatus('RESOLVED');
       } catch (error) {
         setError(error);

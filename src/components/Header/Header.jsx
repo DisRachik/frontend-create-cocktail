@@ -58,7 +58,7 @@ export const Header = () => {
           {nav && windowWidth < 1200 && (
             <BurgerMenuNavigation closeMenu={closeMenu} />
           )}
-          <MotivationModal />
+          {/* <MotivationModal /> */}
         </FlexWrapper>
       </Container>
     </header>
