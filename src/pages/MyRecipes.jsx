@@ -8,7 +8,7 @@ const MyRecipes = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const imagePerRow = 3;
+  const imagePerRow = 9;
   const [next, setNext] = useState(imagePerRow);
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const MyRecipes = () => {
         setMyRecipes(result);
       } catch (error) {
         setError(error);
-        console.log(error);
       } finally {
         setIsLoading(false);
       }
@@ -31,10 +30,10 @@ const MyRecipes = () => {
       setIsLoading(true);
       await deleteMyRecipe(id);
       const result = await getMyRecipes();
+
       setMyRecipes(result);
     } catch (error) {
       setError(error);
-      console.log(error);
     } finally {
       setIsLoading(false);
     }
