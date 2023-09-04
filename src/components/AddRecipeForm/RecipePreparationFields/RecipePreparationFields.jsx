@@ -21,6 +21,7 @@ export const RecipePreparationFields = ({
         <Textarea
           placeholder="Enter the recipe"
           name="instructions"
+          autocomplete="off"
           {...register('instructions')}
           value={state.instructions.join('\n')}
           onChange={handleInputChange}

@@ -1,8 +1,16 @@
 // Libs
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // Api
 import { getPopularRecipes } from 'api';
+// Styled components
+import {
+  CocktailList,
+  CocktailItem,
+  StyledLink,
+  CocktailImg,
+  CocktailTitle,
+  CocktailText,
+} from './PopularRecipe.styled';
 
 export const PopularRecipe = () => {
   const [popularRecipes, setPopularRecipes] = useState([]);
@@ -15,24 +23,29 @@ export const PopularRecipe = () => {
   }, []);
 
   return (
-    <ul>
+    <CocktailList>
       {popularRecipes.map(({ _id, drinkThumb, drink, about }) => {
         return (
-          <li key={_id}>
-            <Link to={`/recipe/${_id}`}>
-              <img src={drinkThumb} alt={drink} width="90" height="90" />
+          <CocktailItem key={_id}>
+            <StyledLink to={`/recipe/${_id}`}>
+              <CocktailImg
+                src={drinkThumb}
+                alt={drink}
+                width="90"
+                height="90"
+              />
               <div>
-                <h3>{drink}</h3>
-                <p>
+                <CocktailTitle>{drink}</CocktailTitle>
+                <CocktailText>
                   {about
                     ? about
                     : 'We are sorry, but there is no description for this cocktail yet.'}
-                </p>
+                </CocktailText>
               </div>
-            </Link>
-          </li>
+            </StyledLink>
+          </CocktailItem>
         );
       })}
-    </ul>
+    </CocktailList>
   );
 };
