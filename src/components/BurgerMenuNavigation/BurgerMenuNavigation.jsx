@@ -1,9 +1,11 @@
+// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   NavigationWrap,
   Li,
   MenuLink,
   NavList,
+  ScrrolWrrap,
 } from './BurgerMenuNavigation.styled';
 import { useEffect } from 'react';
 
@@ -21,33 +23,35 @@ export const BurgerMenuNavigation = ({ closeMenu }) => {
 
   return (
     <NavigationWrap>
-      <NavList>
-        <Li>
-          <MenuLink to="/main" onClick={handleCloseMenu}>
-            Home
-          </MenuLink>
-        </Li>
-        <Li>
-          <MenuLink to="/drinks" onClick={handleCloseMenu}>
-            Drinks
-          </MenuLink>
-        </Li>
-        <Li>
-          <MenuLink to="/add" onClick={handleCloseMenu}>
-            Add recipe
-          </MenuLink>
-        </Li>
-        <Li>
-          <MenuLink to="/my" onClick={handleCloseMenu}>
-            My recipe
-          </MenuLink>
-        </Li>
-        <Li>
-          <MenuLink to="/favorite" onClick={handleCloseMenu}>
-            Favorite
-          </MenuLink>
-        </Li>
-      </NavList>
+      <ScrrolWrrap>
+        <NavList>
+          <Li>
+            <MenuLink to="/main" onClick={handleCloseMenu}>
+              Home
+            </MenuLink>
+          </Li>
+          <Li>
+            <MenuLink to="/drinks" onClick={handleCloseMenu}>
+              Drinks
+            </MenuLink>
+          </Li>
+          <Li>
+            <MenuLink to="/add" onClick={handleCloseMenu}>
+              Add recipe
+            </MenuLink>
+          </Li>
+          <Li>
+            <MenuLink to="/my" onClick={handleCloseMenu}>
+              My recipe
+            </MenuLink>
+          </Li>
+          <Li>
+            <MenuLink to="/favorite" onClick={handleCloseMenu}>
+              Favorite
+            </MenuLink>
+          </Li>
+        </NavList>
+      </ScrrolWrrap>
     </NavigationWrap>
   );
 };
