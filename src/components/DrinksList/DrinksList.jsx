@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { CategoryRecipesItem } from 'components';
 import { DrinksList } from './DrinksList.styled';
 
@@ -9,4 +10,8 @@ export const DrinkList = ({ drinks }) => {
       ))}
     </DrinksList>
   );
+};
+
+DrinkList.propTypes = {
+  drinks: PropTypes.array,
 };
