@@ -3,7 +3,7 @@ export const generateFormData = obj => {
   const entries = Object.entries(obj);
 
   entries.forEach(([key, value]) => {
-    if (key === 'ingredients') {
+    if (key === 'ingredients' || key === 'instructions') {
       formData.append(key, JSON.stringify(value));
     } else {
       formData.append(key, value);

@@ -5,3 +5,8 @@ export const subscripe = async email => {
 
   return data;
 };
+
+export const unsubscribe = async () => {
+  const { data } = await axios.delete('/subscribe');
+  return data;
+};

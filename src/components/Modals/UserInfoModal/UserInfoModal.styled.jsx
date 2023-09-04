@@ -4,11 +4,6 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { FiEdit2 } from 'react-icons/fi';
 
 export const ProfileEditContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
   width: 335px;
   height: 345px;
 
@@ -29,7 +24,25 @@ export const ProfileEditContainer = styled.div`
     width: 500px;
     height: 426px;
 
-    padding: 50px;
+    padding: 50px 50px 75px;
+  }
+`;
+
+export const FileInputBox = styled.div`
+  margin-bottom: 25px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 94px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 66px;
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -39,25 +52,6 @@ export const ProfileEditForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-export const FileInputBox = styled.div`
-  margin-bottom: 50px;
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 110px;
-`;
-
-export const AwatarWrapper = styled.div`
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 0;
 `;
 
 export const UserAvatar = styled.img`
@@ -78,7 +72,7 @@ export const IconBox = styled.div`
   width: 28px;
   height: 28px;
   position: absolute;
-  bottom: -15px;
+  bottom: -8px;
   left: 50%;
   transform: translate(-50%, 0%);
   background-color: #546081;
@@ -89,17 +83,25 @@ export const IconBox = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: transform 0.3s ease;
 
-  transition: filter linear 200ms, scale linear 200ms;
+  &:hover,
+  &:focus {
+    background-color: ${theme.colors.lightBlue};
+    /* border: 2px solid ${theme.colors.midnightBlue}; */
+  }
 
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
+    bottom: -15px;
   }
 `;
 
 export const AddPhotoIcon = styled(AiOutlinePlus)`
+  position: absolute;
   color: ${theme.colors.lightGray};
+  cursor: pointer;
 `;
 
 export const FileInput = styled.input`
@@ -111,7 +113,6 @@ export const FileInput = styled.input`
 `;
 
 export const InputNameBox = styled.div`
-  /* margin-bottom: 18px; */
   position: relative;
   width: 100%;
 `;

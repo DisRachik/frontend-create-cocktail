@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { createPortal } from 'react-dom';
+
 // Icons
 import { RiDeleteBinLine } from 'react-icons/ri';
 // Components
 import { Backdrop, CheckoutModal } from 'components';
 
 // Styled components
-
 import {
   BatonsContainer,
   DeleteFavoriteDrinksBtn,
@@ -21,7 +21,7 @@ import {
   Text,
   TitleDrinks,
 } from './RecipesItem.styled';
-
+// Other
 import defaultImageUrl from '../../img/thumb400x400.png';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -35,7 +35,7 @@ export const RecipesItem = ({
 
   const handleCloseOverlay = event => {
     if (event.target === event.currentTarget) {
-      setIsOpen(!isOpen);
+      setIsOpen(prevState => !prevState);
     }
   };
 
@@ -91,6 +91,7 @@ export const RecipesItem = ({
               agreementBtnText={agreementBtnText}
               agreeClick={() => {
                 action(_id);
+                setIsOpen(!isOpen);
                 toast.success('Cocktail removed');
               }}
               disagreeClick={() => {
@@ -132,6 +133,10 @@ RecipesItem.propTypes = {
     instructions: PropTypes.array.isRequired,
     drinkThumb: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
-    action: PropTypes.func,
+  }),
+  action: PropTypes.func,
+  params: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    agreementBtnText: PropTypes.string.isRequired,
   }),
 };

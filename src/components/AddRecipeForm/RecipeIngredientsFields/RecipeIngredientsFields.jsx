@@ -11,7 +11,7 @@ import {
   IngredientsTitle,
   SelectList,
   SelectListItem,
-  RemoveDtn,
+  RemoveBtn,
   selectStyles,
   measureSelectStyles,
 } from './RecipeIngredientsFields.styled';
@@ -100,9 +100,9 @@ export const RecipeIngredientsFields = ({
                 )}
               />
 
-              <RemoveDtn type="button" onClick={() => handleRemoveField(index)}>
+              <RemoveBtn type="button" onClick={() => handleRemoveField(index)}>
                 <IoMdClose size={18} />
-              </RemoveDtn>
+              </RemoveBtn>
             </SelectListItem>
           );
         })}

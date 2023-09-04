@@ -94,6 +94,7 @@ export const IngredientTitle = styled.p`
 `;
 
 export const IngredientMeasure = styled.p`
+  text-align: right;
   color: ${theme.colors.grayOpacity};
   font-size: ${theme.fontSizes.small};
   font-weight: 500;

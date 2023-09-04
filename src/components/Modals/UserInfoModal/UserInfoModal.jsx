@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PropTypes from 'prop-types';
 import { nameSchema } from 'schema';
@@ -21,7 +21,6 @@ import {
   FileInputBox,
   FileInput,
   IconBox,
-  AwatarWrapper,
   InputNameBox,
   BtnBox,
 } from './UserInfoModal.styled';
@@ -29,12 +28,14 @@ import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const UserInfoModal = ({ toggle }) => {
+export const UserInfoModal = ({ toggle, isOpen }) => {
+  const { user } = useAuth();
   const [avatarURL, setAvatarURL] = useState(null);
+  const [userName, setUserName] = useState(user.name);
   const dispatch = useDispatch();
+
   const {
     register,
-    control,
     handleSubmit,
     reset,
     formState: { isDirty, isValid, errors, dirtyFields },
@@ -42,8 +43,6 @@ export const UserInfoModal = ({ toggle }) => {
     mode: 'onChange',
     resolver: yupResolver(nameSchema),
   });
-
-  const { user } = useAuth();
 
   useEffect(() => {
     const handleCloseEsc = evt => {
@@ -74,6 +73,7 @@ export const UserInfoModal = ({ toggle }) => {
 
   const onSubmit = async data => {
     const name = data.name;
+
     const reqBody = { name, avatarURL };
 
     const formData = generateFormData(reqBody);
@@ -88,45 +88,54 @@ export const UserInfoModal = ({ toggle }) => {
     }
   };
 
+  const previewAvatar = (() => {
+    if (imageURL) {
+      return imageURL;
+    } else if (user.avatarURL) {
+      return user.avatarURL;
+    }
+    return DEFAULT_AVATAR;
+  })();
+
+  const isDisabled = (() => {
+    if (user.name === userName && !avatarURL) {
+      return true;
+    } else if (userName === '') {
+      return true;
+    }
+
+    return false;
+  })();
+
   return createPortal(
     <Backdrop onClick={handelBackdropClick}>
       <ProfileEditContainer>
         <CancelBtn cancelClick={toggle} />
 
-        <ProfileEditForm onSubmit={handleSubmit(onSubmit)}>
+        <ProfileEditForm autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <FileInputBox>
-            <AwatarWrapper>
-              <UserAvatar
-                src={imageURL ? imageURL : DEFAULT_AVATAR}
-                alt="User Avatar"
+            <UserAvatar src={previewAvatar} alt="User Avatar" />
+            <IconBox>
+              <AddPhotoIcon />
+              <FileInput
+                name="avatarURL"
+                type="file"
+                accept="image/*, .png, .jpg, .gif, .web"
+                {...register('avatarURL')}
+                onChange={avatarChange}
               />
-              <IconBox>
-                <AddPhotoIcon />
-              </IconBox>
-            </AwatarWrapper>
-
-            <FileInput
-              name="avatarURL"
-              type="file"
-              accept="image/*, .png, .jpg, .gif, .web"
-              {...register('avatarURL')}
-              onChange={avatarChange}
-            />
+            </IconBox>
           </FileInputBox>
 
           <InputNameBox>
-            <Controller
+            <ProfileEditInput
+              type="name"
               name="name"
-              control={control}
-              defaultValue={user.name}
-              render={({ field }) => (
-                <ProfileEditInput
-                  type="text"
-                  {...field}
-                  valid={!errors.name && dirtyFields.name}
-                  invalid={dirtyFields.name && errors.name}
-                />
-              )}
+              {...register('name')}
+              value={userName}
+              onChange={e => setUserName(e.target.value)}
+              valid={isValid && isDirty}
+              invalid={!isValid}
             />
 
             <EditIcon />
@@ -138,11 +147,7 @@ export const UserInfoModal = ({ toggle }) => {
             checkMessage="This is valid name"
           />
           <BtnBox>
-            <Button
-              minWidth="100%"
-              minHeight="54px"
-              disabled={!isValid || !isDirty}
-            >
+            <Button minWidth="100%" minHeight="54px" disabled={isDisabled}>
               Save changes
             </Button>
           </BtnBox>

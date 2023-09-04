@@ -1,23 +1,13 @@
-// Libs
 import styled from '@emotion/styled';
-// Icons
 import { BiLogoFacebook } from 'react-icons/bi';
 import { AiFillInstagram, AiFillYoutube } from 'react-icons/ai';
-// Theme
 import { theme } from 'styles';
 
 export const List = styled.ul`
-  margin-top: 20px;
   display: flex;
   gap: 14px;
 
   @media (min-width: 768px) {
-    margin-top: 28px;
-    gap: 16px;
-  }
-
-  @media (min-width: 1200px) {
-    margin-top: 40px;
     gap: 16px;
   }
 `;
@@ -29,6 +19,16 @@ export const Item = styled.li`
   padding: 8px;
   border: 1px solid ${theme.colors.gray};
   border-radius: 10px;
+  transition: filter linear 200ms, scale linear 200ms;
+
+  &:hover {
+    color: ${theme.colors.lightGray};
+    background-color: transparent;
+    box-shadow: ${theme.shadows.regular};
+    transform: scale(1);
+    border-radius: 10px;
+    border: none;
+  }
 `;
 
 export const Link = styled.a`
