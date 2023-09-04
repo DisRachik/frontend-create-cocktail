@@ -39,7 +39,6 @@ export const ContentBox = styled.div`
 
   backdrop-filter: blur(5px);
   background-image: url('${contentSvg}');
-  /* outline: 1px solid tomato; */
 `;
 
 export const ContentText = styled.p`

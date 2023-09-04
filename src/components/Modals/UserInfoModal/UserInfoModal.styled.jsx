@@ -88,7 +88,6 @@ export const IconBox = styled.div`
   &:hover,
   &:focus {
     background-color: ${theme.colors.lightBlue};
-    /* border: 2px solid ${theme.colors.midnightBlue}; */
   }
 
   @media screen and (min-width: 768px) {

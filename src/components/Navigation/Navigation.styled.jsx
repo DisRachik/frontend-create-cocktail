@@ -9,7 +9,6 @@ export const NavList = styled.ul`
   list-style: none;
 
   background-color: ${({ theme }) => theme.colors.black};
-  /* background-color: red; */
 
   background-image: radial-gradient(
       circle at 700px 0px,
