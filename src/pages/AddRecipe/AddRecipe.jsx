@@ -1,20 +1,20 @@
 import { Section, AddRecipeForm, FollowUs, PopularRecipe } from 'components';
 
-import { PageWrapper, Aside, FollowUsWrapper, Title } from './AddRecipe.styles';
+import { PageWrapper, FollowUsWrapper, Title } from './AddRecipe.styles';
 
 const AddRecipe = () => {
   return (
     <Section title="Add recipe">
       <PageWrapper>
         <AddRecipeForm />
-        <Aside>
+        <aside>
           <FollowUsWrapper>
             <Title>Follow Us</Title>
             <FollowUs />
           </FollowUsWrapper>
           <Title>Popular recipe</Title>
           <PopularRecipe />
-        </Aside>
+        </aside>
       </PageWrapper>
     </Section>
   );

@@ -1,8 +1,9 @@
 export const theme = Object.freeze({
   colors: {
     black: '#0A0A11',
+    blackTransparent: 'rgba(10, 10, 17, 0.50)',
     midnightBlue: '#161F37',
-    midnightBlueTransparent: 'rgba(22, 31, 55, 0.50)',
+    midnightBlueTransparent: 'rgba(22, 31, 55, 0.2)',
     steelBlue: '#434D67',
     lightBlue: '#4070CD',
     mintGreen: '#BCE6D2',
@@ -42,7 +43,7 @@ export const theme = Object.freeze({
 
   shadows: {
     regular: '0px 4px 10px 4px #9e9e9e',
-    light: "2px 2px 25px rgba(255, 255, 255, 0.99)"
+    light: '2px 2px 25px rgba(255, 255, 255, 0.99)',
   },
 
   animation: value => `${value} 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)`,

@@ -15,7 +15,7 @@ export const FormMessages = ({
 };
 
 FormMessages.propTypes = {
-  invalidValue: PropTypes.object,
+  // invalidValue: PropTypes.object,
   validValue: PropTypes.bool,
   errorMessage: PropTypes.string,
   checkMessage: PropTypes.string,

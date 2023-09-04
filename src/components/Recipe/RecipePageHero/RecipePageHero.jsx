@@ -39,18 +39,25 @@ export const RecipePageHeader = ({
     setIsLoading(true);
 
     try {
-      if (drinkFavoriteUsers.includes(user._id)) {
+      const isFavorite = drinkFavoriteUsers.some(
+        favorite => favorite.userId === user._id
+      );
+
+      if (isFavorite) {
         await deleteFromFavorites(recipeId).then(response =>
           toast.success(response.message)
         );
         setDrinkFavoriteUsers(newFavorites =>
-          newFavorites.filter(id => id !== user._id)
+          newFavorites.filter(favorite => favorite.userId !== user._id)
         );
       } else {
         await addToFavorites(recipeId).then(response =>
           toast.success(response.message)
         );
-        setDrinkFavoriteUsers(newFavorites => [...newFavorites, user._id]);
+        setDrinkFavoriteUsers(newFavorites => [
+          ...newFavorites,
+          { userId: user._id, addedAt: Date.now() },
+        ]);
       }
     } catch (error) {
       toast.error(error.message);
@@ -60,7 +67,9 @@ export const RecipePageHeader = ({
     }
   };
 
-  const isFavorite = drinkFavoriteUsers.includes(user._id);
+  const isFavorite =
+    drinkFavoriteUsers &&
+    drinkFavoriteUsers.some(favorite => favorite.userId === user._id);
 
   return (
     <HeroWrap>
