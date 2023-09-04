@@ -63,7 +63,10 @@ const Favorite = () => {
             )}
           </>
         ) : (
-          <EmptyAndError text="You haven`t added any favorite cocktails yet" />
+          <EmptyAndError
+            text="You haven`t added any favorite cocktails yet"
+            closeModalRoot
+          />
         )}
       </Section>
     </>

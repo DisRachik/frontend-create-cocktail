@@ -9,8 +9,19 @@ import {
   Wrapper,
 } from './EmptyAndError.styled';
 import { Spinner } from '../Spinner';
+import { useEffect } from 'react';
 
-export const EmptyAndError = ({ text, errorScreen, spinner }) => {
+export const EmptyAndError = ({
+  text,
+  errorScreen,
+  spinner,
+  closeModalRoot,
+}) => {
+  useEffect(() => {
+    if (closeModalRoot) {
+      document.body.style.overflow = 'auto';
+    }
+  }, [closeModalRoot]);
   return (
     <Wrapper>
       <ImgWrap>
@@ -35,4 +46,5 @@ EmptyAndError.propTypes = {
   text: PropTypes.string,
   errorScreen: PropTypes.bool,
   spinner: PropTypes.bool,
+  closeModalRoot: PropTypes.bool,
 };
