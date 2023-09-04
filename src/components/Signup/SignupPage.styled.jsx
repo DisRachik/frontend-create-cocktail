@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import { theme } from 'styles';
+import { BiShow, BiHide } from 'react-icons/bi';
 
 export const FormWrap = styled.form`
   max-width: 400px;
@@ -44,4 +45,24 @@ export const Link = styled(NavLink)`
     font-size: ${theme.fontSizes.small};
     line-height: calc(18 / 14);
   }
+`;
+
+export const HideIcon = styled(BiHide)`
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: ${theme.colors.lightGray};
+`;
+
+export const ShowIcon = styled(BiShow)`
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: ${theme.colors.lightGray};
 `;

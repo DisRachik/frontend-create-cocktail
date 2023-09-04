@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signIn, signUp } from 'redux/auth/operations';
@@ -21,13 +22,16 @@ import {
   AuthTitle,
   ButtonWrap,
   FormWrap,
+  HideIcon,
   Link,
   LinkWrap,
+  ShowIcon,
 } from './SignupPage.styled';
 
 export const SignupPage = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -61,6 +65,10 @@ export const SignupPage = () => {
     }
   };
 
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <Wrapper>
       <BackgroundGradient>
@@ -80,6 +88,7 @@ export const SignupPage = () => {
                       {...register('name')}
                       valid={!errors.name && dirtyFields.name}
                       invalid={errors.name && dirtyFields.name}
+                      autoComplete="off"
                     />
                     <FormIcons
                       valid={!errors.name && dirtyFields.name}
@@ -101,6 +110,7 @@ export const SignupPage = () => {
                       {...register('email')}
                       valid={!errors.email && dirtyFields.email}
                       invalid={errors.email && dirtyFields.email}
+                      autoComplete="off"
                     />
                     <FormIcons
                       valid={!errors.email && dirtyFields.email}
@@ -116,24 +126,18 @@ export const SignupPage = () => {
 
                   <InputBox>
                     <Input
-                      type="password"
+                      type={showPassword ? 'text' : 'password'}
                       name="password"
                       placeholder="Password"
                       {...register('password')}
                       valid={!errors.password && dirtyFields.password}
                       invalid={errors.password && dirtyFields.password}
+                      autoComplete="off"
                     />
-                    <FormIcons
-                      valid={!errors.password && dirtyFields.password}
-                      invalid={errors.password && dirtyFields.password}
-                    />
+                    <span onClick={togglePassword}>
+                      {showPassword ? <HideIcon /> : <ShowIcon />}
+                    </span>
                   </InputBox>
-                  <FormMessages
-                    invalidValue={errors.password}
-                    validValue={isValid && isDirty}
-                    errorMessage={errors.password?.message}
-                    checkMessage="This is valid password"
-                  />
 
                   <ButtonWrap>
                     <Button
