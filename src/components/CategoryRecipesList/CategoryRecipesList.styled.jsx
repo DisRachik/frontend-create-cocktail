@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const CatigoryList = styled.ul`
  
-margin-bottom: 40px;
+// margin-bottom: 40px;
  padding-top: 40px;
   display: grid;
   max-width: 1200px;
@@ -17,14 +17,14 @@ margin-bottom: 40px;
 
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 80px;
+   
     grid-template-columns: repeat(2, 1fr);
     column-gap: 14px;
     // padding: 0px 32px;
     li:nth-child(2)  {
       display: grid;
     }
-    column-gap: 20px;
+    // column-gap: 20px;
     
   }
   @media screen and (min-width: 1200px) {
@@ -32,8 +32,8 @@ margin-bottom: 40px;
     li:nth-child(2), li:nth-child(3) {
       display: grid;
     }
-    margin-bottom: 80px;
-    column-gap: 20px;
+    // margin-bottom: 80px;
+    // column-gap: 20px;
   }
 `;
 

@@ -4,17 +4,17 @@ import background1 from "../../img/mae-mu-T7heq8rawkc-unsplash 1.png";
 
 
 export const MainSectionWrap = styled.section`
- outline: 1px solid green;
+  // outline: 1px solid green;
 
   max-width: 1440px;
-  height: 796px;
-  margin: 0 auto;
+  margin: 0 aut
+  height: 796px;o;
    padding: 80px 20px;
 
-  // @media screen and (min-width: 375px) {
-  //   height: 1001px;
-  //   margin: 0 auto;
-  //   }
+  @media screen and (min-width: 375px) {
+    height: 1001px;
+    margin: 0 auto;
+    }
 
 
   @media (min-width: 768px) {
@@ -38,7 +38,7 @@ export const MainSectionSubtitle = styled.p`
   line-height: 1.25;
   max-width: 266px;
   font-size: 14px;
-  padding-bottom: 80px;
+  // padding-bottom: 80px;
 
   //@media screen and (min-width: 375px) {
        
@@ -85,11 +85,11 @@ color:${theme.colors.lightGray};
 font-weight: 600;
 line-height: 1.18;
 
-@media screen and (min-width: 375px) {
-  font-size: ${theme.fontSizes.sectionTitleTablet};
-  max-width: 483px;
-  line-height: 1.07;
-}
+// @media screen and (min-width: 375px) {
+//   font-size: ${theme.fontSizes.sectionTitleTablet};
+//   max-width: 483px;
+//   line-height: 1.07;
+// }
 @media screen and (min-width: 768px) {
   font-size: ${theme.fontSizes.sectionTitleTablet};
   max-width: 483px;
@@ -107,7 +107,7 @@ max-width: 375px;
     height: 700px; 
 background-size: 496px 700px;
   background-repeat: no-repeat;
- background-position: top 106px left 102px;
+ background-position: top 0px left 102px;
 background-image: linear-gradient(0.95deg, #0A0A11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
  linear-gradient(86.16deg, #0A0A11 8.41%, rgba(10, 10, 17, 0) 46.6%),
     url('${background1}');

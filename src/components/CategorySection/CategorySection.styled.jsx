@@ -3,18 +3,18 @@ import { theme } from 'styles';
 import { Link } from 'react-router-dom';
 export const CategorySectionWrap = styled.section`
  
-outline: 1px solid tomato;
+  // outline: 1px solid tomato;
   max-width: 1240px;
   min-height: 100%;
   margin: 0 auto;
-  padding: 80px 20px;
+    // padding: 80px 20px;
 
   @media (min-width: 768px) {
-    padding: 0px;
+    // padding: 80px 32px;
     // gap: 28px;
   }
 
-  @media (min-width: 1240px) {
+  @media (min-width: 1200px) {
    
     // gap: 28px;
     padding-bottom: 80px;
