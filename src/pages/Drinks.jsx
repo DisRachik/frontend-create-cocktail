@@ -29,11 +29,13 @@ const Drinks = () => {
   });
   const categoriesList = useSelector(selectCategories.data);
   const ingredientsList = useSelector(selectIngredients.data);
+
   const category = searchParams.get('category') || '';
   const drink = searchParams.get('drink') || '';
   const ingredients = searchParams.get('ingredients') || '';
   const limit = drinksPerPage;
   const page = currentPage;
+
   useEffect(() => {
     function handleResize() {
       setDrinksPerPage(calculatePerPage(window.innerWidth));
