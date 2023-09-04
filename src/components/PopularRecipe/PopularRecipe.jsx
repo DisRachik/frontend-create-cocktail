@@ -5,6 +5,7 @@ import { getPopularRecipes } from 'api';
 // Styled components
 import {
   CocktailList,
+  CocktailItem,
   StyledLink,
   CocktailImg,
   CocktailTitle,
@@ -25,7 +26,7 @@ export const PopularRecipe = () => {
     <CocktailList>
       {popularRecipes.map(({ _id, drinkThumb, drink, about }) => {
         return (
-          <li key={_id}>
+          <CocktailItem key={_id}>
             <StyledLink to={`/recipe/${_id}`}>
               <CocktailImg
                 src={drinkThumb}
@@ -42,7 +43,7 @@ export const PopularRecipe = () => {
                 </CocktailText>
               </div>
             </StyledLink>
-          </li>
+          </CocktailItem>
         );
       })}
     </CocktailList>

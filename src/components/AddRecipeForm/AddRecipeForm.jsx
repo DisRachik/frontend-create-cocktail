@@ -137,11 +137,6 @@ export const AddRecipeForm = () => {
           <Spinner />
         </Backdrop>
       )}
-      {/* {isLoading && (
-        <Backdrop>
-          <EmptyAndError spinner={<Spinner />} />
-        </Backdrop>
-      )} */}
       <Form onSubmit={handleSubmit(handleFormSubmit)}>
         <RecipeDescriptionFields
           control={control}

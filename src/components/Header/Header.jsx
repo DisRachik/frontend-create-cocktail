@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 
 import { BurgerMenuNavigation } from 'components/BurgerMenuNavigation/BurgerMenuNavigation';
 
+// import { MotivationModal } from 'components/MotivationModal/MotivationModal';
+
 export const Header = () => {
   const [nav, setNav] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
