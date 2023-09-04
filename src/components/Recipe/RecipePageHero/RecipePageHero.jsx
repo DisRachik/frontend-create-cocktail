@@ -5,9 +5,9 @@ import { selectUser } from 'redux/auth/selectors';
 import { toast } from 'react-toastify';
 import { deleteFromFavorites, addToFavorites } from 'api';
 
-import defaultImageUrl from '../../../img/thumb400x400.png';
+import defaultImageUrl from 'img/thumb400x400.png';
 
-import { Button } from '../../shared/Button/Button';
+import { Button } from 'components';
 import {
   HeroWrap,
   LeftSideWrap,
@@ -18,6 +18,8 @@ import {
 } from './RecipePageHero.styled';
 
 import { lostRecipeDesc } from 'constans';
+import { praiseModal } from 'helpers/praiseModal';
+import { MotivationModal } from 'components';
 
 export const RecipePageHeader = ({
   glass = 'N/A',
@@ -29,6 +31,7 @@ export const RecipePageHeader = ({
 }) => {
   const [drinkFavoriteUsers, setDrinkFavoriteUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [praiseText, setPraiseText] = useState(null);
   const user = useSelector(selectUser);
 
   useEffect(() => {
@@ -44,16 +47,19 @@ export const RecipePageHeader = ({
       );
 
       if (isFavorite) {
-        await deleteFromFavorites(recipeId).then(response =>
-          toast.success(response.message)
-        );
+        await deleteFromFavorites(recipeId).then(response => {
+          toast.success(response.message);
+          setPraiseText(null);
+        });
         setDrinkFavoriteUsers(newFavorites =>
           newFavorites.filter(favorite => favorite.userId !== user._id)
         );
       } else {
-        await addToFavorites(recipeId).then(response =>
-          toast.success(response.message)
-        );
+        await addToFavorites(recipeId).then(response => {
+          const text = praiseModal(response.totalCountAddedByUser, 'favorite');
+          setPraiseText(text);
+          toast.success(response.message);
+        });
         setDrinkFavoriteUsers(newFavorites => [
           ...newFavorites,
           { userId: user._id, addedAt: Date.now() },
@@ -74,6 +80,7 @@ export const RecipePageHeader = ({
   return (
     <HeroWrap>
       <LeftSideWrap>
+        {praiseText && <MotivationModal text={praiseText} />}
         <CocktailGlass>{glass}</CocktailGlass>
         <CocktailTitle>{drink}</CocktailTitle>
         <CocktailDescription>{desc}</CocktailDescription>
