@@ -9,7 +9,7 @@ import { BasicContainer } from './BasicContainer/BasicContainer.styled';
 export const Layout = () => {
   const { isAuth } = useAuth();
   return (
-    <BasicContainer>
+    <BasicContainer welcome={isAuth ? '1440px' : 'none'}>
       {/* <div style={{ position: 'relative' }}> */}
       {/* Authorized user routes */}
 

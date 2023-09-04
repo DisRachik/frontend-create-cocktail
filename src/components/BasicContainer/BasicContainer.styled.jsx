@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const BasicContainer = styled.div`
+  max-width: ${props => props.welcome};
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
   display: flex;

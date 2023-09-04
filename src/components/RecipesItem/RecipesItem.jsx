@@ -1,11 +1,15 @@
 // Libs
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { createPortal } from 'react-dom';
+
 // Icons
 import { RiDeleteBinLine } from 'react-icons/ri';
 // Components
 import { Backdrop, CheckoutModal } from 'components';
+
 // Styled components
 import {
   BatonsContainer,
@@ -20,8 +24,10 @@ import {
 // Other
 import defaultImageUrl from '../../img/thumb400x400.png';
 
+const modalRoot = document.querySelector('#modal-root');
+
 export const RecipesItem = ({
-  data: { drink, instructions, drinkThumb, _id },
+  data: { drink, instructions, drinkThumb, _id, about },
   action,
   params: { title, agreementBtnText },
 }) => {
@@ -33,6 +39,28 @@ export const RecipesItem = ({
     }
   };
 
+  useEffect(() => {
+    const handleCloseEsc = evt => {
+      if (evt.code === 'Escape') {
+        setIsOpen(false);
+        return;
+      }
+    };
+    document.addEventListener('keydown', handleCloseEsc);
+    return () => {
+      document.removeEventListener('keydown', handleCloseEsc);
+    };
+  }, []);
+
+  const isModalOpen = () => {
+    if (isOpen) {
+      return (document.body.style.overflow = 'hidden');
+    }
+    return (document.body.style.overflow = 'auto');
+  };
+
+  isModalOpen();
+
   return (
     <FavoriteItem>
       <ImageDrinks
@@ -42,18 +70,17 @@ export const RecipesItem = ({
       />
       <TitleDrinks>{drink ? drink : 'N/a'}</TitleDrinks>
       <Text to={`/recipe/${_id}`}>Ingredients</Text>
-      <DescriptionDrinks>
-        {instructions ? instructions : 'N/a'}
-      </DescriptionDrinks>
+      <DescriptionDrinks>{about ? about : instructions}</DescriptionDrinks>
       <BatonsContainer>
         <SeeRecipe to={`/recipe/${_id}`}>See recipe</SeeRecipe>
 
         <DeleteFavoriteDrinksBtn
           type="button"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(prevState => !prevState)}
         >
           <RiDeleteBinLine />
         </DeleteFavoriteDrinksBtn>
+
         {isOpen && (
           <Backdrop onClick={handleCloseOverlay}>
             <CheckoutModal
@@ -73,6 +100,28 @@ export const RecipesItem = ({
             />
           </Backdrop>
         )}
+
+        {isOpen &&
+          createPortal(
+            <Backdrop onClick={handleCloseOverlay}>
+              <CheckoutModal
+                cancelClick={() => {
+                  setIsOpen(prevState => !prevState);
+                }}
+                contentText={title}
+                agreementBtnText={agreementBtnText}
+                agreeClick={() => {
+                  setIsOpen(prevState => !prevState);
+                  action(_id);
+                  toast.success('Cocktail removed');
+                }}
+                disagreeClick={() => {
+                  setIsOpen(prevState => !prevState);
+                }}
+              />
+            </Backdrop>,
+            modalRoot
+          )}
       </BatonsContainer>
     </FavoriteItem>
   );

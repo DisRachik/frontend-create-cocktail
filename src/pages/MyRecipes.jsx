@@ -62,7 +62,7 @@ const MyRecipes = () => {
               }}
             />
           ) : (
-            <EmptyAndError text="You don't have your recipes" />
+            <EmptyAndError text="You don't have your recipes" closeModalRoot />
           )}
           {myRecipes.length !== sliceRecipes.length && (
             <>
