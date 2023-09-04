@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Controller } from 'react-hook-form';
 import {
   Form,
@@ -85,7 +86,7 @@ export const DrinkSearchBar = ({
             {...field}
             options={setListIngredients}
             value={
-              defIngredient && defIngredient.length > 0
+              initialIngredient && initialIngredient.length > 0
                 ? defIngredient
                 : 'ingredients'
             }
@@ -98,4 +99,15 @@ export const DrinkSearchBar = ({
       />
     </Form>
   );
+};
+
+DrinkSearchBar.propTypes = {
+  onSubmit: PropTypes.func,
+  control: PropTypes.object,
+  ingredientsList: PropTypes.array,
+  categoriesList: PropTypes.array,
+  onChangeCategory: PropTypes.func,
+  onChangeIngredient: PropTypes.func,
+  initialCategory: PropTypes.string,
+  initialIngredient: PropTypes.string,
 };
