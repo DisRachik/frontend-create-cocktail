@@ -17,17 +17,32 @@ export const DrinkSearchBar = ({
   onChangeCategory,
   onChangeIngredient,
   initialCategory,
+  initialIngredient,
 }) => {
   const defCategory = {
     value: initialCategory,
     label: initialCategory,
   };
+  const defIngredient = {
+    value: initialIngredient,
+    label: initialIngredient,
+  };
+
+  const setListCategories = categoriesList.map(option => ({
+    value: option.title,
+    label: option.title,
+  }));
+
+  const setListIngredients = ingredientsList.map(option => ({
+    value: option.title,
+    label: option.title,
+  }));
 
   return (
     <Form onSubmit={onSubmit}>
       <SearchFieldWrap>
         <Controller
-          name="search"
+          name="drink"
           control={control}
           render={({ field }) => (
             <Input {...field} placeholder="Enter the text" />
@@ -46,14 +61,15 @@ export const DrinkSearchBar = ({
             unstyled
             {...field}
             styles={selectStyles}
-            options={categoriesList.map(option => ({
-              value: option.title,
-              label: option.title,
-            }))}
-            defaultValue={defCategory}
+            options={setListCategories}
+            value={
+              initialCategory && initialCategory.length > 0
+                ? defCategory
+                : 'All Categories'
+            }
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              onChangeCategory();
+              onChangeCategory(selectedOption.value);
             }}
           />
         )}
@@ -67,13 +83,15 @@ export const DrinkSearchBar = ({
             unstyled
             styles={selectStyles}
             {...field}
-            options={ingredientsList.map(option => ({
-              value: option.title,
-              label: option.title,
-            }))}
+            options={setListIngredients}
+            value={
+              defIngredient && defIngredient.length > 0
+                ? defIngredient
+                : 'ingredients'
+            }
             onChange={selectedOption => {
               field.onChange(selectedOption);
-              onChangeIngredient();
+              onChangeIngredient(selectedOption.value);
             }}
           />
         )}
