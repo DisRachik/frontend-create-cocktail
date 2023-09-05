@@ -1,4 +1,4 @@
-// Libs
+
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { theme } from 'styles';
@@ -20,6 +20,7 @@ export const CategoryItem = styled.li`
   @media screen and (min-width: 1440px) {
     width: 400px;
   }
+  
 `;
 
 export const ImageDrinks = styled.img`
@@ -40,6 +41,7 @@ export const ImageDrinks = styled.img`
     height: 400px;
     border-radius: 8px;
   }
+  
 `;
 
 export const TitleDrinks = styled.p`
@@ -60,17 +62,17 @@ export const SeeIngredients = styled(Link)`
   font-size: ${theme.fontSizes.small};
 
   line-height: calc(18 / 14);
-  // margin-bottom: 18px;
+
 
   @media screen and (min-width: 768px) {
-    // margin-bottom: 24px;
+ 
     font-size: ${theme.fontSizes.medium};
     line-height: calc(18 / 16);
     margin-left: 0px;
   }
 
   @media screen and (min-width: 1440px) {
-    // margin-bottom: 24px;
+  
   }
   &:hover {
     color: ${theme.colors.lightGray};

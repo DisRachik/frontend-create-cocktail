@@ -8,7 +8,7 @@ import { nameSchema } from 'schema';
 import { useAuth } from 'redux/auth/useAuth';
 import { updateUser } from 'redux/auth/operations';
 import { generateFormData } from 'helpers';
-import { Button, FormMessages, CancelBtn, Backdrop } from 'components';
+import { Button, FormMessages, CancelBtn, Backdrop, Spinner } from 'components';
 import {
   ProfileEditContainer,
   UserAvatar,
@@ -29,7 +29,7 @@ import DEFAULT_AVATAR from '../../../img/default_user_avatar.png';
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserInfoModal = ({ toggle, isOpen }) => {
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
   const [avatarURL, setAvatarURL] = useState(null);
   const [userName, setUserName] = useState(user.name);
   const dispatch = useDispatch();
@@ -84,7 +84,7 @@ export const UserInfoModal = ({ toggle, isOpen }) => {
       toggle();
       reset();
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 
@@ -109,9 +109,13 @@ export const UserInfoModal = ({ toggle, isOpen }) => {
 
   return createPortal(
     <Backdrop onClick={handelBackdropClick}>
+      {isLoading && (
+        <Backdrop>
+          <Spinner />
+        </Backdrop>
+      )}
       <ProfileEditContainer>
         <CancelBtn cancelClick={toggle} />
-
         <ProfileEditForm autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <FileInputBox>
             <UserAvatar src={previewAvatar} alt="User Avatar" />
