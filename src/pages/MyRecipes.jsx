@@ -8,10 +8,18 @@ const MyRecipes = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const imagePerRow = 9;
-  const [next, setNext] = useState(imagePerRow);
+  const [next, setNext] = useState(9);
 
   useEffect(() => {
+    function calculateOnPage(widthWindow) {
+      return widthWindow < 1200 ? 8 : 9;
+    }
+
+    function handleResize() {
+      setNext(calculateOnPage(window.innerWidth));
+    }
+    window.addEventListener('resize', handleResize);
+
     (async () => {
       try {
         setIsLoading(true);
@@ -40,7 +48,7 @@ const MyRecipes = () => {
   };
 
   const seeMoreDrinks = () => {
-    setNext(next + imagePerRow);
+    setNext(next + next);
   };
 
   const sliceRecipes = myRecipes.slice(0, next);
