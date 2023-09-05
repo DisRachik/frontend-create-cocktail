@@ -6,9 +6,10 @@ export const CategorySectionWrap = styled.section`
   max-width: 1240px;
   min-height: 100%;
   margin: 0 auto;
-  padding: 40px 32px;
+  padding: 0 20px;
+  padding-bottom: 40px;
   @media (min-width: 768px) {
-     padding: 0 20px;
+     padding: 0 32px;
      padding-bottom: 80px;
   }
 

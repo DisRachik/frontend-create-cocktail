@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 
 export const CatigoryList = styled.ul`
   margin-bottom: 40px;
-  margin-top: 40px;
-  padding-top: 40px;
+  margin-top: 24px;
   display: grid;
   justify-items: center;
   
@@ -13,6 +12,8 @@ export const CatigoryList = styled.ul`
   }
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    /* margin-bottom: 80px; */
+    margin-top: 40px;
     column-gap: 14px;
     li:nth-of-type(2) {
       display: grid;
@@ -20,6 +21,8 @@ export const CatigoryList = styled.ul`
   }
   @media screen and (min-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
+    /* margin-bottom: 80px; */
+    margin-top: 40px;
     column-gap: 20px;
     li:not(:first-of-type) {
       display: grid;
