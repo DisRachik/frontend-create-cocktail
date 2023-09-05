@@ -6,13 +6,17 @@ export const NavigationWrap = styled.div`
   position: fixed;
   z-index: 9999;
   left: 0;
-  top: 85px;
+  top: 72px;
   width: 100%;
   height: 100%;
   /* overflow: hidden; */
   background-color: ${({ theme }) => theme.colors.black};
   transition: ${theme.animation('visibility')};
   transition: ${theme.animation('opacity')};
+
+  @media (min-width: 768px) {
+    top: 85px;
+  }
 `;
 
 export const ScrrolWrrap = styled.div`
@@ -71,4 +75,51 @@ export const MenuLink = styled(NavLink)`
     background-color: ${({ theme }) => theme.colors.midnightBlue};
     border-color: transparent;
   }
+`;
+
+export const BurgerRight = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 549px;
+  height: 543px;
+
+  border-radius: 849px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+
+  bottom: -51px;
+  left: 321px;
+
+  @media (min-width: 768px) {
+    bottom: 47px;
+    left: 641px;
+  }
+`;
+
+export const BurgerLeft = styled.div`
+  pointer-events: none;
+  position: absolute;
+
+  width: 442px;
+  height: 430px;
+  border-radius: 774px;
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px);
+
+  bottom: 592px;
+  left: -86px;
+`;
+
+export const BurgerTopLeft = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+
+  border-radius: 849px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+
+  bottom: 672px;
+  left: -125px;
 `;
