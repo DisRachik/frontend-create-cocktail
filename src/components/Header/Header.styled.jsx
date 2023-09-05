@@ -1,24 +1,25 @@
 import styled from '@emotion/styled';
 
+export const HeaderContainer = styled.header`
+  padding: 20px 0;
+
+  border-bottom: ${({ theme }) => theme.colors.steelBlue} solid 1px;
+`;
+
 export const FlexWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  border-bottom: ${({ theme }) => theme.colors.steelBlue} solid 1px;
-
-  padding: 20px 0;
-`;
-
-export const Image = styled.image`
-  width: 44px;
-  height: 44px;
 `;
 
 export const UserBox = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
 `;
 
 export const BurgerMenu = styled.div`
@@ -29,4 +30,3 @@ export const BurgerMenu = styled.div`
     display: none;
   }
 `;
-

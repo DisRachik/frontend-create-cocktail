@@ -6,6 +6,9 @@ import {
   MenuLink,
   NavList,
   ScrrolWrrap,
+  BurgerLeft,
+  BurgerRight,
+  BurgerTopLeft,
 } from './BurgerMenuNavigation.styled';
 import { useEffect } from 'react';
 
@@ -52,6 +55,9 @@ export const BurgerMenuNavigation = ({ closeMenu }) => {
           </Li>
         </NavList>
       </ScrrolWrrap>
+      <BurgerTopLeft />
+      <BurgerLeft />
+      <BurgerRight />
     </NavigationWrap>
   );
 };

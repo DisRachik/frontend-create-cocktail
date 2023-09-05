@@ -50,7 +50,8 @@ export const StyledButton = styled.button`
     padding: 18px 44px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${theme.colors.lightGray};
     background-color: transparent;
     box-shadow: ${theme.shadows.regular};
