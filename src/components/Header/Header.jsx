@@ -1,18 +1,10 @@
 import { FiAlignJustify } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
-import {
-  Container,
-  Logo,
-  // MotivationModal,
-  Navigation,
-  UserLogo,
-} from 'components';
+import { Container, Logo, Navigation, UserLogo } from 'components';
 import { BurgerMenu, FlexWrapper, UserBox } from './Header.styled';
 import { useEffect, useState } from 'react';
 
 import { BurgerMenuNavigation } from 'components/BurgerMenuNavigation/BurgerMenuNavigation';
-
-// import { MotivationModal } from 'components/MotivationModal/MotivationModal';
 
 export const Header = () => {
   const [nav, setNav] = useState(false);
@@ -58,7 +50,6 @@ export const Header = () => {
           {nav && windowWidth < 1200 && (
             <BurgerMenuNavigation closeMenu={closeMenu} />
           )}
-          {/* <MotivationModal /> */}
         </FlexWrapper>
       </Container>
     </header>

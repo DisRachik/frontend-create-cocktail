@@ -22,7 +22,7 @@ import {
   TitleDrinks,
 } from './RecipesItem.styled';
 // Other
-import defaultImageUrl from '../../img/thumb400x400.png';
+import defaultImageUrl from 'img/thumb400x400.png';
 
 const modalRoot = document.querySelector('#modal-root');
 

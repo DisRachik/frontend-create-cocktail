@@ -1,7 +1,28 @@
 import styled from '@emotion/styled';
-import contentSvg from 'img/Vector 2.svg';
-
 import { theme } from 'styles/theme';
+import contentSvg from 'img/Vector 2.svg';
+import signinDt from 'img/motivation/motivation-signin.png';
+import signinMb from 'img/motivation/motivation-signin-mb.png';
+import favoriteDt from 'img/motivation/motivation-favorite.png';
+import favoriteMb from 'img/motivation/motivation-favorite-mb.png';
+import favoriteOneDt from 'img/motivation/motivation-favorite-one.png';
+import favoriteOneMb from 'img/motivation/motivation-favorite-one-mb.png';
+
+const chooseBackgroundImage = ({ favorite, counter, signin }) => {
+  switch (true) {
+    case favorite && counter === 1:
+      const favoriteFirstImg = { dt: favoriteOneDt, mb: favoriteOneMb };
+      return favoriteFirstImg;
+    case favorite:
+      const favoriteImg = { dt: favoriteDt, mb: favoriteMb };
+      return favoriteImg;
+    case signin:
+      const signinImg = { dt: signinDt, mb: signinMb };
+      return signinImg;
+    default:
+      console.log('Invalid subscription type');
+  }
+};
 
 export const MotivationWindow = styled.div`
   position: absolute;
@@ -14,12 +35,18 @@ export const MotivationWindow = styled.div`
   padding-top: 218px;
   padding-bottom: 40px;
 
-  width: 500px;
-  height: 500px;
+  width: 375px;
+  height: 812px;
   border-radius: 30px;
 
-  background-image: url(${props => props.image});
+  background-image: url(${props => chooseBackgroundImage(props).mb});
   background-size: cover;
+
+  @media screen and (min-width: 560px) {
+    width: 500px;
+    height: 500px;
+    background-image: url(${props => chooseBackgroundImage(props).dt});
+  }
 `;
 
 export const ContentBox = styled.div`
