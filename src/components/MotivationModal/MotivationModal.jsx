@@ -78,5 +78,7 @@ export const MotivationModal = ({ text, favorite, counter, signin }) => {
 
 MotivationModal.propTypes = {
   text: PropTypes.string.isRequired,
-  // image: PropTypes.any.isRequired,
+  favorite: PropTypes.bool,
+  signin: PropTypes.bool,
+  counter: PropTypes.number,
 };

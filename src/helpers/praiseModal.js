@@ -1,5 +1,5 @@
 export const praiseModal = (counter, act) => {
-  const countForPrise = [5, 10, 20, 50];
+  const countForPrise = [5, 8, 10, 20, 50];
 
   let message = null;
 

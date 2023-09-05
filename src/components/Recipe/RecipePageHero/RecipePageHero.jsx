@@ -18,7 +18,7 @@ import {
 } from './RecipePageHero.styled';
 
 import { lostRecipeDesc } from 'constans';
-import { praiseModal } from 'helpers/praiseModal';
+import { praiseModal } from 'helpers';
 import { MotivationModal } from 'components';
 
 export const RecipePageHeader = ({
