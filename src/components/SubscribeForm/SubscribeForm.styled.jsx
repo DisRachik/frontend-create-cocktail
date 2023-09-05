@@ -65,4 +65,8 @@ export const Input = styled.input`
   &:focus {
     outline: 1px solid ${changeFocusOutlineColor};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
