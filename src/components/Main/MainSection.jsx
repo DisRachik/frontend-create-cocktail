@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import { MainSectionWrap, MainSectionTitle, MainSectionSubtitle,BackgroundImageWrap } from './MainSection.styled';
+import { MainSectionWrap, MainSectionTitle, MainSectionSubtitle,BackgroundImageWrap,BackgroundMainGradient } from './MainSection.styled';
 import { Button } from 'components';
 import { useNavigate} from 'react-router-dom';
+// import { BackgroundGradient, Wrapper } from 'components/Welcome/WelcomePage.styled';
 export const MainSection = ({ title, posttitle, children }) =>
 
 {
@@ -10,6 +11,8 @@ export const MainSection = ({ title, posttitle, children }) =>
       navigate("/add");
   };
   return (
+  
+    <BackgroundMainGradient> 
      <BackgroundImageWrap  >
   <MainSectionWrap>
     {title && <MainSectionTitle>{title}</MainSectionTitle>}
@@ -22,6 +25,8 @@ export const MainSection = ({ title, posttitle, children }) =>
     {children}
   </MainSectionWrap>
      </ BackgroundImageWrap  >
+      </BackgroundMainGradient> 
+     
 );
 }
 MainSection.propTypes = {

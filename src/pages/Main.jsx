@@ -3,17 +3,30 @@ import {
   CategoryRecipesList,
   CategorySection,
   Button,
+  // MotivationModal,
 } from 'components';
 import { ButtonContainer } from '../components/CategoryRecipesList/CategoryRecipesList.styled';
 import { useNavigate } from 'react-router-dom';
-import { uniqueCategories } from '../constans';
+import { uniqueCategories } from 'constans';
 import { nanoid } from '@reduxjs/toolkit';
 import React, { useEffect, useState } from 'react';
 import { getMainRecipes } from 'api';
+// import { useSelector } from 'react-redux';
+// import { selectUser } from 'redux/auth/selectors';
+// import { praiseModal } from 'helpers';
 
 const Main = () => {
   const [mainRecipes, setMainRecipes] = useState([]);
   const navigate = useNavigate();
+  // const [showModal, setShowModal] = useState(0);
+  // const { tokenCount } = useSelector(selectUser);
+  // const messagePraise = praiseModal(tokenCount, 'signin');
+
+  // useEffect(() => {
+  //   if (messagePraise) {
+  //     setShowModal(prevState => prevState + 1);
+  //   }
+  // }, [messagePraise]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,6 +62,7 @@ const Main = () => {
       <ButtonContainer>
         <Button onClick={handleButtonClick}>Other drinks</Button>
       </ButtonContainer>
+      {/* {showModal === 1 && <MotivationModal text={messagePraise} signin />} */}
     </>
   );
 };
