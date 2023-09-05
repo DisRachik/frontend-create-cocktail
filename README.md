@@ -65,5 +65,6 @@ Link backend repositories : https://github.com/8Yurii8/Drink-master-DB
 <a align="center" href="https://github.com/Pro100D">![GitHub](https://img.shields.io/badge/-Danil_Takiullin-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Natali9108">![GitHub](https://img.shields.io/badge/-Natalia_Haponova-FF69B4?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/VladimirMV">![GitHub](https://img.shields.io/badge/-Vladimir_Minakov-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/">![GitHub](https://img.shields.io/badge/-Vladyslav_Daniuk-05122A?style=flat&logo=github)</a>
 
 </span>
