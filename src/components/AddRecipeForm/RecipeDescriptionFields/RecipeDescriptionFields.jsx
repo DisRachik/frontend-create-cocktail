@@ -1,7 +1,7 @@
 // Libs
 import Select from 'react-select';
-import { Controller } from 'react-hook-form';
 import PropTypes from 'prop-types';
+import { Controller } from 'react-hook-form';
 // Styled components
 import {
   DescriptionBox,
@@ -29,6 +29,7 @@ export const RecipeDescriptionFields = ({
   glassesList,
   categoriesList,
   state,
+  isAllowedFileType,
   handleFileInputChange,
   handleInputChange,
   handleSelectChange,
@@ -68,6 +69,12 @@ export const RecipeDescriptionFields = ({
 
         {errors.drinkThumb && (
           <ErrorValidationText>{errors.drinkThumb.message}</ErrorValidationText>
+        )}
+
+        {!isAllowedFileType && (
+          <ErrorValidationText>
+            {'Allowed only images next types: .jpg .jpeg .png .bmp'}
+          </ErrorValidationText>
         )}
       </FileInputBox>
 
@@ -186,6 +193,7 @@ RecipeDescriptionFields.propTypes = {
       PropTypes.arrayOf(PropTypes.string.isRequired),
     ]).isRequired,
   }).isRequired,
+  isAllowedFileType: PropTypes.bool.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleSelectChange: PropTypes.func.isRequired,
 };

@@ -8,6 +8,6 @@ export const formSettings = {
   defaultValues: {
     ...initialValues,
   },
-  mode: 'onChange',
+  mode: 'all',
   resolver: yupResolver(validationSchema),
 };

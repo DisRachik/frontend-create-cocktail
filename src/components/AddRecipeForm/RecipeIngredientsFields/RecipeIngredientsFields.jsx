@@ -1,5 +1,6 @@
 // Libs
 import { Controller, useFieldArray } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 // Components
@@ -29,8 +30,6 @@ export const RecipeIngredientsFields = ({
   state,
   handleSelectChange,
 }) => {
-  console.log('⚡️ - errors - ⚡️', errors);
-
   const { fields, append, remove } = useFieldArray({
     name: 'ingredients',
     control,
@@ -43,7 +42,9 @@ export const RecipeIngredientsFields = ({
   };
 
   const handleRemoveField = index => {
-    if (fields.length === MIN_FIELDS_COUNT) return;
+    if (fields.length === MIN_FIELDS_COUNT) {
+      return toast.error('Your recipe must include at least 2 ingredients');
+    }
 
     remove(index);
 
