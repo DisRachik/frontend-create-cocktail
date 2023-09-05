@@ -14,5 +14,5 @@ export const initialValues = {
       measure: null,
     },
   ],
-  instructions: [],
+  instructions: '',
 };

@@ -18,6 +18,7 @@ import {
   TextInput,
   selectStyles,
 } from './RecipeDescriptionFields.styled';
+import { ErrorValidationText } from '../ErrorValidationText/ErrorValidationText.styled';
 // Icons
 import { AiOutlinePlus } from 'react-icons/ai';
 
@@ -64,8 +65,9 @@ export const RecipeDescriptionFields = ({
             onChange={handleFileInputChange}
           />
         </CustomFileInputWrapper>
-        {errors.drinkThumb?.message && (
-          <p style={{ color: 'deeppink' }}>{'Add a photo of yor drink'}</p>
+
+        {errors.drinkThumb && (
+          <ErrorValidationText>{errors.drinkThumb.message}</ErrorValidationText>
         )}
       </FileInputBox>
 
@@ -82,10 +84,9 @@ export const RecipeDescriptionFields = ({
               onChange={handleInputChange}
             />
           </Label>
+
           {errors.drink && (
-            <p style={{ color: 'deeppink' }}>
-              {'Enter the title of your drink'}
-            </p>
+            <ErrorValidationText>{errors.drink.message}</ErrorValidationText>
           )}
         </div>
 
@@ -101,10 +102,9 @@ export const RecipeDescriptionFields = ({
               onChange={handleInputChange}
             />
           </Label>
+
           {errors.about && (
-            <p style={{ color: 'deeppink' }}>
-              {'Tell us a few words about your drink'}
-            </p>
+            <ErrorValidationText>{errors.about.message}</ErrorValidationText>
           )}
         </div>
 
@@ -130,8 +130,9 @@ export const RecipeDescriptionFields = ({
               </Label>
             )}
           />
+
           {errors.category && (
-            <p style={{ color: 'deeppink' }}>{'Chose the category of drink'}</p>
+            <ErrorValidationText>{errors.category.message}</ErrorValidationText>
           )}
         </div>
 
@@ -157,12 +158,9 @@ export const RecipeDescriptionFields = ({
               </Label>
             )}
           />
+
           {errors.glass && (
-            <p style={{ color: 'deeppink' }}>
-              {
-                'Chose the glass that you think is the best to use with your drink'
-              }
-            </p>
+            <ErrorValidationText>{errors.glass.message}</ErrorValidationText>
           )}
         </div>
       </TextFieldsWrapper>
@@ -183,7 +181,10 @@ RecipeDescriptionFields.propTypes = {
     drinkThumb: PropTypes.object,
     glass: PropTypes.object,
     ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
-    instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    instructions: PropTypes.oneOfType([
+      PropTypes.string.isRequired,
+      PropTypes.arrayOf(PropTypes.string.isRequired),
+    ]).isRequired,
   }).isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleSelectChange: PropTypes.func.isRequired,

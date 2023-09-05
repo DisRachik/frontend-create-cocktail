@@ -15,6 +15,7 @@ import {
   selectStyles,
   measureSelectStyles,
 } from './RecipeIngredientsFields.styled';
+import { ErrorValidationText } from '../ErrorValidationText/ErrorValidationText.styled';
 // Icons
 import { IoMdClose } from 'react-icons/io';
 // Constants
@@ -28,6 +29,8 @@ export const RecipeIngredientsFields = ({
   state,
   handleSelectChange,
 }) => {
+  console.log('⚡️ - errors - ⚡️', errors);
+
   const { fields, append, remove } = useFieldArray({
     name: 'ingredients',
     control,
@@ -81,6 +84,12 @@ export const RecipeIngredientsFields = ({
                 )}
               />
 
+              {errors.ingredients && errors.ingredients[index] && (
+                <ErrorValidationText>
+                  {errors.ingredients[index].title?.message}
+                </ErrorValidationText>
+              )}
+
               <Controller
                 name={`ingredients.${index}.measure`}
                 control={control}
@@ -100,6 +109,12 @@ export const RecipeIngredientsFields = ({
                 )}
               />
 
+              {errors.ingredients && errors.ingredients[index] && (
+                <ErrorValidationText>
+                  {errors.ingredients[index].measure?.message}
+                </ErrorValidationText>
+              )}
+
               <RemoveBtn type="button" onClick={() => handleRemoveField(index)}>
                 <IoMdClose size={18} />
               </RemoveBtn>
@@ -107,10 +122,6 @@ export const RecipeIngredientsFields = ({
           );
         })}
       </SelectList>
-
-      {errors.ingredients?.length > 0 && (
-        <p style={{ color: 'deeppink' }}>{'Provide at least 2 ingredients'}</p>
-      )}
     </IngredientsBox>
   );
 };
@@ -127,7 +138,10 @@ RecipeIngredientsFields.propTypes = {
     drinkThumb: PropTypes.object,
     glass: PropTypes.object,
     ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
-    instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    instructions: PropTypes.oneOfType([
+      PropTypes.string.isRequired,
+      PropTypes.arrayOf(PropTypes.string.isRequired),
+    ]).isRequired,
   }).isRequired,
   handleSelectChange: PropTypes.func.isRequired,
 };

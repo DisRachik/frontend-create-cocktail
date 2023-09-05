@@ -206,7 +206,7 @@ export const selectStyles = {
       gap: '8px',
     },
 
-    // ============== scrollbar ==============
+    //  ============== scrollbar ==============
 
     '&::-webkit-scrollbar': {
       width: '20px',
