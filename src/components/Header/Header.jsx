@@ -1,12 +1,14 @@
 import { FiAlignJustify } from 'react-icons/fi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Container, Logo, Navigation, UserLogo } from 'components';
+
 import {
   BurgerMenu,
   FlexWrapper,
   HeaderContainer,
   UserBox,
 } from './Header.styled';
+
 import { useEffect, useState } from 'react';
 
 import { BurgerMenuNavigation } from 'components/BurgerMenuNavigation/BurgerMenuNavigation';

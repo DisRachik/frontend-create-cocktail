@@ -8,26 +8,77 @@ import {
   ContentText,
   MotivationWindow,
 } from './MotivationModal.styled';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
-export const MotivationModal = ({ text, image, onCLick }) => {
+const modalRoot = document.querySelector('#modal-root');
+
+export const MotivationModal = ({ text, favorite, counter, signin }) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleCloseOverlay = event => {
+    if (event.target === event.currentTarget) {
+      setIsOpen(prevState => !prevState);
+    }
+  };
+
+  useEffect(() => {
+    const handleCloseEsc = evt => {
+      if (evt.code === 'Escape') {
+        setIsOpen(false);
+        return;
+      }
+    };
+    document.addEventListener('keydown', handleCloseEsc);
+    return () => {
+      document.removeEventListener('keydown', handleCloseEsc);
+    };
+  }, []);
+
+  const isModalOpen = () => {
+    if (isOpen) {
+      return (document.body.style.overflow = 'hidden');
+    }
+    return (document.body.style.overflow = 'auto');
+  };
+
+  isModalOpen();
+
   return (
-    <Backdrop>
-      <MotivationWindow image={image}>
-        <ContentBox>
-          <ContentText>
-            {/* Wow!Yoy have been using the aplication for 100 days */} {text}
-          </ContentText>
-          <CloseBtn onClick={onCLick}>
-            <AiOutlineClose size={20} />
-          </CloseBtn>
-        </ContentBox>
-      </MotivationWindow>
-    </Backdrop>
+    <>
+      {isOpen &&
+        createPortal(
+          <Backdrop onClick={handleCloseOverlay}>
+            {/* <MotivationWindow image={image}> */}
+            <MotivationWindow
+              favorite={favorite}
+              counter={counter}
+              signin={signin}
+            >
+              <ContentBox>
+                <ContentText>
+                  {/* Wow!Yoy have been using the aplication for 100 days */}{' '}
+                  {text}
+                </ContentText>
+                <CloseBtn
+                  onClick={() => {
+                    setIsOpen(prevState => !prevState);
+                  }}
+                >
+                  <AiOutlineClose size={20} />
+                </CloseBtn>
+              </ContentBox>
+            </MotivationWindow>
+          </Backdrop>,
+          modalRoot
+        )}
+    </>
   );
 };
 
 MotivationModal.propTypes = {
-  onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
-  image: PropTypes.any.isRequired,
+  favorite: PropTypes.bool,
+  signin: PropTypes.bool,
+  counter: PropTypes.number,
 };
