@@ -16,3 +16,4 @@ export const uniqueCategories = [
   'Shake',
   'Other/Unknown',
 ];
+

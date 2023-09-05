@@ -1,113 +1,69 @@
-# React homework template
+<h1 align="center"> 🍹 Drink-master 🍸 </h1>
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+<h2 align="center"> A Collection of Delicious Cocktail Recipes </h2>
 
-## Создание репозитория по шаблону
+<span align="center"> 
+  
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
+![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
+![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)&nbsp;
+![Redux](https://img.shields.io/badge/-Redux-05122A?style=flat&logo=redux)&nbsp;
+![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=Node.js)&nbsp;
+![Express.js](https://img.shields.io/badge/-Express.js-05122A?style=flat&logo=express)&nbsp;
+![Mongoose](https://img.shields.io/badge/-Mongoose-05122A?style=flat&logo=Mongoose)&nbsp;
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+</span>
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+<h3 align="center"> 🍸 Explore, Mix, and Enjoy! 🎉 </h3>
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+## Description
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+Welcome to Drink-master, your go-to source for discovering and mixing amazing cocktail concoctions! Whether you're a professional bartender or just looking to impress your friends, we've got you covered.
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+Our web app provides a wide range of cocktail recipes, from classics like the Margarita to unique creations you've never heard of. With our user-friendly interface, you can easily browse, search, and find the perfect cocktail for any occasion.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+**Key Features:**
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+🍹 Extensive collection of cocktail recipes.
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+🔍 Search by name, category, or ingredient.
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
+📖 Detailed instructions for each cocktail.
 
-## Подготовка к работе
+📸 Beautiful images of each cocktail.
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+📚 Save your favorite recipes.
 
-## Деплой
+🍻 Explore and share with friends.
 
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+🍸 Create your own cocktails.
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+## Getting Started
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+Use this link to open the app: https://disrachik.github.io/frontend-create-cocktail/
 
-![GitHub Pages settings](./assets/repo-settings.png)
+Link API: https://drink-master-db.onrender.com
 
-### Статус деплоя
+Link swagger: https://drink-master-db.onrender.com/api/docs/
 
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
+Link backend repositories : https://github.com/8Yurii8/Drink-master-DB
 
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
+## Developers Team
 
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
+<h3 align="center"> ℹ️ &nbsp; Developers Team   🚀 <h3>
+<span align="center"> 
+  
+<a align="center" href="https://github.com/8Yurii8">![GitHub](https://img.shields.io/badge/-Yurii_Degtyarenko-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/andysush">![GitHub](https://img.shields.io/badge/-Andrii_Sushko-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/AndreyTarkaniy">![GitHub](https://img.shields.io/badge/-Andrew_Tarkaniy-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/DisRachik">![GitHub](https://img.shields.io/badge/-Ihor_Radchenko-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Hruchman-Ruslan">![GitHub](https://img.shields.io/badge/-Ruslan_Hruchman-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Yuliya1913">![GitHub](https://img.shields.io/badge/-Yuliya_Futuymas-FF69B4?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Serhii-Ivasiuk">![GitHub](https://img.shields.io/badge/-Serhii_Ivasiuk-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/d1mkn">![GitHub](https://img.shields.io/badge/-Dmytro_Hubin-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Pro100D">![GitHub](https://img.shields.io/badge/-Danil_Takiullin-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Natali9108">![GitHub](https://img.shields.io/badge/-Natalia_Haponova-FF69B4?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/VladimirMV">![GitHub](https://img.shields.io/badge/-Vladimir_Minakov-05122A?style=flat&logo=github)</a>
 
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+</span>

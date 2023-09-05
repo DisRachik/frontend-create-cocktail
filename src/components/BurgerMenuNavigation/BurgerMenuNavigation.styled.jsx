@@ -9,21 +9,38 @@ export const NavigationWrap = styled.div`
   top: 85px;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: ${({ theme }) => theme.colors.black};
   transition: ${theme.animation('visibility')};
   transition: ${theme.animation('opacity')};
 `;
 
+export const ScrrolWrrap = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+
+  overflow-y: auto;
+`;
+
 export const NavList = styled.ul`
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%); */
+
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  transform: translate(-50%, -50%);
+
   background-color: ${({ theme }) => theme.colors.black};
 `;
 
@@ -41,10 +58,12 @@ export const Li = styled.li`
 export const MenuLink = styled(NavLink)`
   display: block;
   padding: 8px 16px;
+
   font-weight: 500;
   font-size: ${({ theme }) => theme.fontSizes.small};
   line-height: calc(22.4 / 14);
   text-decoration: none;
+
   border-radius: 40px;
   border: ${({ theme }) => theme.colors.steelBlue} solid 1px;
 
