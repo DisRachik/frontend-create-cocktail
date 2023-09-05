@@ -63,4 +63,6 @@ const authSlice = createSlice({
       }),
 });
 
+export const { resetTokenCount } = authSlice.actions;
+
 export const authReducer = authSlice.reducer;
