@@ -153,6 +153,9 @@ export const selectStyles = {
     paddingTop: '2px',
     lineHeight: 'normal',
     color: `${theme.colors.lightGray}`,
+    '@media (min-width: 768px)': {
+      lineHeight: 'calc(26.52 / 17)',
+    },
   }),
 
   input: baseStyles => ({

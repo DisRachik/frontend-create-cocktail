@@ -3,20 +3,16 @@ import { theme } from 'styles';
 import { Link } from 'react-router-dom';
 export const CategorySectionWrap = styled.section`
  
-  // outline: 1px solid tomato;
   max-width: 1240px;
   min-height: 100%;
   margin: 0 auto;
-    // padding: 80px 20px;
-
+  padding: 40px 32px;
   @media (min-width: 768px) {
-    // padding: 80px 32px;
-    // gap: 28px;
+     padding: 80px 20px;
   }
 
   @media (min-width: 1200px) {
    
-    // gap: 28px;
     padding-bottom: 80px;
     padding: 100px, 0;
     
@@ -26,17 +22,21 @@ export const CategorySectionWrap = styled.section`
 export const CategorySectionTitle = styled(Link)`
   max-width: 715px;
   color: ${theme.colors.lightGray};
-  // margin-left: 100px;
-
-  //   font-size: ${theme.fontSizes.sectionTitle};
   font-weight: 600;
   line-height: 1.0625;
   font-family: Manrope;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 44px;
+  font-size:  ${theme.fontSizes.titlePhone};
   letter-spacing: 0em;
   text-align: left;
+
+  @media (min-width: 768px) {
+   font-size:  ${theme.fontSizes.title}; 
+    }
+
+    @media (min-width: 1200px) {
+      font-size:  ${theme.fontSizes.title}; 
+    }
+
   &:hover {
     color: ${theme.colors.lightGray};
     background-color: transparent;
