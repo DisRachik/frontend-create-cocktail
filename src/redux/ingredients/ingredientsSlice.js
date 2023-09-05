@@ -9,6 +9,18 @@ const initialState = {
   error: null,
 };
 
+// 'auth/signout/fulfilled'
+
+const isSingOutAction = action => {
+  return action.type.endsWith('/fulfilled') && action.type.includes('signout');
+};
+
+const handleSingOut = state => {
+  state.items = [];
+  state.isLoading = false;
+  state.error = null;
+};
+
 const isPendingAction = action => {
   return (
     action.type.endsWith('/pending') && action.type.includes('ingredients')
@@ -44,7 +56,8 @@ const ingredientsSlice = createSlice({
     builder
       .addCase(fetchIngredients.fulfilled, handleFetchIngredientsFulfilled)
       .addMatcher(isPendingAction, handlePending)
-      .addMatcher(isRejectedAction, handleRejected);
+      .addMatcher(isRejectedAction, handleRejected)
+      .addMatcher(isSingOutAction, handleSingOut);
   },
 });
 
