@@ -23,21 +23,37 @@ export const PaginListItem = styled.li`
   }
 `;
 export const ArrowBtn = styled.button`
-  :hover,
-  :focus {
-    color: ${theme.colors.lightGrayTransparent};
-    scale: 1.5;
+  transition: ${theme.animation('opacity')};
+
+  &:disabled {
+    opacity: 0;
   }
 `;
 export const ArrowPrev = styled(MdOutlineKeyboardArrowLeft)`
-  color: ${theme.colors.transparentLight};
-  width: 18px;
-  height: 25px;
+  color: ${theme.colors.lightGrayTransparent};
+  width: 28px;
+  height: 35px;
+  transition: ${theme.animation('color')};
+  transition: ${theme.animation('scale')};
+
+  :hover,
+  :focus {
+    color: ${theme.colors.lightGray};
+    scale: 1.5;
+  }
 `;
 export const ArrowNext = styled(MdOutlineKeyboardArrowRight)`
-  color: rgba(243, 243, 243, 0.3);
-  width: 18px;
-  height: 25px;
+  color: ${theme.colors.lightGray};
+  width: 28px;
+  height: 35px;
+  transition: ${theme.animation('color')};
+  transition: ${theme.animation('scale')};
+
+  :hover,
+  :focus {
+    color: ${theme.colors.lightGray};
+    scale: 1.5;
+  }
 `;
 
 export const BtnItem = styled.button`
@@ -46,6 +62,9 @@ export const BtnItem = styled.button`
   width: 27px;
   height: 27px;
   margin-bottom: 10px;
+  transition: ${theme.animation('scale')};
+  transition: ${theme.animation('background-color')};
+  transition: ${theme.animation('color')};
 
   &:focus,
   :hover {
@@ -54,5 +73,6 @@ export const BtnItem = styled.button`
 
   &.active {
     background-color: rgba(64, 112, 205, 0.5);
+    color: ${theme.colors.lightGray};
   }
 `;
