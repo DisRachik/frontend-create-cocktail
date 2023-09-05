@@ -46,5 +46,10 @@ export const theme = Object.freeze({
     light: '2px 2px 25px rgba(255, 255, 255, 0.99)',
   },
 
-  animation: value => `${value} 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)`,
+  animation: value => {
+    const animationValue = value.split(',').map(property => {
+      return `${property.trim()} 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)`;
+    });
+    return animationValue.join(', ');
+  },
 });

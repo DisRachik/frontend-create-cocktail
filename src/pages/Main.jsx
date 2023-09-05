@@ -11,6 +11,8 @@ import { uniqueCategories } from 'constans';
 import { nanoid } from '@reduxjs/toolkit';
 import React, { useEffect, useState } from 'react';
 import { getMainRecipes } from 'api';
+import { useSelector } from 'react-redux';
+import { selectTokenCount } from 'redux/auth/selectors';
 // import { useSelector } from 'react-redux';
 // import { selectUser } from 'redux/auth/selectors';
 // import { praiseModal } from 'helpers';
@@ -20,7 +22,9 @@ const Main = () => {
   const navigate = useNavigate();
   // const [showModal, setShowModal] = useState(0);
   // const { tokenCount } = useSelector(selectUser);
+  const tokenCount = useSelector(selectTokenCount);
   // const messagePraise = praiseModal(tokenCount, 'signin');
+  console.log(tokenCount);
 
   // useEffect(() => {
   //   if (messagePraise) {

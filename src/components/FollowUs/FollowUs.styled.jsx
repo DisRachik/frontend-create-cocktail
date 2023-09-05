@@ -21,12 +21,13 @@ export const Item = styled.li`
   border-radius: 10px;
   transition: filter linear 200ms, scale linear 200ms;
 
+  transition: ${props =>
+    props.theme.animation('transform, color, box-shadow, border')};
+
   &:hover {
     color: ${theme.colors.lightGray};
-    background-color: transparent;
     box-shadow: ${theme.shadows.regular};
     transform: scale(1);
-    border-radius: 10px;
     border: none;
   }
 `;

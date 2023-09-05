@@ -37,6 +37,9 @@ export const MenuLink = styled(NavLink)`
 
   color: ${({ theme }) => theme.colors.lightGray};
 
+  transition: ${props =>
+    props.theme.animation('background-color, color, border-color')};
+
   :hover,
   :focus {
     background-color: ${({ theme }) => theme.colors.steelBlue};
