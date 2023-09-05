@@ -32,7 +32,7 @@ export const ImageDrinks = styled.img`
 
   @media screen and (min-width: 768px) {
     width: 342px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     border-radius: 8px;
   }
 
