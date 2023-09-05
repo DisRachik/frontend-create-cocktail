@@ -25,7 +25,7 @@ export const PaginListItem = styled.li`
 export const ArrowBtn = styled.button`
   :hover,
   :focus {
-    color: rgba(243, 243, 243, 0.6);
+    color: ${theme.colors.lightGrayTransparent};
     scale: 1.5;
   }
 `;
@@ -41,7 +41,7 @@ export const ArrowNext = styled(MdOutlineKeyboardArrowRight)`
 `;
 
 export const BtnItem = styled.button`
-  color: rgba(243, 243, 243, 1);
+  color: ${theme.colors.transparentLight};
   border-radius: 50%;
   width: 27px;
   height: 27px;
