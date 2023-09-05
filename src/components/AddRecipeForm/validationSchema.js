@@ -42,14 +42,14 @@ export const validationSchema = yup.object().shape({
               label: yup.string().required(),
               value: yup.string().required(),
             })
-            .required('Chose the ingredient'),
+            .required('Chose ingredient'),
           measure: yup
             .object()
             .shape({
               label: yup.string().required(),
               value: yup.string().required(),
             })
-            .required('Chose the quantity'),
+            .required('Chose quantity'),
         })
         .required()
     )

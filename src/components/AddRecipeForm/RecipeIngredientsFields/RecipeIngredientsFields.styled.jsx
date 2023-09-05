@@ -35,7 +35,17 @@ export const SelectListItem = styled.li`
   gap: 8px;
 `;
 
+export const TitleBox = styled.div`
+  width: 58%;
+`;
+
+export const MeasureBox = styled.div`
+  width: 35%;
+`;
+
 export const RemoveBtn = styled.button`
+  position: relative;
+  width: 26px;
   margin-left: auto;
   color: ${theme.colors.lightGrayTransparent};
 
@@ -43,12 +53,24 @@ export const RemoveBtn = styled.button`
   &:focus {
     color: ${theme.colors.lightGray};
   }
+
+  > svg {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 26px;
+    height: 26px;
+
+    @media screen and (min-width: 768px) {
+      top: 15px;
+    }
+  }
 `;
 
 export const selectStyles = {
   container: baseStyles => ({
     ...baseStyles,
-    width: '60%',
+    width: '100%',
   }),
 
   control: baseStyles => ({
@@ -113,6 +135,8 @@ export const selectStyles = {
   placeholder: baseStyles => ({
     ...baseStyles,
     textWrap: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   }),
 
   indicatorSeparator: () => ({
@@ -122,11 +146,6 @@ export const selectStyles = {
 
 export const measureSelectStyles = {
   ...selectStyles,
-
-  container: baseStyles => ({
-    ...baseStyles,
-    width: '35%',
-  }),
 
   menuList: baseStyles => ({
     ...baseStyles,

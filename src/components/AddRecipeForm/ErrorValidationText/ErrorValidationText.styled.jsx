@@ -8,8 +8,11 @@ export const ErrorValidationText = styled.p`
   letter-spacing: -0.28px;
   color: deeppink;
 
+  @media screen and (max-width: 374.98px) {
+    text-align: center;
+  }
+
   @media screen and (min-width: 768px) {
-    margin-top: 10px;
     font-size: 16px;
     letter-spacing: -0.32px;
   }

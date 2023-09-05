@@ -12,6 +12,8 @@ import {
   IngredientsTitle,
   SelectList,
   SelectListItem,
+  TitleBox,
+  MeasureBox,
   RemoveBtn,
   selectStyles,
   measureSelectStyles,
@@ -66,55 +68,57 @@ export const RecipeIngredientsFields = ({
         {fields.map((field, index) => {
           return (
             <SelectListItem key={field.id}>
-              <Controller
-                name={`ingredients.${index}.title`}
-                control={control}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    placeholder="Select from options..."
-                    unstyled
-                    styles={selectStyles}
-                    options={ingredientsList}
-                    defaultValue={state.ingredients[index]}
-                    onChange={selectedOption => {
-                      field.onChange(selectedOption);
-                      handleSelectChange('ingredients');
-                    }}
-                  />
+              <TitleBox>
+                <Controller
+                  name={`ingredients.${index}.title`}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      placeholder="Select from options..."
+                      unstyled
+                      styles={selectStyles}
+                      options={ingredientsList}
+                      defaultValue={state.ingredients[index]}
+                      onChange={selectedOption => {
+                        field.onChange(selectedOption);
+                        handleSelectChange('ingredients');
+                      }}
+                    />
+                  )}
+                />
+                {errors.ingredients && errors.ingredients[index] && (
+                  <ErrorValidationText>
+                    {errors.ingredients[index].title?.message}
+                  </ErrorValidationText>
                 )}
-              />
+              </TitleBox>
 
-              {errors.ingredients && errors.ingredients[index] && (
-                <ErrorValidationText>
-                  {errors.ingredients[index].title?.message}
-                </ErrorValidationText>
-              )}
-
-              <Controller
-                name={`ingredients.${index}.measure`}
-                control={control}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    placeholder="Select..."
-                    unstyled
-                    styles={measureSelectStyles}
-                    options={measureList}
-                    defaultValue={state.ingredients[index]}
-                    onChange={selectedOption => {
-                      field.onChange(selectedOption);
-                      handleSelectChange('ingredients');
-                    }}
-                  />
+              <MeasureBox>
+                <Controller
+                  name={`ingredients.${index}.measure`}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      placeholder="Select..."
+                      unstyled
+                      styles={measureSelectStyles}
+                      options={measureList}
+                      defaultValue={state.ingredients[index]}
+                      onChange={selectedOption => {
+                        field.onChange(selectedOption);
+                        handleSelectChange('ingredients');
+                      }}
+                    />
+                  )}
+                />
+                {errors.ingredients && errors.ingredients[index] && (
+                  <ErrorValidationText>
+                    {errors.ingredients[index].measure?.message}
+                  </ErrorValidationText>
                 )}
-              />
-
-              {errors.ingredients && errors.ingredients[index] && (
-                <ErrorValidationText>
-                  {errors.ingredients[index].measure?.message}
-                </ErrorValidationText>
-              )}
+              </MeasureBox>
 
               <RemoveBtn type="button" onClick={() => handleRemoveField(index)}>
                 <IoMdClose size={18} />
