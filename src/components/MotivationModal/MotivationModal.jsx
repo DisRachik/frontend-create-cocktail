@@ -13,7 +13,7 @@ import { createPortal } from 'react-dom';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const MotivationModal = ({ text, image }) => {
+export const MotivationModal = ({ text, favorite, counter, signin }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const handleCloseOverlay = event => {
@@ -50,7 +50,11 @@ export const MotivationModal = ({ text, image }) => {
         createPortal(
           <Backdrop onClick={handleCloseOverlay}>
             {/* <MotivationWindow image={image}> */}
-            <MotivationWindow>
+            <MotivationWindow
+              favorite={favorite}
+              counter={counter}
+              signin={signin}
+            >
               <ContentBox>
                 <ContentText>
                   {/* Wow!Yoy have been using the aplication for 100 days */}{' '}

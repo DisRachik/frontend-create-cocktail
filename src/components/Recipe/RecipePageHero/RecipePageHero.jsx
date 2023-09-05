@@ -32,6 +32,7 @@ export const RecipePageHeader = ({
   const [drinkFavoriteUsers, setDrinkFavoriteUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [praiseText, setPraiseText] = useState(null);
+  const [counterFavorite, setCounterFavorite] = useState(null);
   const user = useSelector(selectUser);
 
   useEffect(() => {
@@ -56,8 +57,10 @@ export const RecipePageHeader = ({
         );
       } else {
         await addToFavorites(recipeId).then(response => {
-          const text = praiseModal(response.totalCountAddedByUser, 'favorite');
-          setPraiseText(text);
+          setCounterFavorite(response.totalCountAddedByUser);
+          setPraiseText(
+            praiseModal(response.totalCountAddedByUser, 'favorite')
+          );
           toast.success(response.message);
         });
         setDrinkFavoriteUsers(newFavorites => [
@@ -80,7 +83,13 @@ export const RecipePageHeader = ({
   return (
     <HeroWrap>
       <LeftSideWrap>
-        {praiseText && <MotivationModal text={praiseText} />}
+        {praiseText && (
+          <MotivationModal
+            text={praiseText}
+            favorite
+            counter={counterFavorite}
+          />
+        )}
         <CocktailGlass>{glass}</CocktailGlass>
         <CocktailTitle>{drink}</CocktailTitle>
         <CocktailDescription>{desc}</CocktailDescription>
