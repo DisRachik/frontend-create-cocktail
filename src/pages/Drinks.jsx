@@ -127,6 +127,16 @@ const Drinks = () => {
 
   return (
     <Section title="Drinks">
+      <DrinkSearchBar
+        onSubmit={handleSubmit(onSubmit)}
+        control={control}
+        categoriesList={categoriesList}
+        ingredientsList={ingredientsList}
+        onChangeCategory={handleCategoryChange}
+        onChangeIngredient={handleIngredientChange}
+        initialCategory={searchParams.get('category')}
+        initialIngredient={searchParams.get('ingredients')}
+      />
       {drinks.length === 0 ? (
         <EmptyAndError
           text={
@@ -135,16 +145,6 @@ const Drinks = () => {
         />
       ) : (
         <>
-          <DrinkSearchBar
-            onSubmit={handleSubmit(onSubmit)}
-            control={control}
-            categoriesList={categoriesList}
-            ingredientsList={ingredientsList}
-            onChangeCategory={handleCategoryChange}
-            onChangeIngredient={handleIngredientChange}
-            initialCategory={searchParams.get('category')}
-            initialIngredient={searchParams.get('ingredients')}
-          />
           <DrinkList drinks={drinks} />
           <Pagination
             paginate={paginate}
