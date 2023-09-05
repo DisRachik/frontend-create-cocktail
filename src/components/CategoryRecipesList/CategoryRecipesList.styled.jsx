@@ -32,12 +32,12 @@ export const ButtonContainer = styled.div`
   max-width: 1200px;
   min-height: 100%;
   margin: 0 auto;
-  padding: 80px 0px;
+  padding-bottom:  80px;
   display: flex-inline;
   justify-content: center;
   align-items: center;
   text-align: center;
   @media screen and (min-width: 768px) {
-    padding: 140px 0px;
+    padding-bottom:  140px ;
   }
 `;

@@ -17,12 +17,14 @@ export const MainSectionWrap = styled.section`
   @media (min-width: 768px) {
     padding: 140px 32px;
     height: 1001px;
+    margin-bottom: 140px;
   }
 
   @media (min-width: 1440px) {
     padding: 160px 100px 140px 100px;
     max-width: 1440px;
     height: 790px;
+    margin-bottom: 140px;
   }
 `;
 

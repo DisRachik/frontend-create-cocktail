@@ -8,13 +8,14 @@ export const CategorySectionWrap = styled.section`
   margin: 0 auto;
   padding: 40px 32px;
   @media (min-width: 768px) {
-     padding: 80px 20px;
+     padding: 0 20px;
+     padding-bottom: 80px;
   }
 
   @media (min-width: 1200px) {
-   
-    padding-bottom: 80px;
     padding: 100px, 0;
+    padding-bottom: 80px;
+    
     
   }
 `;
