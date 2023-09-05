@@ -19,6 +19,7 @@ export const Item = styled.li`
   padding: 8px;
   border: 1px solid ${theme.colors.gray};
   border-radius: 10px;
+
   transition: filter linear 200ms, scale linear 200ms;
 
   &:hover {
@@ -35,6 +36,8 @@ export const Link = styled.a`
   width: 22px;
   height: 22px;
 
+  color: ${theme.colors.lightGray};
+
   @media (min-width: 768px) {
     width: 28px;
     height: 28px;
@@ -43,7 +46,8 @@ export const Link = styled.a`
 export const FacebookIcon = styled(BiLogoFacebook)`
   width: 22px;
   height: 22px;
-  color: ${theme.colors.lightGray};
+
+  color: currentColor;
 
   @media (min-width: 768px) {
     width: 28px;
