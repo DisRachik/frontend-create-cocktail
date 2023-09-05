@@ -38,7 +38,7 @@ export const RecipeIngredientsFields = ({
   });
 
   const handleAddField = () => {
-    append({ title: '', measure: '' });
+    append({ title: null, measure: null });
 
     handleSelectChange('ingredients');
   };
