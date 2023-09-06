@@ -8,7 +8,7 @@ export const CategoryItem = styled.li`
     rgba(10, 10, 17, 0.024) 51.18%,
     rgba(10, 10, 17, 0.768) 97.66%
   );
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 320px) {
     width: 335px;
   }
 
@@ -55,7 +55,7 @@ export const TitleDrinks = styled.p`
   font-size: ${theme.fontSizes.large};
   line-height: calc(24 / 18);
   margin-bottom: 4px;
-  margin-right: 20px;  
+  padding-right: 20px;  
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
