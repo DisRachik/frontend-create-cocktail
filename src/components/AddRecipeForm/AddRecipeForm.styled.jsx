@@ -2,8 +2,6 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
-  overflow: hidden;
-
   @media screen and (min-width: 768px) {
     width: 100%;
   }

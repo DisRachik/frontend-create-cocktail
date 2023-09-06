@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 // Components
 import { RecipeDescriptionFields } from './RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredientsFields } from './RecipeIngredientsFields/RecipeIngredientsFields';
@@ -30,6 +31,7 @@ import { addRecipe } from 'api';
 // Other
 import { formSettings } from './formSettings';
 import { initialValues } from './initialValues';
+import { allowedImagesMimeTypes } from 'constans';
 // Data
 const measureList = Array.from({ length: 30 }, (_, index) => {
   const value = index + 1;
@@ -50,7 +52,9 @@ export const AddRecipeForm = () => {
 
   const [formState, setFormState] = useState({ ...initialValues });
   const [isLoading, setIsLoading] = useState(false);
+  const [isAllowedFileType, setIsAllowedFileType] = useState(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const categories = useSelector(selectCategories.data);
   const glasses = useSelector(selectGlasses.data);
@@ -63,19 +67,38 @@ export const AddRecipeForm = () => {
     measure: measureList,
   };
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
     Promise.all([
       dispatch(fetchCategories()),
       dispatch(fetchGlasses()),
       dispatch(fetchIngredients()),
     ]).catch(() =>
-      console.error('Oops... Something went wrong :( Please try again later.')
+      toast.error('Oops... Something went wrong :( Please try again later.')
     );
   }, [dispatch]);
 
+  const checkFileType = file => {
+    const isAllowedFile = allowedImagesMimeTypes.includes(file.type);
+
+    if (!isAllowedFile) {
+      setIsAllowedFileType(false);
+      toast.error('Invalid file type');
+      return;
+    } else {
+      setIsAllowedFileType(true);
+    }
+  };
+
   const handleFormSubmit = async data => {
+    if (!isAllowedFileType) {
+      window.scrollTo({
+        top: 0,
+        right: 0,
+        behavior: 'smooth',
+      });
+      return toast.error('Invalid file type.');
+    }
+
     const reqBody = normalizeAddRecipeRequestData(
       data,
       ingredients,
@@ -90,8 +113,8 @@ export const AddRecipeForm = () => {
       setFormState({ ...initialValues });
       reset({ ...initialValues });
       navigate('/my');
-    } catch (error) {
-      console.log(error);
+    } catch {
+      toast.error('Oops... Something went wrong :( Please try again later.');
     } finally {
       setIsLoading(false);
     }
@@ -99,12 +122,14 @@ export const AddRecipeForm = () => {
 
   const handleFileInputChange = evt => {
     const fieldName = evt.target.name;
-    const value = evt.target.files[0];
+    const file = evt.target.files[0];
 
     setFormState(prevState => ({
       ...prevState,
-      [fieldName]: value,
+      [fieldName]: file,
     }));
+
+    if (file) checkFileType(file);
   };
 
   const handleInputChange = evt => {
@@ -145,6 +170,7 @@ export const AddRecipeForm = () => {
           categoriesList={data.categories}
           glassesList={data.glasses}
           state={formState}
+          isAllowedFileType={isAllowedFileType}
           handleFileInputChange={handleFileInputChange}
           handleInputChange={handleInputChange}
           handleSelectChange={handleSelectChange}

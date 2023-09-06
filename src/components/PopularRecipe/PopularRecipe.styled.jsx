@@ -10,7 +10,6 @@ export const CocktailList = styled.ul`
   @media screen and (min-width: 768px) and (max-width: 1199.98px) {
     flex-direction: row;
     flex-wrap: wrap;
-    flex-basis: 50%;
     gap: 32px;
   }
 
