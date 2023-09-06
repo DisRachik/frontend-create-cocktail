@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/frontend-create-cocktail/static/css/main.1a24fdc4.css",
-    "main.js": "/frontend-create-cocktail/static/js/main.3103f3e0.js",
+    "main.js": "/frontend-create-cocktail/static/js/main.fa8a141a.js",
     "static/js/758.af89434a.chunk.js": "/frontend-create-cocktail/static/js/758.af89434a.chunk.js",
-    "static/js/318.963c1402.chunk.js": "/frontend-create-cocktail/static/js/318.963c1402.chunk.js",
+    "static/js/318.fb9984ed.chunk.js": "/frontend-create-cocktail/static/js/318.fb9984ed.chunk.js",
     "static/js/643.d3316abc.chunk.js": "/frontend-create-cocktail/static/js/643.d3316abc.chunk.js",
     "static/js/865.e2ecea4e.chunk.js": "/frontend-create-cocktail/static/js/865.e2ecea4e.chunk.js",
     "static/js/192.6e419c28.chunk.js": "/frontend-create-cocktail/static/js/192.6e419c28.chunk.js",
@@ -36,9 +36,9 @@
     "index.html": "/frontend-create-cocktail/index.html",
     "static/media/Vector 2.svg": "/frontend-create-cocktail/static/media/Vector 2.a98ff0c3b32b59970ff5921b87c86c12.svg",
     "main.1a24fdc4.css.map": "/frontend-create-cocktail/static/css/main.1a24fdc4.css.map",
-    "main.3103f3e0.js.map": "/frontend-create-cocktail/static/js/main.3103f3e0.js.map",
+    "main.fa8a141a.js.map": "/frontend-create-cocktail/static/js/main.fa8a141a.js.map",
     "758.af89434a.chunk.js.map": "/frontend-create-cocktail/static/js/758.af89434a.chunk.js.map",
-    "318.963c1402.chunk.js.map": "/frontend-create-cocktail/static/js/318.963c1402.chunk.js.map",
+    "318.fb9984ed.chunk.js.map": "/frontend-create-cocktail/static/js/318.fb9984ed.chunk.js.map",
     "643.d3316abc.chunk.js.map": "/frontend-create-cocktail/static/js/643.d3316abc.chunk.js.map",
     "865.e2ecea4e.chunk.js.map": "/frontend-create-cocktail/static/js/865.e2ecea4e.chunk.js.map",
     "192.6e419c28.chunk.js.map": "/frontend-create-cocktail/static/js/192.6e419c28.chunk.js.map",
@@ -52,6 +52,6 @@
   },
   "entrypoints": [
     "static/css/main.1a24fdc4.css",
-    "static/js/main.3103f3e0.js"
+    "static/js/main.fa8a141a.js"
   ]
 }
