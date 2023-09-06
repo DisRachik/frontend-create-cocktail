@@ -46,7 +46,7 @@ export const DrinkSearchBar = ({
           name="drink"
           control={control}
           render={({ field }) => (
-            <Input {...field} placeholder="Enter the text" />
+            <Input {...field} placeholder="Enter the text" autocomplete="off" />
           )}
         />
         <SearchBtn type="submit">
