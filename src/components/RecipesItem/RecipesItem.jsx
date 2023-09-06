@@ -78,7 +78,7 @@ export const RecipesItem = ({
           type="button"
           onClick={() => setIsOpen(prevState => !prevState)}
         >
-          <RiDeleteBinLine />
+          <RiDeleteBinLine size={24} />
         </DeleteFavoriteDrinksBtn>
 
         {isOpen && (

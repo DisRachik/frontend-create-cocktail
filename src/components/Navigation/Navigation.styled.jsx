@@ -9,7 +9,6 @@ export const NavList = styled.ul`
   list-style: none;
 
   background-color: ${({ theme }) => theme.colors.black};
-  /* background-color: red; */
 
   background-image: radial-gradient(
       circle at 700px 0px,
@@ -36,6 +35,9 @@ export const MenuLink = styled(NavLink)`
   text-decoration: none;
 
   color: ${({ theme }) => theme.colors.lightGray};
+
+  transition: ${props =>
+    props.theme.animation('background-color, color, border-color')};
 
   :hover,
   :focus {

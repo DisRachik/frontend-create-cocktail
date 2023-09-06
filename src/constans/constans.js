@@ -17,3 +17,9 @@ export const uniqueCategories = [
   'Other/Unknown',
 ];
 
+export const allowedImagesMimeTypes = [
+  'image/jpg',
+  'image/jpeg',
+  'image/png',
+  'image/bmp',
+];

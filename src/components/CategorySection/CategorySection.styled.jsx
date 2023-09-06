@@ -3,18 +3,19 @@ import { theme } from 'styles';
 import { Link } from 'react-router-dom';
 export const CategorySectionWrap = styled.section`
  
-  max-width: 1240px;
+  max-width: 1440px;
   min-height: 100%;
   margin: 0 auto;
   padding: 0 20px;
   padding-bottom: 40px;
+
   @media (min-width: 768px) {
      padding: 0 32px;
      padding-bottom: 80px;
   }
 
   @media (min-width: 1200px) {
-    padding: 100px, 0;
+    padding: 0 100px;
     padding-bottom: 80px;
     
     

@@ -17,16 +17,10 @@ export const DescriptionBox = styled.div`
 `;
 
 export const FileInputBox = styled.div`
-  height: auto;
-  aspect-ratio: 1 / 1;
-  width: auto;
-
   @media screen and (max-width: 767.98px) {
-    max-width: 400px;
-    max-height: 400px;
+    width: 100%;
+    max-width: 100%;
     margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
   }
 `;
 
@@ -36,16 +30,37 @@ export const CustomFileInputWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  width: 335px;
   aspect-ratio: 1 / 1;
   border-radius: 8px;
   background-color: ${theme.colors.midnightBlueTransparent};
   overflow: hidden;
-  border: 1px solid ${theme.colors.black};
+  border: 1px solid transparent;
 
   &:hover,
   &:focus {
     border: 1px dashed ${theme.colors.lightGrayTransparent};
+  }
+
+  @media screen and (max-width: 374.98px) {
+    width: 280px;
+  }
+
+  @media screen and (max-width: 767.98px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 320px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 350px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 400px;
   }
 `;
 
@@ -191,7 +206,7 @@ export const selectStyles = {
       gap: '8px',
     },
 
-    // ============== scrollbar ==============
+    //  ============== scrollbar ==============
 
     '&::-webkit-scrollbar': {
       width: '20px',

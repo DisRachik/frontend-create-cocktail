@@ -41,35 +41,33 @@ const Favorite = () => {
   };
 
   return (
-    <>
-      <Section title="Favorites">
-        {currentDrinks.length !== 0 ? (
-          <>
-            <RecipesList
-              array={currentDrinks}
-              action={handleClick}
-              params={{
-                title: 'Do you really want to delete this cocktail',
-                agreementBtnText: 'Yes',
-              }}
-            />
-
-            {visibleCount < favorites.length && (
-              <div style={{ textAlign: 'center' }}>
-                <Button type="button" onClick={seeMoreDrinks}>
-                  see other
-                </Button>
-              </div>
-            )}
-          </>
-        ) : (
-          <EmptyAndError
-            text="You haven`t added any favorite cocktails yet"
-            closeModalRoot
+    <Section title="Favorites">
+      {currentDrinks.length !== 0 ? (
+        <>
+          <RecipesList
+            array={currentDrinks}
+            action={handleClick}
+            params={{
+              title: 'Do you really want to delete this cocktail',
+              agreementBtnText: 'Yes',
+            }}
           />
-        )}
-      </Section>
-    </>
+
+          {visibleCount < favorites.length && (
+            <div style={{ textAlign: 'center' }}>
+              <Button type="button" onClick={seeMoreDrinks}>
+                see other
+              </Button>
+            </div>
+          )}
+        </>
+      ) : (
+        <EmptyAndError
+          text="You haven`t added any favorite cocktails yet"
+          closeModalRoot
+        />
+      )}
+    </Section>
   );
 };
 

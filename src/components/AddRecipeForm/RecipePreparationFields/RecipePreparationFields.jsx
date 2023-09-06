@@ -6,6 +6,7 @@ import {
   TextareaBox,
   Textarea,
 } from './RecipePreparationFields.styled';
+import { ErrorValidationText } from '../ErrorValidationText/ErrorValidationText.styled';
 
 export const RecipePreparationFields = ({
   register,
@@ -23,13 +24,18 @@ export const RecipePreparationFields = ({
           name="instructions"
           autocomplete="off"
           {...register('instructions')}
-          value={state.instructions.join('\n')}
+          value={
+            state.instructions === ''
+              ? state.instructions
+              : state.instructions.join('\n')
+          }
           onChange={handleInputChange}
         />
+
         {errors.instructions && (
-          <p style={{ color: 'deeppink' }}>
-            {'Tell us how to make your drink'}
-          </p>
+          <ErrorValidationText>
+            {errors.instructions.message}
+          </ErrorValidationText>
         )}
       </TextareaBox>
     </div>
@@ -46,7 +52,10 @@ RecipePreparationFields.propTypes = {
     drinkThumb: PropTypes.object,
     glass: PropTypes.object,
     ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
-    instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    instructions: PropTypes.oneOfType([
+      PropTypes.string.isRequired,
+      PropTypes.arrayOf(PropTypes.string.isRequired),
+    ]).isRequired,
   }).isRequired,
   handleInputChange: PropTypes.func.isRequired,
 };

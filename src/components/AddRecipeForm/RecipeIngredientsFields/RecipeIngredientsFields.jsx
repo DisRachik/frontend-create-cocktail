@@ -1,5 +1,6 @@
 // Libs
 import { Controller, useFieldArray } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 // Components
@@ -11,10 +12,13 @@ import {
   IngredientsTitle,
   SelectList,
   SelectListItem,
+  TitleBox,
+  MeasureBox,
   RemoveBtn,
   selectStyles,
   measureSelectStyles,
 } from './RecipeIngredientsFields.styled';
+import { ErrorValidationText } from '../ErrorValidationText/ErrorValidationText.styled';
 // Icons
 import { IoMdClose } from 'react-icons/io';
 // Constants
@@ -34,13 +38,15 @@ export const RecipeIngredientsFields = ({
   });
 
   const handleAddField = () => {
-    append({ title: '', measure: '' });
+    append({ title: null, measure: null });
 
     handleSelectChange('ingredients');
   };
 
   const handleRemoveField = index => {
-    if (fields.length === MIN_FIELDS_COUNT) return;
+    if (fields.length === MIN_FIELDS_COUNT) {
+      return toast.error('Your recipe must include at least 2 ingredients');
+    }
 
     remove(index);
 
@@ -62,43 +68,57 @@ export const RecipeIngredientsFields = ({
         {fields.map((field, index) => {
           return (
             <SelectListItem key={field.id}>
-              <Controller
-                name={`ingredients.${index}.title`}
-                control={control}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    placeholder="Select from options..."
-                    unstyled
-                    styles={selectStyles}
-                    options={ingredientsList}
-                    defaultValue={state.ingredients[index]}
-                    onChange={selectedOption => {
-                      field.onChange(selectedOption);
-                      handleSelectChange('ingredients');
-                    }}
-                  />
+              <TitleBox>
+                <Controller
+                  name={`ingredients.${index}.title`}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      placeholder="Select from options..."
+                      unstyled
+                      styles={selectStyles}
+                      options={ingredientsList}
+                      defaultValue={state.ingredients[index]}
+                      onChange={selectedOption => {
+                        field.onChange(selectedOption);
+                        handleSelectChange('ingredients');
+                      }}
+                    />
+                  )}
+                />
+                {errors.ingredients && errors.ingredients[index] && (
+                  <ErrorValidationText>
+                    {errors.ingredients[index].title?.message}
+                  </ErrorValidationText>
                 )}
-              />
+              </TitleBox>
 
-              <Controller
-                name={`ingredients.${index}.measure`}
-                control={control}
-                render={({ field }) => (
-                  <Select
-                    {...field}
-                    placeholder="Select..."
-                    unstyled
-                    styles={measureSelectStyles}
-                    options={measureList}
-                    defaultValue={state.ingredients[index]}
-                    onChange={selectedOption => {
-                      field.onChange(selectedOption);
-                      handleSelectChange('ingredients');
-                    }}
-                  />
+              <MeasureBox>
+                <Controller
+                  name={`ingredients.${index}.measure`}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      placeholder="Select..."
+                      unstyled
+                      styles={measureSelectStyles}
+                      options={measureList}
+                      defaultValue={state.ingredients[index]}
+                      onChange={selectedOption => {
+                        field.onChange(selectedOption);
+                        handleSelectChange('ingredients');
+                      }}
+                    />
+                  )}
+                />
+                {errors.ingredients && errors.ingredients[index] && (
+                  <ErrorValidationText>
+                    {errors.ingredients[index].measure?.message}
+                  </ErrorValidationText>
                 )}
-              />
+              </MeasureBox>
 
               <RemoveBtn type="button" onClick={() => handleRemoveField(index)}>
                 <IoMdClose size={18} />
@@ -107,10 +127,6 @@ export const RecipeIngredientsFields = ({
           );
         })}
       </SelectList>
-
-      {errors.ingredients?.length > 0 && (
-        <p style={{ color: 'deeppink' }}>{'Provide at least 2 ingredients'}</p>
-      )}
     </IngredientsBox>
   );
 };
@@ -127,7 +143,10 @@ RecipeIngredientsFields.propTypes = {
     drinkThumb: PropTypes.object,
     glass: PropTypes.object,
     ingredients: PropTypes.arrayOf(PropTypes.object).isRequired,
-    instructions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    instructions: PropTypes.oneOfType([
+      PropTypes.string.isRequired,
+      PropTypes.arrayOf(PropTypes.string.isRequired),
+    ]).isRequired,
   }).isRequired,
   handleSelectChange: PropTypes.func.isRequired,
 };
