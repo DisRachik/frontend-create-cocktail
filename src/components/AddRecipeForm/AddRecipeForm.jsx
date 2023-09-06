@@ -114,7 +114,9 @@ export const AddRecipeForm = () => {
       reset({ ...initialValues });
       navigate('/my');
     } catch {
-      toast.error('Oops... Something went wrong :( Please try again later.');
+      toast.error(
+        'Oops... Something went wrong :( Check that you loaded an image or try again later.'
+      );
     } finally {
       setIsLoading(false);
     }

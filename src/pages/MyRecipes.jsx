@@ -81,7 +81,6 @@ const MyRecipes = () => {
               </div>
             </>
           )}
-          {isLoading && !error && <b>Request in progress...</b>}
         </>
       </Section>
     </>
