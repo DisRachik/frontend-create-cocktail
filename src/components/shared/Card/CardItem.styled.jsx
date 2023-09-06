@@ -23,11 +23,10 @@ export const CategoryItem = styled.li`
   &:hover,
   &:focus {
     a {
-      padding: 0 10px;
       color: ${theme.colors.lightGray};
       text-shadow: ${theme.shadows.light};
 
-      border: 2px solid ${theme.colors.transparentLight};
+      border-color: ${theme.colors.transparentLight};
     }
   }
 `;
@@ -55,7 +54,7 @@ export const TitleDrinks = styled.p`
   font-size: ${theme.fontSizes.large};
   line-height: calc(24 / 18);
   margin-bottom: 4px;
-  padding-right: 20px;  
+  padding-right: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -68,15 +67,17 @@ export const TitleDrinks = styled.p`
   }
 `;
 
-
-
 export const SeeIngredients = styled(Link)`
+  padding: 0 10px;
   height: 100%;
   display: flex;
   align-items: center;
   border-radius: 42px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0);
 
-  color: rgba(243, 243, 243, 0.5);
+  color: ${theme.colors.transparentLight};
 
   font-size: ${theme.fontSizes.small};
 
@@ -84,7 +85,7 @@ export const SeeIngredients = styled(Link)`
 
   transition: ${props =>
     props.theme.animation(
-      'background-color, color, box-shadow, border, padding'
+      'background-color, color, box-shadow, border-color, padding'
     )};
 
   @media screen and (min-width: 768px) {
