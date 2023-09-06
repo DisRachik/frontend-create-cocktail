@@ -29,7 +29,7 @@ export const ArrowBtn = styled.button`
     opacity: 0.5;
   }
   :focus {
-    outline: 1px solid rgba(64, 112, 205, 0.5);
+    outline: 1px solid ${theme.colors.grayOpacity};
   }
 `;
 const arrowStyles = `
@@ -70,7 +70,7 @@ export const BtnItem = styled.button`
     color: ${theme.colors.lightGray};
   }
   :focus {
-    outline: 1px solid rgba(64, 112, 205, 0.5);
+    outline: 1px solid ${theme.colors.grayOpacity};
   }
 
   &.active {
