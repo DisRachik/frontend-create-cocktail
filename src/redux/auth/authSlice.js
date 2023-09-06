@@ -12,6 +12,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    resetTokenCount: state => {
+      state.user.tokenCount = null;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(signUp.fulfilled, (state, { payload }) => {
@@ -57,5 +62,7 @@ const authSlice = createSlice({
         state.isLoading = false;
       }),
 });
+
+export const { resetTokenCount } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

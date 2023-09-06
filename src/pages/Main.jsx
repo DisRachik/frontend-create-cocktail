@@ -3,7 +3,7 @@ import {
   CategoryRecipesList,
   CategorySection,
   Button,
-  // MotivationModal,
+  MotivationModal,
 } from 'components';
 import { ButtonContainer } from '../components/CategoryRecipesList/CategoryRecipesList.styled';
 import { useNavigate } from 'react-router-dom';
@@ -11,22 +11,25 @@ import { uniqueCategories } from 'constans';
 import { nanoid } from '@reduxjs/toolkit';
 import React, { useEffect, useState } from 'react';
 import { getMainRecipes } from 'api';
-// import { useSelector } from 'react-redux';
-// import { selectUser } from 'redux/auth/selectors';
-// import { praiseModal } from 'helpers';
+import { useAuth } from 'redux/auth/useAuth';
+import { praiseModal } from 'helpers';
 
 const Main = () => {
   const [mainRecipes, setMainRecipes] = useState([]);
+  const [isModalVisible, setModalVisibility] = useState(false);
+  const [modalText, setModalText] = useState(null);
   const navigate = useNavigate();
-  // const [showModal, setShowModal] = useState(0);
-  // const { tokenCount } = useSelector(selectUser);
-  // const messagePraise = praiseModal(tokenCount, 'signin');
+  const { tokenCount, resetCount } = useAuth();
 
-  // useEffect(() => {
-  //   if (messagePraise) {
-  //     setShowModal(prevState => prevState + 1);
-  //   }
-  // }, [messagePraise]);
+  useEffect(() => {
+    const text = praiseModal(tokenCount, 'signin');
+
+    if (text && !isModalVisible) {
+      resetCount();
+      setModalText(text);
+      setModalVisibility(true);
+    }
+  }, [tokenCount, resetCount, isModalVisible]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,7 +65,7 @@ const Main = () => {
       <ButtonContainer>
         <Button onClick={handleButtonClick}>Other drinks</Button>
       </ButtonContainer>
-      {/* {showModal === 1 && <MotivationModal text={messagePraise} signin />} */}
+      {isModalVisible && <MotivationModal text={modalText} signin />}
     </>
   );
 };

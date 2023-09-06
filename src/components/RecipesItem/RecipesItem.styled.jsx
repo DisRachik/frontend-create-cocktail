@@ -103,6 +103,9 @@ export const SeeRecipe = styled(Link)`
 
   line-height: calc(18 / 14);
 
+  transition: ${props =>
+    props.theme.animation('background-color, color, box-shadow')};
+
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
 
@@ -127,6 +130,9 @@ export const DeleteFavoriteDrinksBtn = styled.button`
   width: 46px;
 
   height: 46px;
+
+  transition: ${props =>
+    props.theme.animation('background-color, color, box-shadow')};
 
   @media screen and (min-width: 768px) {
     padding: 15px 16px;
