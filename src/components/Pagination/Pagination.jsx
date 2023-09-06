@@ -56,7 +56,7 @@ export const Pagination = ({
       {pageNumbers.length > 1 && (
         <>
           <ArrowBtn onClick={prevPage} disabled={currentPage === 1}>
-            <ArrowPrev />
+            <ArrowPrev disabled={currentPage === 1} />
           </ArrowBtn>
           <PaginationList>
             {visiblePages.map((page, index) => (

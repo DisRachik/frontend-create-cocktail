@@ -12,7 +12,6 @@ export const PaginWrapper = styled.div`
 
 export const PaginationList = styled.ul`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
 `;
@@ -25,24 +24,15 @@ export const PaginListItem = styled.li`
 export const ArrowBtn = styled.button`
   transition: ${theme.animation('opacity')};
 
-  &:disabled {
-    opacity: 0;
+  :disabled {
+    pointer-events: none;
+    opacity: 0.5;
   }
-`;
-export const ArrowPrev = styled(MdOutlineKeyboardArrowLeft)`
-  color: ${theme.colors.lightGrayTransparent};
-  width: 28px;
-  height: 35px;
-  transition: ${theme.animation('color')};
-  transition: ${theme.animation('scale')};
-
-  :hover,
   :focus {
-    color: ${theme.colors.lightGray};
-    scale: 1.5;
+    outline: 1px solid ${theme.colors.grayOpacity};
   }
 `;
-export const ArrowNext = styled(MdOutlineKeyboardArrowRight)`
+const arrowStyles = `
   color: ${theme.colors.lightGray};
   width: 28px;
   height: 35px;
@@ -56,23 +46,39 @@ export const ArrowNext = styled(MdOutlineKeyboardArrowRight)`
   }
 `;
 
+export const ArrowPrev = styled(MdOutlineKeyboardArrowLeft)`
+  ${arrowStyles}
+`;
+
+export const ArrowNext = styled(MdOutlineKeyboardArrowRight)`
+  ${arrowStyles}
+`;
+
 export const BtnItem = styled.button`
   color: ${theme.colors.transparentLight};
   border-radius: 50%;
   width: 27px;
   height: 27px;
-  margin-bottom: 10px;
+
   transition: ${theme.animation('scale')};
   transition: ${theme.animation('background-color')};
   transition: ${theme.animation('color')};
 
-  &:focus,
-  :hover {
+  &:hover {
     scale: 1.2;
+    background-color: rgba(64, 112, 205, 0.2);
+    color: ${theme.colors.lightGray};
+  }
+  :focus {
+    outline: 1px solid ${theme.colors.grayOpacity};
   }
 
   &.active {
     background-color: ${theme.colors.lightBlueLight};
     color: ${theme.colors.lightGray};
+    :hover,
+    :focus {
+      scale: 1;
+    }
   }
 `;
