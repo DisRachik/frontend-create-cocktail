@@ -9,6 +9,16 @@ const initialState = {
   error: null,
 };
 
+const isSingOutAction = action => {
+  return action.type.endsWith('/fulfilled') && action.type.includes('signout');
+};
+
+const handleSingOut = state => {
+  state.items = [];
+  state.isLoading = false;
+  state.error = null;
+};
+
 const isPendingAction = action => {
   return action.type.endsWith('/pending') && action.type.includes('glasses');
 };
@@ -39,6 +49,7 @@ const glassesSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchGlasses.fulfilled, handleFetchGlassesFulfilled)
+      .addMatcher(isSingOutAction, handleSingOut)
       .addMatcher(isPendingAction, handlePending)
       .addMatcher(isRejectedAction, handleRejected);
   },
