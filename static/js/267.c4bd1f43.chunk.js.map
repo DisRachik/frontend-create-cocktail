@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/267.c4bd1f43.chunk.js","mappings":"uKAUA,UARgB,WACd,OACE,+BACE,SAAC,KAAD,KAGL,C","sources":["pages/Welcome.jsx"],"sourcesContent":["import { WelcomePage } from 'components';\n\nconst Welcome = () => {\n  return (\n    <>\n      <WelcomePage />\n    </>\n  );\n};\n\nexport default Welcome;\n"],"names":[],"sourceRoot":""}

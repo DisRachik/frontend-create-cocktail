@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/501.64e69cff.chunk.js","mappings":"uKAMA,UAJsB,WACpB,OAAO,SAAC,KAAD,GACR,C","sources":["pages/PrivacyPolicy.jsx"],"sourcesContent":["import { PrivacyPolicyText } from 'components';\n\nconst PrivacyPolicy = () => {\n  return <PrivacyPolicyText />;\n};\n\nexport default PrivacyPolicy;\n"],"names":[],"sourceRoot":""}

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/593.c3338bcd.chunk.js","mappings":"uKAUA,UARe,WACb,OACE,+BACE,SAAC,KAAD,KAGL,C","sources":["pages/Signup.jsx"],"sourcesContent":["import { SignupPage } from 'components';\n\nconst Signup = () => {\n  return (\n    <>\n      <SignupPage />\n    </>\n  );\n};\n\nexport default Signup;\n"],"names":[],"sourceRoot":""}

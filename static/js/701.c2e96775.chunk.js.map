@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/701.c2e96775.chunk.js","mappings":"sKAMA,UAJuB,WACrB,OAAO,SAAC,KAAD,GACR,C","sources":["pages/TermsOfService.jsx"],"sourcesContent":["import { PublicOfferingAgreement } from 'components';\n\nconst TermsOfService = () => {\n  return <PublicOfferingAgreement />;\n};\n\nexport default TermsOfService;\n"],"names":[],"sourceRoot":""}
