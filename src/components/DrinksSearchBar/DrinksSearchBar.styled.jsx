@@ -24,12 +24,24 @@ export const Input = styled.input`
   width: 100%;
   padding: 18px 50px 18px 25px;
   background-color: transparent;
-  border: 1px solid ${theme.colors.transparentLight};
+  border: 1px solid ${theme.colors.gray};
+  outline: 1px solid ${theme.colors.gray};
   border-radius: 200px;
   color: ${theme.colors.lightGray};
+  outline-offset: -1px;
+
+  transition: ${props => props.theme.animation('color, outline')};
 
   &::placeholder {
     color: ${theme.colors.lightGray};
+  }
+
+  &:focus {
+    outline: 1px solid ${theme.colors.grayOpacity};
+  }
+
+  &:not(:placeholder-shown) + button {
+    color: ${theme.colors.successGreen};
   }
 
   @media (min-width: 768px) {
@@ -42,11 +54,20 @@ export const Input = styled.input`
 
 export const SearchBtn = styled.button`
   position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 20px;
-  height: 20px;
+  top: 8px;
+  right: 8px;
   cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  transition: ${props => props.theme.animation(' box-shadow, color')};
+
+  &:hover,
+  &focus {
+    box-shadow: ${theme.shadows.btnIconHover};
+  }
 `;
 
 export const Selector = styled(Select)`

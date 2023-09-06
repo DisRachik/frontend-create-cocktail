@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 `;
 
 export const ImgWrap = styled.div`
-  flex: 1;
   position: relative;
   z-index: -1;
 `;
@@ -39,7 +38,13 @@ export const ErrorScreen = styled.p`
 `;
 
 export const Picture = styled.picture`
+  display: block;
+  height: 476px;
   z-index: -1;
+
+  @media screen and (min-width: 768px) {
+    height: 500px;
+  }
 `;
 
 export const Text = styled.p`

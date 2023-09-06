@@ -5,8 +5,6 @@ import { deleteMyRecipe, getMyRecipes } from 'api';
 
 const MyRecipes = () => {
   const [myRecipes, setMyRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const [next, setNext] = useState(9);
 
@@ -22,28 +20,22 @@ const MyRecipes = () => {
 
     (async () => {
       try {
-        setIsLoading(true);
         const result = await getMyRecipes();
         setMyRecipes(result);
       } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
+        console.log(error);
       }
     })();
   }, []);
 
   const handleRemoveRecipe = async id => {
     try {
-      setIsLoading(true);
       await deleteMyRecipe(id);
       const result = await getMyRecipes();
 
       setMyRecipes(result);
     } catch (error) {
-      setError(error);
-    } finally {
-      setIsLoading(false);
+      console.log(error);
     }
   };
 

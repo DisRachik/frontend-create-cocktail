@@ -40,7 +40,7 @@ export const DrinkSearchBar = ({
   }));
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} autoComplete="off">
       <SearchFieldWrap>
         <Controller
           name="drink"

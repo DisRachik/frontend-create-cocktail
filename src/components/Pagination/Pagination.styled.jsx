@@ -72,7 +72,7 @@ export const BtnItem = styled.button`
   }
 
   &.active {
-    background-color: rgba(64, 112, 205, 0.5);
+    background-color: ${theme.colors.lightBlueLight};
     color: ${theme.colors.lightGray};
   }
 `;

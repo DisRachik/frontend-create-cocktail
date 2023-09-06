@@ -6,6 +6,7 @@ export const theme = Object.freeze({
     midnightBlueTransparent: 'rgba(22, 31, 55, 0.2)',
     steelBlue: '#434D67',
     lightBlue: '#4070CD',
+    lightBlueLight: 'rgba(64, 112, 205, 0.5)',
     mintGreen: '#BCE6D2',
     lightGray: '#f3f3f3',
     lightGrayTransparent: 'rgba(243, 243, 243, 0.50)',
@@ -42,8 +43,10 @@ export const theme = Object.freeze({
   spacing: value => `${4 * value}px`,
 
   shadows: {
-    regular: '0px 4px 10px 4px #9e9e9e',
-    light: '2px 2px 25px rgba(255, 255, 255, 0.99)',
+    regular: '0px 4px 10px 4px #F3F3F333',
+    light: '2px 2px 25px rgba(243, 243, 243, 0.50)',
+    btnIconHover:
+      '-10px -10px 15px rgba(22, 31, 55, 0.2), 10px 10px 15px rgba(70, 70, 70, 0.12)',
   },
 
   animation: value => {
