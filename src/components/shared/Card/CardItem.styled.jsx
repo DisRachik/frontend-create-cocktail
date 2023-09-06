@@ -1,4 +1,3 @@
-
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { theme } from 'styles';
@@ -20,7 +19,17 @@ export const CategoryItem = styled.li`
   @media screen and (min-width: 1440px) {
     width: 400px;
   }
-  
+
+  &:hover,
+  &:focus {
+    a {
+      padding: 0 10px;
+      color: ${theme.colors.lightGray};
+      text-shadow: ${theme.shadows.light};
+
+      border: 2px solid ${theme.colors.transparentLight};
+    }
+  }
 `;
 
 export const ImageDrinks = styled.img`
@@ -41,7 +50,6 @@ export const ImageDrinks = styled.img`
     height: 400px;
     border-radius: 8px;
   }
-  
 `;
 
 export const TitleDrinks = styled.p`
@@ -57,31 +65,40 @@ export const TitleDrinks = styled.p`
 `;
 
 export const SeeIngredients = styled(Link)`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 42px;
+
   color: rgba(243, 243, 243, 0.5);
 
   font-size: ${theme.fontSizes.small};
 
   line-height: calc(18 / 14);
 
+  transition: ${props =>
+    props.theme.animation(
+      'background-color, color, box-shadow, border, padding'
+    )};
 
   @media screen and (min-width: 768px) {
- 
     font-size: ${theme.fontSizes.medium};
     line-height: calc(18 / 16);
     margin-left: 0px;
   }
 
   @media screen and (min-width: 1440px) {
-  
   }
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${theme.colors.lightGray};
     background-color: transparent;
-    text-shadow: ${theme.shadows.light};
+    box-shadow: ${theme.shadows.regular};
   }
 `;
 
 export const TextContainer = styled.div`
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;

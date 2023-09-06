@@ -1,7 +1,13 @@
 import { lazy, useEffect } from 'react';
 
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import { EmptyAndError, Layout, PrivateRoute, PublicRoute } from 'components';
+import {
+  Backdrop,
+  Layout,
+  PrivateRoute,
+  PublicRoute,
+  Spinner,
+} from 'components';
 
 import { useAuth } from 'redux/auth/useAuth';
 import { useDispatch } from 'react-redux';
@@ -37,7 +43,9 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <EmptyAndError spinner />
+    <Backdrop>
+      <Spinner />
+    </Backdrop>
   ) : (
     <Routes>
       {/* Authorized user routes */}

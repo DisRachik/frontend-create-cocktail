@@ -12,6 +12,7 @@ export * from 'components/shared/Backdrop/Backdrop';
 export * from 'components/shared/Spinner';
 export * from 'components/shared/CheckoutModal/CheckoutModal';
 export * from 'components/shared/CancelBtn/CancelBtn';
+export * from 'components/shared/BackgroundStyles/BackgroundStyles';
 // AddRecipePage
 export * from 'components/AddRecipeForm/AddRecipeForm';
 export * from 'components/FollowUs/FollowUs';
