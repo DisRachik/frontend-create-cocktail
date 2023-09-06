@@ -21,7 +21,13 @@ export const FlexContainer = styled.div`
 
 export const Box = styled.div`
   display: flex;
-  @media (min-width: 325px) and (max-width: 767px) {
+
+  @media (max-width: 374.98px) {
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 375px) and (max-width: 767px) {
     margin-bottom: 40px;
     justify-content: space-between;
   }
