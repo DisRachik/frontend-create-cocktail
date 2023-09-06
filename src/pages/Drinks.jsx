@@ -2,8 +2,13 @@ import { EmptyAndError, Section } from 'components';
 import { DrinkList, DrinkSearchBar } from 'components';
 import { Pagination } from 'components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectCategories, selectIngredients } from '../redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchCategories,
+  fetchIngredients,
+  selectCategories,
+  selectIngredients,
+} from '../redux';
 import { useSearchParams } from 'react-router-dom';
 import { getDrinks } from 'api';
 import { useForm } from 'react-hook-form';
@@ -35,6 +40,16 @@ const Drinks = () => {
   const ingredients = searchParams.get('ingredients') || '';
   const limit = drinksPerPage;
   const page = currentPage;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (categoriesList.length === 0) {
+      dispatch(fetchCategories());
+    }
+    if (ingredientsList.length === 0) {
+      dispatch(fetchIngredients());
+    }
+  }, [categoriesList.length, dispatch, ingredientsList.length]);
 
   useEffect(() => {
     function handleResize() {
