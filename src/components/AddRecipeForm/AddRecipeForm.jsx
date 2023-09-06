@@ -114,6 +114,11 @@ export const AddRecipeForm = () => {
       reset({ ...initialValues });
       navigate('/my');
     } catch {
+      window.scrollTo({
+        top: 0,
+        right: 0,
+        behavior: 'smooth',
+      });
       toast.error(
         'Oops... Something went wrong :( Check that you loaded an image or try again later.'
       );
