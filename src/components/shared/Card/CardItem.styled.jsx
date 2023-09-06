@@ -8,7 +8,7 @@ export const CategoryItem = styled.li`
     rgba(10, 10, 17, 0.024) 51.18%,
     rgba(10, 10, 17, 0.768) 97.66%
   );
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 320px) {
     width: 335px;
   }
 
@@ -51,18 +51,24 @@ export const ImageDrinks = styled.img`
     border-radius: 8px;
   }
 `;
-
 export const TitleDrinks = styled.p`
   font-size: ${theme.fontSizes.large};
-
   line-height: calc(24 / 18);
   margin-bottom: 4px;
+  padding-right: 20px;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Ограничение на количество строк */
+  -webkit-box-orient: vertical;
 
   @media screen and (min-width: 768px) {
     font-size: ${theme.fontSizes.smallTitle};
     line-height: calc(32 / 24);
   }
 `;
+
+
 
 export const SeeIngredients = styled(Link)`
   height: 100%;
