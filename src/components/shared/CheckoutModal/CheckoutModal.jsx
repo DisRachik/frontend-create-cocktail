@@ -11,7 +11,7 @@ export const CheckoutModal = ({
 }) => {
   return (
     <Container>
-      <CancelBtn cancelClick={cancelClick} />
+      <CancelBtn cancelClick={cancelClick} autoFocus={true} />
 
       <ContentText>{contentText}</ContentText>
 

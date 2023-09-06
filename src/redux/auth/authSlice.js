@@ -30,7 +30,7 @@ const authSlice = createSlice({
         state.isAuth = true;
         state.tokenCount = payload.tokenCount;
       })
-      .addCase(signOut.fulfilled, (state, action) => {
+      .addCase(signOut.fulfilled, state => {
         state.user = {
           name: null,
           email: null,
@@ -40,7 +40,6 @@ const authSlice = createSlice({
         };
         state.token = null;
         state.isAuth = false;
-        console.log(action);
       })
 
       .addCase(refreshUser.pending, state => {

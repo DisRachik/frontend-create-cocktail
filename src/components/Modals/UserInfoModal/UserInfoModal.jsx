@@ -140,6 +140,7 @@ export const UserInfoModal = ({ toggle, isOpen }) => {
               onChange={e => setUserName(e.target.value)}
               valid={isValid && isDirty}
               invalid={!isValid}
+              autoFocus
             />
 
             <EditIcon />
