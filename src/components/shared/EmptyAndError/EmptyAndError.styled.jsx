@@ -7,9 +7,12 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  height: ${props => (props.spinner ? '100hv' : 'auto')};
 `;
 
 export const ImgWrap = styled.div`
+  flex: 1;
   position: relative;
   z-index: -1;
 `;

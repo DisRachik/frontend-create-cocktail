@@ -12,8 +12,4 @@ export const Section = ({ title, pretitle, children }) => (
 Section.propTypes = {
   pretitle: PropTypes.string,
   title: PropTypes.string,
-  // children: PropTypes.oneOfType([
-  //   PropTypes.arrayOf(PropTypes.element),
-  //   PropTypes.element,
-  // ]),
 };
