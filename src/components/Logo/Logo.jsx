@@ -1,4 +1,4 @@
-import logo from 'img/logo.png';
+import logo from 'img/logo.svg';
 import { LogoLink, LogoImg, LogoText } from './Logo.styled';
 
 export const Logo = () => {
