@@ -38,6 +38,10 @@ export const ImageDrinks = styled.img`
   border-radius: 8px;
   object-fit: cover;
 
+  @media screen and (max-width: 374.98px) {
+    height: auto;
+  }
+
   @media screen and (min-width: 768px) {
     width: 342px;
     margin-bottom: 14px;

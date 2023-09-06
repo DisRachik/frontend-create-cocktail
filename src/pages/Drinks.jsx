@@ -12,6 +12,7 @@ import {
 import { useSearchParams } from 'react-router-dom';
 import { getDrinks } from 'api';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const Drinks = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,13 +44,13 @@ const Drinks = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (categoriesList.length === 0) {
-      dispatch(fetchCategories());
-    }
-    if (ingredientsList.length === 0) {
-      dispatch(fetchIngredients());
-    }
-  }, [categoriesList.length, dispatch, ingredientsList.length]);
+    Promise.all([
+      dispatch(fetchCategories()),
+      dispatch(fetchIngredients()),
+    ]).catch(() =>
+      toast.error('Oops... Something went wrong :( Please try again later.')
+    );
+  }, [dispatch]);
 
   useEffect(() => {
     function handleResize() {
