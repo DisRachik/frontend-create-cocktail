@@ -8,17 +8,8 @@ export const CategoryItem = styled.li`
     rgba(10, 10, 17, 0.024) 51.18%,
     rgba(10, 10, 17, 0.768) 97.66%
   );
-  @media screen and (min-width: 320px) {
-    width: 335px;
-  }
 
-  @media screen and (min-width: 768px) {
-    width: 342px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 400px;
-  }
+  max-width: 400px;
 
   &:hover,
   &:focus {
@@ -33,27 +24,12 @@ export const CategoryItem = styled.li`
 
 export const ImageDrinks = styled.img`
   margin-bottom: 14px;
-  width: 335px;
-  height: 360px;
   border-radius: 8px;
   object-fit: cover;
-
-  @media screen and (max-width: 374.98px) {
-    height: auto;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 342px;
-    margin-bottom: 14px;
-    border-radius: 8px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 400px;
-    height: 400px;
-    border-radius: 8px;
-  }
+  width: 100%;
+  height: auto;
 `;
+
 export const TitleDrinks = styled.p`
   font-size: ${theme.fontSizes.large};
   line-height: calc(24 / 18);
