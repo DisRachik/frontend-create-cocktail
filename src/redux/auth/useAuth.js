@@ -4,7 +4,7 @@ import {
   selectIsRefreshing,
   selectUser,
   selectIsLoading,
-  selectTokenCount,
+  // selectTokenCount,
 } from './selectors';
 import { signOut, refreshUser } from './operations';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ export const useAuth = () => {
   const isLoading = useSelector(selectIsLoading);
   const navigation = useNavigate();
 
-  const tokenCount = useSelector(selectTokenCount);
+  // const tokenCount = useSelector(selectTokenCount);
 
   const handleSignOut = () => {
     dispatch(signOut());
@@ -40,7 +40,7 @@ export const useAuth = () => {
     handleSignOut,
     navigation,
     handleRefreshUser,
-    tokenCount,
+    // tokenCount,
     resetCount,
   };
 };
