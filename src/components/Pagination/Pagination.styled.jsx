@@ -68,9 +68,11 @@ export const BtnItem = styled.button`
     scale: 1.2;
     background-color: rgba(64, 112, 205, 0.2);
     color: ${theme.colors.lightGray};
-  }
-  :focus {
     outline: 1px solid ${theme.colors.grayOpacity};
+  }
+
+  &:focus {
+    outline: none;
   }
 
   &.active {

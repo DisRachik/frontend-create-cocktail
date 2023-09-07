@@ -9,7 +9,15 @@ export const CategoryItem = styled.li`
     rgba(10, 10, 17, 0.768) 97.66%
   );
 
-  max-width: 400px;
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 342px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+  }
 
   &:hover,
   &:focus {
@@ -24,10 +32,23 @@ export const CategoryItem = styled.li`
 
 export const ImageDrinks = styled.img`
   margin-bottom: 14px;
+  width: 335px;
+  height: 360px;
   border-radius: 8px;
   object-fit: cover;
-  width: 100%;
-  height: auto;
+  @media screen and (max-width: 374.98px) {
+    height: auto;
+  }
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    height: 400px;
+    border-radius: 8px;
+  }
 `;
 
 export const TitleDrinks = styled.p`

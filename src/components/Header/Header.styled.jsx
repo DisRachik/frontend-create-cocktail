@@ -22,9 +22,25 @@ export const UserBox = styled.div`
   }
 `;
 
-export const BurgerMenu = styled.div`
+export const BurgerMenu = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 24px;
   color: ${({ theme }) => theme.colors.lightGray};
+  transition: ${props =>
+    props.theme.animation('background-color, color, box-shadow')};
+
+  &:hover,
+  &:focus {
+    /* color: ${({ theme }) => theme.colors.successGreen}; */
+    /* box-shadow: ${({ theme }) => theme.shadows.regular}; */
+    /* background-color: ${({ theme }) => theme.colors.steelBlue}; */
+
+    svg {
+      filter: drop-shadow(5px 5px 5px rgba(250, 250, 250, 0.7));
+    }
+  }
 
   @media screen and (min-width: 1200px) {
     display: none;

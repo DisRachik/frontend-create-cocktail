@@ -25,9 +25,13 @@ export const SectionTitle = styled.p`
 
 export const IngredientsList = styled.ul`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 21px 20px;
 
+  @media (min-width: 375px) {
+    justify-content: start;
+  }
   @media (min-width: 768px) {
     gap: 22px;
   }

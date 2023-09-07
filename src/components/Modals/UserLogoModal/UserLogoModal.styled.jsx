@@ -17,11 +17,15 @@ export const DropDawnContainer = styled.div`
   padding: 18px;
 
   position: absolute;
-  top: 150%;
-  left: -25%;
+  bottom: 0;
+  left: 0;
+  transform: translate(-25%, 116%);
+  /* top: 150%;
+  left: -25%; */
+  z-index: 9999;
 
   @media (max-width: 767px) {
-    left: -44%;
+    /* left: -44%; */
   }
 `;
 

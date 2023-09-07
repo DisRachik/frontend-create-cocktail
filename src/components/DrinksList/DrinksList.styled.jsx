@@ -14,7 +14,7 @@ export const DrinksList = styled.ul`
 
     margin-top: 60px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
 
     margin-top: 62px;

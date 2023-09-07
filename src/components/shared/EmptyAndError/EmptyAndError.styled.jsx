@@ -17,6 +17,7 @@ export const ImgWrap = styled.div`
 `;
 
 export const ErrorScreen = styled.p`
+  display: flex;
   position: absolute;
   bottom: 45%;
   left: 50%;
@@ -28,6 +29,8 @@ export const ErrorScreen = styled.p`
   letter-spacing: 5px;
 
   span {
+    display: block;
+    margin: 0 20px;
     opacity: 0;
   }
 

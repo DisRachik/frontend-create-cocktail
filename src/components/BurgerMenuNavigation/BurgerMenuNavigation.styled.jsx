@@ -4,7 +4,7 @@ import { theme } from 'styles';
 
 export const NavigationWrap = styled.div`
   position: fixed;
-  z-index: 9999;
+  z-index: 9998;
   left: 0;
   top: 72px;
   width: 100%;
