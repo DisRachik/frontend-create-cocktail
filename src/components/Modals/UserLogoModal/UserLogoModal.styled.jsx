@@ -19,6 +19,10 @@ export const DropDawnContainer = styled.div`
   position: absolute;
   top: 150%;
   left: -25%;
+
+  @media (max-width: 767px) {
+    left: -44%;
+  }
 `;
 
 export const DropDawnTextWrapper = styled.button`

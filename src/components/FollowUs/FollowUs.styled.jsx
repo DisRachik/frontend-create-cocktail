@@ -25,7 +25,8 @@ export const Item = styled.li`
   transition: ${props =>
     props.theme.animation('transform, color, box-shadow, border')};
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${theme.colors.lightGray};
     box-shadow: ${theme.shadows.regular};
     transform: scale(1);
