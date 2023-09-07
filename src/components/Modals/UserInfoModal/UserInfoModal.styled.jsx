@@ -59,6 +59,8 @@ export const UserAvatar = styled.img`
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
 
   transition: filter linear 200ms, scale linear 200ms;
 
