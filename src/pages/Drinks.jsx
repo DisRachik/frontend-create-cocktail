@@ -73,6 +73,11 @@ const Drinks = () => {
       .then(data => {
         setDrinks(data.results);
         setTotalPages(data.totalPages);
+        window.scrollTo({
+          top: 0,
+          right: 0,
+          behavior: 'smooth',
+        });
       })
       .catch(console.log);
 
