@@ -65,7 +65,7 @@ const Drinks = () => {
       category,
       ingredients,
       limit: drinksPerPage,
-      page: currentPage,
+      page,
     };
 
     getDrinks(query)
@@ -78,7 +78,15 @@ const Drinks = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [category, currentPage, drink, drinksPerPage, ingredients, searchParams]);
+  }, [
+    category,
+    currentPage,
+    drink,
+    drinksPerPage,
+    ingredients,
+    page,
+    searchParams,
+  ]);
 
   const updateCatQuery = query => {
     setSearchParams({
@@ -86,8 +94,9 @@ const Drinks = () => {
       category: query,
       ingredients,
       limit,
-      page,
+      page: 1, // Встановлюємо сторінку на 1
     });
+    setCurrentPage(1); // Оновлюємо сторінку локально
   };
 
   const updateIngrQuery = query => {
@@ -96,18 +105,22 @@ const Drinks = () => {
       category,
       ingredients: query,
       limit,
-      page,
+      page: 1, // Встановлюємо сторінку на 1
     });
+    setCurrentPage(1); // Оновлюємо сторінку локально
   };
+
   const updateDrinkQuery = query => {
     setSearchParams({
       drink: query,
       category,
       ingredients,
       limit,
-      page,
+      page: 1, // Встановлюємо сторінку на 1
     });
+    setCurrentPage(1); // Оновлюємо сторінку локально
   };
+
   const updatePagination = query => {
     setSearchParams({
       drink,
@@ -119,17 +132,14 @@ const Drinks = () => {
   };
 
   const onSubmit = async () => {
-    setCurrentPage(1);
     updateDrinkQuery(getValues('drink'));
   };
 
   const handleCategoryChange = () => {
-    setCurrentPage(1);
     updateCatQuery(getValues('category.value'));
   };
 
   const handleIngredientChange = () => {
-    setCurrentPage(1);
     updateIngrQuery(getValues('ingredients.value'));
   };
 
