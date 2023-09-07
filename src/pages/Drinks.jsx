@@ -40,7 +40,8 @@ const Drinks = () => {
   const drink = searchParams.get('drink') || '';
   const ingredients = searchParams.get('ingredients') || '';
   const limit = drinksPerPage;
-  const page = currentPage;
+  const page = Number(searchParams.get('page')) || 1;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const Drinks = () => {
       category,
       ingredients,
       limit: drinksPerPage,
-      page: currentPage,
+      page,
     };
 
     getDrinks(query)
@@ -78,7 +79,15 @@ const Drinks = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [category, currentPage, drink, drinksPerPage, ingredients, searchParams]);
+  }, [
+    category,
+    currentPage,
+    drink,
+    drinksPerPage,
+    ingredients,
+    page,
+    searchParams,
+  ]);
 
   const updateCatQuery = query => {
     setSearchParams({
@@ -86,8 +95,9 @@ const Drinks = () => {
       category: query,
       ingredients,
       limit,
-      page,
+      page: 1,
     });
+    setCurrentPage(1);
   };
 
   const updateIngrQuery = query => {
@@ -96,18 +106,22 @@ const Drinks = () => {
       category,
       ingredients: query,
       limit,
-      page,
+      page: 1,
     });
+    setCurrentPage(1);
   };
+
   const updateDrinkQuery = query => {
     setSearchParams({
       drink: query,
       category,
       ingredients,
       limit,
-      page,
+      page: 1,
     });
+    setCurrentPage(1);
   };
+
   const updatePagination = query => {
     setSearchParams({
       drink,
@@ -119,17 +133,14 @@ const Drinks = () => {
   };
 
   const onSubmit = async () => {
-    setCurrentPage(1);
     updateDrinkQuery(getValues('drink'));
   };
 
   const handleCategoryChange = () => {
-    setCurrentPage(1);
     updateCatQuery(getValues('category.value'));
   };
 
   const handleIngredientChange = () => {
-    setCurrentPage(1);
     updateIngrQuery(getValues('ingredients.value'));
   };
 
@@ -166,7 +177,7 @@ const Drinks = () => {
             paginate={paginate}
             nextPage={nextPage}
             prevPage={prevPage}
-            currentPage={currentPage}
+            currentPage={page}
             totalPages={totalPages}
           />
         </>
