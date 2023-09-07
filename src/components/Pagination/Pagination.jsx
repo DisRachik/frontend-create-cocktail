@@ -84,9 +84,9 @@ export const Pagination = ({
 };
 
 Pagination.propTypes = {
-  paginate: PropTypes.func.isRequired,
-  prevPage: PropTypes.func.isRequired,
-  nextPage: PropTypes.func.isRequired,
-  currentPage: PropTypes.number.isRequired,
-  totalPages: PropTypes.number.isRequired,
+  paginate: PropTypes.func,
+  prevPage: PropTypes.func,
+  nextPage: PropTypes.func,
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
 };

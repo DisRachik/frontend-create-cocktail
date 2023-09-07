@@ -95,9 +95,9 @@ const Drinks = () => {
       category: query,
       ingredients,
       limit,
-      page: 1, // Встановлюємо сторінку на 1
+      page: 1,
     });
-    setCurrentPage(1); // Оновлюємо сторінку локально
+    setCurrentPage(1);
   };
 
   const updateIngrQuery = query => {
@@ -106,9 +106,9 @@ const Drinks = () => {
       category,
       ingredients: query,
       limit,
-      page: 1, // Встановлюємо сторінку на 1
+      page: 1,
     });
-    setCurrentPage(1); // Оновлюємо сторінку локально
+    setCurrentPage(1);
   };
 
   const updateDrinkQuery = query => {
@@ -117,9 +117,9 @@ const Drinks = () => {
       category,
       ingredients,
       limit,
-      page: 1, // Встановлюємо сторінку на 1
+      page: 1,
     });
-    setCurrentPage(1); // Оновлюємо сторінку локально
+    setCurrentPage(1);
   };
 
   const updatePagination = query => {
