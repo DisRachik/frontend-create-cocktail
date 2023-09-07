@@ -6,4 +6,4 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const selectIsLoading = state => state.auth.isLoading;
 
-export const selectTokenCount = state => state.auth.user.tokenCount;
+export const selectTokenCount = state => state.auth.user?.tokenCount;

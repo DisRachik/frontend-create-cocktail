@@ -139,6 +139,13 @@ export const SignupPage = () => {
                     </span>
                   </InputBox>
 
+                  <FormMessages
+                    invalidValue={errors.password}
+                    validValue={isValid && isDirty}
+                    errorMessage={errors.password?.message}
+                    checkMessage="This is valid password"
+                  />
+
                   <ButtonWrap>
                     <Button
                       disabled={!isValid || !isDirty}
