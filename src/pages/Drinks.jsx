@@ -40,7 +40,8 @@ const Drinks = () => {
   const drink = searchParams.get('drink') || '';
   const ingredients = searchParams.get('ingredients') || '';
   const limit = drinksPerPage;
-  const page = currentPage;
+  const page = Number(searchParams.get('page')) || 1;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -176,7 +177,7 @@ const Drinks = () => {
             paginate={paginate}
             nextPage={nextPage}
             prevPage={prevPage}
-            currentPage={currentPage}
+            currentPage={page}
             totalPages={totalPages}
           />
         </>
